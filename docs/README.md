@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /img/logo.png
-heroText: StoneEpigraph Blog
+heroText: StoneEpigraph
 tagline: 啦
 actionText: 空降
 actionLink: /

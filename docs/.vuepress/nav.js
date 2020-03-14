@@ -4,7 +4,12 @@ module.exports = [
         items: [
             {
                 text: 'jvm',
-                link: '/java/jvm/'
+                items: [
+                    {
+                        text: 'jvm',
+                        link: '/java/jvm'
+                    }
+                ]
             },
             {
                 text: 'spring',
@@ -40,5 +45,9 @@ module.exports = [
                 ]
             }
         ]
+    },
+    {
+        text: 'about',
+        link: '/about/'
     }
 ]
