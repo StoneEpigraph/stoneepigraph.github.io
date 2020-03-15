@@ -9,8 +9,8 @@ module.exports = {
     '/java/': [
         '',
         ['jvm/', 'jvm'],
-        'spring/springboot/',
-        'spring/springcloud/'
+        ['spring/springboot/', 'springboot'],
+        ['spring/springcloud/', 'springcloud']
     ],
     '/python/': [
         '',

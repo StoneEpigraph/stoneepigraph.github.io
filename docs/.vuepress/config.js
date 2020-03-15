@@ -10,7 +10,7 @@ module.exports = {
   },
   themeConfig: {
       nav: require('./nav.js'),
-      sidebar: require('./sidebar.js'),
+      sidebar:   require('./sidebar.js'),
       sidebarDepth: 2,
       lastUpdated: '最后更新时间'
   }
