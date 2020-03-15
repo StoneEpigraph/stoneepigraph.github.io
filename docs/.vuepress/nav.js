@@ -7,7 +7,7 @@ module.exports = [
                 items: [
                     {
                         text: 'jvm',
-                        link: '/java/jvm'
+                        link: '/java/jvm/'
                     }
                 ]
             },

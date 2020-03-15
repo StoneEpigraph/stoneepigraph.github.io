@@ -1,8 +1,8 @@
 module.exports = {
   title: 'StoneEpigraph',
-  description: 'Welcome to my Blog!',
+  description: 'stoneepigraph\' s blog about java, python, emacs',
   head: [
-    ['link', {rel: 'icon', href: '/logo.png'}],
+    ['link', {rel: 'icon', href: '/img/logo.png'}],
     ['link', {rel: 'stylesheet', href: '/css/style.css'}]
   ],
   markdown: {
@@ -10,6 +10,8 @@ module.exports = {
   },
   themeConfig: {
       nav: require('./nav.js'),
-      sidebar: require('./sidebar.js')
+      sidebar: require('./sidebar.js'),
+      sidebarDepth: 2,
+      lastUpdated: '最后更新时间'
   }
 }
