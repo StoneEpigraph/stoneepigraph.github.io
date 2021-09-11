@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
+baseURL = "https://stoneepigraph.github.io/stoneepigraph.hugo/"
+languageCode = "zh-CN"
 title = "My New Hugo Site"
 theme = "blackburn"
