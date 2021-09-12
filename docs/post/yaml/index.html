@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  <title>YAML &middot; Stone Minder</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+  <link rel="shortcut icon" href="https://stoneepigraph.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>YAML</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>11 Sep 2021, 19:32</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <h1 id="yaml">YAML</h1>
+<p><em>YAML Ain&rsquo;t Markup Language</em>
+和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML。因为：</p>
+<ul>
+<li>YAML的可读性好</li>
+<li>YAML和脚本语言的交互性好</li>
+<li>YAML使用实现语言的数据类型</li>
+<li>YAML有一个一致信息模型</li>
+<li>YAML易于实现
+同时YAML也有XML的以下优点：</li>
+<li>YAML可以基于流来处理</li>
+<li>YAML表达能力强，扩展性好
+相对于JSON：
+​	YAML是JSON的一个严格的超集。</li>
+</ul>
+<h2 id="语法">语法</h2>
+<ul>
+<li>Structure通过空格来展示。Sequence里的项用&rdquo;-&ldquo;来代表，Map里的键值对用&rdquo;:&ldquo;分隔.</li>
+<li>大小写敏感</li>
+<li>使用缩进表示层关系，并且缩进不允许使用Tab键。而且缩进的空格数目都不重要，只要相同层级的元素左对齐即可。</li>
+</ul>
+<h2 id="快速入门">快速入门</h2>
+<p>YAML中允许表示三种格式，分别是<strong>常量值，对象和数组</strong></p>
+<h3 id="基本格式要求">基本格式要求</h3>
+<ul>
+<li>YAML大小写敏感</li>
+<li>使用缩进代表层级关系</li>
+<li>缩进只能使用空格，不能使用TABLE，不要求空格个数，只需要相同层级左对齐（一般2个或4个空格）</li>
+</ul>
+<h4 id="对象">对象</h4>
+<p>使用冒号代表，格式为key: value。<strong>冒号后边要加一个空格。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">key</span>: value
+</code></pre></div><p>可以使用缩进表示层级关系</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">key</span>:
+	<span style="color:#66d9ef">child-key1</span>: value1
+	<span style="color:#66d9ef">child-key2</span>: value2
+</code></pre></div><p>YAML中还支持流式（flow）语法表示对象</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">key</span>: {<span style="color:#66d9ef">child-key1: value1, child-key2</span>: value2}
+</code></pre></div><p>较为复杂的对象格式， 可以使用问号加一个空格代表一个复杂的Key，再配合一个冒号加一个空格代表一个value</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">?
+	- complexkey1
+	- complexkey2
+:
+	- complexvalue1
+	- complexvalue2
+</code></pre></div><p>意思是对象的属性是一个数组[complexkey1, complexkey2]， 对应的值也是一个数组[complexvalue1, complexvalue2]。</p>
+<h4 id="数组">数组</h4>
+<p>使用一个短横线加一个空格代表一个数组项</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">hobby</span>:
+	- Java
+	- Python
+</code></pre></div><p>一个相对复杂的例子</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">textEditor</span>:
+	<span style="color:#e6db74">-
+</span><span style="color:#e6db74">		id: 1</span>
+		<span style="color:#66d9ef">name</span>: Emacs
+	<span style="color:#e6db74">-
+</span><span style="color:#e6db74">		id: 2</span>
+		<span style="color:#66d9ef">name</span>: vim
+</code></pre></div><p>使用流式表示就是</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">textEditor</span>: [{<span style="color:#66d9ef">id: 1, name</span>: Emacs}, {<span style="color:#66d9ef">id: 2, name</span>: vim}]
+</code></pre></div><h4 id="常量">常量</h4>
+<p>YAML中提供了多种常量结构，包括：整数，浮点数，字符串，NULL，日期，布尔，时间。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">boolean</span>: 
+	- TRUE
+	- FALSE
+<span style="color:#66d9ef">float</span>:
+	- <span style="color:#ae81ff">3.14</span>
+	- <span style="color:#ae81ff">5.234234e+5</span>   <span style="color:#75715e">#可以使用科学计数法</span>
+<span style="color:#66d9ef">int</span>:
+	- <span style="color:#ae81ff">123</span>
+	- 0b1010_0111_0100_1010_1110    <span style="color:#75715e"># 可以使用二进制表示</span>
+<span style="color:#66d9ef">null</span>:
+	<span style="color:#66d9ef">nodeName</span>: <span style="color:#e6db74">&#39;node&#39;</span>
+	<span style="color:#66d9ef">parent</span>: ~	<span style="color:#75715e"># 使用~表示null</span>
+<span style="color:#66d9ef">string</span>:
+	- 哈哈
+	- <span style="color:#e6db74">&#39;Hello world&#39;</span>		<span style="color:#75715e"># 可以使用双引号或者单引号包裹特殊字符</span>
+	- newline
+	  newline2		<span style="color:#75715e"># 字符串可以拆成多行，每一换行会被转化成一个空格</span>
+<span style="color:#66d9ef">date</span>:
+	- <span style="color:#e6db74">2018-01-01</span>	<span style="color:#75715e"># 日期必须使用ISO 8601格式，即yyyy-MM-dd</span>
+<span style="color:#66d9ef">datetime</span>:
+	- <span style="color:#e6db74">2018-01-01T15:01:01</span><span style="color:#ae81ff">+08</span>:<span style="color:#ae81ff">00</span>		<span style="color:#75715e"># 时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span>
+</code></pre></div><h4 id="一些特殊符号">一些特殊符号</h4>
+<p>YAML中提供了很多特殊符号</p>
+<h5 id="---">&mdash;</h5>
+<p>YAML可以在同一个文件中表示多个文档，使用三减号（&mdash;）表示一个文档的开始。
+e.g.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+	<span style="color:#66d9ef">address</span>: <span style="color:#ae81ff">192.168.1.125</span>
+---
+<span style="color:#66d9ef">spring</span>:
+	<span style="color:#66d9ef">profiles</span>: development
+	<span style="color:#66d9ef">server</span>:
+		<span style="color:#66d9ef">address</span>: <span style="color:#ae81ff">127.0.0.1</span>
+---
+<span style="color:#66d9ef">spring</span>:
+	<span style="color:#66d9ef">profiles</span>: production
+	<span style="color:#66d9ef">server</span>:
+		<span style="color:#66d9ef">address</span>: <span style="color:#ae81ff">192.168.100.1</span>
+</code></pre></div><p>此文件代表定义了两个profile, 一个是development, 一个是production。</p>
+<h5 id="和---">&hellip;和&mdash;</h5>
+<p>&hellip;和&mdash;配合使用，在一个配置文件中代表一个文件的结束</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+<span style="color:#66d9ef">time</span>: <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">03</span>:<span style="color:#ae81ff">20</span>
+<span style="color:#66d9ef">player</span>: Sammy Sosa
+<span style="color:#66d9ef">action</span>: strike (miss)
+...
+---
+<span style="color:#66d9ef">time</span>: <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">03</span>:<span style="color:#ae81ff">47</span>
+<span style="color:#66d9ef">player</span>: Sammy Sosa
+<span style="color:#66d9ef">action</span>: grand slam
+...
+</code></pre></div><h5 id="heading">!!</h5>
+<p>!!在YAML用作强制类型转换</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">string</span>:
+	- <span style="color:#75715e">!!str</span> <span style="color:#ae81ff">12345</span>
+	- <span style="color:#75715e">!!str</span> <span style="color:#66d9ef">true</span>
+</code></pre></div><p>或</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">--- <span style="color:#75715e">!!set</span>
+- <span style="color:#66d9ef">Mark McGwire</span>: <span style="color:#ae81ff">65</span>
+- <span style="color:#66d9ef">Sammy Sosa</span>: <span style="color:#ae81ff">63</span>
+- <span style="color:#66d9ef">Sammy Sosa</span>: <span style="color:#ae81ff">63</span>
+- <span style="color:#66d9ef">Ken Griffy</span>: <span style="color:#ae81ff">58</span>
+</code></pre></div><h5 id="-和-">&gt; 和 |</h5>
+<p>在字符串中折叠换行，| 保留换行符，这两个符号是YAML中字符串经常使用的符号，比如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">accomplishment</span>: <span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74"> Mark set a major league</span>
+ home run record in <span style="color:#ae81ff">1998</span>.
+<span style="color:#66d9ef">stats</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74"> 65 Home Runs</span>
+ <span style="color:#ae81ff">0.278</span> Batting Average
+</code></pre></div><p>的输出结果是</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">accomplishment=Mark set a major league home run record in <span style="color:#ae81ff">1998</span>.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">stats=<span style="color:#ae81ff">65</span> Home Runs
+ <span style="color:#ae81ff">0.278</span> Batting Average,
+</code></pre></div><h5 id="引用">引用</h5>
+<p>重复的内容在YAML中可以使用&amp;来完成锚点定义，使用*来完成锚点引用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">hr</span>:
+- Mark McGwire
+- <span style="color:#75715e">&amp;SS</span> Sammy Sosa
+<span style="color:#66d9ef">rbi</span>:
+- <span style="color:#75715e">*SS</span> 
+- Ken Griffey
+</code></pre></div><p>或者</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">SS</span>: <span style="color:#75715e">&amp;SS</span> Sammy Sosa
+<span style="color:#66d9ef">hr</span>:
+ - Mark McGwire
+ - <span style="color:#75715e">*SS</span>
+<span style="color:#66d9ef">rbi</span>:
+ - <span style="color:#75715e">*SS</span> 
+ - Ken Griffey
+</code></pre></div><p>或者</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">default</span>: <span style="color:#75715e">&amp;default</span>
+    - Mark McGwire
+    - Sammy Sosa
+<span style="color:#66d9ef">hr</span>: <span style="color:#75715e">*default</span>	<span style="color:#75715e"># 引用一个数组</span>
+</code></pre></div><h5 id="合并内容">合并内容</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">merge</span>:
+  - <span style="color:#75715e">&amp;CENTER</span> { <span style="color:#66d9ef">x: 1, y</span>: <span style="color:#ae81ff">2</span> }
+  - <span style="color:#75715e">&amp;LEFT</span> { <span style="color:#66d9ef">x: 0, y</span>: <span style="color:#ae81ff">2</span> }
+  - <span style="color:#75715e">&amp;BIG</span> { <span style="color:#66d9ef">r</span>: <span style="color:#ae81ff">10</span> }
+  - <span style="color:#75715e">&amp;SMALL</span> { <span style="color:#66d9ef">r</span>: <span style="color:#ae81ff">1</span> }
+  
+<span style="color:#66d9ef">sample1</span>: 
+    <span style="color:#66d9ef">&lt;&lt;</span>: <span style="color:#75715e">*CENTER</span>
+    <span style="color:#66d9ef">r</span>: <span style="color:#ae81ff">10</span>
+    
+<span style="color:#66d9ef">sample2</span>:
+    <span style="color:#66d9ef">&lt;&lt; </span>: [ <span style="color:#75715e">*CENTER,</span> <span style="color:#75715e">*BIG</span> ]
+    <span style="color:#66d9ef">other</span>: haha
+    
+<span style="color:#66d9ef">sample3</span>:
+    <span style="color:#66d9ef">&lt;&lt; </span>: [ <span style="color:#75715e">*CENTER,</span> <span style="color:#75715e">*BIG</span> ]
+    <span style="color:#66d9ef">r</span>: <span style="color:#ae81ff">100</span>
+</code></pre></div><h2 id="yaml的适用范围">YAML的适用范围</h2>
+<p><strong>适用于脚本语言</strong>：由于实现简单，解析成本很低，YAML特别适合在脚本语言中使用。如：Ruby，Java，Perl，Python， PHP， OCaml， JavaScript。
+<strong>序列化</strong>： YAML比较适合做序列化。因为它是宿主语言数据类型直转的。
+<strong>配置文件</strong>：YAML做配置文件也不错。比如Ruby on Rails的配置文件。SpringBoot的配置文件。</p>
+<h2 id="yaml的不足">YAML的不足</h2>
+<p>YAML没有自己的数据类型定义。
+所以，<strong>由于兼容性问题，不同语言间的数据流转建议现在不要使用YAML。</strong></p>
+<h3 id="注释">注释</h3>
+<p>YAML中只有行注释，使用#号作为注释标志。
+参考：</p>
+<ul>
+<li>YAML快速入门
+<a href="https://www.jianshu.com/p/97222440cd08">https://www.jianshu.com/p/97222440cd08</a></li>
+<li>在线验证Yaml格式
+<a href="http://nodeca.github.io/js-yaml/">http://nodeca.github.io/js-yaml/</a></li>
+<li>IBM Developer YAML简介
+<a href="https://www.ibm.com/developerworks/cn/xml/x-cn-yamlintro/index.html">https://www.ibm.com/developerworks/cn/xml/x-cn-yamlintro/index.html</a></li>
+<li>YAML语言教程
+<a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html">http://www.ruanyifeng.com/blog/2016/07/yaml.html</a></li>
+</ul>
+
+  
+  <h4><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;Share!</h4>
+<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fstoneepigraph.github.io%2fpost%2fyaml%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fstoneepigraph.github.io%2fpost%2fyaml%2f" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fstoneepigraph.github.io%2fpost%2fyaml%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fstoneepigraph.github.io%2fpost%2fyaml%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fstoneepigraph.github.io%2fpost%2fyaml%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fstoneepigraph.github.io%2fpost%2fyaml%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	</li>
+</ul>
+
+
+<style>
+	ul.share-buttons{
+	  list-style: none;
+	  padding: 0;
+	}
+
+	ul.share-buttons li{
+	  display: inline;
+	}
+
+	ul.share-buttons .sr-only{
+	  position: absolute;
+	  clip: rect(1px 1px 1px 1px);
+	  clip: rect(1px, 1px, 1px, 1px);
+	  padding: 0;
+	  border: 0;
+	  height: 1px;
+	  width: 1px;
+	  overflow: hidden;
+	}
+</style>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://stoneepigraph.github.io/post/my-first-org/">My First Org</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://stoneepigraph.github.io/post/my-first-org/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://stoneepigraph.github.io/js/ui.js"></script>
+<script src="https://stoneepigraph.github.io/js/menus.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

@@ -20,5 +20,22 @@
       <description> this is a org file  </description>
     </item>
     
+    <item>
+      <title>YAML</title>
+      <link>https://stoneepigraph.github.io/post/yaml/</link>
+      <pubDate>Sat, 11 Sep 2021 19:32:14 +0800</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/post/yaml/</guid>
+      <description>YAML YAML Ain&amp;rsquo;t Markup Language 和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML。因为：
+ YAML的可读性好 YAML和脚本语言的交互性好 YAML使用实现语言的数据类型 YAML有一个一致信息模型 YAML易于实现 同时YAML也有XML的以下优点： YAML可以基于流来处理 YAML表达能力强，扩展性好 相对于JSON： ​	YAML是JSON的一个严格的超集。  语法  Structure通过空格来展示。Sequence里的项用&amp;rdquo;-&amp;ldquo;来代表，Map里的键值对用&amp;rdquo;:&amp;ldquo;分隔. 大小写敏感 使用缩进表示层关系，并且缩进不允许使用Tab键。而且缩进的空格数目都不重要，只要相同层级的元素左对齐即可。  快速入门 YAML中允许表示三种格式，分别是常量值，对象和数组
+基本格式要求  YAML大小写敏感 使用缩进代表层级关系 缩进只能使用空格，不能使用TABLE，不要求空格个数，只需要相同层级左对齐（一般2个或4个空格）  对象 使用冒号代表，格式为key: value。冒号后边要加一个空格。
+key: value 可以使用缩进表示层级关系
+key: child-key1: value1 child-key2: value2 YAML中还支持流式（flow）语法表示对象
+key: {child-key1: value1, child-key2: value2} 较为复杂的对象格式， 可以使用问号加一个空格代表一个复杂的Key，再配合一个冒号加一个空格代表一个value
+? - complexkey1 - complexkey2 : - complexvalue1 - complexvalue2 意思是对象的属性是一个数组[complexkey1, complexkey2]， 对应的值也是一个数组[complexvalue1, complexvalue2]。
+数组 使用一个短横线加一个空格代表一个数组项
+hobby: - Java - Python 一个相对复杂的例子</description>
+    </item>
+    
   </channel>
 </rss>
