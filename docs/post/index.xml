@@ -6,18 +6,18 @@
     <description>Recent content in Posts on Stone Minder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 Sep 2021 19:32:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://stoneepigraph.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My First Org</title>
-      <link>https://stoneepigraph.github.io/post/my-first-org/</link>
-      <pubDate>Sat, 11 Sep 2021 19:32:14 +0800</pubDate>
+      <title>复盘</title>
+      <link>https://stoneepigraph.github.io/post/live/%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/post/my-first-org/</guid>
-      <description> this is a org file  </description>
+      <guid>https://stoneepigraph.github.io/post/live/%E5%A4%8D%E7%9B%98/</guid>
+      <description> 复盘  基础  什么是复盘   复盘是对过去的事情进行总结归纳，找出问题和优势，好的发扬，坏的避免。 复盘有哪些好处   避免在同样的地方摔倒，发扬自己的优势 如何做复盘  流程     回顾目标    评估结果    分析原因    总结规律   一些复盘工具     头脑风暴    鱼骨图    德尔菲？？   Tips     多久做一次复盘合适 什么时候都可以做复盘，大事大复盘，小事小复盘。 平时做到小事及时得复盘，大事阶段性复盘，事后全面复盘，并且随时随地皆可复盘。    是不是每次复盘都需要走完整流程 不需要，按事情重要程度，不要纠结于流程。   个人复盘清单     回顾这一段时间有哪些计划目标。    回顾这一段时间有哪些计划未达成，原因是什么。    回顾这一次事件或这段时间有哪些收获。    总结这一段时间有哪些可改进的内容。    整理这一段时间的碎片化内容。   关于复盘的书籍     思维复盘    复盘：对过去的事儿做思维演练（实践版）   </description>
     </item>
     
     <item>
@@ -35,6 +35,15 @@ key: {child-key1: value1, child-key2: value2} 较为复杂的对象格式， 可
 ? - complexkey1 - complexkey2 : - complexvalue1 - complexvalue2 意思是对象的属性是一个数组[complexkey1, complexkey2]， 对应的值也是一个数组[complexvalue1, complexvalue2]。
 数组 使用一个短横线加一个空格代表一个数组项
 hobby: - Java - Python 一个相对复杂的例子</description>
+    </item>
+    
+    <item>
+      <title>写作是最好的投资</title>
+      <link>https://stoneepigraph.github.io/post/readnote/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E6%8A%95%E8%B5%84/</link>
+      <pubDate>Sat, 11 Sep 2021 19:32:14 +0800</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/post/readnote/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E6%8A%95%E8%B5%84/</guid>
+      <description>写作是最好的投资 写作是最好的投资  如何开始?     行动起来你才能知道你能写出什么来, 不要空想.    不着急, 不害怕, 不要脸 – 冯唐    不要在写作刚开始的时候期望太高.   怎么持久?  坚持不了不原因     控制不住自己 给自己一个适合写作的环境.    完美主义心理    缺乏反馈和激励 创建适合自己的进度条.   大量输入  读书   读书分欣赏性阅读和功利性阅读    欣赏性阅读    功利性阅读      为什么要读    需要获得哪些知识    喜欢的有用的书可以读多遍.</description>
     </item>
     
   </channel>

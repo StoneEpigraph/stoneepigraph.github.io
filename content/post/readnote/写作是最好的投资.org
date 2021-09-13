@@ -1,11 +1,11 @@
-:PROPERTIES:
-:ID:       9c2e85e3-3a34-480d-819c-0e4d47c98f37
-:END:
 ---
 title: "写作是最好的投资"
 date: 2021-09-11T19:32:14+08:00
 draft: false
 ---
+:PROPERTIES:
+:ID:       9c2e85e3-3a34-480d-819c-0e4d47c98f37
+:END:
 #+title: 写作是最好的投资
 * 写作是最好的投资
 ** 如何开始?
