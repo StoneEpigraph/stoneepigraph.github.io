@@ -1,7 +1,0 @@
----
-title: "My First Org"
-date: 2021-09-11T19:32:14+08:00
-draft: false
----
-
-* this is a org file
