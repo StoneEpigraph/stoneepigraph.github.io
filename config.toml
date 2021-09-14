@@ -2,3 +2,11 @@ baseURL = "https://stoneepigraph.github.io/"
 languageCode = "zh-CN"
 title = "Stone Minder"
 theme = "blackburn"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  description = "Stone Minder"
+  author = "Stone Epigraph"

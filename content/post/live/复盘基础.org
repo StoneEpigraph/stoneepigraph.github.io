@@ -1,8 +1,7 @@
-#+title: 复盘
-#+ID: aa1e508e-2b01-4920-afa6-0cc5696a4030
+#+title: 复盘基础
 #+DATE: 2021-09-13
 #+DRAFT: false
-* 复盘
+* 复盘基础
   :PROPERTIES:
   :ID:       202109132059
   :END:
