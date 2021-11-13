@@ -1,0 +1,81 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Stone Minder</title>
+        <link>https://stoneepigraph.github.io/</link>
+        <description>Stone Minder</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Nginx基础</title>
+    <link>https://stoneepigraph.github.io/posts/middle/nginx-note/</link>
+    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/middle/nginx-note/</guid>
+    <description><![CDATA[Nginx基础  Nginx架构  nginx事件模型  nginx是采用的异步非阻塞。  拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。
+  Nginx的worker数最好设置为CPU的核数。     Nginx基本概念  connection  在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。 而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。
+Nginx处理连接的流程  首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。 Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。
+    request  在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。
+      指令  server  用于定义服务，http中可以有多个server块
+  listen  指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口
+  server_name  服务名称，用于配置域名
+  location  用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码
+修饰符    = 进行普通字符精确匹配。也就是完全匹配]]></description>
+</item><item>
+    <title>复盘基础</title>
+    <link>https://stoneepigraph.github.io/posts/live/%E5%A4%8D%E7%9B%98%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/live/%E5%A4%8D%E7%9B%98%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[复盘基础  基础  什么是复盘  复盘是对过去的事情进行总结归纳，找出问题和优势，好的发扬，坏的避免。
+  复盘有哪些好处  避免在同样的地方摔倒，发扬自己的优势
+    如何做复盘  流程    回顾目标
+  评估结果
+  分析原因
+  总结规律
+    一些复盘工具    头脑风暴
+  鱼骨图
+  德尔菲？？
+    Tips    多久做一次复盘合适 什么时候都可以做复盘，大事大复盘，小事小复盘。 平时做到小事及时得复盘，大事阶段性复盘，事后全面复盘，并且随时随地皆可复盘。
+  是不是每次复盘都需要走完整流程 不需要，按事情重要程度，不要纠结于流程。
+      个人复盘清单    回顾这一段时间有哪些计划目标。]]></description>
+</item><item>
+    <title>YAML</title>
+    <link>https://stoneepigraph.github.io/posts/yaml/</link>
+    <pubDate>Sat, 11 Sep 2021 19:32:14 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/yaml/</guid>
+    <description><![CDATA[YAML YAML Ain&rsquo;t Markup Language 和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML。因为：
+ YAML的可读性好 YAML和脚本语言的交互性好 YAML使用实现语言的数据类型 YAML有一个一致信息模型 YAML易于实现 同时YAML也有XML的以下优点： YAML可以基于流来处理 YAML表达能力强，扩展性好 相对于JSON： ​	YAML是JSON的一个严格的超集。  语法  Structure通过空格来展示。Sequence里的项用&quot;-&ldquo;来代表，Map里的键值对用&rdquo;:&ldquo;分隔. 大小写敏感 使用缩进表示层关系，并且缩进不允许使用Tab键。而且缩进的空格数目都不重要，只要相同层级的元素左对齐即可。  快速入门 YAML中允许表示三种格式，分别是常量值，对象和数组
+基本格式要求  YAML大小写敏感 使用缩进代表层级关系 缩进只能使用空格，不能使用TABLE，不要求空格个数，只需要相同层级左对齐（一般2个或4个空格）  对象 使用冒号代表，格式为key: value。冒号后边要加一个空格。
+key:value可以使用缩进表示层级关系
+key:child-key1:value1child-key2:value2YAML中还支持流式（flow）语法表示对象
+key:{child-key1: value1, child-key2:value2}较为复杂的对象格式， 可以使用问号加一个空格代表一个复杂的Key，再配合一个冒号加一个空格代表一个value
+? - complexkey1- complexkey2:- complexvalue1- complexvalue2意思是对象的属性是一个数组[complexkey1, complexkey2]， 对应的值也是一个数组[complexvalue1, complexvalue2]。
+数组 使用一个短横线加一个空格代表一个数组项
+hobby:- Java- Python一个相对复杂的例子
+textEditor:-id:1name:Emacs-id:2name:vim使用流式表示就是
+textEditor:[{id: 1, name:Emacs}, {id: 2, name: vim}]常量 YAML中提供了多种常量结构，包括：整数，浮点数，字符串，NULL，日期，布尔，时间。
+boolean:- TRUE- FALSEfloat:- 3.14- 5.234234e+5#可以使用科学计数法int:- 123- 0b1010_0111_0100_1010_1110 # 可以使用二进制表示null:nodeName:&#39;node&#39;parent:~	# 使用~表示nullstring:- 哈哈- &#39;Hello world&#39;# 可以使用双引号或者单引号包裹特殊字符- newlinenewline2	# 字符串可以拆成多行，每一换行会被转化成一个空格date:- 2018-01-01# 日期必须使用ISO 8601格式，即yyyy-MM-dddatetime:- 2018-01-01T15:01:01+08:00# 时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区一些特殊符号 YAML中提供了很多特殊符号]]></description>
+</item><item>
+    <title>写作是最好的投资</title>
+    <link>https://stoneepigraph.github.io/posts/readnote/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E6%8A%95%E8%B5%84/</link>
+    <pubDate>Sat, 11 Sep 2021 19:32:14 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/readnote/%E5%86%99%E4%BD%9C%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E6%8A%95%E8%B5%84/</guid>
+    <description><![CDATA[写作是最好的投资
+ 写作是最好的投资  如何开始?    行动起来你才能知道你能写出什么来, 不要空想.
+  不着急, 不害怕, 不要脸 – 冯唐
+  不要在写作刚开始的时候期望太高.
+    怎么持久?  坚持不了不原因    控制不住自己 给自己一个适合写作的环境.
+  完美主义心理
+  缺乏反馈和激励 创建适合自己的进度条.
+    大量输入  读书  读书分欣赏性阅读和功利性阅读
+  欣赏性阅读
+  功利性阅读
+    为什么要读
+  需要获得哪些知识
+  喜欢的有用的书可以读多遍.
+  多作笔记
+      保持高质量输出    死磕 当你坚持下来的时候,与你竞争的人会越来越少.]]></description>
+</item></channel>
+</rss>
