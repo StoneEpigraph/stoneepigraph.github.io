@@ -1,11 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Stone Minder</title>
-        <link>https://stoneepigraph.github.io/</link>
-        <description>Stone Minder</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+        <title>All Posts - Stone Minder</title>
+        <link>https://stoneepigraph.github.io/posts/</link>
+        <description>All Posts | Stone Minder</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Nginx基础</title>
     <link>https://stoneepigraph.github.io/posts/middle/nginx-note/</link>
     <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate>
