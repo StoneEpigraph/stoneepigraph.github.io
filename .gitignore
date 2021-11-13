@@ -2,3 +2,7 @@
 .#*
 *.swp
 *~
+resources
+layouts
+static
+.hugo_build.lock
