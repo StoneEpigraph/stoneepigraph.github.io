@@ -9,6 +9,30 @@ theme = "LoveIt"
 [params]
   # LoveIt theme version
   version = "0.2.X"
+  author = "Stone Epigraph"
+  defaultTheme = "dark"
+
+[params.header]
+  desktopMode = "fixed"
+  mobileMode = "auto"
+
+[params.footer]
+  enable = true
+  custom = ''
+  hugo = false
+  copyright = true
+  author = true
+  since = 2021
+
+[params.list]
+  paginate = 20
+  dateFormat = "01-02"
+
+[params.page]
+
+[params.page.code]
+  copy = true
+  maxShowLines = 100
 
 [menu]
   [[menu.main]]
