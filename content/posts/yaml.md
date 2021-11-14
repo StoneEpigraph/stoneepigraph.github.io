@@ -1,8 +1,9 @@
----
-title: "YAML"
-date: 2021-09-11T19:32:14+08:00
-draft: false
----
+#+title: "YAML"
+#+date: 2021-09-11T19:32:14+08:00
+#+draft: false
+#+tags:　yaml
+#+categories: yaml
+#+author: 石头
 # YAML
 *YAML Ain't Markup Language*
 和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML。因为：

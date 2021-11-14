@@ -1,10 +1,11 @@
 #+title: 复盘基础
+#+author: 石头
 #+DATE: 2021-09-13
 #+DRAFT: false
+#+lastmod: 2021-11-14
+#+tags: 复盘
+#+categories: 复盘
 * 复盘基础
-  :PROPERTIES:
-  :ID:       202109132059
-  :END:
 ** 基础
 *** 什么是复盘
     复盘是对过去的事情进行总结归纳，找出问题和优势，好的发扬，坏的避免。

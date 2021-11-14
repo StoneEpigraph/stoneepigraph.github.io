@@ -1,10 +1,11 @@
 #+title: Nginx基础
 #+DATE: 2021-09-13
 #+DRAFT: false
+#+author: 石头
+#+keywords: ['nginx']
+#+tags: 'Nginx', '中间件'
+#+categories: 中间件
 * Nginx基础
-:PROPERTIES:
-:ID:       1cf91308-950f-4ad1-aa0b-6ee4da464dab
-:END:
 ** Nginx架构
 *** nginx事件模型
 **** nginx是采用的异步非阻塞。
