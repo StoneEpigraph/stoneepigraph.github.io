@@ -1,42 +1,29 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Categories - Category - Stone Minder</title>
-        <link>https://stoneepigraph.github.io/categories/</link>
-        <description>Categories - Category - Stone Minder</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>中间件</title>
-    <link>https://stoneepigraph.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://stoneepigraph.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>复盘</title>
-    <link>https://stoneepigraph.github.io/categories/%E5%A4%8D%E7%9B%98/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://stoneepigraph.github.io/categories/%E5%A4%8D%E7%9B%98/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>yaml</title>
-    <link>https://stoneepigraph.github.io/categories/yaml/</link>
-    <pubDate>Sat, 11 Sep 2021 19:32:14 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://stoneepigraph.github.io/categories/yaml/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>写作</title>
-    <link>https://stoneepigraph.github.io/categories/%E5%86%99%E4%BD%9C/</link>
-    <pubDate>Sat, 11 Sep 2021 19:32:14 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://stoneepigraph.github.io/categories/%E5%86%99%E4%BD%9C/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>输出,</title>
-    <link>https://stoneepigraph.github.io/categories/%E8%BE%93%E5%87%BA/</link>
-    <pubDate>Sat, 11 Sep 2021 19:32:14 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://stoneepigraph.github.io/categories/%E8%BE%93%E5%87%BA/</guid>
-    <description><![CDATA[]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Stone Minder</title>
+    <link>https://stoneepigraph.github.io/categories/</link>
+    <description>Recent content in Categories on Stone Minder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>中间件</title>
+      <link>https://stoneepigraph.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yaml</title>
+      <link>https://stoneepigraph.github.io/categories/yaml/</link>
+      <pubDate>Sat, 11 Sep 2021 19:32:14 +0800</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/yaml/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

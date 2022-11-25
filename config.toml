@@ -73,3 +73,8 @@ publishdir = "docs"
     noClasses = false
 [frontmatter]
   lastmod = ['lastmod']
+  mood = ['mood']
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  mood = "moods"
