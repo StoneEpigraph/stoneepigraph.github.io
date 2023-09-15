@@ -1,65 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Stone Minder</title>
-    <link>https://stoneepigraph.github.io/</link>
-    <description>Recent content on Stone Minder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Nginx基础</title>
-      <link>https://stoneepigraph.github.io/posts/middle/nginx-note/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/posts/middle/nginx-note/</guid>
-      <description>Nginx基础 Nginx架构 nginx事件模型 nginx是采用的异步非阻塞。 拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。
-Nginx的worker数最好设置为CPU的核数。 Nginx基本概念 connection 在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。 而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。
-Nginx处理连接的流程 首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。 Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。
-request 在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。
-指令 server 用于定义服务，http中可以有多个server块
-listen 指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口
-server_name 服务名称，用于配置域名
-location 用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码
-修饰符 = 进行普通字符精确匹配。也就是完全匹配 ^~ 前缀匹配。如果匹配成功，则不再匹配其他location. ~ 表示执行一个正则匹配，区分大小写 ~* 表示执行一个正则匹配，不区分大小写 xxx 常规字符串路径匹配 / 通用匹配， 任何请求都会匹配到 检查顺序 location = &amp;gt; location 完整路径 &amp;gt; location ^~ &amp;gt; location ~, ~* &amp;gt; location 部分起始路径 &amp;gt; / 注意： location的优先级与location配置的位置无关
-正则表达式 .: 匹配除换行符以外的任意字符 ?: 重复0次或1次 ?+: 重复1次或更多次 重复0次或更多次 \d: 匹配数字 ^: 匹配字符串的开始 $: 匹配字符串的结束 {n}: 重复n次 {n,}: 重复n次或更多次 [c]: 匹配单个字符c [a-z]: 匹配a-z小写字母的任意一个 (a|b|c): 竖线表示匹配任意一种情况，每种情况使用竖线分隔，一般使用小括号括住，匹配符合a字符或b字符或是c字符的字符串 小括号()之间匹配的内容，可以在后面通过$1来引用，$2表示的是前面第二个()里的内容。</description>
-    </item>
-    
-    <item>
-      <title>&#34;YAML&#34;</title>
-      <link>https://stoneepigraph.github.io/posts/yaml/</link>
-      <pubDate>Sat, 11 Sep 2021 19:32:14 +0800</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/posts/yaml/</guid>
-      <description>YAML YAML Ain&amp;rsquo;t Markup Language 和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML。因为：
-YAML的可读性好 YAML和脚本语言的交互性好 YAML使用实现语言的数据类型 YAML有一个一致信息模型 YAML易于实现 同时YAML也有XML的以下优点： YAML可以基于流来处理 YAML表达能力强，扩展性好 相对于JSON： ​	YAML是JSON的一个严格的超集。 语法 Structure通过空格来展示。Sequence里的项用&amp;quot;-&amp;ldquo;来代表，Map里的键值对用&amp;rdquo;:&amp;ldquo;分隔. 大小写敏感 使用缩进表示层关系，并且缩进不允许使用Tab键。而且缩进的空格数目都不重要，只要相同层级的元素左对齐即可。 快速入门 YAML中允许表示三种格式，分别是常量值，对象和数组
-基本格式要求 YAML大小写敏感 使用缩进代表层级关系 缩进只能使用空格，不能使用TABLE，不要求空格个数，只需要相同层级左对齐（一般2个或4个空格） 对象 使用冒号代表，格式为key: value。冒号后边要加一个空格。
-key: value 可以使用缩进表示层级关系
-key: child-key1: value1 child-key2: value2 YAML中还支持流式（flow）语法表示对象
-key: {child-key1: value1, child-key2: value2} 较为复杂的对象格式， 可以使用问号加一个空格代表一个复杂的Key，再配合一个冒号加一个空格代表一个value
-? - complexkey1 - complexkey2 : - complexvalue1 - complexvalue2 意思是对象的属性是一个数组[complexkey1, complexkey2]， 对应的值也是一个数组[complexvalue1, complexvalue2]。
-数组 使用一个短横线加一个空格代表一个数组项
-hobby: - Java - Python 一个相对复杂的例子
-textEditor: - id: 1 name: Emacs - id: 2 name: vim 使用流式表示就是</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://stoneepigraph.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/about/</guid>
-      <description>This is about page</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://stoneepigraph.github.io/contact/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/contact/</guid>
-      <description> &amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;last-name&amp;quot;&amp;gt;Last Name&amp;lt;/label&amp;gt; &amp;lt;input id=&amp;quot;last-name&amp;quot; class=&amp;quot;pure-u-23-24&amp;quot; type=&amp;quot;text&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;email&amp;quot;&amp;gt;E-Mail&amp;lt;/label&amp;gt; &amp;lt;input id=&amp;quot;email&amp;quot; class=&amp;quot;pure-u-23-24&amp;quot; type=&amp;quot;email&amp;quot; required&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;city&amp;quot;&amp;gt;City&amp;lt;/label&amp;gt; &amp;lt;input id=&amp;quot;city&amp;quot; class=&amp;quot;pure-u-23-24&amp;quot; type=&amp;quot;text&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;pure-u-1 pure-u-md-1-3&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;state&amp;quot;&amp;gt;State&amp;lt;/label&amp;gt; &amp;lt;select id=&amp;quot;state&amp;quot; class=&amp;quot;pure-input-1-2&amp;quot;&amp;gt; &amp;lt;option&amp;gt;AL&amp;lt;/option&amp;gt; &amp;lt;option&amp;gt;CA&amp;lt;/option&amp;gt; &amp;lt;option&amp;gt;IL&amp;lt;/option&amp;gt; &amp;lt;/select&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;fieldset class=&amp;quot;pure-group&amp;quot;&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; class=&amp;quot;pure-input-1-2&amp;quot; placeholder=&amp;quot;A title&amp;quot;&amp;gt; &amp;lt;textarea class=&amp;quot;pure-input-1-2&amp;quot; placeholder=&amp;quot;Your message&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt; &amp;lt;/fieldset&amp;gt; &amp;lt;button type=&amp;quot;submit&amp;quot; class=&amp;quot;pure-button pure-button-primary&amp;quot;&amp;gt;Send&amp;lt;/button&amp;gt; </description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Stone Minder</title>
+        <link>https://stoneepigraph.github.io/</link>
+        <description>Stone Minder</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Docker笔记</title>
+    <link>https://stoneepigraph.github.io/posts/docker/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/docker/</guid>
+    <description><![CDATA[入门 什么是Docker docker是一个容器技术。
+Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker &ndash;help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi &hellip; 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 &ndash;name containerName -it 导入容器 docker load -i dockerTag.]]></description>
+</item><item>
+    <title>FreeMarker入门</title>
+    <link>https://stoneepigraph.github.io/posts/freemarker/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/freemarker/</guid>
+    <description><![CDATA[入门 模板 + 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意
+值域表达式本身没有方括号 可以在..的两侧编写自述表达式而不需要圆括号 .., ..&lt;, ..!, ..*是去处符,所以它们中间不能有空格. 无右边界值域的定义大小是2147483647 值域并不存储它们包含的数字. 哈希表 像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先. 模板 插值: ${paramsName} FTL标签 FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#. 注释注释使用&lt;#&ndash; and &ndash;&gt; 来标识 其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来. 基本指令 IF指令 &lt;#if condition&gt; &lt;/#if&gt; &lt;#if condition&gt; if statement &lt;#elseif condition&gt; elseif statement &lt;#else&gt; else statement &lt;/#if&gt; list指令展示列表内容 基本 &lt;ul&gt; &lt;#list listObj as obj&gt; &lt;li&gt;${ojb} &lt;/#list&gt; &lt;/ul&gt; 如果列表为空的话,整个列表都不展示 &lt;#list listObj&gt; &lt;ul&gt; &lt;#items as obj&gt; &lt;li&gt;${obj} &lt;/ul&gt; &lt;/#list&gt; 如果列表为空的话展示一些其它信息 &lt;#list listObj&gt; &lt;p&gt; ListDesc: &lt;ul&gt; &lt;#items as obj&gt; &lt;li&gt;${obj}&lt;#sep&gt;septarator&lt;/#sep&gt; &lt;/#items&gt; &lt;/ul&gt; &lt;#else&gt; &lt;p&gt; list is empty.]]></description>
+</item><item>
+    <title>maven基础</title>
+    <link>https://stoneepigraph.github.io/posts/maven/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/maven/</guid>
+    <description><![CDATA[Maven库： http://repo2.maven.org/maven2/
+Maven依赖查询： http://mvnrepository.com/
+Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -DgroupId=packageName -DartifactId=projectName 创建Maven的Web项目： ​ mvn archetype:create ​ -DgroupId=packageName ​ -DartifactId=webappName ​ -DarchetypeArtifactId=maven-archetype-webapp
+编译源代码： mvn compile 编译测试代码：mvn test-compile 运行测试：mvn test 产生site：mvn site 打包：mvn package 在本地Repository中安装jar：mvn install 清除产生的项目：mvn clean 生成eclipse项目：mvn eclipse:eclipse 生成idea项目：mvn idea:idea 组合使用goal命令，如只打包不测试：mvn -Dtest package 编译测试的内容：mvn test-compile 只打jar包: mvn jar:jar 只测试而不编译，也不测试编译：mvn test -skipping compile -skipping test-compile ​ ( -skipping 的灵活运用，当然也可以用于其他组合命令)
+清除eclipse的一些系统设置:mvn eclipse:clean ps：一 般使用情况是这样，首先通过cvs或svn下载代码到本机，然后执行mvn eclipse:eclipse生成ecllipse项目文件，然后导入到eclipse就行了；修改代码后执行mvn compile或mvn test检验，也可以下载eclipse的maven插件。 mvn -version/-v 显示版本信息 mvn archetype:generate 创建mvn项目 mvn archetype:create -DgroupId=com.]]></description>
+</item><item>
+    <title>SVN常用命令</title>
+    <link>https://stoneepigraph.github.io/posts/svn/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/svn/</guid>
+    <description><![CDATA[常用SVN命令 svn checkout 签出,创建新的工作拷贝. svn info 搞清楚工作拷贝从哪里来的. svn update 从项目仓库中更新目录中的所有文件 svn add 添加文件的目录到项目仓库中 svn propset 设置文件的属性 svn add 添加文件 svn delete 删除文件 svn move src.file dist.file 移动文件 svn commit -m &lsquo;提交信息&rsquo; svn log filename 查看指定文件的历史 svn diff 展示文件版本之间的差异. 在版本之间找差异 svn diff -r19:21 filename 使用-r选项来指定一个版本范围 svn revert 删掉本地改动并使用项目仓库中的文件版本 svn resolved 修正冲突后执行 svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人 svn update 获取最新的代码 svn merge -r 27:26 filename 移除file中版本27的改动 svn lock filename 给文件加锁 ]]></description>
+</item><item>
+    <title>学习</title>
+    <link>https://stoneepigraph.github.io/posts/study/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/posts/study/</guid>
+    <description><![CDATA[提问 提问的智慧 提问的智慧http://www.catb.org/~esr/faqs/smart-questions.html 提问的智慧https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md 学习新技术的逻辑 这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。这个问题非常关键，也就是说，你在学习一个技术的时候，需要知道这个技术的成因和目标，也就是这个技术的灵魂。如果不知道这些的话，那么你会看不懂这个技术的一些设计理念。 这个技术的优势和劣势分别是什么，或者说，这个技术的 trade-off 是什么。任何技术都有其好坏，在解决一个问题的时候，也会带来新的问题。另外，一般来说，任何设计都有 trade-off（要什么和不要什么），所以，你要清楚这个技术的优势和劣势，以及带来的挑战。 这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景，这个技术可能会有很多槽点，所以学习技术不但要知道这个技术是什么，还要知道其适用的场景。没有任何一个技术是普适的。注意，所谓场景一般分别两个，一个是业务场景，一个是技术场景。 技术的组成部分和关键点。这是技术的核心思想和核心组件了，也是这个技术的灵魂所在了。学习技术的核心部分是快速掌握的关键。 技术的底层原理和关键实现。任何一个技术都有其底层的关键基础技术，这些关键技术很有可能也是其它技术的关键基础技术。所以，学习这些关键的基础底层技术，可以让你未来很快地掌握其它技术。可以参看我在 CoolShell 上写的 Docker 底层技术那一系列文章。 已有的实现和它之间的对比。一般来说，任何一个技术都会有不同的实现，不同的实现都会有不同的侧重。学习不同的实现，可以让你得到不同的想法和思路，对于开阔思维，深入细节是非常重要的。 ]]></description>
+</item></channel>
 </rss>

@@ -1,29 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Stone Minder</title>
-    <link>https://stoneepigraph.github.io/categories/</link>
-    <description>Recent content in Categories on Stone Minder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>中间件</title>
-      <link>https://stoneepigraph.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>yaml</title>
-      <link>https://stoneepigraph.github.io/categories/yaml/</link>
-      <pubDate>Sat, 11 Sep 2021 19:32:14 +0800</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/categories/yaml/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Stone Minder</title>
+        <link>https://stoneepigraph.github.io/categories/</link>
+        <description>Categories - Category - Stone Minder</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Build</title>
+    <link>https://stoneepigraph.github.io/categories/build/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/build/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Container</title>
+    <link>https://stoneepigraph.github.io/categories/container/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/container/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>CSV</title>
+    <link>https://stoneepigraph.github.io/categories/csv/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/csv/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Docker</title>
+    <link>https://stoneepigraph.github.io/categories/docker/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/docker/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Freemarker</title>
+    <link>https://stoneepigraph.github.io/categories/freemarker/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/freemarker/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>HTML</title>
+    <link>https://stoneepigraph.github.io/categories/html/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/html/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Maven</title>
+    <link>https://stoneepigraph.github.io/categories/maven/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/maven/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>MVN</title>
+    <link>https://stoneepigraph.github.io/categories/mvn/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/mvn/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Study</title>
+    <link>https://stoneepigraph.github.io/categories/study/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/study/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>SVN</title>
+    <link>https://stoneepigraph.github.io/categories/svn/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://stoneepigraph.github.io/categories/svn/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
 </rss>
