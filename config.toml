@@ -4,7 +4,8 @@ title = "Stone Minder"
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
 # Change the default theme to be use when building the site with Hugo
-theme = "LoveIt"
+#theme = "LoveIt"
+theme = "hugo-theme-monochrome"
 enableEmoji = true
 publishdir = "docs"
 
