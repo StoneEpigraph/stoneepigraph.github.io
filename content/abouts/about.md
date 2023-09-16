@@ -5,4 +5,4 @@ sidemenu = "true"
 description = "About me and this site"
 +++
 
-This is about page
+I won't be a loser!!!
