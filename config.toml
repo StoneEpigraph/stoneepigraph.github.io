@@ -5,7 +5,6 @@ description = "不会修摩托的建筑师不是一个好的程序员."
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
 # Change the default theme to be use when building the site with Hugo
-#theme = "LoveIt"
 theme = "hugo-theme-monochrome"
 enableEmoji = true
 publishdir = "docs"

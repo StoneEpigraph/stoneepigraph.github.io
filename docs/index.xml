@@ -1,7 +1,89 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Stone Minder</title><link>https://stoneepigraph.github.io/</link><description>Recent content on Stone Minder</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker笔记</title><link>https://stoneepigraph.github.io/posts/docker/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/posts/docker/</guid><description>入门 什么是Docker docker是一个容器技术。
-Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker &amp;ndash;help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi &amp;hellip; 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 &amp;ndash;name containerName -it 导入容器 docker load -i dockerTag.</description></item><item><title>FreeMarker入门</title><link>https://stoneepigraph.github.io/posts/freemarker/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/posts/freemarker/</guid><description>入门 模板 + 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&amp;lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意
-值域表达式本身没有方括号 可以在..的两侧编写自述表达式而不需要圆括号 .., ..&amp;lt;, ..!, ..*是去处符,所以它们中间不能有空格. 无右边界值域的定义大小是2147483647 值域并不存储它们包含的数字. 哈希表 像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先. 模板 插值: ${paramsName} FTL标签 FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#. 注释注释使用&amp;lt;#&amp;ndash; and &amp;ndash;&amp;gt; 来标识 其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来. 基本指令 IF指令 &amp;lt;#if condition&amp;gt; &amp;lt;/#if&amp;gt; &amp;lt;#if condition&amp;gt; if statement &amp;lt;#elseif condition&amp;gt; elseif statement &amp;lt;#else&amp;gt; else statement &amp;lt;/#if&amp;gt; list指令展示列表内容 基本 &amp;lt;ul&amp;gt; &amp;lt;#list listObj as obj&amp;gt; &amp;lt;li&amp;gt;${ojb} &amp;lt;/#list&amp;gt; &amp;lt;/ul&amp;gt; 如果列表为空的话,整个列表都不展示 &amp;lt;#list listObj&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj} &amp;lt;/ul&amp;gt; &amp;lt;/#list&amp;gt; 如果列表为空的话展示一些其它信息 &amp;lt;#list listObj&amp;gt; &amp;lt;p&amp;gt; ListDesc: &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj}&amp;lt;#sep&amp;gt;septarator&amp;lt;/#sep&amp;gt; &amp;lt;/#items&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;#else&amp;gt; &amp;lt;p&amp;gt; list is empty.</description></item><item><title>maven基础</title><link>https://stoneepigraph.github.io/posts/maven/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/posts/maven/</guid><description>Maven库： http://repo2.maven.org/maven2/
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stone Minder</title>
+    <link>https://stoneepigraph.github.io/</link>
+    <description>Recent content on Stone Minder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker笔记</title>
+      <link>https://stoneepigraph.github.io/posts/docker/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/docker/</guid>
+      <description>入门 什么是Docker docker是一个容器技术。
+Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker &amp;ndash;help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi &amp;hellip; 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 &amp;ndash;name containerName -it 导入容器 docker load -i dockerTag.</description>
+    </item>
+    
+    <item>
+      <title>FreeMarker入门</title>
+      <link>https://stoneepigraph.github.io/posts/freemarker/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/freemarker/</guid>
+      <description>入门 模板 + 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&amp;lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意
+值域表达式本身没有方括号 可以在..的两侧编写自述表达式而不需要圆括号 .., ..&amp;lt;, ..!, ..*是去处符,所以它们中间不能有空格. 无右边界值域的定义大小是2147483647 值域并不存储它们包含的数字. 哈希表 像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先. 模板 插值: ${paramsName} FTL标签 FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#. 注释注释使用&amp;lt;#&amp;ndash; and &amp;ndash;&amp;gt; 来标识 其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来. 基本指令 IF指令 &amp;lt;#if condition&amp;gt; &amp;lt;/#if&amp;gt; &amp;lt;#if condition&amp;gt; if statement &amp;lt;#elseif condition&amp;gt; elseif statement &amp;lt;#else&amp;gt; else statement &amp;lt;/#if&amp;gt; list指令展示列表内容 基本 &amp;lt;ul&amp;gt; &amp;lt;#list listObj as obj&amp;gt; &amp;lt;li&amp;gt;${ojb} &amp;lt;/#list&amp;gt; &amp;lt;/ul&amp;gt; 如果列表为空的话,整个列表都不展示 &amp;lt;#list listObj&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj} &amp;lt;/ul&amp;gt; &amp;lt;/#list&amp;gt; 如果列表为空的话展示一些其它信息 &amp;lt;#list listObj&amp;gt; &amp;lt;p&amp;gt; ListDesc: &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj}&amp;lt;#sep&amp;gt;septarator&amp;lt;/#sep&amp;gt; &amp;lt;/#items&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;#else&amp;gt; &amp;lt;p&amp;gt; list is empty.</description>
+    </item>
+    
+    <item>
+      <title>maven基础</title>
+      <link>https://stoneepigraph.github.io/posts/maven/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/maven/</guid>
+      <description>Maven库： http://repo2.maven.org/maven2/
 Maven依赖查询： http://mvnrepository.com/
 Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -DgroupId=packageName -DartifactId=projectName 创建Maven的Web项目： ​ mvn archetype:create ​ -DgroupId=packageName ​ -DartifactId=webappName ​ -DarchetypeArtifactId=maven-archetype-webapp
 编译源代码： mvn compile 编译测试代码：mvn test-compile 运行测试：mvn test 产生site：mvn site 打包：mvn package 在本地Repository中安装jar：mvn install 清除产生的项目：mvn clean 生成eclipse项目：mvn eclipse:eclipse 生成idea项目：mvn idea:idea 组合使用goal命令，如只打包不测试：mvn -Dtest package 编译测试的内容：mvn test-compile 只打jar包: mvn jar:jar 只测试而不编译，也不测试编译：mvn test -skipping compile -skipping test-compile ​ ( -skipping 的灵活运用，当然也可以用于其他组合命令)
-清除eclipse的一些系统设置:mvn eclipse:clean ps：一 般使用情况是这样，首先通过cvs或svn下载代码到本机，然后执行mvn eclipse:eclipse生成ecllipse项目文件，然后导入到eclipse就行了；修改代码后执行mvn compile或mvn test检验，也可以下载eclipse的maven插件。 mvn -version/-v 显示版本信息 mvn archetype:generate 创建mvn项目 mvn archetype:create -DgroupId=com.</description></item><item><title>SVN常用命令</title><link>https://stoneepigraph.github.io/posts/svn/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/posts/svn/</guid><description>常用SVN命令 svn checkout 签出,创建新的工作拷贝. svn info 搞清楚工作拷贝从哪里来的. svn update 从项目仓库中更新目录中的所有文件 svn add 添加文件的目录到项目仓库中 svn propset 设置文件的属性 svn add 添加文件 svn delete 删除文件 svn move src.file dist.file 移动文件 svn commit -m &amp;lsquo;提交信息&amp;rsquo; svn log filename 查看指定文件的历史 svn diff 展示文件版本之间的差异. 在版本之间找差异 svn diff -r19:21 filename 使用-r选项来指定一个版本范围 svn revert 删掉本地改动并使用项目仓库中的文件版本 svn resolved 修正冲突后执行 svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人 svn update 获取最新的代码 svn merge -r 27:26 filename 移除file中版本27的改动 svn lock filename 给文件加锁</description></item><item><title>学习</title><link>https://stoneepigraph.github.io/posts/study/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/posts/study/</guid><description>提问 提问的智慧 提问的智慧http://www.catb.org/~esr/faqs/smart-questions.html 提问的智慧https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md 学习新技术的逻辑 这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。这个问题非常关键，也就是说，你在学习一个技术的时候，需要知道这个技术的成因和目标，也就是这个技术的灵魂。如果不知道这些的话，那么你会看不懂这个技术的一些设计理念。 这个技术的优势和劣势分别是什么，或者说，这个技术的 trade-off 是什么。任何技术都有其好坏，在解决一个问题的时候，也会带来新的问题。另外，一般来说，任何设计都有 trade-off（要什么和不要什么），所以，你要清楚这个技术的优势和劣势，以及带来的挑战。 这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景，这个技术可能会有很多槽点，所以学习技术不但要知道这个技术是什么，还要知道其适用的场景。没有任何一个技术是普适的。注意，所谓场景一般分别两个，一个是业务场景，一个是技术场景。 技术的组成部分和关键点。这是技术的核心思想和核心组件了，也是这个技术的灵魂所在了。学习技术的核心部分是快速掌握的关键。 技术的底层原理和关键实现。任何一个技术都有其底层的关键基础技术，这些关键技术很有可能也是其它技术的关键基础技术。所以，学习这些关键的基础底层技术，可以让你未来很快地掌握其它技术。可以参看我在 CoolShell 上写的 Docker 底层技术那一系列文章。 已有的实现和它之间的对比。一般来说，任何一个技术都会有不同的实现，不同的实现都会有不同的侧重。学习不同的实现，可以让你得到不同的想法和思路，对于开阔思维，深入细节是非常重要的。</description></item><item><title>About</title><link>https://stoneepigraph.github.io/abouts/about/</link><pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/abouts/about/</guid><description>I won&amp;rsquo;t be a loser!!!</description></item><item><title>Contact</title><link>https://stoneepigraph.github.io/abouts/contact/</link><pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/abouts/contact/</guid><description/></item><item><title>Emacs-shortcutKeys</title><link>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid><description>Emacs shortcutKeys 基本快捷键（Basic） C-x C-f 查找文件，即在缓冲区打开/新建一个文件 C-x C-s 保存文件 C-x C-w 使用其他文件名另存为文件 C-x C-v 关闭当前缓冲区文件并打开新文件 C-x i 在当前光标处插入文件 C-x b 新建/切换缓冲区 C-x C-b 显示缓冲区列表 C-x k 关闭当前缓冲区 C-z 挂起Emacs C-x C-c 关闭Emacs 光标移动基本快捷键（Basic Movement） C-f 后一个字符 C-b 前一个字符 C-p 上一行 C-n 下一行 M-f 后一个单词 M-b 前一个单词 C-a 行首 C-e 行尾 C-v 向下翻一页 M-v 向上翻一页 M-&amp;lt; 到文件开头 M-&amp;gt; 到文件末尾 编辑（Editint） M-n 重复执行最后一个命令N次 C-u 重复执行后一个命令4次 C-u 重复执行后一个命令N次 C-d 删除后一个字符 Del 删除前一个字符 M-Del 删除前一个单词 C-k 移除到行尾 C-Space 设置开头标记 C-@ 设置开头标记，用于C-Space被操作系统拦截的情况 C-w 移除标记区域的内容 M-w 复制标记区域的内容 C-y 粘贴复制或移除的区域/行 M-y 粘贴更早的内容 C-x C-x 交换光标和标记 C-t 交换两个字符的位置 C-x C-t 交换两行的位置 M-t 交换两个单词的位置 M-u 使从光标位置到单词结尾处的字母变成大写 M-l 使从光标位置到单词结尾处的字母变成小写 M-c 使光标位置开始的单词的首字母变成大写 C-x r l 命名剪切板列表 C-x r s name 插入命令剪切板 重要快捷键 C-g 停止当前运行/输入的命令 C-x u 撤消前一个命令 M-x revert-buffer RET 撤消上次存盘后所有改动 M-x recover-file RET 从自动存盘文件恢复 M-x recover-session RET 如果编辑了几个文件，用这个恢复 C-c C-e 导出 在线帮助（Online-help） C-h c 显示快捷键绑定的命令 C-h k 显示快捷键绑定的命令和它的作用 C-h l 显示最后100个键入的内容 C-h w 显示命令被绑定到哪些快捷键上 C-h f 显示函数的功能 C-h v 显示变量的含义和值 C-h b 显示当前缓冲区所有可用的快捷键 C-h t 打开Emacs教程 C-h i 打开info阅读器 C-h C-f 显示emacs FAQ C-h p 显示本机Elisp包的信息 搜索/替换（Search/Replace） C-s 向后搜索 C-r 向前搜索 C-g 回到搜索开始前的位置（如果你仍然在搜索模式中） M-% 询问并替换（query replace） Space或y 替换当前匹配 Del或n 不要替换当前匹配 .</description></item></channel></rss>
+清除eclipse的一些系统设置:mvn eclipse:clean ps：一 般使用情况是这样，首先通过cvs或svn下载代码到本机，然后执行mvn eclipse:eclipse生成ecllipse项目文件，然后导入到eclipse就行了；修改代码后执行mvn compile或mvn test检验，也可以下载eclipse的maven插件。 mvn -version/-v 显示版本信息 mvn archetype:generate 创建mvn项目 mvn archetype:create -DgroupId=com.</description>
+    </item>
+    
+    <item>
+      <title>SVN常用命令</title>
+      <link>https://stoneepigraph.github.io/posts/svn/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/svn/</guid>
+      <description>常用SVN命令 svn checkout 签出,创建新的工作拷贝. svn info 搞清楚工作拷贝从哪里来的. svn update 从项目仓库中更新目录中的所有文件 svn add 添加文件的目录到项目仓库中 svn propset 设置文件的属性 svn add 添加文件 svn delete 删除文件 svn move src.file dist.file 移动文件 svn commit -m &amp;lsquo;提交信息&amp;rsquo; svn log filename 查看指定文件的历史 svn diff 展示文件版本之间的差异. 在版本之间找差异 svn diff -r19:21 filename 使用-r选项来指定一个版本范围 svn revert 删掉本地改动并使用项目仓库中的文件版本 svn resolved 修正冲突后执行 svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人 svn update 获取最新的代码 svn merge -r 27:26 filename 移除file中版本27的改动 svn lock filename 给文件加锁 </description>
+    </item>
+    
+    <item>
+      <title>学习</title>
+      <link>https://stoneepigraph.github.io/posts/study/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/study/</guid>
+      <description>提问 提问的智慧 提问的智慧http://www.catb.org/~esr/faqs/smart-questions.html 提问的智慧https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md 学习新技术的逻辑 这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。这个问题非常关键，也就是说，你在学习一个技术的时候，需要知道这个技术的成因和目标，也就是这个技术的灵魂。如果不知道这些的话，那么你会看不懂这个技术的一些设计理念。 这个技术的优势和劣势分别是什么，或者说，这个技术的 trade-off 是什么。任何技术都有其好坏，在解决一个问题的时候，也会带来新的问题。另外，一般来说，任何设计都有 trade-off（要什么和不要什么），所以，你要清楚这个技术的优势和劣势，以及带来的挑战。 这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景，这个技术可能会有很多槽点，所以学习技术不但要知道这个技术是什么，还要知道其适用的场景。没有任何一个技术是普适的。注意，所谓场景一般分别两个，一个是业务场景，一个是技术场景。 技术的组成部分和关键点。这是技术的核心思想和核心组件了，也是这个技术的灵魂所在了。学习技术的核心部分是快速掌握的关键。 技术的底层原理和关键实现。任何一个技术都有其底层的关键基础技术，这些关键技术很有可能也是其它技术的关键基础技术。所以，学习这些关键的基础底层技术，可以让你未来很快地掌握其它技术。可以参看我在 CoolShell 上写的 Docker 底层技术那一系列文章。 已有的实现和它之间的对比。一般来说，任何一个技术都会有不同的实现，不同的实现都会有不同的侧重。学习不同的实现，可以让你得到不同的想法和思路，对于开阔思维，深入细节是非常重要的。 </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://stoneepigraph.github.io/abouts/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/abouts/about/</guid>
+      <description>I won&amp;rsquo;t be a loser!!!</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://stoneepigraph.github.io/abouts/contact/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/abouts/contact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Emacs-shortcutKeys</title>
+      <link>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid>
+      <description>Emacs shortcutKeys 基本快捷键（Basic） C-x C-f 查找文件，即在缓冲区打开/新建一个文件 C-x C-s 保存文件 C-x C-w 使用其他文件名另存为文件 C-x C-v 关闭当前缓冲区文件并打开新文件 C-x i 在当前光标处插入文件 C-x b 新建/切换缓冲区 C-x C-b 显示缓冲区列表 C-x k 关闭当前缓冲区 C-z 挂起Emacs C-x C-c 关闭Emacs 光标移动基本快捷键（Basic Movement） C-f 后一个字符 C-b 前一个字符 C-p 上一行 C-n 下一行 M-f 后一个单词 M-b 前一个单词 C-a 行首 C-e 行尾 C-v 向下翻一页 M-v 向上翻一页 M-&amp;lt; 到文件开头 M-&amp;gt; 到文件末尾 编辑（Editint） M-n 重复执行最后一个命令N次 C-u 重复执行后一个命令4次 C-u 重复执行后一个命令N次 C-d 删除后一个字符 Del 删除前一个字符 M-Del 删除前一个单词 C-k 移除到行尾 C-Space 设置开头标记 C-@ 设置开头标记，用于C-Space被操作系统拦截的情况 C-w 移除标记区域的内容 M-w 复制标记区域的内容 C-y 粘贴复制或移除的区域/行 M-y 粘贴更早的内容 C-x C-x 交换光标和标记 C-t 交换两个字符的位置 C-x C-t 交换两行的位置 M-t 交换两个单词的位置 M-u 使从光标位置到单词结尾处的字母变成大写 M-l 使从光标位置到单词结尾处的字母变成小写 M-c 使光标位置开始的单词的首字母变成大写 C-x r l 命名剪切板列表 C-x r s name 插入命令剪切板 重要快捷键 C-g 停止当前运行/输入的命令 C-x u 撤消前一个命令 M-x revert-buffer RET 撤消上次存盘后所有改动 M-x recover-file RET 从自动存盘文件恢复 M-x recover-session RET 如果编辑了几个文件，用这个恢复 C-c C-e 导出 在线帮助（Online-help） C-h c 显示快捷键绑定的命令 C-h k 显示快捷键绑定的命令和它的作用 C-h l 显示最后100个键入的内容 C-h w 显示命令被绑定到哪些快捷键上 C-h f 显示函数的功能 C-h v 显示变量的含义和值 C-h b 显示当前缓冲区所有可用的快捷键 C-h t 打开Emacs教程 C-h i 打开info阅读器 C-h C-f 显示emacs FAQ C-h p 显示本机Elisp包的信息 搜索/替换（Search/Replace） C-s 向后搜索 C-r 向前搜索 C-g 回到搜索开始前的位置（如果你仍然在搜索模式中） M-% 询问并替换（query replace） Space或y 替换当前匹配 Del或n 不要替换当前匹配 .</description>
+    </item>
+    
+  </channel>
+</rss>
