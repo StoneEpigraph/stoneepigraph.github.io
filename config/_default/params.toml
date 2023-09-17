@@ -1,4 +1,4 @@
-navbar_title = 'Stone Minder'
+navbar_title = '石记'
 footer = "Copyright © 2021-2023 by Whatspeng!!!"
 author = "Whatspeng!!!"
 color_scheme = "dark"
@@ -30,4 +30,4 @@ lib = "prism.js" # "builtin" | "prism.js"
 
     [syntax_highlight.prism]
     enable_code_copy = true
-    enable_line_no = false
+    enable_line_no = true

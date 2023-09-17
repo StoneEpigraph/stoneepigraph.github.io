@@ -1,6 +1,6 @@
 baseURL = "https://stoneepigraph.github.io/"
 languageCode = "zh-CN"
-title = "Stone Minder"
+title = "石记"
 description = "不会修摩托的建筑师不是一个好的程序员."
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
@@ -10,72 +10,6 @@ enableEmoji = true
 publishdir = "docs"
 
 [params]
-  # LoveIt theme version
-  version = "0.2.X"
-  author = "Stone Epigraph"
-  defaultTheme = "dark"
-
-[params.header]
-  desktopMode = "fixed"
-  mobileMode = "auto"
-
-[params.footer]
-  enable = true
-  custom = ''
-  hugo = false
-  copyright = true
-  author = true
-  since = 2021
-
-[params.list]
-  paginate = 20
-  dateFormat = "01-02"
-
-[params.page]
-
-[params.page.code]
-  copy = true
-  maxShowLines = 100
-
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    # you can add extra information before the name (HTML format is supported), such as icons
-    pre = ""
-    # you can add extra information after the name (HTML format is supported), such as icons
-    post = ""
-    name = "Posts"
-    url = "/posts/"
-    # title will be shown when you hover on this menu link
-    title = ""
-    weight = 1
-  [[menu.main]]
-    identifier = "tags"
-    pre = ""
-    post = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
-    weight = 2
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
-    title = ""
-    weight = 3
-
-# Markup related configuration in Hugo
-[markup]
-  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
-  [markup.highlight]
-    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
-    noClasses = false
-[frontmatter]
-  lastmod = ['lastmod']
-  mood = ['mood']
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  mood = "moods"
+version = "0.2.X"
+author = "Stone Epigraph"
+defaultTheme = "dark"

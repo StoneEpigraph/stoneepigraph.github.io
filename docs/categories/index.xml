@@ -1,12 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Stone Minder</title>
+    <title>Categories on 石记</title>
     <link>https://stoneepigraph.github.io/categories/</link>
-    <description>Recent content in Categories on Stone Minder</description>
+    <description>Recent content in Categories on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs</title>
+      <link>https://stoneepigraph.github.io/categories/emacs/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Emacs Lisp</title>
+      <link>https://stoneepigraph.github.io/categories/emacs-lisp/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/emacs-lisp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://stoneepigraph.github.io/categories/java/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JVM</title>
+      <link>https://stoneepigraph.github.io/categories/jvm/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/jvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>https://stoneepigraph.github.io/categories/architecture/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>book</title>
+      <link>https://stoneepigraph.github.io/categories/book/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/book/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Build</title>
       <link>https://stoneepigraph.github.io/categories/build/</link>
@@ -35,6 +89,15 @@
     </item>
     
     <item>
+      <title>Design</title>
+      <link>https://stoneepigraph.github.io/categories/design/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Docker</title>
       <link>https://stoneepigraph.github.io/categories/docker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
@@ -49,6 +112,15 @@
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/categories/freemarker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GIT</title>
+      <link>https://stoneepigraph.github.io/categories/git/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/git/</guid>
       <description></description>
     </item>
     
@@ -80,6 +152,24 @@
     </item>
     
     <item>
+      <title>read</title>
+      <link>https://stoneepigraph.github.io/categories/read/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/read/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>soft skills</title>
+      <link>https://stoneepigraph.github.io/categories/soft-skills/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/soft-skills/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Study</title>
       <link>https://stoneepigraph.github.io/categories/study/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
@@ -103,6 +193,15 @@
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/categories/template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UML</title>
+      <link>https://stoneepigraph.github.io/categories/uml/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/uml/</guid>
       <description></description>
     </item>
     

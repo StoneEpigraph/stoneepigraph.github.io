@@ -2,6 +2,7 @@
 title = "maven基础"
 date = 2022-11-25
 categories = ["Maven", "MVN", "Build"]
+tags = ["maven", "project build"]
 draft = false
 +++
 
