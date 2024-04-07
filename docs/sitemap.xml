@@ -2,8 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/book/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/book/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2023-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2024-04-07T23:24:21+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/emacs/</loc>
     <lastmod>2023-09-17T00:00:00+00:00</lastmod>
@@ -35,25 +68,10 @@
     <loc>http://localhost:1313/posts/jvm/</loc>
     <lastmod>2023-09-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2023-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2023-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2023-09-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/architecture/</loc>
     <lastmod>2022-11-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/architecture/</loc>
-    <lastmod>2022-11-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/book/</loc>
-    <lastmod>2022-11-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/book/</loc>
     <lastmod>2022-11-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/build/</loc>
@@ -146,9 +164,6 @@
     <loc>http://localhost:1313/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2022-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</loc>
-    <lastmod>2022-11-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-11-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -156,9 +171,6 @@
     <lastmod>2022-11-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2022-11-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/%E6%9E%B6%E6%9E%84/</loc>
     <lastmod>2022-11-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/%E9%87%8D%E6%9E%842/</loc>
