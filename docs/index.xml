@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>石记</title>
-    <link>https://stoneepigraph.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs Lisp</title>
-      <link>https://stoneepigraph.github.io/posts/emacslisp/</link>
+      <link>http://localhost:1313/posts/emacslisp/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/emacslisp/</guid>
+      <guid>http://localhost:1313/posts/emacslisp/</guid>
       <description>ELisp 快捷键 格式化区域代码： C - M - \ 执行代码： C - x C - e 相当于 eval-last-sexp
 执行代码并将执行结果放到光标处： C - u C - x C - e 查找更多信息 查询函数信息： C - h f 查询变量信息： C - h v 查询快捷键信息： C - h k 使用正则表达式查询函数名： M - x apropos 数据类型 内建 内建的Emacs数据类型称为primitive types, 包括整数、浮点数、cons、符号（symbol)、字符串、向量(vector)、散列表(hash-table)、subr(内建函数， 比如cons, if, and)、byte-code function, 和其它特殊类型， 例如缓冲区(buffer)
 数字 Emacs的数字分为整数和浮点数。1.属于整数
@@ -23,10 +23,10 @@
     
     <item>
       <title>JVM简述</title>
-      <link>https://stoneepigraph.github.io/posts/jvm/</link>
+      <link>http://localhost:1313/posts/jvm/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/jvm/</guid>
+      <guid>http://localhost:1313/posts/jvm/</guid>
       <description>类的加载,连接与初始化 加载 指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.
 类的加载方式 从本地系统中直接加载 从网络下载.class 从zip, jar等归档中加载.class文件 从专有数据库中提取.class文件 将Java源文件动态的编译为.class文件 连接 验证确保被加载的类的正确性 准备为类的静态变量分配内存,并将其初始化为默认值 解析把类中的符号引用转换为直接引用 类的使用 主动使用 创建类的实例 访问某个类或接口的静态变量或对静态变量赋值 访问类的静态方法 反射 初始化一个类的子类 Java虚拟机启动时被标明为启动类的类 JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandler实例的解析结果REF_getStatic, REF_PUTsTATIC, REF_invokeStatic句柄对应的类没有初始化，则初始化。 被动使用 初始化 所有的Java虚拟机实现必须在每个类或接口被Java程序&amp;quot;首次主动使用&amp;quot;时才进行初始化.
 注意 当一个常量的值并非编译期间可以确定的,那么其值就不会被放到调用类的常量池中,这时在程序运行时,会导致主动使用这个常量所在的类,显然会导致这个类被初始化. 主动使用的方式 创建类的实例 访问某个类或接口的静态变量,或者对该静态变量赋值 调用类的静态方法 反射如Class.forName(&amp;ldquo;com.path.ClassName&amp;rdquo;) 初始化一个类的子类 Java虚拟机启动时被标明为启动类的类 JDK1.7开始提供的动态语言支持. 虚拟机参数 Tips 说明 -XX:+&amp;lt;option&amp;gt;, 表示开启option选项 -XX:-&amp;lt;option&amp;gt;, 表示关闭option选项 -XX:&amp;lt;option&amp;gt;=&amp;lt;value&amp;gt;, 表示将option选项的值设置为value 参数 &amp;ndash;XX:+TraceClassLoading: 用于追踪类的加载信息并打印出来. -Xss1M: 设置最大调用深度，防止栈举出。StackOverflowError。 -XX:MaxTenuringThreshold: 指定新征伐对象经过多少次回收后进入老年代，默认为15次。 -XX:PretenureSizeThreshold: 指定对象的大小超过在指定的大小之后，直接晋升老年代。 TLAB -XX:+UseTLBA: 使用TLAB, 默认开启。 -XX:+TLABSize: 设置TLAB大小 -XX:TLABRefillWasteFraction：设置维护进入TLAB空间的单个对象大小，他是一个比例值，默认为64,即如果对象大于整个空间的1/64,则在堆创建对象。 -XX:+printTLAB：查看TLAB。 -XX:ResizeTLAB: 自调整TLABRefillWasteFraction阀值。 垃圾收集器 -XX：UseSerialGC： 使用串行垃圾回收器。 -XX:+useParNewGC: 新生代使用ParNew回收器。老年代使用串行回收器。 -XX:parallelGCThreads： 指定Parnew收集器的线程数。 ParallelGC -XX:MaxGCPauseMills: 设置最大垃圾收集停顿时间。 -XX：GCTimeRatio： 设置吞量大小，它是一个0到100之间的整数，默认为100。 -XX:UseAdaptiveSizePolicy: 打开自适应模式。 CMS -XX:+UseConcMarkSweepGC -XX:ConcGCThreads:设置并发线程数量。 虚拟机调优策略 JVM参数调优主要设置堆内存，主要让GC不要去频繁回收垃圾，减少对老年代的回收。配置时让-Xms与-Xmx一致。</description>
@@ -34,39 +34,39 @@
     
     <item>
       <title>Docker笔记</title>
-      <link>https://stoneepigraph.github.io/posts/docker/</link>
+      <link>http://localhost:1313/posts/docker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/docker/</guid>
+      <guid>http://localhost:1313/posts/docker/</guid>
       <description>入门 什么是Docker docker是一个容器技术。
 Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker &amp;ndash;help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi &amp;hellip; 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 &amp;ndash;name containerName -it 导入容器 docker load -i dockerTag.</description>
     </item>
     
     <item>
       <title>FreeMarker入门</title>
-      <link>https://stoneepigraph.github.io/posts/freemarker/</link>
+      <link>http://localhost:1313/posts/freemarker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/freemarker/</guid>
+      <guid>http://localhost:1313/posts/freemarker/</guid>
       <description>入门 模板 + 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&amp;lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意
 值域表达式本身没有方括号 可以在..的两侧编写自述表达式而不需要圆括号 .., ..&amp;lt;, ..!, ..*是去处符,所以它们中间不能有空格. 无右边界值域的定义大小是2147483647 值域并不存储它们包含的数字. 哈希表 像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先. 模板 插值: ${paramsName} FTL标签 FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#. 注释注释使用&amp;lt;#&amp;ndash; and &amp;ndash;&amp;gt; 来标识 其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来. 基本指令 IF指令 &amp;lt;#if condition&amp;gt; &amp;lt;/#if&amp;gt; &amp;lt;#if condition&amp;gt; if statement &amp;lt;#elseif condition&amp;gt; elseif statement &amp;lt;#else&amp;gt; else statement &amp;lt;/#if&amp;gt; list指令展示列表内容 基本 &amp;lt;ul&amp;gt; &amp;lt;#list listObj as obj&amp;gt; &amp;lt;li&amp;gt;${ojb} &amp;lt;/#list&amp;gt; &amp;lt;/ul&amp;gt; 如果列表为空的话,整个列表都不展示 &amp;lt;#list listObj&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj} &amp;lt;/ul&amp;gt; &amp;lt;/#list&amp;gt; 如果列表为空的话展示一些其它信息 &amp;lt;#list listObj&amp;gt; &amp;lt;p&amp;gt; ListDesc: &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj}&amp;lt;#sep&amp;gt;septarator&amp;lt;/#sep&amp;gt; &amp;lt;/#items&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;#else&amp;gt; &amp;lt;p&amp;gt; list is empty.</description>
     </item>
     
     <item>
       <title>Gitignore</title>
-      <link>https://stoneepigraph.github.io/posts/git/gitignore/</link>
+      <link>http://localhost:1313/posts/git/gitignore/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/git/gitignore/</guid>
+      <guid>http://localhost:1313/posts/git/gitignore/</guid>
       <description>规则 mtk 过滤整个文件夹 *.zip 过滤所有.zip文件 /mtk/do.c 过滤某个具体文件 !*.zip 反忽略 !/mtk/one.txt反忽略 *.a # 忽略所有 .a 结尾的文件 !lib.a # 但 lib.a 除外 /TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO build/ # 忽略 build/ 目录下的所有文件 doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt </description>
     </item>
     
     <item>
       <title>Git常用命令</title>
-      <link>https://stoneepigraph.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>http://localhost:1313/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>http://localhost:1313/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>Git常用命令 新建代码库 在当前目录新建一个Git代码库 &amp;gt; git init
 新建一个目录，将其初始化为Git代码库 &amp;gt; git init [Project_name]
 下载一个项目和它的整个代码历史 &amp;gt; git clone [url]
@@ -78,10 +78,10 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
     
     <item>
       <title>maven基础</title>
-      <link>https://stoneepigraph.github.io/posts/maven/</link>
+      <link>http://localhost:1313/posts/maven/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/maven/</guid>
+      <guid>http://localhost:1313/posts/maven/</guid>
       <description>Maven库： http://repo2.maven.org/maven2/
 Maven依赖查询： http://mvnrepository.com/
 Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -DgroupId=packageName -DartifactId=projectName 创建Maven的Web项目： ​ mvn archetype:create ​ -DgroupId=packageName ​ -DartifactId=webappName ​ -DarchetypeArtifactId=maven-archetype-webapp
@@ -91,19 +91,19 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>SVN常用命令</title>
-      <link>https://stoneepigraph.github.io/posts/svn/</link>
+      <link>http://localhost:1313/posts/svn/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/svn/</guid>
+      <guid>http://localhost:1313/posts/svn/</guid>
       <description>常用SVN命令 svn checkout 签出,创建新的工作拷贝. svn info 搞清楚工作拷贝从哪里来的. svn update 从项目仓库中更新目录中的所有文件 svn add 添加文件的目录到项目仓库中 svn propset 设置文件的属性 svn add 添加文件 svn delete 删除文件 svn move src.file dist.file 移动文件 svn commit -m &amp;lsquo;提交信息&amp;rsquo; svn log filename 查看指定文件的历史 svn diff 展示文件版本之间的差异. 在版本之间找差异 svn diff -r19:21 filename 使用-r选项来指定一个版本范围 svn revert 删掉本地改动并使用项目仓库中的文件版本 svn resolved 修正冲突后执行 svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人 svn update 获取最新的代码 svn merge -r 27:26 filename 移除file中版本27的改动 svn lock filename 给文件加锁 </description>
     </item>
     
     <item>
       <title>UML</title>
-      <link>https://stoneepigraph.github.io/posts/uml/</link>
+      <link>http://localhost:1313/posts/uml/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/uml/</guid>
+      <guid>http://localhost:1313/posts/uml/</guid>
       <description>基础知识 UML图 类图 表述系统中各个对象的类型以及其间存在的各种静态关系.类图也示明类中的特性和操作以及用于对象连接方式的约束.
 聚合与组合
 聚合是整体-部分关系.
@@ -134,10 +134,10 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>代码之外的生存指南</title>
-      <link>https://stoneepigraph.github.io/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
+      <link>http://localhost:1313/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
+      <guid>http://localhost:1313/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
       <description>为何这本书与你先前读过的任何书籍都迥然不同 讲述如何成为一名优秀的软件开发人员的书，优秀开发人员指的是那些能够把控自己的职业生涯，达成目标，享受生活的人。本书并不再讨论你能做什么，而是讨论你自己。关乎你的职业生涯，你的生活，你的身体，你的思想及你的灵魂。
 职业生涯：学习如何主动管理自己的职业生涯，从而达到自己追寻的结果。 自我营销：学习如何推销自己。 如何打造个人品牌，如何打造一个成功的博客，如何通过演讲，教学，著书立说的方式让你扬名立万。 学习：学习如何学习，学习如何自觉 生产力：关于如何让工作更加富有成效的 理财：学习如何有效地管理你赚到的财。 健身： 精神： 职业 你所能犯的最大错误就是相信自己是在为别人工作。这样一来你对工作的安全感已然尽失。职业发展的驱动力一定是来自个体本身。记住：工作是属于公司的，而职业生涯却是属于你自己的。体验决策过程：你要决定自己想要从软件开发这个职业中获得什么，以及如何去获得。
 从非同凡响开始：绝不要做其他人都在做的事 拥有商业心态 因为只有你开始把自己当作一个企业去思考时，你才能开始做出良好的商业决策。尽管在你的职业生涯的某个特定时间段里，你可能确实是在为某家公司打工，但是千万不要让那个特定的角色固化了你和你的整个职业生涯。我们需要把雇主当作是自己的软件开发企业的一个客户。
@@ -170,19 +170,19 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>学习</title>
-      <link>https://stoneepigraph.github.io/posts/study/</link>
+      <link>http://localhost:1313/posts/study/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/study/</guid>
+      <guid>http://localhost:1313/posts/study/</guid>
       <description>提问 提问的智慧 提问的智慧http://www.catb.org/~esr/faqs/smart-questions.html 提问的智慧https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md 学习新技术的逻辑 这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。这个问题非常关键，也就是说，你在学习一个技术的时候，需要知道这个技术的成因和目标，也就是这个技术的灵魂。如果不知道这些的话，那么你会看不懂这个技术的一些设计理念。 这个技术的优势和劣势分别是什么，或者说，这个技术的 trade-off 是什么。任何技术都有其好坏，在解决一个问题的时候，也会带来新的问题。另外，一般来说，任何设计都有 trade-off（要什么和不要什么），所以，你要清楚这个技术的优势和劣势，以及带来的挑战。 这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景，这个技术可能会有很多槽点，所以学习技术不但要知道这个技术是什么，还要知道其适用的场景。没有任何一个技术是普适的。注意，所谓场景一般分别两个，一个是业务场景，一个是技术场景。 技术的组成部分和关键点。这是技术的核心思想和核心组件了，也是这个技术的灵魂所在了。学习技术的核心部分是快速掌握的关键。 技术的底层原理和关键实现。任何一个技术都有其底层的关键基础技术，这些关键技术很有可能也是其它技术的关键基础技术。所以，学习这些关键的基础底层技术，可以让你未来很快地掌握其它技术。可以参看我在 CoolShell 上写的 Docker 底层技术那一系列文章。 已有的实现和它之间的对比。一般来说，任何一个技术都会有不同的实现，不同的实现都会有不同的侧重。学习不同的实现，可以让你得到不同的想法和思路，对于开阔思维，深入细节是非常重要的。 </description>
     </item>
     
     <item>
       <title>重构2</title>
-      <link>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</link>
+      <link>http://localhost:1313/posts/%E9%87%8D%E6%9E%842/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</guid>
+      <guid>http://localhost:1313/posts/%E9%87%8D%E6%9E%842/</guid>
       <description>开始 本章重构：
 将原函数分解成一组嵌套的函数 分离计算逻辑与输出格式化逻辑 为计算器引入多态性来处理计算逻辑 好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积
 重构的原则 何谓重构 名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本. 动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构. 重构时不添加新功能,添加新功能时不重构. 为何重构 改进软件的设计 使软件更容易理解 帮助找到BUG 提高编程速度 何时重构 事不过三, 三则重构
@@ -201,29 +201,58 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>About</title>
-      <link>https://stoneepigraph.github.io/abouts/about/</link>
+      <link>http://localhost:1313/abouts/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/abouts/about/</guid>
+      <guid>http://localhost:1313/abouts/about/</guid>
       <description>I won&amp;rsquo;t be a loser!!!</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>https://stoneepigraph.github.io/abouts/contact/</link>
+      <link>http://localhost:1313/abouts/contact/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/abouts/contact/</guid>
+      <guid>http://localhost:1313/abouts/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Emacs-shortcutKeys</title>
-      <link>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link>
+      <link>http://localhost:1313/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>http://localhost:1313/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid>
       <description>Emacs shortcutKeys 基本快捷键（Basic） C-x C-f 查找文件，即在缓冲区打开/新建一个文件 C-x C-s 保存文件 C-x C-w 使用其他文件名另存为文件 C-x C-v 关闭当前缓冲区文件并打开新文件 C-x i 在当前光标处插入文件 C-x b 新建/切换缓冲区 C-x C-b 显示缓冲区列表 C-x k 关闭当前缓冲区 C-z 挂起Emacs C-x C-c 关闭Emacs 光标移动基本快捷键（Basic Movement） C-f 后一个字符 C-b 前一个字符 C-p 上一行 C-n 下一行 M-f 后一个单词 M-b 前一个单词 C-a 行首 C-e 行尾 C-v 向下翻一页 M-v 向上翻一页 M-&amp;lt; 到文件开头 M-&amp;gt; 到文件末尾 编辑（Editint） M-n 重复执行最后一个命令N次 C-u 重复执行后一个命令4次 C-u 重复执行后一个命令N次 C-d 删除后一个字符 Del 删除前一个字符 M-Del 删除前一个单词 C-k 移除到行尾 C-Space 设置开头标记 C-@ 设置开头标记，用于C-Space被操作系统拦截的情况 C-w 移除标记区域的内容 M-w 复制标记区域的内容 C-y 粘贴复制或移除的区域/行 M-y 粘贴更早的内容 C-x C-x 交换光标和标记 C-t 交换两个字符的位置 C-x C-t 交换两行的位置 M-t 交换两个单词的位置 M-u 使从光标位置到单词结尾处的字母变成大写 M-l 使从光标位置到单词结尾处的字母变成小写 M-c 使光标位置开始的单词的首字母变成大写 C-x r l 命名剪切板列表 C-x r s name 插入命令剪切板 重要快捷键 C-g 停止当前运行/输入的命令 C-x u 撤消前一个命令 M-x revert-buffer RET 撤消上次存盘后所有改动 M-x recover-file RET 从自动存盘文件恢复 M-x recover-session RET 如果编辑了几个文件，用这个恢复 C-c C-e 导出 在线帮助（Online-help） C-h c 显示快捷键绑定的命令 C-h k 显示快捷键绑定的命令和它的作用 C-h l 显示最后100个键入的内容 C-h w 显示命令被绑定到哪些快捷键上 C-h f 显示函数的功能 C-h v 显示变量的含义和值 C-h b 显示当前缓冲区所有可用的快捷键 C-h t 打开Emacs教程 C-h i 打开info阅读器 C-h C-f 显示emacs FAQ C-h p 显示本机Elisp包的信息 搜索/替换（Search/Replace） C-s 向后搜索 C-r 向前搜索 C-g 回到搜索开始前的位置（如果你仍然在搜索模式中） M-% 询问并替换（query replace） Space或y 替换当前匹配 Del或n 不要替换当前匹配 .</description>
+    </item>
+    
+    <item>
+      <title>Jenkins入门</title>
+      <link>http://localhost:1313/posts/jenkins%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/jenkins%E5%85%A5%E9%97%A8/</guid>
+      <description>gitlab配置 wget &amp;ndash;content-disposition https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-13.2.4-ce.0.el7.x86_64.rpm/download.rpm 安装信赖 yum install curl openssh-server postfix cronie yum -y install policycoreutils-python rpm -ivh gitlab-ce config gitlab vi /etc/gitlab/gitlab.rb external_url: nginx[&amp;rsquo;listen_port&#39;] gitlab-ctl reconfigure gitlab-ctl restart 配置防火墙 配置gitlab组及用户 jenkins安装 安装Jenkins跳过插件安装 jenkins插件安装 tips 三台服务器,一台gitlab, 一台Jenkins, 一台测试服务器 </description>
+    </item>
+    
+    <item>
+      <title>Oracle一些简单查询</title>
+      <link>http://localhost:1313/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</guid>
+      <description>Oracle一些基本查询 字符集相关 查询数据库字符集 select userenv(&#39;language&#39;) from dual; 实例相关 查询实例名 select instance_name from v$instance; 锁相关 查看被锁的表 select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time; 杀死锁进程 alter system kill session &#39;id,serial*&#39;; 查询表之前的状态 select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL &#39;50&#39; MINUTE) 用户 查询当前用户的缺省表空间 select username,default_tablespace from user_users; 查询当前用户的角色 select * from user_role_privs; 查看当前用户的系统权限和表级权限 select * from user_sys_privs; select * from user_tab_privs; 查询用户下的所有的表 select * from user_tables; 表 查看用户下所有的表 select * from user_tables; 查看名称包含log字符的表 select object_name,object_id from user_objects where instr(object_name,&#39;LOG&#39;)&amp;gt;0; 查询表的创建时间 select object_name,created from user_objects where object_name=upper(&#39;&amp;amp;table_name&#39;); 查询表的大小 select sum(bytes)/(1024*1024) as &amp;quot;size(M)&amp;quot; from user_segments where segment_name=upper(&#39;&amp;amp;table_name&#39;); 查看放在Oracle的内存区里的表 select table_name,cache from user_tables where instr(cache,&#39;Y&#39;)&amp;gt;0; 查询表的DDL语句 select dbms_metadata.</description>
+    </item>
+    
+    <item>
+      <title>postgresql-note</title>
+      <link>http://localhost:1313/posts/postgresql%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/postgresql%E7%AC%94%E8%AE%B0/</guid>
+      <description>安装及配置 安装 下载postgresql https://www.postgresql.org/download/ 安装 按照官网的说明安装 su - postgres -c &amp;quot;pg_ctl -D /var/lib/postgres/data -l /var/log/postgresql/postgresql.log start&amp;quot; 切换到postgres用户修改postgres密码 su - postres alter user postgres with password &#39;passwod&#39; 备份及恢复 备份 pg_dump dbname &amp;gt; dbname.bak # 备份单个数据库 pg_dumpall &amp;gt; pd_backup.bak # 备份所有的数据库 备份格式有三种， 可以使用-F指定
+*.bak 压缩二进制文件 *.sql 明文转储 *.tar tarball t 恢复 psql dbname &amp;lt; dbanme.bak pg_restore -U postgres -d dbname /tmp/back_filename.tar 注意 使用psql恢复数据库需要先创建一个空的对应名称的数据库
+序列 查询序列的值 select nextval(&#39;sys_menu_menu_id_seq&#39;); 修改序列的值从某个新值开始 SELECT setval(&#39;bi_his_corp_policy_part_id_seq&#39;, (SELECT MAX(id) FROM bi_his_corp_policy)); 修改序列 alter sequence sys_menu_menu_id_seq increment by 1 restart with 2354; 基础 函数 创建函数 exp insert</description>
     </item>
     
   </channel>

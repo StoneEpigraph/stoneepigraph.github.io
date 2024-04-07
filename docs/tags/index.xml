@@ -2,116 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 石记</title>
-    <link>https://stoneepigraph.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs</title>
-      <link>https://stoneepigraph.github.io/tags/emacs/</link>
+      <link>http://localhost:1313/tags/emacs/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/emacs/</guid>
+      <guid>http://localhost:1313/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Emacs Lisp</title>
-      <link>https://stoneepigraph.github.io/tags/emacs-lisp/</link>
+      <link>http://localhost:1313/tags/emacs-lisp/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/emacs-lisp/</guid>
+      <guid>http://localhost:1313/tags/emacs-lisp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JAVA</title>
-      <link>https://stoneepigraph.github.io/tags/java/</link>
+      <link>http://localhost:1313/tags/java/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/java/</guid>
+      <guid>http://localhost:1313/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JVM</title>
-      <link>https://stoneepigraph.github.io/tags/jvm/</link>
+      <link>http://localhost:1313/tags/jvm/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/jvm/</guid>
+      <guid>http://localhost:1313/tags/jvm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>architecture</title>
-      <link>https://stoneepigraph.github.io/tags/architecture/</link>
+      <title>Architecture</title>
+      <link>http://localhost:1313/tags/architecture/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/architecture/</guid>
+      <guid>http://localhost:1313/tags/architecture/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>book</title>
-      <link>https://stoneepigraph.github.io/tags/book/</link>
+      <title>Book</title>
+      <link>http://localhost:1313/tags/book/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/book/</guid>
+      <guid>http://localhost:1313/tags/book/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSV</title>
-      <link>https://stoneepigraph.github.io/tags/csv/</link>
+      <link>http://localhost:1313/tags/csv/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/csv/</guid>
+      <guid>http://localhost:1313/tags/csv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GIT</title>
-      <link>https://stoneepigraph.github.io/tags/git/</link>
+      <link>http://localhost:1313/tags/git/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/git/</guid>
+      <guid>http://localhost:1313/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>maven</title>
-      <link>https://stoneepigraph.github.io/tags/maven/</link>
+      <title>Maven</title>
+      <link>http://localhost:1313/tags/maven/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/maven/</guid>
+      <guid>http://localhost:1313/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>project build</title>
-      <link>https://stoneepigraph.github.io/tags/project-build/</link>
+      <title>Project Build</title>
+      <link>http://localhost:1313/tags/project-build/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/project-build/</guid>
+      <guid>http://localhost:1313/tags/project-build/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>read</title>
-      <link>https://stoneepigraph.github.io/tags/read/</link>
+      <title>Read</title>
+      <link>http://localhost:1313/tags/read/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/read/</guid>
+      <guid>http://localhost:1313/tags/read/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>soft skills</title>
-      <link>https://stoneepigraph.github.io/tags/soft-skills/</link>
+      <title>Soft Skills</title>
+      <link>http://localhost:1313/tags/soft-skills/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/tags/soft-skills/</guid>
+      <guid>http://localhost:1313/tags/soft-skills/</guid>
       <description></description>
     </item>
     
