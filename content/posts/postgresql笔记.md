@@ -2,59 +2,37 @@
 title = "postgresql-note"
 draft = false
 +++
-
 ## 安装及配置 {#安装及配置}
-
-
 ### 安装 {#安装}
-
 1.  下载postgresql   <https://www.postgresql.org/download/>
 2.  安装 按照官网的说明安装
     ```shell
     su - postgres -c "pg_ctl -D /var/lib/postgres/data -l /var/log/postgresql/postgresql.log start"
     ```
 3.  切换到postgres用户修改postgres密码
-
 <!--listend-->
-
 ```shell
 su - postres
 alter user postgres with password 'passwod'
 ```
-
-
 ## 备份及恢复 {#备份及恢复}
-
-
 ### 备份 {#备份}
-
 ```shell
 pg_dump dbname > dbname.bak   # 备份单个数据库
 pg_dumpall > pd_backup.bak    # 备份所有的数据库
 ```
-
 备份格式有三种， 可以使用-F指定
-
 1.  \*.bak 压缩二进制文件
 2.  \*.sql 明文转储
 3.  \*.tar tarball  t
-
-
 ### 恢复 {#恢复}
-
 ```shell
 psql dbname < dbanme.bak
 pg_restore -U postgres -d dbname /tmp/back_filename.tar
 ```
-
-
 #### 注意 {#注意}
-
 使用psql恢复数据库需要先创建一个空的对应名称的数据库
-
-
 ## 序列 {#序列}
-
 1.  查询序列的值
     ```sql
     select nextval('sys_menu_menu_id_seq');
@@ -69,20 +47,11 @@ pg_restore -U postgres -d dbname /tmp/back_filename.tar
     increment by 1
         restart with 2354;
     ```
-
-
 ## 基础 {#基础}
-
-
 ### 函数 {#函数}
-
-
 #### 创建函数 {#创建函数}
-
 <!--list-separator-->
-
 -  exp insert
-
     ```sql
     create or replace function fun_date2utc(p_date timestamp) returns bigint
         language pluxsql
@@ -101,11 +70,8 @@ pg_restore -U postgres -d dbname /tmp/back_filename.tar
         for each row
     execute procedure check_insert_dynamic_vehicle();
     ```
-
 <!--list-separator-->
-
 -  exp delete
-
     ```sql
               create function check_delete_dynamic_vehicle() returns trigger
         language pluxsql
@@ -116,57 +82,34 @@ pg_restore -U postgres -d dbname /tmp/back_filename.tar
         return old;
     end;
     $$;
-
     alter function check_delete_dynamic_vehicle() owner to uxdb;
-
     create trigger trg_delete_local_vehicle2_dynamic
           before delete
           on bi_inf_vehicle_local
           for each row
       execute procedure check_delete_dynamic_vehicle();
-
     ```
-
-
 #### 一些函数 {#一些函数}
-
 <!--list-separator-->
-
 -  生成序列
-
     -   generate_series()
-
         -   生成数字序列
             ```nil
             select generate_series(1, 10)
             ```
         -   生成时间序列
-
         <!--listend-->
-
         ```sql
         select generate_series(now()::timestamp, now()::timestamp + interval '100 day', interval '1 day')
         ```
-
-
 ## 索引 {#索引}
-
-
 ### postgresql使用什么数据结构保存索引的: B-tree {#postgresql使用什么数据结构保存索引的-b-tree}
-
-
 ## 分区表 {#分区表}
-
-
 ### 创建分区表 {#创建分区表}
-
 创建分区表需要在表结构结束添加 partition by partition_type(partition_key);
-
 -   partition_type: 类型， 可以有range和list
 -   partition_key: 分区字段，分区字段必须是主键或者是主键的一部分。
-
 <!--listend-->
-
 ```sql
           create table sa_sts_vehicle_day
 (
@@ -178,33 +121,20 @@ pg_restore -U postgres -d dbname /tmp/back_filename.tar
 )
     partition by RANGE (sts_time);
 ```
-
-
 ### 添加新的分区 {#添加新的分区}
-
-
 #### 按时间生成分区表SQL {#按时间生成分区表sql}
-
 ```sql
       select 'create table vd_his_alarm_attachment_' || to_char(gen_date, 'yyyyMMdd') ||
    ' partition of vd_his_alarm_attachment_part for values from (''' || to_char(gen_date, 'yyyy-MM-dd HH24:mi:ss') ||
    ''') to (''' || to_char(gen_date + interval '1 day', 'yyyy-MM-dd HH24:mi:ss') || ''');' from (
 select generate_series('2022-09-28'::date, '2023-12-31'::date, interval '1 day') gen_date) s
 ```
-
-
 #### 添加新分区 {#添加新分区}
-
 ```sql
 create table sa_sts_vehicle_day_20231129 partition of sa_sts_vehicle_day for values from ('2023-11-29 00:00:00') to ('2023-11-30 00:00:00');
 ```
-
-
 ## 查询 {#查询}
-
-
 ### 慢SQL {#慢sql}
-
 ```sql
     -- 查看数据库执行的语句
     select pid, query_stay 执行时长s, REPLACE ( query, chr( 10 ), ' ' ) AS sql语句,
@@ -228,10 +158,7 @@ ORDER BY query_stay DESC;
       -- 删除进程
       SELECT pg_terminate_backend(7532);
 ```
-
-
 ### 查看锁 {#查看锁}
-
 ```sql
           select w1.pid as 等待进程,
        w1.mode as 等待锁模式,
@@ -250,10 +177,7 @@ from pg_locks w1
          join pg_stat_activity b2 on b1.pid=b2.pid
 where not w1.granted;
 ```
-
-
 ### 查询表结构 {#查询表结构}
-
 ```sql
 select a.attnum AS "序号",
        c.relname AS "表名",

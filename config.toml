@@ -1,7 +1,7 @@
 baseURL = "https://stoneepigraph.github.io/"
 languageCode = "zh-CN"
 title = "石记"
-description = "不会修摩托的建筑师不是一个好的程序员."
+description = "不会修自行车的建筑师不是一个好的程序员."
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
 # Change the default theme to be use when building the site with Hugo
@@ -10,6 +10,6 @@ enableEmoji = true
 publishdir = "docs"
 
 [params]
-version = "0.2.X"
+version = "0.2.1"
 author = "Stone Epigraph"
 defaultTheme = "dark"

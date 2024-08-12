@@ -14,6 +14,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang='en'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
@@ -30,16 +31,18 @@
     
 
     
-        <meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/tags/" />
+        <meta property="og:url" content="http://localhost:1313/tags/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Tags">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
 
     
 
     
-        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tags">
 
     <link rel="stylesheet" href="/style.css" integrity="">
 
@@ -82,12 +85,15 @@
 
 
 
+
+    
 </head>
-<body>
-        <main><header>
-    <div class="brand">
+<body><header>
+    <div id="header_left">
         <div id="sidebar_btn">
-            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -97,10 +103,46 @@
 </svg>
 
 </svg>
-        </div>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
 
-        <div>
-            <a href="/">石记</a>
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
         </div>
     </div>
 
@@ -190,6 +232,7 @@
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
                     <ul class="pure-menu-children">
+
     
         <li class="pure-menu-item">
             
@@ -197,6 +240,7 @@
             
         </li>
     
+
 
     
         <li class="pure-menu-item">
@@ -209,41 +253,8 @@
 </ul>
                 </li></ul>
 </nav>
-<div id="sidebar_canvas_overlay" class="hidden"></div>
-<div id="sidebar" class="close">
-    <ul><li>
-                    <a href="/posts/">posts</a>
-                </li><li>
-                    <a href="/categories">Categories</a>
-                </li><li>
-                    <a href="/tags">Tags</a>
-                </li><li>
-                    <a href="/others/">Others</a>
-                </li><li>
-                    <details>
-                        <summary><a href="/abouts">Abouts</a></summary>
-    <ul>
-        
-            
-                <li>
-                    
-                        <a href="/abouts/about">About</a>
-                    
-                </li>
-            
-        
-            
-                <li>
-                    
-                        <a href="/abouts/contact">Contact</a>
-                    
-                </li>
-            
-        
-    </ul>
-</details>
-                </li></ul>
-</div><div id="content" class="content-margin">
+<main>
+            <div id="content" class="content-margin">
                 <div class="content-margin">
     <h1>Tags</h1>
     <div>
@@ -287,6 +298,14 @@
     
         
     
+        
+    
+        
+    
+        
+    
+        
+    
     
 
     
@@ -296,141 +315,195 @@
         
             
             
+            
 
-            <a class="term-item" href="/tags/architecture/">
-                <span style="font-size:1rem">Architecture</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/book/" style="line-height:2.299548906511419rem">
+                <span style="font-size:1.449548906511419rem">Book</span>
+                <span style="font-size:0.675rem"> (3) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/book/">
-                <span style="font-size:1.475488750216347rem">Book</span>
-                <span style="font-size:0.8rem"> (3) </span>
+            <a class="term-item" href="/tags/read/" style="line-height:2.0875rem">
+                <span style="font-size:1.2375rem">Read</span>
+                <span style="font-size:0.675rem"> (2) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/csv/">
-                <span style="font-size:1rem">CSV</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/daily/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Daily</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/emacs/">
-                <span style="font-size:1rem">Emacs</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/emacs/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Emacs</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/emacs-lisp/">
-                <span style="font-size:1rem">Emacs Lisp</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/java/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">JAVA</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/git/">
-                <span style="font-size:1rem">GIT</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/jvm/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">JVM</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/java/">
-                <span style="font-size:1rem">JAVA</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/project-build/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Project Build</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/jvm/">
-                <span style="font-size:1rem">JVM</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/%E8%AF%BB%E4%B9%A6/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">读书</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/maven/">
-                <span style="font-size:1rem">Maven</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/emacs-lisp/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Emacs Lisp</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/project-build/">
-                <span style="font-size:1rem">Project Build</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/repair/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Repair</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/read/">
-                <span style="font-size:1.3rem">Read</span>
-                <span style="font-size:0.8rem"> (2) </span>
+            <a class="term-item" href="/tags/soft-skills/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Soft Skills</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/rust/">
-                <span style="font-size:1rem">Rust</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/todo/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Todo</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/soft-skills/">
-                <span style="font-size:1rem">Soft Skills</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/%E6%9E%B6%E6%9E%84/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">架构</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/%E6%9E%B6%E6%9E%84/">
-                <span style="font-size:1rem">架构</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/%E8%AE%BE%E8%AE%A1/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">设计</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/%E7%A8%8B%E5%BA%8F/">
-                <span style="font-size:1rem">程序</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/%E7%A8%8B%E5%BA%8F/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">程序</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/%E8%AE%BE%E8%AE%A1/">
-                <span style="font-size:1rem">设计</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/csv/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">CSV</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
             
             
+            
 
-            <a class="term-item" href="/tags/%E8%AF%BB%E4%B9%A6/">
-                <span style="font-size:1rem">读书</span>
-                <span style="font-size:0.8rem"> (1) </span>
+            <a class="term-item" href="/tags/git/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">GIT</span>
+                <span style="font-size:0.675rem"> (1) </span>
+            </a>
+        
+            
+            
+            
+
+            <a class="term-item" href="/tags/maven/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Maven</span>
+                <span style="font-size:0.675rem"> (1) </span>
+            </a>
+        
+            
+            
+            
+
+            <a class="term-item" href="/tags/rust/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Rust</span>
+                <span style="font-size:0.675rem"> (1) </span>
+            </a>
+        
+            
+            
+            
+
+            <a class="term-item" href="/tags/work/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Work</span>
+                <span style="font-size:0.675rem"> (1) </span>
+            </a>
+        
+            
+            
+            
+
+            <a class="term-item" href="/tags/architecture/" style="line-height:1.725rem">
+                <span style="font-size:0.875rem">Architecture</span>
+                <span style="font-size:0.675rem"> (1) </span>
             </a>
         
     </div>
+
 </div>
 </div>
 
@@ -438,10 +511,10 @@
                     
                 
             </div>
+        </main>
 <footer>
     <article>Copyright © 2021-2023 by Whatspeng!!!</article>
 </footer>
 
-</main>
-    </body>
+</body>
 </html>

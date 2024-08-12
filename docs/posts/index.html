@@ -14,6 +14,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang='en'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
@@ -30,16 +31,18 @@
     
 
     
-        <meta property="og:title" content="Posts" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/posts/" />
+        <meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
 
     
 
     
-        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content=""/>
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
 
     <link rel="stylesheet" href="/style.css" integrity="">
 
@@ -82,12 +85,15 @@
 
 
 
+
+    
 </head>
-<body>
-        <main><header>
-    <div class="brand">
+<body><header>
+    <div id="header_left">
         <div id="sidebar_btn">
-            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -97,10 +103,46 @@
 </svg>
 
 </svg>
-        </div>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
 
-        <div>
-            <a href="/">石记</a>
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
         </div>
     </div>
 
@@ -190,6 +232,7 @@
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
                     <ul class="pure-menu-children">
+
     
         <li class="pure-menu-item">
             
@@ -197,6 +240,7 @@
             
         </li>
     
+
 
     
         <li class="pure-menu-item">
@@ -209,41 +253,8 @@
 </ul>
                 </li></ul>
 </nav>
-<div id="sidebar_canvas_overlay" class="hidden"></div>
-<div id="sidebar" class="close">
-    <ul><li>
-                    <a href="/posts/">posts</a>
-                </li><li>
-                    <a href="/categories">Categories</a>
-                </li><li>
-                    <a href="/tags">Tags</a>
-                </li><li>
-                    <a href="/others/">Others</a>
-                </li><li>
-                    <details>
-                        <summary><a href="/abouts">Abouts</a></summary>
-    <ul>
-        
-            
-                <li>
-                    
-                        <a href="/abouts/about">About</a>
-                    
-                </li>
-            
-        
-            
-                <li>
-                    
-                        <a href="/abouts/contact">Contact</a>
-                    
-                </li>
-            
-        
-    </ul>
-</details>
-                </li></ul>
-</div><div id="content" class="content-margin">
+<main>
+            <div id="content" class="content-margin">
                 
 
 
@@ -252,6 +263,15 @@
             <h1>2024</h1>
 
 <ul class="list-layout">
+    
+        <li>
+            <a href="/posts/%E4%BF%AE%E7%AE%A1%E6%97%A5%E5%B8%B8fq/">修管日常FQ</a>
+            
+                <span>
+                    05/25
+                </span>
+            
+        </li>
     
         <li>
             <a href="/posts/rust%E7%AC%94%E8%AE%B0/">Rust笔记</a>
@@ -438,10 +458,10 @@
                     
                 
             </div>
+        </main>
 <footer>
     <article>Copyright © 2021-2023 by Whatspeng!!!</article>
 </footer>
 
-</main>
-    </body>
+</body>
 </html>
