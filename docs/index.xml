@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>石记</title>
-    <link>https://stoneepigraph.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DDIA</title>
-      <link>https://stoneepigraph.github.io/posts/ddia/</link>
+      <link>http://localhost:1313/posts/ddia/</link>
       <pubDate>Tue, 27 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/ddia/</guid>
+      <guid>http://localhost:1313/posts/ddia/</guid>
       <description>数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：
 数据库： 用以存储数据，这样之后应用可以再次访问 调整缓存：缓存那些复杂或操作代价昂贵的结果，以加快下一次访问。 索引：用户可以按安搜索数据并支持各种过滤。 流式处理：持续发送消息臻另一个进程，处理采用异步方式 批处理：定期处理大量的累积数据。 可靠性
 当出现意外情况，如硬件、软件故障、人为失误等，系统应可以继续正常运转：虽然性能可能有所降低，但确保功能正确。对于软件,典型的可靠性期望包括:
@@ -41,10 +41,10 @@
     
     <item>
       <title>csapp</title>
-      <link>https://stoneepigraph.github.io/posts/csapp/</link>
+      <link>http://localhost:1313/posts/csapp/</link>
       <pubDate>Mon, 26 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/csapp/</guid>
+      <guid>http://localhost:1313/posts/csapp/</guid>
       <description>计算机系统漫游 信息就是位+上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。
 了解编译系统如何工作是大有益处的 优化程序性能 理解链接时出现的错误 避免安全漏洞 处理器读并解释储存在中的指令 系统的硬件组成 总线 I/O设备 主存 处理器
 加载 存储 操作 跳转 高速缓存至关重要 存储设备形成层次结构 在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。
@@ -67,19 +67,19 @@ C语言中的位级运算
     
     <item>
       <title>修管日常FQ</title>
-      <link>https://stoneepigraph.github.io/posts/%E4%BF%AE%E7%AE%A1%E6%97%A5%E5%B8%B8fq/</link>
+      <link>http://localhost:1313/posts/%E4%BF%AE%E7%AE%A1%E6%97%A5%E5%B8%B8fq/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/%E4%BF%AE%E7%AE%A1%E6%97%A5%E5%B8%B8fq/</guid>
+      <guid>http://localhost:1313/posts/%E4%BF%AE%E7%AE%A1%E6%97%A5%E5%B8%B8fq/</guid>
       <description>企业平台 用户名密码错误企业平台账号为备案编号去掉修备的12位数字, 忘记密码联系企业所属修管科重置密码. 下载企业平台群文件有最新的企业平台安装包 企业平台提示网络异常或者老版本的(参数不是字符串) 确认一下电脑的internet Explorer浏览器能不能正常访问: https://weixiu.bjysgl.cn/bjvmpsf/f/ 正常情况下确认一下internet Explorer浏览器能不能正常上网就可以,如果能正常上网企业平台还是提示网络有问题,那么试一下上边儿的地址. 企业平台提示网络异常 确认一下是不是XP系统,企业平台已经不再支持XP系统了 确认一下internet Explorer浏览器能不能正常访问: https://weixiu.bjysgl.cn/bjvmpsf/f/ 无法访问,核实一下internet选项里的TLS1.2是不是勾选了, 现在企业平台最低要求TLS1.2(所以XP系统无法正常访问了,还有部分电脑默认是没选择TLS1.2的) 还无法访问,需要核实一下云服务商是不是对企业的外网IP做了封禁 无法上传附件核实一下internet选项里的TLS1.2是不是勾选了 打印合格证的时候提示未指定的错误去QQ群文件下载最新的企业平台安装包重新安装 企业找不到自己的备案编号让企业自己去这个地址https://weixiu.bjysgl.cn/bjvmpsf/f/ 查询备案编号 在这个网址查询不到企业的原因？ 确认企业是不是备案成功了 在这个页面查询时只输入企业名称，要么一定要跟备案的企业名称一称，要么只输入确认的几个字 登录企业平台提示账号已锁定让企业联系所属修管科, 一般是修管科将企业列入经营地异常会导致这种情况. 自动采集接口提示账号已锁定让企业去技术支持群下载最新的企业平台重新安装 登录企业平台提示未绑定MAC地址让企业从技术支持群的群文件里获取获取MAC地址的工具和操作视频,获取到MAC地址后上报给企业所属的修管科 企业说联系过修管科了,修管科也给绑定了MAC地址,可是还是登录不上去. 让企业发一下获取MAC地址工具结果截图, 登录企业平台露出登录账号和报错信息的截图和企业的备案编号三样东西给咱们,去系统里核对是否是绑定成功了. 企业要修管科的联系方式群文件有一个叫&amp;quot;本市道路运输管理部门联系电话&amp;quot;的文档, 咱们只有修管科这一个联系方式. 企业平台提示&amp;quot;下载错误,请联系管理员&amp;quot; 直接从群文件下载最新的企业平台安装包,重新安装. 企业平台被杀毒软件误杀技术支持群里有&amp;quot;企业被杀毒软件误杀的解决办法&amp;quot;文档. 企业录入维修纪录时无法选择维修接待员/质保员/维修人员人员是是按在职或兼职岗位在企业平台已经录入的人员列表里查询的 维修接待对应售后服务部下的维修接待员 质检员对应售后服务部的质量检验员 维修人员对应售后服务部下的机修技师,电气维修技师等 企业录入维修纪录时点击保存后一直转圈,未提示&amp;quot;保存成功&amp;quot; 这种情况有可能是网络问题,有可能是企业录入的日期不符合规范(还未修复),还有可能是维修配件里带有英文的逗号(最新版本已修复,不会再有这个问题). 维修纪录提示车牌号错误这种情况有可能是特殊的车牌号或者企业录入错误,让企业提供一下行驶证,我去核对一下. 维修纪录里车牌号码不能选择别的省的车牌车牌字头的下拉框是可以直接输入的.直接录入就可以. 合格证无法打印让企业确认一下Internet Explorer浏览器能不能正常打印内容. 如果正常再找我们. 如果不正常就是打印机的默认设置有问题了. 企业登记信息上报未通过需要重新上报您可在“综合查询-行管通知查询”，查看在最上方的&amp;quot;机动车维修经营登记信息审核结果通知书&amp;quot;，点击附件名称，下载通知书，查看审核未通过原因 企业登记审核结果通知书里提示企业缺少对应的配件及人员, 企业说企业本身就没这些人员或者设备 告诉企业登记信息的核对结果是按企业的开业条件去审核的. 提示质量检验员未上报驾驶证的,按企业的经营范围,给质量检验员上报驾驶证就可以了. 提示人员学历或职称不达标的,给对应的人员上传对应的学历 企业维修设备有些设备数量无法修改无法修改的设备可以多次点&amp;quot;添加&amp;quot;按钮,添加多条 企业登记信息上报时提示&amp;quot;环保措施或管理制度数据是否上报不完整&amp;quot; 确认一下管理制度里带星的是不是都上传了文件. 人员录入提示人员在其他企业在职 让员工联系上家企业办理离职 如果联系不到上家企业或者上家企业已经不经营了,那么联系企业所属修管科, 让修管科联系咱们办理离职 维修管理制度，环保制度上传格式问题 PDF, DOC,JPG,PNG 无法上传时需要修改选择文件类型 企业已经录入维修接待员,可还是无法选择维修接待人员 人员是否已录入 确认一下网络是否正常，首页是不是能正常获取数据，如果不能的话，确认一下网络是否正常，在internet选项里添加一下TLS1.2的支持。 环评是否上传环评现在不要求必传,如果做过了可以上传环评结果,没做过就可以不传了.</description>
     </item>
     
     <item>
       <title>Rust笔记</title>
-      <link>https://stoneepigraph.github.io/posts/rust%E7%AC%94%E8%AE%B0/</link>
+      <link>http://localhost:1313/posts/rust%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 07 Apr 2024 23:32:39 +0800</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/rust%E7%AC%94%E8%AE%B0/</guid>
+      <guid>http://localhost:1313/posts/rust%E7%AC%94%E8%AE%B0/</guid>
       <description>Rust基础 数据类型 说明 Rust不会自动进行隐式类型转换。
 Rust的整数类型都实现了From&amp;lt;T&amp;gt;和Into&amp;lt;T&amp;gt;trait, 使得我们可以在它们之间进行转换。From&amp;lt;T&amp;gt;trait包含from()方法，Into&amp;lt;T&amp;gt;trait包含into()方法。类型通过实现这些trait来表达它将被如何转换为另一个类型。
 String 和 &amp;amp;str &amp;amp;str 是一个指向字符串片段的不可变引用 String是一个可变字符串缓冲区 对于String类型来说，应该倾向于使用&amp;amp;str,而不是&amp;amp;String.
@@ -99,10 +99,10 @@ iter() 返回一个只读可重入迭代器,迭代器元素的类型为&amp;amp;
     
     <item>
       <title>如何设计程序</title>
-      <link>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</link>
+      <link>http://localhost:1313/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</link>
       <pubDate>Sun, 07 Apr 2024 23:24:21 +0800</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</guid>
+      <guid>http://localhost:1313/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</guid>
       <description>如何设计程序 Base 基本程序设计步骤 六个基本的程序设计步骤
 问题分析和数据定义 合约,用途说明与结果的描述,函数头部 例子 函数模板 函数定义 测试 六个步骤产生定义明确的中间结果
 问题数据类型描述 程序行为的非形式描述 说明程序行为的例子 开发程序的模板或视图 把模板转换成完整的定义 通过测试发现错误 要正确的设计程序需要做到
@@ -128,10 +128,10 @@ cond表达式
     
     <item>
       <title>Emacs Lisp</title>
-      <link>https://stoneepigraph.github.io/posts/emacslisp/</link>
+      <link>http://localhost:1313/posts/emacslisp/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/emacslisp/</guid>
+      <guid>http://localhost:1313/posts/emacslisp/</guid>
       <description>ELisp 快捷键 格式化区域代码： C - M - \ 执行代码： C - x C - e 相当于 eval-last-sexp
 执行代码并将执行结果放到光标处： C - u C - x C - e 查找更多信息 查询函数信息： C - h f 查询变量信息： C - h v 查询快捷键信息： C - h k 使用正则表达式查询函数名： M - x apropos 数据类型 内建 内建的Emacs数据类型称为primitive types, 包括整数、浮点数、cons、符号（symbol)、字符串、向量(vector)、散列表(hash-table)、subr(内建函数， 比如cons, if, and)、byte-code function, 和其它特殊类型， 例如缓冲区(buffer)
 数字 Emacs的数字分为整数和浮点数。1.属于整数
@@ -142,10 +142,10 @@ cond表达式
     
     <item>
       <title>JVM简述</title>
-      <link>https://stoneepigraph.github.io/posts/jvm/</link>
+      <link>http://localhost:1313/posts/jvm/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/jvm/</guid>
+      <guid>http://localhost:1313/posts/jvm/</guid>
       <description>类的加载,连接与初始化 加载 指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.
 类的加载方式 从本地系统中直接加载 从网络下载.class 从zip, jar等归档中加载.class文件 从专有数据库中提取.class文件 将Java源文件动态的编译为.class文件 连接 验证确保被加载的类的正确性 准备为类的静态变量分配内存,并将其初始化为默认值 解析把类中的符号引用转换为直接引用 类的使用 主动使用 创建类的实例 访问某个类或接口的静态变量或对静态变量赋值 访问类的静态方法 反射 初始化一个类的子类 Java虚拟机启动时被标明为启动类的类 JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandler实例的解析结果REF_getStatic, REF_PUTsTATIC, REF_invokeStatic句柄对应的类没有初始化，则初始化。 被动使用 初始化 所有的Java虚拟机实现必须在每个类或接口被Java程序&amp;quot;首次主动使用&amp;quot;时才进行初始化.
 注意 当一个常量的值并非编译期间可以确定的,那么其值就不会被放到调用类的常量池中,这时在程序运行时,会导致主动使用这个常量所在的类,显然会导致这个类被初始化. 主动使用的方式 创建类的实例 访问某个类或接口的静态变量,或者对该静态变量赋值 调用类的静态方法 反射如Class.forName(&amp;ldquo;com.path.ClassName&amp;rdquo;) 初始化一个类的子类 Java虚拟机启动时被标明为启动类的类 JDK1.7开始提供的动态语言支持. 虚拟机参数 Tips 说明 -XX:+&amp;lt;option&amp;gt;, 表示开启option选项 -XX:-&amp;lt;option&amp;gt;, 表示关闭option选项 -XX:&amp;lt;option&amp;gt;=&amp;lt;value&amp;gt;, 表示将option选项的值设置为value 参数 &amp;ndash;XX:+TraceClassLoading: 用于追踪类的加载信息并打印出来. -Xss1M: 设置最大调用深度，防止栈举出。StackOverflowError。 -XX:MaxTenuringThreshold: 指定新征伐对象经过多少次回收后进入老年代，默认为15次。 -XX:PretenureSizeThreshold: 指定对象的大小超过在指定的大小之后，直接晋升老年代。 TLAB -XX:+UseTLBA: 使用TLAB, 默认开启。 -XX:+TLABSize: 设置TLAB大小 -XX:TLABRefillWasteFraction：设置维护进入TLAB空间的单个对象大小，他是一个比例值，默认为64,即如果对象大于整个空间的1/64,则在堆创建对象。 -XX:+printTLAB：查看TLAB。 -XX:ResizeTLAB: 自调整TLABRefillWasteFraction阀值。 垃圾收集器 -XX：UseSerialGC： 使用串行垃圾回收器。 -XX:+useParNewGC: 新生代使用ParNew回收器。老年代使用串行回收器。 -XX:parallelGCThreads： 指定Parnew收集器的线程数。 ParallelGC -XX:MaxGCPauseMills: 设置最大垃圾收集停顿时间。 -XX：GCTimeRatio： 设置吞量大小，它是一个0到100之间的整数，默认为100。 -XX:UseAdaptiveSizePolicy: 打开自适应模式。 CMS -XX:+UseConcMarkSweepGC -XX:ConcGCThreads:设置并发线程数量。 虚拟机调优策略 JVM参数调优主要设置堆内存，主要让GC不要去频繁回收垃圾，减少对老年代的回收。配置时让-Xms与-Xmx一致。</description>
@@ -153,39 +153,39 @@ cond表达式
     
     <item>
       <title>Docker笔记</title>
-      <link>https://stoneepigraph.github.io/posts/docker/</link>
+      <link>http://localhost:1313/posts/docker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/docker/</guid>
+      <guid>http://localhost:1313/posts/docker/</guid>
       <description>入门 什么是Docker docker是一个容器技术。
 Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker &amp;ndash;help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi &amp;hellip; 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 &amp;ndash;name containerName -it 导入容器 docker load -i dockerTag.</description>
     </item>
     
     <item>
       <title>FreeMarker入门</title>
-      <link>https://stoneepigraph.github.io/posts/freemarker/</link>
+      <link>http://localhost:1313/posts/freemarker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/freemarker/</guid>
+      <guid>http://localhost:1313/posts/freemarker/</guid>
       <description>入门 模板 + 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&amp;lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意
 值域表达式本身没有方括号 可以在..的两侧编写自述表达式而不需要圆括号 .., ..&amp;lt;, ..!, ..*是去处符,所以它们中间不能有空格. 无右边界值域的定义大小是2147483647 值域并不存储它们包含的数字. 哈希表 像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先. 模板 插值: ${paramsName} FTL标签 FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#. 注释注释使用&amp;lt;#&amp;ndash; and &amp;ndash;&amp;gt; 来标识 其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来. 基本指令 IF指令 &amp;lt;#if condition&amp;gt; &amp;lt;/#if&amp;gt; &amp;lt;#if condition&amp;gt; if statement &amp;lt;#elseif condition&amp;gt; elseif statement &amp;lt;#else&amp;gt; else statement &amp;lt;/#if&amp;gt; list指令展示列表内容 基本 &amp;lt;ul&amp;gt; &amp;lt;#list listObj as obj&amp;gt; &amp;lt;li&amp;gt;${ojb} &amp;lt;/#list&amp;gt; &amp;lt;/ul&amp;gt; 如果列表为空的话,整个列表都不展示 &amp;lt;#list listObj&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj} &amp;lt;/ul&amp;gt; &amp;lt;/#list&amp;gt; 如果列表为空的话展示一些其它信息 &amp;lt;#list listObj&amp;gt; &amp;lt;p&amp;gt; ListDesc: &amp;lt;ul&amp;gt; &amp;lt;#items as obj&amp;gt; &amp;lt;li&amp;gt;${obj}&amp;lt;#sep&amp;gt;septarator&amp;lt;/#sep&amp;gt; &amp;lt;/#items&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;#else&amp;gt; &amp;lt;p&amp;gt; list is empty.</description>
     </item>
     
     <item>
       <title>Gitignore</title>
-      <link>https://stoneepigraph.github.io/posts/git/gitignore/</link>
+      <link>http://localhost:1313/posts/git/gitignore/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/git/gitignore/</guid>
+      <guid>http://localhost:1313/posts/git/gitignore/</guid>
       <description> 规则 mtk 过滤整个文件夹 *.zip 过滤所有.zip文件 /mtk/do.c 过滤某个具体文件 !*.zip 反忽略 !/mtk/one.txt反忽略 *.a # 忽略所有 .a 结尾的文件 !lib.a # 但 lib.a 除外 /TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO build/ # 忽略 build/ 目录下的所有文件 doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt </description>
     </item>
     
     <item>
       <title>Git常用命令</title>
-      <link>https://stoneepigraph.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>http://localhost:1313/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>http://localhost:1313/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>Git常用命令 新建代码库 在当前目录新建一个Git代码库 &amp;gt; git init
 新建一个目录，将其初始化为Git代码库 &amp;gt; git init [Project_name]
 下载一个项目和它的整个代码历史 &amp;gt; git clone [url]
@@ -197,10 +197,10 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
     
     <item>
       <title>maven基础</title>
-      <link>https://stoneepigraph.github.io/posts/maven/</link>
+      <link>http://localhost:1313/posts/maven/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/maven/</guid>
+      <guid>http://localhost:1313/posts/maven/</guid>
       <description>Maven库： http://repo2.maven.org/maven2/
 Maven依赖查询： http://mvnrepository.com/
 Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -DgroupId=packageName -DartifactId=projectName 创建Maven的Web项目： ​ mvn archetype:create ​ -DgroupId=packageName ​ -DartifactId=webappName ​ -DarchetypeArtifactId=maven-archetype-webapp
@@ -210,19 +210,19 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>SVN常用命令</title>
-      <link>https://stoneepigraph.github.io/posts/svn/</link>
+      <link>http://localhost:1313/posts/svn/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/svn/</guid>
+      <guid>http://localhost:1313/posts/svn/</guid>
       <description> 常用SVN命令 svn checkout 签出,创建新的工作拷贝. svn info 搞清楚工作拷贝从哪里来的. svn update 从项目仓库中更新目录中的所有文件 svn add 添加文件的目录到项目仓库中 svn propset 设置文件的属性 svn add 添加文件 svn delete 删除文件 svn move src.file dist.file 移动文件 svn commit -m &amp;lsquo;提交信息&amp;rsquo; svn log filename 查看指定文件的历史 svn diff 展示文件版本之间的差异. 在版本之间找差异 svn diff -r19:21 filename 使用-r选项来指定一个版本范围 svn revert 删掉本地改动并使用项目仓库中的文件版本 svn resolved 修正冲突后执行 svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人 svn update 获取最新的代码 svn merge -r 27:26 filename 移除file中版本27的改动 svn lock filename 给文件加锁 </description>
     </item>
     
     <item>
       <title>UML</title>
-      <link>https://stoneepigraph.github.io/posts/uml/</link>
+      <link>http://localhost:1313/posts/uml/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/uml/</guid>
+      <guid>http://localhost:1313/posts/uml/</guid>
       <description> 基础知识 UML图 类图 表述系统中各个对象的类型以及其间存在的各种静态关系.类图也示明类中的特性和操作以及用于对象连接方式的约束.
 聚合与组合
 聚合是整体-部分关系.
@@ -253,10 +253,10 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>代码之外的生存指南</title>
-      <link>https://stoneepigraph.github.io/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
+      <link>http://localhost:1313/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
+      <guid>http://localhost:1313/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
       <description>为何这本书与你先前读过的任何书籍都迥然不同 讲述如何成为一名优秀的软件开发人员的书，优秀开发人员指的是那些能够把控自己的职业生涯，达成目标，享受生活的人。本书并不再讨论你能做什么，而是讨论你自己。关乎你的职业生涯，你的生活，你的身体，你的思想及你的灵魂。
 职业生涯：学习如何主动管理自己的职业生涯，从而达到自己追寻的结果。 自我营销：学习如何推销自己。 如何打造个人品牌，如何打造一个成功的博客，如何通过演讲，教学，著书立说的方式让你扬名立万。 学习：学习如何学习，学习如何自觉 生产力：关于如何让工作更加富有成效的 理财：学习如何有效地管理你赚到的财。 健身： 精神： 职业 你所能犯的最大错误就是相信自己是在为别人工作。这样一来你对工作的安全感已然尽失。职业发展的驱动力一定是来自个体本身。记住：工作是属于公司的，而职业生涯却是属于你自己的。体验决策过程：你要决定自己想要从软件开发这个职业中获得什么，以及如何去获得。
 从非同凡响开始：绝不要做其他人都在做的事 拥有商业心态 因为只有你开始把自己当作一个企业去思考时，你才能开始做出良好的商业决策。尽管在你的职业生涯的某个特定时间段里，你可能确实是在为某家公司打工，但是千万不要让那个特定的角色固化了你和你的整个职业生涯。我们需要把雇主当作是自己的软件开发企业的一个客户。
@@ -289,19 +289,19 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>学习</title>
-      <link>https://stoneepigraph.github.io/posts/study/</link>
+      <link>http://localhost:1313/posts/study/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/study/</guid>
+      <guid>http://localhost:1313/posts/study/</guid>
       <description> 提问 提问的智慧 提问的智慧http://www.catb.org/~esr/faqs/smart-questions.html 提问的智慧https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md 学习新技术的逻辑 这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。这个问题非常关键，也就是说，你在学习一个技术的时候，需要知道这个技术的成因和目标，也就是这个技术的灵魂。如果不知道这些的话，那么你会看不懂这个技术的一些设计理念。 这个技术的优势和劣势分别是什么，或者说，这个技术的 trade-off 是什么。任何技术都有其好坏，在解决一个问题的时候，也会带来新的问题。另外，一般来说，任何设计都有 trade-off（要什么和不要什么），所以，你要清楚这个技术的优势和劣势，以及带来的挑战。 这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景，这个技术可能会有很多槽点，所以学习技术不但要知道这个技术是什么，还要知道其适用的场景。没有任何一个技术是普适的。注意，所谓场景一般分别两个，一个是业务场景，一个是技术场景。 技术的组成部分和关键点。这是技术的核心思想和核心组件了，也是这个技术的灵魂所在了。学习技术的核心部分是快速掌握的关键。 技术的底层原理和关键实现。任何一个技术都有其底层的关键基础技术，这些关键技术很有可能也是其它技术的关键基础技术。所以，学习这些关键的基础底层技术，可以让你未来很快地掌握其它技术。可以参看我在 CoolShell 上写的 Docker 底层技术那一系列文章。 已有的实现和它之间的对比。一般来说，任何一个技术都会有不同的实现，不同的实现都会有不同的侧重。学习不同的实现，可以让你得到不同的想法和思路，对于开阔思维，深入细节是非常重要的。 </description>
     </item>
     
     <item>
       <title>重构2</title>
-      <link>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</link>
+      <link>http://localhost:1313/posts/%E9%87%8D%E6%9E%842/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</guid>
+      <guid>http://localhost:1313/posts/%E9%87%8D%E6%9E%842/</guid>
       <description>开始 本章重构：
 将原函数分解成一组嵌套的函数 分离计算逻辑与输出格式化逻辑 为计算器引入多态性来处理计算逻辑 好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积
 重构的原则 何谓重构 名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本. 动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构. 重构时不添加新功能,添加新功能时不重构. 为何重构 改进软件的设计 使软件更容易理解 帮助找到BUG 提高编程速度 何时重构 事不过三, 三则重构
@@ -320,55 +320,55 @@ Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -Dgr
     
     <item>
       <title>About</title>
-      <link>https://stoneepigraph.github.io/abouts/about/</link>
+      <link>http://localhost:1313/abouts/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/abouts/about/</guid>
+      <guid>http://localhost:1313/abouts/about/</guid>
       <description>I won&amp;rsquo;t be a loser!!!</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>https://stoneepigraph.github.io/abouts/contact/</link>
+      <link>http://localhost:1313/abouts/contact/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/abouts/contact/</guid>
+      <guid>http://localhost:1313/abouts/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Emacs-shortcutKeys</title>
-      <link>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link>
+      <link>http://localhost:1313/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>http://localhost:1313/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid>
       <description>Emacs shortcutKeys 基本快捷键（Basic） C-x C-f 查找文件，即在缓冲区打开/新建一个文件 C-x C-s 保存文件 C-x C-w 使用其他文件名另存为文件 C-x C-v 关闭当前缓冲区文件并打开新文件 C-x i 在当前光标处插入文件 C-x b 新建/切换缓冲区 C-x C-b 显示缓冲区列表 C-x k 关闭当前缓冲区 C-z 挂起Emacs C-x C-c 关闭Emacs 光标移动基本快捷键（Basic Movement） C-f 后一个字符 C-b 前一个字符 C-p 上一行 C-n 下一行 M-f 后一个单词 M-b 前一个单词 C-a 行首 C-e 行尾 C-v 向下翻一页 M-v 向上翻一页 M-&amp;lt; 到文件开头 M-&amp;gt; 到文件末尾 编辑（Editint） M-n 重复执行最后一个命令N次 C-u 重复执行后一个命令4次 C-u 重复执行后一个命令N次 C-d 删除后一个字符 Del 删除前一个字符 M-Del 删除前一个单词 C-k 移除到行尾 C-Space 设置开头标记 C-@ 设置开头标记，用于C-Space被操作系统拦截的情况 C-w 移除标记区域的内容 M-w 复制标记区域的内容 C-y 粘贴复制或移除的区域/行 M-y 粘贴更早的内容 C-x C-x 交换光标和标记 C-t 交换两个字符的位置 C-x C-t 交换两行的位置 M-t 交换两个单词的位置 M-u 使从光标位置到单词结尾处的字母变成大写 M-l 使从光标位置到单词结尾处的字母变成小写 M-c 使光标位置开始的单词的首字母变成大写 C-x r l 命名剪切板列表 C-x r s name 插入命令剪切板 重要快捷键 C-g 停止当前运行/输入的命令 C-x u 撤消前一个命令 M-x revert-buffer RET 撤消上次存盘后所有改动 M-x recover-file RET 从自动存盘文件恢复 M-x recover-session RET 如果编辑了几个文件，用这个恢复 C-c C-e 导出 在线帮助（Online-help） C-h c 显示快捷键绑定的命令 C-h k 显示快捷键绑定的命令和它的作用 C-h l 显示最后100个键入的内容 C-h w 显示命令被绑定到哪些快捷键上 C-h f 显示函数的功能 C-h v 显示变量的含义和值 C-h b 显示当前缓冲区所有可用的快捷键 C-h t 打开Emacs教程 C-h i 打开info阅读器 C-h C-f 显示emacs FAQ C-h p 显示本机Elisp包的信息 搜索/替换（Search/Replace） C-s 向后搜索 C-r 向前搜索 C-g 回到搜索开始前的位置（如果你仍然在搜索模式中） M-% 询问并替换（query replace） Space或y 替换当前匹配 Del或n 不要替换当前匹配 .</description>
     </item>
     
     <item>
       <title>Jenkins入门</title>
-      <link>https://stoneepigraph.github.io/posts/jenkins%E5%85%A5%E9%97%A8/</link>
+      <link>http://localhost:1313/posts/jenkins%E5%85%A5%E9%97%A8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/jenkins%E5%85%A5%E9%97%A8/</guid>
+      <guid>http://localhost:1313/posts/jenkins%E5%85%A5%E9%97%A8/</guid>
       <description> gitlab配置 wget &amp;ndash;content-disposition https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-13.2.4-ce.0.el7.x86_64.rpm/download.rpm 安装信赖 yum install curl openssh-server postfix cronie yum -y install policycoreutils-python rpm -ivh gitlab-ce config gitlab vi /etc/gitlab/gitlab.rb external_url: nginx[&amp;rsquo;listen_port&#39;] gitlab-ctl reconfigure gitlab-ctl restart 配置防火墙 配置gitlab组及用户 jenkins安装 安装Jenkins跳过插件安装 jenkins插件安装 tips 三台服务器,一台gitlab, 一台Jenkins, 一台测试服务器 </description>
     </item>
     
     <item>
       <title>Oracle一些简单查询</title>
-      <link>https://stoneepigraph.github.io/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</link>
+      <link>http://localhost:1313/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</guid>
+      <guid>http://localhost:1313/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</guid>
       <description>Oracle一些基本查询 字符集相关 查询数据库字符集 select userenv(&#39;language&#39;) from dual; 实例相关 查询实例名 select instance_name from v$instance; 锁相关 查看被锁的表 select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time; 杀死锁进程 alter system kill session &#39;id,serial*&#39;; 查询表之前的状态 select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL &#39;50&#39; MINUTE) 用户 查询当前用户的缺省表空间 select username,default_tablespace from user_users; 查询当前用户的角色 select * from user_role_privs; 查看当前用户的系统权限和表级权限 select * from user_sys_privs; select * from user_tab_privs; 查询用户下的所有的表 select * from user_tables; 表 查看用户下所有的表 select * from user_tables; 查看名称包含log字符的表 select object_name,object_id from user_objects where instr(object_name,&#39;LOG&#39;)&amp;gt;0; 查询表的创建时间 select object_name,created from user_objects where object_name=upper(&#39;&amp;amp;table_name&#39;); 查询表的大小 select sum(bytes)/(1024*1024) as &amp;quot;size(M)&amp;quot; from user_segments where segment_name=upper(&#39;&amp;amp;table_name&#39;); 查看放在Oracle的内存区里的表 select table_name,cache from user_tables where instr(cache,&#39;Y&#39;)&amp;gt;0; 查询表的DDL语句 select dbms_metadata.</description>
     </item>
     
     <item>
       <title>postgresql-note</title>
-      <link>https://stoneepigraph.github.io/posts/postgresql%E7%AC%94%E8%AE%B0/</link>
+      <link>http://localhost:1313/posts/postgresql%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://stoneepigraph.github.io/posts/postgresql%E7%AC%94%E8%AE%B0/</guid>
+      <guid>http://localhost:1313/posts/postgresql%E7%AC%94%E8%AE%B0/</guid>
       <description>安装及配置 安装 下载postgresql https://www.postgresql.org/download/ 安装 按照官网的说明安装 su - postgres -c &amp;quot;pg_ctl -D /var/lib/postgres/data -l /var/log/postgresql/postgresql.log start&amp;quot; 切换到postgres用户修改postgres密码 su - postres alter user postgres with password &#39;passwod&#39; 备份及恢复 备份 pg_dump dbname &amp;gt; dbname.bak # 备份单个数据库 pg_dumpall &amp;gt; pd_backup.bak # 备份所有的数据库 备份格式有三种， 可以使用-F指定
 *.bak 压缩二进制文件 *.sql 明文转储 *.tar tarball t 恢复 psql dbname &amp;lt; dbanme.bak pg_restore -U postgres -d dbname /tmp/back_filename.tar 注意 使用psql恢复数据库需要先创建一个空的对应名称的数据库
 序列 查询序列的值 select nextval(&#39;sys_menu_menu_id_seq&#39;); 修改序列的值从某个新值开始 SELECT setval(&#39;bi_his_corp_policy_part_id_seq&#39;, (SELECT MAX(id) FROM bi_his_corp_policy)); 修改序列 alter sequence sys_menu_menu_id_seq increment by 1 restart with 2354; 基础 函数 创建函数 exp insert create or replace function fun_date2utc(p_date timestamp) returns bigint language pluxsql as $$ declare utc integer; begin utc = 86400 * (p_date - to_date(&#39;1970/01/01 00:00:00&#39;, &#39;YYYY/MM/DD HH24:MI:SS&#39;)) - 8*3600; return utc; end; $$; create trigger trg_insert_local_vehicle2_dynamic before insert on bi_inf_vehicle_local for each row execute procedure check_insert_dynamic_vehicle(); exp delete create function check_delete_dynamic_vehicle() returns trigger language pluxsql as $$ begin delete from vd_sta_vehicle_local where vehicle_id = old.</description>
