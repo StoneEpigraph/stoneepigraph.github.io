@@ -6,11 +6,11 @@
     <description>Recent content on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DDIA</title>
       <link>https://stoneepigraph.github.io/posts/ddia/</link>
-      <pubDate>Tue, 27 Aug 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/posts/ddia/</guid>
       <description>数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：
