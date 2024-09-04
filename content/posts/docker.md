@@ -1,7 +1,9 @@
 +++
 title = "Docker笔记"
-date = 2022-11-25
-categories = ["Docker", "Container"]
+author = ["WhatsUpeng!!!"]
+date = 2024-09-04
+tags = ["Docker", "容器"]
+categories = ["Docker"]
 draft = false
 +++
 
@@ -278,7 +280,13 @@ docker是一个容器技术。
 
 -  ENV
 
-    用来在构建镜像过程中设置环境变量,
+    用来在构建镜像过程中设置环境变量, 在容器构建了使用时都可以使用
+
+<!--list-separator-->
+
+-  ARG
+
+    在构建镜像过程中设置环境变量，在容器构建完成后消失。
 
 <!--list-separator-->
 
@@ -309,6 +317,7 @@ docker是一个容器技术。
 -  ENTRYPOINT
 
     指定一个容器启动时要运行的命令， ENTRYPOINT的目的和CMD一样，都是在指定容器启动程序及参数。如果想覆盖ENTRYPOINT，必须显示指定--entrypoint=Command
+    如果使用ENTRYPOINT会将docker run -I后的命令变成参数传递给ENTRYPOINT
 
 
 ## Docker-Compose {#docker-compose}
@@ -330,12 +339,12 @@ docker是一个容器技术。
 
     ```yml
     networks:
-      bjvm2_nacos:
-        driver: bridge
-        ipam:
-          driver: default
-          config:
-    	- subnet: 172.25.0.0/16
+             bjvm2_nacos:
+               driver: bridge
+               ipam:
+                 driver: default
+                 config:
+                   - subnet: 172.25.0.0/16
     ```
 
 <!--list-separator-->
@@ -378,9 +387,9 @@ version:
 services:
   serviceName:
     volumes:
-      volumesName:/容器内路径
+          volumesName:/容器内路径
     networks:
-      -- networkName
+          -- networkName
 
   ...
 volumes:
@@ -399,7 +408,7 @@ version:
 services:
   serviceName:
     networks:   # 相当于 docker run --network networkName
-      -- networkName
+          -- networkName
   ...
 
 newwork:

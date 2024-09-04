@@ -1,464 +1,658 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Nginx基础 - Stone Minder</title><meta name="Description" content=""><meta property="og:title" content="Nginx基础" />
-<meta property="og:description" content="Nginx基础  Nginx架构  nginx事件模型  nginx是采用的异步非阻塞。  拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。
-  Nginx的worker数最好设置为CPU的核数。     Nginx基本概念  connection  在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。 而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。
-Nginx处理连接的流程  首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。 Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。
-    request  在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。
-      指令  server  用于定义服务，http中可以有多个server块
-  listen  指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口
-  server_name  服务名称，用于配置域名
-  location  用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码
-修饰符    = 进行普通字符精确匹配。也就是完全匹配" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stoneepigraph.github.io/posts/middle/nginx-note/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-13T00:00:00+00:00" />
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nginx-note - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/middle/nginx-note/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Nginx-note">
+  <meta property="og:description" content="Nginx基础1 Nginx架构 nginx事件模型 nginx是采用的异步非阻塞。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="中间件">
+    <meta property="article:tag" content="Nginx">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nginx-note">
+  <meta name="twitter:description" content="Nginx基础1 Nginx架构 nginx事件模型 nginx是采用的异步非阻塞。">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Nginx基础"/>
-<meta name="twitter:description" content="Nginx基础  Nginx架构  nginx事件模型  nginx是采用的异步非阻塞。  拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。
-  Nginx的worker数最好设置为CPU的核数。     Nginx基本概念  connection  在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。 而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。
-Nginx处理连接的流程  首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。 Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。
-    request  在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。
-      指令  server  用于定义服务，http中可以有多个server块
-  listen  指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口
-  server_name  服务名称，用于配置域名
-  location  用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码
-修饰符    = 进行普通字符精确匹配。也就是完全匹配"/>
-<meta name="application-name" content="Stone Minder">
-<meta name="apple-mobile-web-app-title" content="Stone Minder"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://stoneepigraph.github.io/posts/middle/nginx-note/" /><link rel="prev" href="https://stoneepigraph.github.io/posts/live/%E5%A4%8D%E7%9B%98%E5%9F%BA%E7%A1%80/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Nginx基础",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/stoneepigraph.github.io\/posts\/middle\/nginx-note\/"
-        },"genre": "posts","keywords": "\u0027Nginx\u0027,, \u0027中间件\u0027","wordcount":  331 ,
-        "url": "https:\/\/stoneepigraph.github.io\/posts\/middle\/nginx-note\/","datePublished": "2021-09-13T00:00:00+00:00","publisher": {
-            "@type": "Organization",
-            "name": "石头"},"author": {
-                "@type": "Person",
-                "name": "石头"
-            },"description": ""
-    }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="Stone Minder">Stone Minder</a>
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="Stone Minder">Stone Minder</a>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
             </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
     </div>
 </header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Nginx基础</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>石头</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"><i class="far fa-folder fa-fw"></i>中间件</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-13">2021-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;331 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-<ul>
-<li><a href="#headline-1">Nginx基础</a>
-<ul>
-<li><a href="#headline-2">Nginx架构</a>
-<ul>
-<li><a href="#headline-3">nginx事件模型</a>
-<ul>
-<li><a href="#headline-4">nginx是采用的异步非阻塞。</a>
-</li>
-<li><a href="#headline-5">Nginx的worker数最好设置为CPU的核数。</a>
-</li>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
 </ul>
-</li>
-<li><a href="#headline-6">Nginx基本概念</a>
-<ul>
-<li><a href="#headline-7">connection</a>
-<ul>
-<li><a href="#headline-8">Nginx处理连接的流程</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-9">request</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#headline-10">指令</a>
-<ul>
-<li><a href="#headline-11">server</a>
-</li>
-<li><a href="#headline-12">listen</a>
-</li>
-<li><a href="#headline-13">server_name</a>
-</li>
-<li><a href="#headline-14">location</a>
-<ul>
-<li><a href="#headline-15">修饰符</a>
-</li>
-<li><a href="#headline-16">检查顺序</a>
-</li>
-<li><a href="#headline-17">正则表达式</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-18">root</a>
-</li>
-<li><a href="#headline-19">index</a>
-</li>
-<li><a href="#headline-20">set</a>
-</li>
-<li><a href="#headline-21">proxy_pass</a>
-<ul>
-<li><a href="#headline-22">反向代理（Reverse Proxy)</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-23">upstream</a>
-<ul>
-<li><a href="#headline-24">负载均衡策略</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-25">return</a>
-</li>
-<li><a href="#headline-26">rewrite</a>
-</li>
-<li><a href="#headline-27">error_page</a>
-</li>
-<li><a href="#headline-28">日志</a>
-</li>
-<li><a href="#headline-29">deny</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-30">内置变量</a>
-</li>
-</ul>
-</li>
-</ul>
-</nav></div>
-            </div><div class="content" id="content">
-<div id="outline-container-headline-1" class="outline-2">
-<h2 id="headline-1">
-Nginx基础
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#Nginx基础">Nginx基础1</a>
+      <ul>
+        <li><a href="#nginx架构">Nginx架构</a></li>
+        <li><a href="#指令">指令</a></li>
+        <li><a href="#内置变量">内置变量</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="Nginx基础" class="header-anchor-wrapper">Nginx基础1
+  <a href="#Nginx%e5%9f%ba%e7%a1%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h2>
-<div id="outline-text-headline-1" class="outline-text-2">
-<div id="outline-container-headline-2" class="outline-3">
-<h3 id="headline-2">
-Nginx架构
+
+
+<h3 id="nginx架构" class="header-anchor-wrapper">Nginx架构
+  <a href="#nginx%e6%9e%b6%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h3>
-<div id="outline-text-headline-2" class="outline-text-3">
-<div id="outline-container-headline-3" class="outline-4">
-<h4 id="headline-3">
-nginx事件模型
+
+
+<h4 id="nginx事件模型" class="header-anchor-wrapper">nginx事件模型
+  <a href="#nginx%e4%ba%8b%e4%bb%b6%e6%a8%a1%e5%9e%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-3" class="outline-text-4">
-<div id="outline-container-headline-4" class="outline-5">
-<h5 id="headline-4">
-nginx是采用的异步非阻塞。
-</h5>
-<div id="outline-text-headline-4" class="outline-text-5">
-<p>拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。</p>
-</div>
-</div>
-<div id="outline-container-headline-5" class="outline-5">
-<h5 id="headline-5">
-Nginx的worker数最好设置为CPU的核数。
-</h5>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-6" class="outline-4">
-<h4 id="headline-6">
-Nginx基本概念
-</h4>
-<div id="outline-text-headline-6" class="outline-text-4">
-<div id="outline-container-headline-7" class="outline-5">
-<h5 id="headline-7">
-connection
-</h5>
-<div id="outline-text-headline-7" class="outline-text-5">
-<p>在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。
-     而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。</p>
-<div id="outline-container-headline-8" class="outline-6">
-<h6 id="headline-8">
-Nginx处理连接的流程
-</h6>
-<div id="outline-text-headline-8" class="outline-text-6">
-<p>首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。
-      Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。</p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-9" class="outline-5">
-<h5 id="headline-9">
-request
-</h5>
-<div id="outline-text-headline-9" class="outline-text-5">
-<p>在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-10" class="outline-3">
-<h3 id="headline-10">
-指令
-</h3>
-<div id="outline-text-headline-10" class="outline-text-3">
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
-server
-</h4>
-<div id="outline-text-headline-11" class="outline-text-4">
-<p>用于定义服务，http中可以有多个server块</p>
-</div>
-</div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
-listen
-</h4>
-<div id="outline-text-headline-12" class="outline-text-4">
-<p>指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口</p>
-</div>
-</div>
-<div id="outline-container-headline-13" class="outline-4">
-<h4 id="headline-13">
-server_name
-</h4>
-<div id="outline-text-headline-13" class="outline-text-4">
-<p>服务名称，用于配置域名</p>
-</div>
-</div>
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
-location
-</h4>
-<div id="outline-text-headline-14" class="outline-text-4">
-<p>用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码</p>
-<div id="outline-container-headline-15" class="outline-5">
-<h5 id="headline-15">
-修饰符
-</h5>
-<div id="outline-text-headline-15" class="outline-text-5">
-<ol>
-<li>
-<p>= 进行普通字符精确匹配。也就是完全匹配</p>
-</li>
-<li>
-<p>^~ 前缀匹配。如果匹配成功，则不再匹配其他location.</p>
-</li>
-<li>
-<p>~ 表示执行一个正则匹配，区分大小写 </p>
-</li>
-<li>
-<p>~* 表示执行一个正则匹配，不区分大小写</p>
-</li>
-<li>
-<p><em>xxx</em> 常规字符串路径匹配</p>
-</li>
-<li>
-<p>/ 通用匹配， 任何请求都会匹配到</p>
-</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-headline-16" class="outline-5">
-<h5 id="headline-16">
-检查顺序
-</h5>
-<div id="outline-text-headline-16" class="outline-text-5">
-<p>location = &gt; location 完整路径 &gt; location ^~ &gt; location ~, ~* &gt; location 部分起始路径 &gt; /
-     注意： location的优先级与location配置的位置无关</p>
-</div>
-</div>
-<div id="outline-container-headline-17" class="outline-5">
-<h5 id="headline-17">
-正则表达式
-</h5>
-<div id="outline-text-headline-17" class="outline-text-5">
-<ol>
-<li>
-<p>.: 匹配除换行符以外的任意字符</p>
-</li>
-<li>
-<p>?: 重复0次或1次</p>
-</li>
-<li>
-<p>?+: 重复1次或更多次</p>
-</li>
-<li>
+
+<!--list-separator-->
 <ul>
 <li>
-<pre class="example">
-重复0次或更多次
-</pre>
+<p>nginx是采用的异步非阻塞。</p>
+<p>拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>Nginx的worker数最好设置为CPU的核数。</li>
+</ul>
+
+<h4 id="nginx基本概念" class="header-anchor-wrapper">Nginx基本概念
+  <a href="#nginx%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>connection</p>
+<p>在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Nginx处理连接的流程</p>
+<p>首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。
+Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。</p>
 </li>
 </ul>
 </li>
+</ul>
+<!--list-separator-->
+<ul>
 <li>
-<p>\d: 匹配数字</p>
+<p>request</p>
+<p>在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。</p>
 </li>
-<li>
-<p>^: 匹配字符串的开始</p>
-</li>
-<li>
-<p>$: 匹配字符串的结束</p>
-</li>
-<li>
-<p>{n}: 重复n次</p>
-</li>
-<li>
-<p>{n,}: 重复n次或更多次</p>
-</li>
-<li>
-<p>[c]: 匹配单个字符c</p>
-</li>
-<li>
-<p>[a-z]: 匹配a-z小写字母的任意一个</p>
-</li>
-<li>
-<p>(a|b|c): 竖线表示匹配任意一种情况，每种情况使用竖线分隔，一般使用小括号括住，匹配符合a字符或b字符或是c字符的字符串</p>
-</li>
-</ol>
-<p>小括号()之间匹配的内容，可以在后面通过$1来引用，$2表示的是前面第二个()里的内容。</p>
-<ol>
-<li>
-<p>\: 用于转义特殊字符</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-18" class="outline-4">
-<h4 id="headline-18">
-root
+</ul>
+
+<h3 id="指令" class="header-anchor-wrapper">指令
+  <a href="#%e6%8c%87%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="server" class="header-anchor-wrapper">server
+  <a href="#server" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-18" class="outline-text-4">
+
+<p>用于定义服务，http中可以有多个server块</p>
+
+<h4 id="listen" class="header-anchor-wrapper">listen
+  <a href="#listen" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口</p>
+
+<h4 id="server-name" class="header-anchor-wrapper">server_name
+  <a href="#server-name" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>服务名称，用于配置域名使用_表示不做域名匹配.</p>
+
+<h4 id="location" class="header-anchor-wrapper">location
+  <a href="#location" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>修饰符</p>
+<ol>
+<li>= 进行普通字符精确匹配。也就是完全匹配</li>
+<li>^~ 前缀匹配。如果匹配成功，则不再匹配其他location.</li>
+<li>~ 表示执行一个正则匹配，区分大小写</li>
+<li>~* 表示执行一个正则匹配，不区分大小写</li>
+<li><em>xxx</em> 常规字符串路径匹配</li>
+<li>/ 通用匹配， 任何请求都会匹配到</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>检查顺序</p>
+<p>location = &gt; location 完整路径 &gt; location ^~ &gt; location ~, ~* &gt; location 部分起始路径 &gt; /
+注意： location的优先级与location配置的位置无关</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>正则表达式</p>
+<ol>
+<li>.: 匹配除换行符以外的任意字符</li>
+<li>?: 重复0次或1次</li>
+<li>?+: 重复1次或更多次</li>
+<li>* : 重复0次或更多次</li>
+<li>\d: 匹配数字</li>
+<li>^: 匹配字符串的开始</li>
+<li>$: 匹配字符串的结束</li>
+<li>{n}: 重复n次</li>
+<li>{n,}: 重复n次或更多次</li>
+<li></li>
+<li></li>
+<li>(a|b|c): 竖线表示匹配任意一种情况，每种情况使用竖线分隔，一般使用小括号括住，匹配符合a字符或b字符或是c字符的字符串小括号()之间匹配的内容，可以在后面通过$1来引用，$2表示的是前面第二个()里的内容。</li>
+<li>\: 用于转义特殊字符</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="root" class="header-anchor-wrapper">root
+  <a href="#root" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
 <p>root指令用于设置请求的根目录，从而允许Nginx将传入的请求映射到文件系统上。</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">  server {
-  listen 80;
-  server_name stonemind.cn;
-  root /var/www/html;
-  }</code></pre>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-19" class="outline-4">
-<h4 id="headline-19">
-index
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">server {
+             listen 80;
+             server_name stonemind.cn;
+             root /var/www/html;
+}
+</code></pre>
+
+<h4 id="index" class="header-anchor-wrapper">index
+  <a href="#index" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-19" class="outline-text-4">
+
 <p>设置首页， 当只访问server_name时后面不跟任何路径是不走直接走index指令的。如果访问路径中没有指定具体的文件，则返回index设置的资源。</p>
-</div>
-</div>
-<div id="outline-container-headline-20" class="outline-4">
-<h4 id="headline-20">
-set
+
+<h4 id="set" class="header-anchor-wrapper">set
+  <a href="#set" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-20" class="outline-text-4">
+
 <p>自定义变量</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">set $doc_root /usr/local/var/www;</code></pre>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-21" class="outline-4">
-<h4 id="headline-21">
-proxy_pass
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">set $doc_root /usr/local/var/www;
+</code></pre>
+
+<h4 id="proxy-pass" class="header-anchor-wrapper">proxy_pass
+  <a href="#proxy-pass" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-21" class="outline-text-4">
-<div id="outline-container-headline-22" class="outline-5">
-<h5 id="headline-22">
-反向代理（Reverse Proxy)
-</h5>
-<div id="outline-text-headline-22" class="outline-text-5">
-<p>反向代理方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。反向代理使用proxy_pass指令来实现。</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">  server {
-  listen 80;
-  server_name localhost;
-  
-  location / {
-proxy_pass http://localhost:8081;
-proxy_set_header Host $host:$server_port;
-# 设置用户IP地址
-proxy_set_header X-Forwarded-For $remote_addr;
-  }
-  }</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-23" class="outline-4">
-<h4 id="headline-23">
-upstream
-</h4>
-<div id="outline-text-headline-23" class="outline-text-4">
-<div id="outline-container-headline-24" class="outline-5">
-<h5 id="headline-24">
-负载均衡策略
-</h5>
-<div id="outline-text-headline-24" class="outline-text-5">
-<ol>
+
+<!--list-separator-->
+<ul>
 <li>
-<p>PR(round robin: 轮询默认)</p>
+<p>反向代理（Reverse Proxy)</p>
+<p>反向代理方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。反向代理使用proxy_pass指令来实现。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">server {
+              listen 80;
+              server_name localhost;
+
+              location / {
+                  proxy_pass http://localhost:8081;
+                  proxy_set_header Host $host:$server_port;
+                  # 设置用户IP地址
+                  proxy_set_header X-Forwarded-For $remote_addr;
+              }
+}
+</code></pre>
 </li>
-</ol>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">upstream web_servers {  
-   server localhost:8081;  
-   server localhost:8082;  
+</ul>
+
+<h4 id="upstream" class="header-anchor-wrapper">upstream
+  <a href="#upstream" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>负载均衡策略</p>
+<ol>
+<li>PR(round robin: 轮询默认)
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">upstream web_servers {
+   server localhost:8081;
+   server localhost:8082;
 }
 
 server {
@@ -468,206 +662,210 @@ server {
 
 
     location / {
-	proxy_pass http://web_servers;
-	# 必须指定Header Host
-	proxy_set_header Host $host:$server_port;
+        proxy_pass http://web_servers;
+        # 必须指定Header Host
+        proxy_set_header Host $host:$server_port;
     }
- }</code></pre>
-</div>
-<ol>
-<li>
-<p>权重</p>
+ }
+</code></pre>
 </li>
-</ol>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf"># 4次请求只有一次被分配到8081上，其他3次分配到8082上。backup是指热备，只有当8081和8082都宕机的情况下才走8083
+<li>权重
+<pre  class="mc-prism hide language-text" ><code class="language-nginx"># 4次请求只有一次被分配到8081上，其他3次分配到8082上。backup是指热备，只有当8081和8082都宕机的情况下才走8083
 upstream test {
     server localhost:8081 weight=1;
     server localhost:8082 weight=3;
     server localhost:8083 weight=4 backup;
-}</code></pre>
-</div>
-<ol>
-<li>
-<p>ip_hash</p>
+}
+</code></pre>
 </li>
-</ol>
-<p>上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一台服务器，当我们的程序不是无状态的时候，这时候就有一个很大的问题了，比如把登记信息保存到了session中，那么中转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器， 那么就需要用ip_hash了，ip_hash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">upstream test {
+<li>ip_hash
+上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一台服务器，当我们的程序不是无状态的时候，这时候就有一个很大的问题了，比如把登记信息保存到了session中，那么中转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器， 那么就需要用ip_hash了，ip_hash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">upstream test {
     ip_hash;
     server localhost:8080;
     server localhost:8081;
-}</code></pre>
-</div>
-<ol>
-<li>
-<p>fair(第三方)</p>
+}
+</code></pre>
 </li>
-</ol>
-<p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">upstream backend {
+<li>fair(第三方)
+按后端服务器的响应时间来分配请求，响应时间短的优先分配。
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">upstream backend {
     fair;
     server localhost:8080;
     server localhost:8081;
-}</code></pre>
-</div>
-<ol>
-<li>
-<p>url_hash(第三方)</p>
+}
+</code></pre>
 </li>
-</ol>
-<p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">upstream backend {
+<li>url_hash(第三方)
+按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">upstream backend {
     hash $request_uri;
     hash_method crc32;
     server localhost:8080;
     server localhost:8081;
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-25" class="outline-4">
-<h4 id="headline-25">
-return
+}
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="return" class="header-anchor-wrapper">return
+  <a href="#return" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-25" class="outline-text-4">
+
 <p>返回http状态码和可选的每二个参数（可重定向的URL）</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">location /permantly/moved/url {
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">location /permantly/moved/url {
     return 301 http://wwww.example.com/moved/here;
-}</code></pre>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-26" class="outline-4">
-<h4 id="headline-26">
-rewrite
+}
+</code></pre>
+
+<h4 id="rewrite" class="header-anchor-wrapper">rewrite
+  <a href="#rewrite" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-26" class="outline-text-4">
-<p>重写URI请求 rewrite，通过使用rewrite指令在请求处理期间多次修改请求URI，该指令具有一个可选参数和两个必需参数。
-    第一个(必需)参数是请求URI必须匹配的正则表达式。
-    第二个参数是用于替换匹配URI的URI。
-    可选的第三个参数是可以停止进一步重写指令的处理或发送重定向(代码301或302)的标志</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">location /users/ {
+
+<p>重写URI请求 rewrite，通过使用rewrite指令在请求处理期间多次修改请求URI，该指令具有一个可选参数和两个必需参数。第一个(必需)参数是请求URI必须匹配的正则表达式。第二个参数是用于替换匹配URI的URI。可选的第三个参数是可以停止进一步重写指令的处理或发送重定向(代码301或302)的标志</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">location /users/ {
     rewrite ^/users/(.*)$ /show?user=$1 break;
-}</code></pre>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-27" class="outline-4">
-<h4 id="headline-27">
-error_page
+}
+</code></pre>
+
+<h4 id="error-page" class="header-anchor-wrapper">error_page
+  <a href="#error-page" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-27" class="outline-text-4">
+
 <p>使用error_page指令，您可以配置NGINX返回自定义页面以及错误代码，替换响应中的其他错误代码，或将浏览器重定向到其他URI。在以下示例中，error_page指令指定要返回404页面错误代码的页面(/404.html)。</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">error_page 404 /404.html;</code></pre>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-28" class="outline-4">
-<h4 id="headline-28">
-日志
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">error_page 404 /404.html;
+</code></pre>
+
+<h4 id="日志" class="header-anchor-wrapper">日志
+  <a href="#%e6%97%a5%e5%bf%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-28" class="outline-text-4">
+
 <p>访问日志：需要开启压缩 gzip on; 否则不生成日志文件，打开log_format、access_log注释</p>
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf">log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
-                  &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
-                  &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+<pre  class="mc-prism hide language-text" ><code class="language-nginx">log_format  main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '
+                  '$status $body_bytes_sent &quot;$http_referer&quot; '
+                  '&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;';
 access_log  /usr/local/etc/nginx/logs/host.access.log  main;
-gzip  on;</code></pre>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-29" class="outline-4">
-<h4 id="headline-29">
-deny
+gzip  on;
+</code></pre>
+
+<h4 id="deny" class="header-anchor-wrapper">deny
+  <a href="#deny" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h4>
-<div id="outline-text-headline-29" class="outline-text-4">
-<div class="src src-nginx conf">
-<pre tabindex="0"><code class="language-nginx conf" data-lang="nginx conf"># 禁止访问某个目录
+
+<pre  class="mc-prism hide language-text" ><code class="language-nginx"># 禁止访问某个目录
 location ~* \.(txt|doc)${
   root $doc_root;
   deny all;
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-30" class="outline-3">
-<h3 id="headline-30">
-内置变量
+}
+</code></pre>
+
+<h3 id="内置变量" class="header-anchor-wrapper">内置变量
+  <a href="#%e5%86%85%e7%bd%ae%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
 </h3>
-<div id="outline-text-headline-30" class="outline-text-3">
+
 <p>nginx的配置文件中可以使用的内置变量以美元符$开始，也有人叫全局变量。其中，部分预定义的变量的值是可以改变的。另外，关注Java知音公众号，回复“后端面试”，送你一份面试题宝典！
-   $args ：#这个变量等于请求行中的参数，同$query_string
-   $content_length ：请求头中的Content-length字段。
-   $content_type ：请求头中的Content-Type字段。
-   $document_root ：当前请求在root指令中指定的值。
-   $host ：请求主机头字段，否则为服务器名称。
-   $http_user_agent ：客户端agent信息
-   $http_cookie ：客户端cookie信息
-   $limit_rate ：这个变量可以限制连接速率。
-   $request_method ：客户端请求的动作，通常为GET或POST。
-   $remote_addr ：客户端的IP地址。
-   $remote_port ：客户端的端口。
-   $remote_user ：已经经过Auth Basic Module验证的用户名。
-   $request_filename ：当前请求的文件路径，由root或alias指令与URI请求生成。
-   $scheme ：HTTP方法（如http，https）。
-   $server_protocol ：请求使用的协议，通常是HTTP/1.0或HTTP/1.1。
-   $server_addr ：服务器地址，在完成一次系统调用后可以确定这个值。
-   $server_name ：服务器名称。
-   $server_port ：请求到达服务器的端口号。
-   $request_uri ：包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。
-   $uri ：不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。
-   $document_uri ：与$uri相同</p>
+$args ：#这个变量等于请求行中的参数，同$query_string
+$content_length ：请求头中的Content-length字段。
+$content_type ：请求头中的Content-Type字段。
+$document_root ：当前请求在root指令中指定的值。
+$host ：请求主机头字段，否则为服务器名称。
+$http_user_agent ：客户端agent信息
+$http_cookie ：客户端cookie信息
+$limit_rate ：这个变量可以限制连接速率。
+$request_method ：客户端请求的动作，通常为GET或POST。
+$remote_addr ：客户端的IP地址。
+$remote_port ：客户端的端口。
+$remote_user ：已经经过Auth Basic Module验证的用户名。
+$request_filename ：当前请求的文件路径，由root或alias指令与URI请求生成。
+$scheme ：HTTP方法（如http，https）。
+$server_protocol ：请求使用的协议，通常是HTTP/1.0或HTTP/1.1。
+$server_addr ：服务器地址，在完成一次系统调用后可以确定这个值。
+$server_name ：服务器名称。
+$server_port ：请求到达服务器的端口号。
+$request_uri ：包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。
+$uri ：不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。
+$document_uri ：与$uri相同</p>
+
+</article>
 </div>
-</div>
-</div>
-</div>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>Updated on 0001-01-01</span>
+
+
+                
+                    
+                
             </div>
-            <div class="post-info-license"></div>
-        </div>
-        <div class="post-info-line">
-            <div class="post-info-md"></div>
-            <div class="post-info-share">
-                <span></span>
-            </div>
-        </div>
-    </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
 
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/nginx/">&#39;Nginx&#39;,</a>,&nbsp;<a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">&#39;中间件&#39;</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav"><a href="/posts/live/%E5%A4%8D%E7%9B%98%E5%9F%BA%E7%A1%80/" class="prev" rel="prev" title="复盘基础"><i class="fas fa-angle-left fa-fw"></i>复盘基础</a></div>
-</div>
-</article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
-        </div>
-    </footer></div>
-
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</body>
 </html>

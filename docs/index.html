@@ -294,6 +294,96 @@
             </div>
         </a>
     
+        <a href="https://stoneepigraph.github.io/posts/awk/">
+            <div class="postcard-item">
+                <div class="postcard-title">
+                    <span>Awk入门</span>
+                </div>
+                <div class="postcard-summary">
+                    <span>AWK语言 变量 NF： awk计算当前行的字段数量
+NR： awk计算到目前为止，读取到的行的数量
+$0: 整行内容
+$1: 第一个字段
+$N: 第N个字段
+#: 注释
+逻辑
+&amp;&amp; || ! 模式
+BEGIN 在第一个输入文件的第一行之前被匹配 END 在最后一个输入文件的最后一行被处理之后匹配例： awk -F &lsquo;:&rsquo; &lsquo;BEGIN {print &ldquo;id name shell&rdquo;; print &ldquo;&rdquo;} {emp = emp + 1; print NF, $1, $NF} END {print &ldquo;total rows: &ldquo;, emp}&rsquo; /etc/passwd expression { statements} 每碰到一个使expression为真的输入行，statements就执行， expression为真指的是其值非零或非空 regular expression {statements} 当碰到这样一个输入行时， statements就执行： 输入行含有一段字符串，而该字符串可以被regular expression匹配 compound parttern {statements} 一个复合模式将表达式用 &amp;&amp;(AND), ||(OR), !(NOT), 以及括号组合起来；当compound parttern为真时， statements执行。 pattern1, pattern2 { statemtnts } 一个范围模式匹配多个输入行，这些输入行从匹配pattern1的行开始，到匹配pattern2的行结束（包括这两行）， 对这其中的每一行执行statements. 流程控制
+</span>
+                </div>
+                <div class="postcard-metadata">
+                    <span>2024/09/04 · 
+    
+        
+    
+
+    
+        
+            <span>Posts</span>
+        
+    
+</span>
+                </div>
+            </div>
+        </a>
+    
+        <a href="https://stoneepigraph.github.io/posts/docker/">
+            <div class="postcard-item">
+                <div class="postcard-title">
+                    <span>Docker笔记</span>
+                </div>
+                <div class="postcard-summary">
+                    <span>入门 什么是Docker docker是一个容器技术。
+Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker </span>
+                </div>
+                <div class="postcard-metadata">
+                    <span>2024/09/04 · 
+    
+        
+    
+
+    
+        
+            <span>Posts</span>
+        
+    
+</span>
+                </div>
+            </div>
+        </a>
+    
+        <a href="https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">
+            <div class="postcard-item">
+                <div class="postcard-title">
+                    <span>Flask Web开发实战</span>
+                </div>
+                <div class="postcard-summary">
+                    <span>Flask Web开发实战 基础 初识 开发环境
+pipenv工作流
+pip install pipenv
+pipenv install # 创建虚拟环境
+pipenv shell # 进入虚拟环境 pipenv run command #使用虚拟环境执行命令
+pipenv graph # 查看当前环境的依赖
+Hello，Flask
+创建程序实例
+</span>
+                </div>
+                <div class="postcard-metadata">
+                    <span>2024/09/04 · 
+    
+        
+    
+
+    
+        
+            <span>Posts</span>
+        
+    
+</span>
+                </div>
+            </div>
+        </a>
+    
         <a href="https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
             <div class="postcard-item">
                 <div class="postcard-title">
@@ -344,17 +434,17 @@
             </div>
         </a>
     
-        <a href="https://stoneepigraph.github.io/posts/ddia/">
+        <a href="https://stoneepigraph.github.io/posts/language/java/maven/">
             <div class="postcard-item">
                 <div class="postcard-title">
-                    <span>DDIA</span>
+                    <span>maven基础</span>
                 </div>
                 <div class="postcard-summary">
-                    <span>数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：
+                    <span>Maven库： http://repo2.maven.org/maven2/
 </span>
                 </div>
                 <div class="postcard-metadata">
-                    <span>2024/09/03 · 
+                    <span>2024/09/04 · 
     
         
     
@@ -369,16 +459,17 @@
             </div>
         </a>
     
-        <a href="https://stoneepigraph.github.io/posts/language/java/stream/">
+        <a href="https://stoneepigraph.github.io/posts/middle/nginx-note/">
             <div class="postcard-item">
                 <div class="postcard-title">
-                    <span>Java Stream简单了解</span>
+                    <span>Nginx-note</span>
                 </div>
                 <div class="postcard-summary">
-                    <span>Stream Stream的创建方式 通过Collection系列集合提供 List&lt;String&gt; list = new ArrayList&lt;&gt;(); Stream&lt;String&gt; stream1 = list.stream(); </span>
+                    <span>Nginx基础1 Nginx架构 nginx事件模型 nginx是采用的异步非阻塞。
+</span>
                 </div>
                 <div class="postcard-metadata">
-                    <span>2024/09/03 · 
+                    <span>2024/09/04 · 
     
         
     
@@ -393,17 +484,17 @@
             </div>
         </a>
     
-        <a href="https://stoneepigraph.github.io/posts/csapp/">
+        <a href="https://stoneepigraph.github.io/posts/python-cookbook/">
             <div class="postcard-item">
                 <div class="postcard-title">
-                    <span>csapp</span>
+                    <span>Python CookBook</span>
                 </div>
                 <div class="postcard-summary">
-                    <span>计算机系统漫游 信息就是位+上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。
+                    <span>数据结构与算法 解压序列赋值给多个变量 注意_, /, /_, 级别的使用
 </span>
                 </div>
                 <div class="postcard-metadata">
-                    <span>2024/08/30 · 
+                    <span>2024/09/04 · 
     
         
     
@@ -418,91 +509,17 @@
             </div>
         </a>
     
-        <a href="https://stoneepigraph.github.io/posts/%E4%BF%AE%E7%AE%A1%E6%97%A5%E5%B8%B8fq/">
+        <a href="https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/">
             <div class="postcard-item">
                 <div class="postcard-title">
-                    <span>修管日常FQ</span>
+                    <span>Python核心编程（3）</span>
                 </div>
                 <div class="postcard-summary">
-                    <span>企业平台 用户名密码错误企业平台账号为备案编号去掉修备的12位数字, 忘记密码联系企业所属修管科重置密码. 下载企业平台群文件有最新的企业平台安装包 企业平台提示网络异常或者老版本的(参数不是字符串) 确认一下电脑的internet Explorer浏览器能不能正常访问: https://weixiu.bjysgl.cn/bjvmpsf/f/ 正常情况下确认一下internet Explorer浏览器能不能正常上网就可以,如果能正常上网企业平台还是提示网络有问题,那么试一下上边儿的地址. 企业平台提示网络异常 确认一下是不是XP系统,企业平台已经不再支持XP系统了 确认一下internet Explorer浏览器能不能正常访问: https://weixiu.bjysgl.cn/bjvmpsf/f/ 无法访问,核实一下internet选项里的TLS1.2是不是勾选了, 现在企业平台最低要求TLS1.2(所以XP系统无法正常访问了,还有部分电脑默认是没选择TLS1.2的) 还无法访问,需要核实一下云服务商是不是对企业的外网IP做了封禁 无法上传附件核实一下internet选项里的TLS1.2是不是勾选了 打印合格证的时候提示未指定的错误去QQ群文件下载最新的企业平台安装包重新安装 企业找不到自己的备案编号让企业自己去这个地址https://weixiu.bjysgl.cn/bjvmpsf/f/ 查询备案编号 在这个网址查询不到企业的原因？ 确认企业是不是备案成功了 在这个页面查询时只输入企业名称，要么一定要跟备案的企业名称一称，要么只输入确认的几个字 登录企业平台提示账号已锁定让企业联系所属修管科, 一般是修管科将企业列入经营地异常会导致这种情况. 自动采集接口提示账号已锁定让企业去技术支持群下载最新的企业平台重新安装 登录企业平台提示未绑定MAC地址让企业从技术支持群的群文件里获取获取MAC地址的工具和操作视频,获取到MAC地址后上报给企业所属的修管科 企业说联系过修管科了,修管科也给绑定了MAC地址,可是还是登录不上去. 让企业发一下获取MAC地址工具结果截图, 登录企业平台露出登录账号和报错信息的截图和企业的备案编号三样东西给咱们,去系统里核对是否是绑定成功了. 企业要修管科的联系方式群文件有一个叫&quot;本市道路运输管理部门联系电话&quot;的文档, 咱们只有修管科这一个联系方式. 企业平台提示&quot;下载错误,请联系管理员&quot; 直接从群文件下载最新的企业平台安装包,重新安装. 企业平台被杀毒软件误杀技术支持群里有&quot;企业被杀毒软件误杀的解决办法&quot;文档. 企业录入维修纪录时无法选择维修接待员/质保员/维修人员人员是是按在职或兼职岗位在企业平台已经录入的人员列表里查询的 维修接待对应售后服务部下的维修接待员 质检员对应售后服务部的质量检验员 维修人员对应售后服务部下的机修技师,电气维修技师等 企业录入维修纪录时点击保存后一直转圈,未提示&quot;保存成功&quot; 这种情况有可能是网络问题,有可能是企业录入的日期不符合规范(还未修复),还有可能是维修配件里带有英文的逗号(最新版本已修复,不会再有这个问题). 维修纪录提示车牌号错误这种情况有可能是特殊的车牌号或者企业录入错误,让企业提供一下行驶证,我去核对一下. 维修纪录里车牌号码不能选择别的省的车牌车牌字头的下拉框是可以直接输入的.直接录入就可以. 合格证无法打印让企业确认一下Internet Explorer浏览器能不能正常打印内容. 如果正常再找我们. 如果不正常就是打印机的默认设置有问题了. 企业登记信息上报未通过需要重新上报您可在“综合查询-行管通知查询”，查看在最上方的&quot;机动车维修经营登记信息审核结果通知书&quot;，点击附件名称，下载通知书，查看审核未通过原因 企业登记审核结果通知书里提示企业缺少对应的配件及人员, 企业说企业本身就没这些人员或者设备 告诉企业登记信息的核对结果是按企业的开业条件去审核的. 提示质量检验员未上报驾驶证的,按企业的经营范围,给质量检验员上报驾驶证就可以了. 提示人员学历或职称不达标的,给对应的人员上传对应的学历 企业维修设备有些设备数量无法修改无法修改的设备可以多次点&quot;添加&quot;按钮,添加多条 企业登记信息上报时提示&quot;环保措施或管理制度数据是否上报不完整&quot; 确认一下管理制度里带星的是不是都上传了文件. 人员录入提示人员在其他企业在职 让员工联系上家企业办理离职 如果联系不到上家企业或者上家企业已经不经营了,那么联系企业所属修管科, 让修管科联系咱们办理离职 维修管理制度，环保制度上传格式问题 PDF, DOC,JPG,PNG 无法上传时需要修改选择文件类型 企业已经录入维修接待员,可还是无法选择维修接待人员 人员是否已录入 确认一下网络是否正常，首页是不是能正常获取数据，如果不能的话，确认一下网络是否正常，在internet选项里添加一下TLS1.2的支持。 环评是否上传环评现在不要求必传,如果做过了可以上传环评结果,没做过就可以不传了. 新车不需要录入环保维修项目跟环保确认过，有微信的聊天纪录。新车不会查询环保维修项目。 新车有临牌的录入临牌，没有的录入京Z00000 车辆的VIN码为16位怎么处理目前环检不合格的车辆是不验证车牌号和VIN的有效性的,只要关联上就行. 非环检不合格的车辆补0就可以了. 企业维修职位中无洗车工怎么处理目前没有洗车式的职位，可以在售后服务部随意选一个岗位录入。 行业管理平台-&gt;修管科/修管处 企业录入了维修纪录了,可环检不合格数据还是关联成了备案企业治理未报信息 确认一下车牌号和VIN码是否一致 确认一个维修纪录是否是在接收到环检不合格数据后打印的合格证,并且是在复检数据接收前. 综合管理平台 用户名密码错误 默认用户名为企业备案编号去掉&quot;修备&quot;剩下的12位数字, 默认密码为WeiXiu@备案编号后门位. 忘记密码联系企业所属修管科重置密码 企业在本月27日到下月10日之间备案的企业是不同步的, 需要10日以后再尝试登录. 登录提示账号锁定无操作半小时后自动解锁 无法上报修管科汇总了当月/季/半年/年报后企业无法再次上报 上报错误,需要打回修改修管科的联系修管处打回, 企业的联系所属修管科打回 各类企业都上报哪些报表一类:月报,年报二类:季报,年报三类:半年报 </span>
-                </div>
-                <div class="postcard-metadata">
-                    <span>2024/05/25 · 
-    
-        
-    
-
-    
-        
-            <span>Posts</span>
-        
-    
-</span>
-                </div>
-            </div>
-        </a>
-    
-        <a href="https://stoneepigraph.github.io/posts/rust%E7%AC%94%E8%AE%B0/">
-            <div class="postcard-item">
-                <div class="postcard-title">
-                    <span>Rust笔记</span>
-                </div>
-                <div class="postcard-summary">
-                    <span>Rust基础 数据类型 说明 Rust不会自动进行隐式类型转换。
+                    <span>正则表达式 网络编程 因特网客户端编程 因特网客户端简介 文件传输 文件传输因特协议 在当下，HTTP,FTP,scp/rsync的应用仍然广泛。
 </span>
                 </div>
                 <div class="postcard-metadata">
-                    <span>2024/04/07 · 
-    
-        
-    
-
-    
-        
-            <span>Posts</span>
-        
-    
-</span>
-                </div>
-            </div>
-        </a>
-    
-        <a href="https://stoneepigraph.github.io/posts/emacslisp/">
-            <div class="postcard-item">
-                <div class="postcard-title">
-                    <span>Emacs Lisp</span>
-                </div>
-                <div class="postcard-summary">
-                    <span>ELisp 快捷键 格式化区域代码： C - M - \ 执行代码： C - x C - e 相当于 eval-last-sexp
-</span>
-                </div>
-                <div class="postcard-metadata">
-                    <span>2023/09/17 · 
-    
-        
-    
-
-    
-        
-            <span>Posts</span>
-        
-    
-</span>
-                </div>
-            </div>
-        </a>
-    
-        <a href="https://stoneepigraph.github.io/posts/jvm/">
-            <div class="postcard-item">
-                <div class="postcard-title">
-                    <span>JVM简述</span>
-                </div>
-                <div class="postcard-summary">
-                    <span>类的加载,连接与初始化 加载 指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.
-</span>
-                </div>
-                <div class="postcard-metadata">
-                    <span>2023/09/17 · 
+                    <span>2024/09/04 · 
     
         
     
@@ -535,10 +552,13 @@
         <a href="/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
       </li>
       <li class="page-item">
+        <a href="/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
         <a href="/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/page/3/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 </div>

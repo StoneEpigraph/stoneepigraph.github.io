@@ -79,6 +79,176 @@
     </item>
     
     <item>
+      <title>Awk入门</title>
+      <link>https://stoneepigraph.github.io/posts/awk/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/awk/</guid>
+      <description>&lt;h2&gt;AWK语言&lt;/h2&gt;
+
+
+&lt;h2&gt;变量&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;NF： awk计算当前行的字段数量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NR： awk计算到目前为止，读取到的行的数量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$0: 整行内容&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$1: 第一个字段&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$N: 第N个字段&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;#: 注释&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;逻辑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;amp;&amp;amp;&lt;/li&gt;
+&lt;li&gt;||&lt;/li&gt;
+&lt;li&gt;!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;模式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;BEGIN
+在第一个输入文件的第一行之前被匹配&lt;/li&gt;
+&lt;li&gt;END
+在最后一个输入文件的最后一行被处理之后匹配例：
+awk -F &amp;lsquo;:&amp;rsquo; &amp;lsquo;BEGIN {print &amp;ldquo;id    name    shell&amp;rdquo;; print &amp;ldquo;&amp;rdquo;}
+{emp = emp + 1; print NF, $1, $NF}
+END {print &amp;ldquo;total rows: &amp;ldquo;, emp}&amp;rsquo; /etc/passwd&lt;/li&gt;
+&lt;li&gt;expression { statements}
+每碰到一个使expression为真的输入行，statements就执行， expression为真指的是其值非零或非空&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;regular expression&lt;/em&gt; {statements}
+当碰到这样一个输入行时， statements就执行： 输入行含有一段字符串，而该字符串可以被regular expression匹配&lt;/li&gt;
+&lt;li&gt;compound parttern {statements}
+一个复合模式将表达式用 &amp;amp;&amp;amp;(AND), ||(OR), !(NOT), 以及括号组合起来；当compound parttern为真时， statements执行。&lt;/li&gt;
+&lt;li&gt;pattern1, pattern2 { statemtnts }
+一个范围模式匹配多个输入行，这些输入行从匹配pattern1的行开始，到匹配pattern2的行结束（包括这两行）， 对这其中的每一行执行statements.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;流程控制&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker笔记</title>
+      <link>https://stoneepigraph.github.io/posts/docker/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/docker/</guid>
+      <description>&lt;h2&gt;入门&lt;/h2&gt;
+
+
+&lt;h3&gt;什么是Docker&lt;/h3&gt;
+
+&lt;p&gt;docker是一个容器技术。&lt;/p&gt;
+
+&lt;h3&gt;Docker的优势&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;一致的运行环境， 更轻松的迁移。&lt;/li&gt;
+&lt;li&gt;对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。&lt;/li&gt;
+&lt;li&gt;通过镜像复制多个环境一致的容器。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Docker与虚拟机的对比&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Docker占用磁盘少&lt;/li&gt;
+&lt;li&gt;Docker的引擎比虚拟机系统占用CPU资源低&lt;/li&gt;
+&lt;li&gt;Docker启动速度快&lt;/li&gt;
+&lt;li&gt;Docker安装管理方便&lt;/li&gt;
+&lt;li&gt;Docker从第二次部署开始轻松简捷&lt;/li&gt;
+&lt;li&gt;Docker可以每个应用使用一个服务，服务隔离&lt;/li&gt;
+&lt;li&gt;Docker推荐使用Linux，不推荐使用Windows&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;安装及配置&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;下载安装&lt;/li&gt;
+&lt;li&gt;配置
+&lt;ol&gt;
+&lt;li&gt;启动Docker
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo systemctl enable docker
+sudo systemctl start docker
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;创建Docker用户组
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo groupadd docker
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;将当前用户添加到docker组
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo usermod -aG docker $USER
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;测试Docker是否安装正确&lt;/li&gt;
+&lt;li&gt;重启Docker
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo systemctl restart docker
+&lt;/code&gt;&lt;/pr</description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发实战</title>
+      <link>https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
+      <description>&lt;h2&gt;Flask Web开发实战&lt;/h2&gt;
+
+
+&lt;h3&gt;基础&lt;/h3&gt;
+
+
+&lt;h4&gt;初识&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;开发环境&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;pipenv工作流&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pip install pipenv&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;!--quoteend--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pipenv install # 创建虚拟环境&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;!--quoteend--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pipenv shell # 进入虚拟环境
+pipenv run command #使用虚拟环境执行命令&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;!--quoteend--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pipenv graph # 查看当前环境的依赖&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Hello，Flask&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建程序实例&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Java8函数式编程</title>
       <link>https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
@@ -156,6 +326,417 @@
 &lt;/h4&gt;
 
 &lt;p&gt;Linux可划分为以下四部分：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>maven基础</title>
+      <link>https://stoneepigraph.github.io/posts/language/java/maven/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/language/java/maven/</guid>
+      <description>&lt;h2 id=&#34;maven库&#34; class=&#34;header-anchor-wrapper&#34;&gt;Maven库：
+  &lt;a href=&#34;#maven%e5%ba%93&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://repo2.maven.org/maven2/&#34;&gt;http://repo2.maven.org/maven2/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx-note</title>
+      <link>https://stoneepigraph.github.io/posts/middle/nginx-note/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/middle/nginx-note/</guid>
+      <description>&lt;h2 id=&#34;Nginx基础&#34; class=&#34;header-anchor-wrapper&#34;&gt;Nginx基础1
+  &lt;a href=&#34;#Nginx%e5%9f%ba%e7%a1%80&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;nginx架构&#34; class=&#34;header-anchor-wrapper&#34;&gt;Nginx架构
+  &lt;a href=&#34;#nginx%e6%9e%b6%e6%9e%84&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;nginx事件模型&#34; class=&#34;header-anchor-wrapper&#34;&gt;nginx事件模型
+  &lt;a href=&#34;#nginx%e4%ba%8b%e4%bb%b6%e6%a8%a1%e5%9e%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;nginx是采用的异步非阻塞。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python CookBook</title>
+      <link>https://stoneepigraph.github.io/posts/python-cookbook/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/python-cookbook/</guid>
+      <description>&lt;h2 id=&#34;数据结构与算法&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据结构与算法
+  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;解压序列赋值给多个变量&#34; class=&#34;header-anchor-wrapper&#34;&gt;解压序列赋值给多个变量
+  &lt;a href=&#34;#%e8%a7%a3%e5%8e%8b%e5%ba%8f%e5%88%97%e8%b5%8b%e5%80%bc%e7%bb%99%e5%a4%9a%e4%b8%aa%e5%8f%98%e9%87%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;注意_, /, /_, 级别的使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python核心编程（3）</title>
+      <link>https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/</guid>
+      <description>&lt;h2 id=&#34;正则表达式&#34; class=&#34;header-anchor-wrapper&#34;&gt;正则表达式
+  &lt;a href=&#34;#%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h2 id=&#34;网络编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;网络编程
+  &lt;a href=&#34;#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h2 id=&#34;因特网客户端编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;因特网客户端编程
+  &lt;a href=&#34;#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;因特网客户端简介&#34; class=&#34;header-anchor-wrapper&#34;&gt;因特网客户端简介
+  &lt;a href=&#34;#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%ae%80%e4%bb%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h3 id=&#34;文件传输&#34; class=&#34;header-anchor-wrapper&#34;&gt;文件传输
+  &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;文件传输因特协议&#34; class=&#34;header-anchor-wrapper&#34;&gt;文件传输因特协议
+  &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93%e5%9b%a0%e7%89%b9%e5%8d%8f%e8%ae%ae&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;p&gt;在当下，HTTP,FTP,scp/rsync的应用仍然广泛。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SICP</title>
+      <link>https://stoneepigraph.github.io/posts/sicp/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/sicp/</guid>
+      <description>&lt;h2 id=&#34;构造过程抽象&#34; class=&#34;header-anchor-wrapper&#34;&gt;构造过程抽象
+  &lt;a href=&#34;#%e6%9e%84%e9%80%a0%e8%bf%87%e7%a8%8b%e6%8a%bd%e8%b1%a1&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;程序设计的基本元素&#34; class=&#34;header-anchor-wrapper&#34;&gt;程序设计的基本元素
+  &lt;a href=&#34;#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%85%83%e7%b4%a0&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;基本表达式用于表示语言所关心的最简单的个体&lt;/li&gt;
+&lt;li&gt;组合的方法通过它们可以从较简单的东西出发构造出复合的元素&lt;/li&gt;
+&lt;li&gt;抽象的方法通过它们可以为复合对象命名，并将它们当作单元去操作。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;命名环境&#34; class=&#34;header-anchor-wrapper&#34;&gt;命名环境
+  &lt;a href=&#34;#%e5%91%bd%e5%90%8d%e7%8e%af%e5%a2%83&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(define variable value)
+&lt;/code&gt;&lt;/pr</description>
+    </item>
+    
+    <item>
+      <title>VIM</title>
+      <link>https://stoneepigraph.github.io/posts/vim/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/vim/</guid>
+      <description>&lt;h2 id=&#34;移动光标&#34; class=&#34;header-anchor-wrapper&#34;&gt;移动光标
+  &lt;a href=&#34;#%e7%a7%bb%e5%8a%a8%e5%85%89%e6%a0%87&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;h j k l&lt;/li&gt;
+&lt;li&gt;{ 移动到上一段&lt;/li&gt;
+&lt;li&gt;}: 移动到下一段&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;搜索&#34; class=&#34;header-anchor-wrapper&#34;&gt;搜索
+  &lt;a href=&#34;#%e6%90%9c%e7%b4%a2&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;f加上你想在本行光标往后搜索的字母&lt;/li&gt;
+&lt;li&gt;在想要搜索的word上按*&lt;/li&gt;
+&lt;li&gt;/&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;移动页面&#34; class=&#34;header-anchor-wrapper&#34;&gt;移动页面
+  &lt;a href=&#34;#%e7%a7%bb%e5%8a%a8%e9%a1%b5%e9%9d%a2&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;zz将光标所在行移动到屏幕中间&lt;/li&gt;
+&lt;li&gt;zt： 将光标所在行移动到行首&lt;/li&gt;
+&lt;li&gt;ab: 将光标所在行移动到行尾&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;选择&#34; class=&#34;header-anchor-wrapper&#34;&gt;选择
+  &lt;a href=&#34;#%e9%80%89%e6%8b%a9&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;v: 进入visual 模式&lt;/li&gt;
+&lt;li&gt;V: 进入visual line模式&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;操作&#34; class=&#34;header-anchor-wrapper&#34;&gt;操作
+  &lt;a href=&#34;#%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;y: 复制选中的内容&lt;/li&gt;
+&lt;li&gt;yy: 复制一整行&lt;/li&gt;
+&lt;li&gt;p： 在光标后边粘贴&lt;/li&gt;
+&lt;li&gt;P: 在光标前边粘贴&lt;/li&gt;
+&lt;li&gt;u: 撤消上一步操作&lt;/li&gt;
+&lt;li&gt;U：撤消光标落在此行后的所有修改&lt;/li&gt;
+&lt;li&gt;.：重做上一步，&lt;/li&gt;
+&lt;li&gt;c - r : 重作上一步, 重做上一步撤消的内容&lt;/li&gt;
+&lt;li&gt;n. 重做N次上一步&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;ay: 将内容放到a暂存区&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;ap: 将a暂存区的内容粘贴到当前&lt;/li&gt;
+&lt;li&gt;d： 删除选中的内容&lt;/li&gt;
+&lt;li&gt;D：删除光标到行尾的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;11.dd: 删除当前行内容&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -645,46 +1226,6 @@ PDF, DOC,JPG,PNG
     </item>
     
     <item>
-      <title>Docker笔记</title>
-      <link>https://stoneepigraph.github.io/posts/docker/</link>
-      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/posts/docker/</guid>
-      <description>&lt;h2 id=&#34;入门&#34; class=&#34;header-anchor-wrapper&#34;&gt;入门
-  &lt;a href=&#34;#%e5%85%a5%e9%97%a8&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;什么是docker&#34; class=&#34;header-anchor-wrapper&#34;&gt;什么是Docker
-  &lt;a href=&#34;#%e4%bb%80%e4%b9%88%e6%98%afdocker&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-&lt;p&gt;docker是一个容器技术。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>FreeMarker入门</title>
       <link>https://stoneepigraph.github.io/posts/freemarker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
@@ -1069,6 +1610,63 @@ svn diff -r19:21 filename
     </item>
     
     <item>
+      <title>精通Git(2)</title>
+      <link>https://stoneepigraph.github.io/posts/git/readnote/%E7%B2%BE%E9%80%9Agit_22/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/git/readnote/%E7%B2%BE%E9%80%9Agit_22/</guid>
+      <description>&lt;h2 id=&#34;精通git&#34; class=&#34;header-anchor-wrapper&#34;&gt;精通Git
+  &lt;a href=&#34;#%e7%b2%be%e9%80%9agit&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;git基础&#34; class=&#34;header-anchor-wrapper&#34;&gt;Git基础
+  &lt;a href=&#34;#git%e5%9f%ba%e7%a1%80&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;获取git仓库&#34; class=&#34;header-anchor-wrapper&#34;&gt;获取Git仓库
+  &lt;a href=&#34;#%e8%8e%b7%e5%8f%96git%e4%bb%93%e5%ba%93&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ git init
+&lt;/code&gt;&lt;/pr</description>
+    </item>
+    
+    <item>
       <title>重构2</title>
       <link>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
@@ -1188,6 +1786,70 @@ nginx[&amp;rsquo;listen_port&#39;]&lt;/li&gt;
     </item>
     
     <item>
+      <title>MyBatis基础</title>
+      <link>https://stoneepigraph.github.io/posts/mybatis%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/mybatis%E5%9F%BA%E7%A1%80/</guid>
+      <description>&lt;h2 id=&#34;入门&#34; class=&#34;header-anchor-wrapper&#34;&gt;入门
+  &lt;a href=&#34;#%e5%85%a5%e9%97%a8&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;安装&#34; class=&#34;header-anchor-wrapper&#34;&gt;安装
+  &lt;a href=&#34;#%e5%ae%89%e8%a3%85&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jar包安装&lt;/li&gt;
+&lt;li&gt;Maven导入&lt;/li&gt;
+&lt;li&gt;Gradle导入&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;从xml中构建sqlsessionfactory&#34; class=&#34;header-anchor-wrapper&#34;&gt;从XML中构建SqlSessionFactory
+  &lt;a href=&#34;#%e4%bb%8exml%e4%b8%ad%e6%9e%84%e5%bb%basqlsessionfactory&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String resource = &amp;quot;org/mybatis/example/mybatis-config.xml&amp;quot;;
+InputStream inputStream = Resources.getResourceAsStream(resource);
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+&lt;/code&gt;&lt;/pr</description>
+    </item>
+    
+    <item>
       <title>Oracle一些简单查询</title>
       <link>https://stoneepigraph.github.io/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1272,6 +1934,47 @@ nginx[&amp;rsquo;listen_port&#39;]&lt;/li&gt;
 &lt;li&gt;安装 按照官网的说明安装
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;su - postgres -c &amp;quot;pg_ctl -D /var/lib/postgres/data -l /var/log/postgresql/postgresql.log start&amp;quot;
 &lt;/code&gt;&lt;/pr</description>
+    </item>
+    
+    <item>
+      <title>用Python写网络爬虫</title>
+      <link>https://stoneepigraph.github.io/posts/%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</guid>
+      <description>&lt;h2 id=&#34;网络爬虫简介&#34; class=&#34;header-anchor-wrapper&#34;&gt;网络爬虫简介
+  &lt;a href=&#34;#%e7%bd%91%e7%bb%9c%e7%88%ac%e8%99%ab%e7%ae%80%e4%bb%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;识别网站所用技术builtwith模块&#34; class=&#34;header-anchor-wrapper&#34;&gt;识别网站所用技术&amp;mdash;&amp;mdash;builtwith模块
+  &lt;a href=&#34;#%e8%af%86%e5%88%ab%e7%bd%91%e7%ab%99%e6%89%80%e7%94%a8%e6%8a%80%e6%9c%afbuiltwith%e6%a8%a1%e5%9d%97&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;pip install builtwith&lt;/p&gt;</description>
     </item>
     
   </channel>
