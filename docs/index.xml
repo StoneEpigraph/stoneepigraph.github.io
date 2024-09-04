@@ -51,6 +51,15 @@ Lambda表达式 格式 () -&amp;gt; {} 参数： (): 表式没有参数 单个�
     </item>
     
     <item>
+      <title>Java Stream简单了解</title>
+      <link>https://stoneepigraph.github.io/posts/language/java/stream/</link>
+      <pubDate>Tue, 03 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/language/java/stream/</guid>
+      <description>Stream Stream的创建方式 通过Collection系列集合提供 List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); Stream&amp;lt;String&amp;gt; stream1 = list.stream(); 通过Arrays中的静态方法获取数组流 String[] emps = new String[10]; Stream&amp;lt;String&amp;gt; stream2 = Arrays.stream(emps); 通过Stream类中的静态方法of() Stream&amp;lt;String&amp;gt; stream3 = Stream.of(&amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;, &amp;quot;cc&amp;quot;); 创建无限流 迭代 Stream&amp;lt;Integer&amp;gt; stream4 = Stream.iterate(0, x -&amp;gt; x + 2); 生成 Stream.generate(() -&amp;gt; Math.random()) 中间操作 筛选与切片 filter stream.filter(Predicate) limit stream.filter(long) skip stream.skip(long) distinct 通过hashcode(),equals()进行去重 stream.distinct() 映射 map 将元素转换成其他形式或提取信息。map中的Function本身也会返回一个流。 map(Function) flatMap 会整合Function本身返回的流。 flatMap(Function) 排序 sorted() 自然排序 stream.sorted() sorted(Comparator) 定制排序，指定Comparator stream.sorted(Comparator) 终止操作 查找与匹配 allMatch 检查是否匹配所有元素 stream.</description>
+    </item>
+    
+    <item>
       <title>csapp</title>
       <link>https://stoneepigraph.github.io/posts/csapp/</link>
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
