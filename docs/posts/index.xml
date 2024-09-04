@@ -6,104 +6,100 @@
     <description>Recent content in Posts on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 16:35:00 +0800</lastBuildDate><atom:link href="https://stoneepigraph.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何设计程序</title>
+      <link>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 04 Sep 2024 16:35:00 +0800</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</guid>
+      <description>&lt;h2&gt;如何设计程序&lt;/h2&gt;
+
+
+&lt;h3&gt;Base&lt;/h3&gt;
+
+
+&lt;h4&gt;基本程序设计步骤&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;六个基本的程序设计步骤&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问题分析和数据定义&lt;/li&gt;
+&lt;li&gt;合约,用途说明与结果的描述,函数头部&lt;/li&gt;
+&lt;li&gt;例子&lt;/li&gt;
+&lt;li&gt;函数模板&lt;/li&gt;
+&lt;li&gt;函数定义&lt;/li&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;六个步骤产生定义明确的中间结果&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问题数据类型描述&lt;/li&gt;
+&lt;li&gt;程序行为的非形式描述&lt;/li&gt;
+&lt;li&gt;说明程序行为的例子&lt;/li&gt;
+&lt;li&gt;开发程序的模板或视图&lt;/li&gt;
+&lt;li&gt;把模板转换成完整的定义&lt;/li&gt;
+&lt;li&gt;通过测试发现错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;要正确的设计程序需要做到&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分析通常使用文字表述的问题&lt;/li&gt;
+&lt;li&gt;在抽象表达问题实质的同时使用例子进行说明&lt;/li&gt;
+&lt;li&gt;用精确的语言阐明所表述的语句和注释&lt;/li&gt;
+&lt;li&gt;通过检查,测试对上述活动进行评价和修改&lt;/li&gt;
+&lt;li&gt;关注细节&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;简单数据的处理&lt;/h3&gt;
+
+
+&lt;h4&gt;学生,教师和计算机&lt;/h4&gt;
+
+&lt;p&gt;程序只是计算速度非常快的学生,不过程序并不能理解自然语言,所以我们需要学会一门计算机语言将自然语言翻译给计算机.但程序设计需要耐心和专心,保能关注每个微小的细节,并严格规划和对规划忠诚,才能避免错误.&lt;/p&gt;
+
+&lt;h4&gt;数,表达式和简单程序&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;数和算术运算&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Java8函数式编程</title>
       <link>https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
-      <description>&lt;h2&gt;函数式编程&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;函数式编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;函数式编程
+  &lt;a href=&#34;#%e5%87%bd%e6%95%b0%e5%bc%8f%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
 
-&lt;p&gt;函数式编程中没有赋值语句,因此变量一旦有了值,就不会再改变了.更通俗地说,函数式编程完全没有副作用.&lt;/p&gt;
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
 
-&lt;h2&gt;Lambda表达式&lt;/h2&gt;
-
-
-&lt;h3&gt;格式&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;() -&amp;gt; {}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;参数：
-&lt;ul&gt;
-&lt;li&gt;(): 表式没有参数&lt;/li&gt;
-&lt;li&gt;单个参数可不加括号&lt;/li&gt;
-&lt;li&gt;参数可以不加类型，由编译器去推断类型，也可以加上类型。加类型的话需要使用小括号包起来。&lt;/li&gt;
-&lt;li&gt;参数引用的值而不是变量。但不必须写final变量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;主体：
-&lt;ul&gt;
-&lt;li&gt;可以是一个表达式，也可以是一段代码块，如果是一段代码块需要使用大括号包起来。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;函数式接口&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Java里函数式接口的主要类型
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;接口&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;参数&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;返回类型&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;示例&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&amp;mdash;-&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&amp;mdash;-&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Predicate&amp;lt;T&amp;gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;boolean&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Consumer&amp;lt;T&amp;gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;void&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Function&amp;lt;T, R&amp;gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Supplier&amp;lt;T&amp;gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;None&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;UnaryOperator&amp;lt;T&amp;gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;BinaryOperator&amp;lt;T&amp;gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T, T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;T&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;流（Stream）&lt;/h2&gt;
-
-&lt;p&gt;Stream是用函数式编程方式 在集合类上进行复杂操作的工具。&lt;/p&gt;</description>
+&lt;p&gt;函数式编程中没有赋值语句,因此变量一旦有了值,就不会再改变了.更通俗地说,函数式编程完全没有副作用.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -534,65 +530,6 @@ PDF, DOC,JPG,PNG
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Rust不会自动进行隐式类型转换。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>如何设计程序</title>
-      <link>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</link>
-      <pubDate>Sun, 07 Apr 2024 23:24:21 +0800</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</guid>
-      <description>&lt;h2 id=&#34;如何设计程序&#34; class=&#34;header-anchor-wrapper&#34;&gt;如何设计程序
-  &lt;a href=&#34;#%e5%a6%82%e4%bd%95%e8%ae%be%e8%ae%a1%e7%a8%8b%e5%ba%8f&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;base&#34; class=&#34;header-anchor-wrapper&#34;&gt;Base
-  &lt;a href=&#34;#base&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-
-&lt;h4 id=&#34;基本程序设计步骤&#34; class=&#34;header-anchor-wrapper&#34;&gt;基本程序设计步骤
-  &lt;a href=&#34;#%e5%9f%ba%e6%9c%ac%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e6%ad%a5%e9%aa%a4&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;六个基本的程序设计步骤&lt;/p&gt;</description>
     </item>
     
     <item>
