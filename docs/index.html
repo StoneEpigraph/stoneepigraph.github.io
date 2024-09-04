@@ -265,6 +265,32 @@
 
 <div class="postcard-layout content-margin">
     
+        <a href="https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
+            <div class="postcard-item">
+                <div class="postcard-title">
+                    <span>Java8函数式编程</span>
+                </div>
+                <div class="postcard-summary">
+                    <span>函数式编程 函数式编程中没有赋值语句,因此变量一旦有了值,就不会再改变了.更通俗地说,函数式编程完全没有副作用.
+Lambda表达式 格式 () -&gt; {} 参数： (): 表式没有参数 单个参数可不加括号 参数可以不加类型，由编译器去推断类型，也可以加上类型。加类型的话需要使用小括号包起来。 参数引用的值而不是变量。但不必须写final变量。 主体： 可以是一个表达式，也可以是一段代码块，如果是一段代码块需要使用大括号包起来。 函数式接口 Java里函数式接口的主要类型 接口 参数 返回类型 示例 &mdash;&mdash;&mdash;&mdash;&mdash;&ndash; &mdash;- &mdash;&mdash;&ndash; &mdash;- Predicate&lt;T&gt; T boolean Consumer&lt;T&gt; T void Function&lt;T, R&gt; T R Supplier&lt;T&gt; None T UnaryOperator&lt;T&gt; T T BinaryOperator&lt;T&gt; T, T T 流（Stream） Stream是用函数式编程方式 在集合类上进行复杂操作的工具。
+特点： 惰性求值。看返回值是Stream就是惰性求值。如果返回值是另一个值 或空，那么就是及早求值。 可链式操作。 和Iterator类似，Stream是一种内部迭代试。内部迭代将更多的控制权交给了集合类。 常用流操作 collect(toList()) 生成一个列表，及早求值操作。 map 将一个流中的值转换成一个新的流。参数是一个只接受一个String类型参数并返回一个新的String的Lambda（Function）。 filter 过滤流中的数据。参数是一个Predicate式的Lambda表达式。 flatMap 可用Stream替换值，然后并多个Stream连接成一个Stream。参数 是一个Function接口的Lambda表达式。 multiList.stream() .flatmap(item -&gt; item.getSubList()) .filter(obj -&gt; obj.</span>
+                </div>
+                <div class="postcard-metadata">
+                    <span>2024/09/04 · 
+    
+        
+    
+
+    
+        
+            <span>Posts</span>
+        
+    
+</span>
+                </div>
+            </div>
+        </a>
+    
         <a href="https://stoneepigraph.github.io/posts/ddia/">
             <div class="postcard-item">
                 <div class="postcard-title">
@@ -547,30 +573,6 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
                 <div class="postcard-summary">
                     <span>入门 模板 + 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意
 值域表达式本身没有方括号 可以在..的两侧编写自述表达式而不需要圆括号 .., ..&lt;, ..!, ..*是去处符,所以它们中间不能有空格. 无右边界值域的定义大小是2147483647 值域并不存储它们包含的数字. 哈希表 像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先. 模板 插值: ${paramsName} FTL标签 FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#. 注释注释使用&lt;#&ndash; and &ndash;&gt; 来标识 其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来. 基本指令 IF指令 &lt;#if condition&gt; &lt;/#if&gt; &lt;#if condition&gt; if statement &lt;#elseif condition&gt; elseif statement &lt;#else&gt; else statement &lt;/#if&gt; list指令展示列表内容 基本 &lt;ul&gt; &lt;#list listObj as obj&gt; &lt;li&gt;${ojb} &lt;/#list&gt; &lt;/ul&gt; 如果列表为空的话,整个列表都不展示 &lt;#list listObj&gt; &lt;ul&gt; &lt;#items as obj&gt; &lt;li&gt;${obj} &lt;/ul&gt; &lt;/#list&gt; 如果列表为空的话展示一些其它信息 &lt;#list listObj&gt; &lt;p&gt; ListDesc: &lt;ul&gt; &lt;#items as obj&gt; &lt;li&gt;${obj}&lt;#sep&gt;septarator&lt;/#sep&gt; &lt;/#items&gt; &lt;/ul&gt; &lt;#else&gt; &lt;p&gt; list is empty.</span>
-                </div>
-                <div class="postcard-metadata">
-                    <span>2022/11/25 · 
-    
-        
-    
-
-    
-        
-            <span>Posts</span>
-        
-    
-</span>
-                </div>
-            </div>
-        </a>
-    
-        <a href="https://stoneepigraph.github.io/posts/git/gitignore/">
-            <div class="postcard-item">
-                <div class="postcard-title">
-                    <span>Gitignore</span>
-                </div>
-                <div class="postcard-summary">
-                    <span> 规则 mtk 过滤整个文件夹 *.zip 过滤所有.zip文件 /mtk/do.c 过滤某个具体文件 !*.zip 反忽略 !/mtk/one.txt反忽略 *.a # 忽略所有 .a 结尾的文件 !lib.a # 但 lib.a 除外 /TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO build/ # 忽略 build/ 目录下的所有文件 doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt </span>
                 </div>
                 <div class="postcard-metadata">
                     <span>2022/11/25 · 

@@ -6,7 +6,18 @@
     <description>Recent content in Posts on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java8函数式编程</title>
+      <link>https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/java8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+      <description>函数式编程 函数式编程中没有赋值语句,因此变量一旦有了值,就不会再改变了.更通俗地说,函数式编程完全没有副作用.
+Lambda表达式 格式 () -&amp;gt; {} 参数： (): 表式没有参数 单个参数可不加括号 参数可以不加类型，由编译器去推断类型，也可以加上类型。加类型的话需要使用小括号包起来。 参数引用的值而不是变量。但不必须写final变量。 主体： 可以是一个表达式，也可以是一段代码块，如果是一段代码块需要使用大括号包起来。 函数式接口 Java里函数式接口的主要类型 接口 参数 返回类型 示例 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; &amp;mdash;- &amp;mdash;&amp;mdash;&amp;ndash; &amp;mdash;- Predicate&amp;lt;T&amp;gt; T boolean Consumer&amp;lt;T&amp;gt; T void Function&amp;lt;T, R&amp;gt; T R Supplier&amp;lt;T&amp;gt; None T UnaryOperator&amp;lt;T&amp;gt; T T BinaryOperator&amp;lt;T&amp;gt; T, T T 流（Stream） Stream是用函数式编程方式 在集合类上进行复杂操作的工具。
+特点： 惰性求值。看返回值是Stream就是惰性求值。如果返回值是另一个值 或空，那么就是及早求值。 可链式操作。 和Iterator类似，Stream是一种内部迭代试。内部迭代将更多的控制权交给了集合类。 常用流操作 collect(toList()) 生成一个列表，及早求值操作。 map 将一个流中的值转换成一个新的流。参数是一个只接受一个String类型参数并返回一个新的String的Lambda（Function）。 filter 过滤流中的数据。参数是一个Predicate式的Lambda表达式。 flatMap 可用Stream替换值，然后并多个Stream连接成一个Stream。参数 是一个Function接口的Lambda表达式。 multiList.stream() .flatmap(item -&amp;gt; item.getSubList()) .filter(obj -&amp;gt; obj.</description>
+    </item>
+    
     <item>
       <title>DDIA</title>
       <link>https://stoneepigraph.github.io/posts/ddia/</link>

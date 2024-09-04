@@ -6,7 +6,34 @@
     <description>Recent content in Categories on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JAVA</title>
+      <link>https://stoneepigraph.github.io/categories/java/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>https://stoneepigraph.github.io/categories/lambda/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>函数式</title>
+      <link>https://stoneepigraph.github.io/categories/%E5%87%BD%E6%95%B0%E5%BC%8F/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/categories/%E5%87%BD%E6%95%B0%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Book</title>
       <link>https://stoneepigraph.github.io/categories/book/</link>
@@ -85,15 +112,6 @@
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/categories/emacs-lisp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JAVA</title>
-      <link>https://stoneepigraph.github.io/categories/java/</link>
-      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://stoneepigraph.github.io/categories/java/</guid>
       <description></description>
     </item>
     
