@@ -9,7 +9,11 @@ theme = "hugo-theme-monochrome"
 enableEmoji = true
 publishdir = "docs"
 
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
 [params]
 version = "0.2.1"
 author = "Stone Epigraph"
 defaultTheme = "dark"
+enable_site_search = true

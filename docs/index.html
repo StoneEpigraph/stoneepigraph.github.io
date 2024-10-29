@@ -17,7 +17,7 @@
 
 <!DOCTYPE html>
 <html lang='en'><head>
-	<meta name="generator" content="Hugo 0.134.0">
+	<meta name="generator" content="Hugo 0.136.5">
     <meta charset="utf-8">
     <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -276,6 +276,19 @@
 问题数据类型描述 程序行为的非形式描述 说明程序行为的例子 开发程序的模板或视图 把模板转换成完整的定义 通过测试发现错误 要正确的设计程序需要做到
 分析通常使用文字表述的问题 在抽象表达问题实质的同时使用例子进行说明 用精确的语言阐明所表述的语句和注释 通过检查,测试对上述活动进行评价和修改 关注细节 简单数据的处理 学生,教师和计算机 程序只是计算速度非常快的学生,不过程序并不能理解自然语言,所以我们需要学会一门计算机语言将自然语言翻译给计算机.但程序设计需要耐心和专心,保能关注每个微小的细节,并严格规划和对规划忠诚,才能避免错误.
 数,表达式和简单程序 数和算术运算
+讲述了数和Scheme的一些基本知识
+变量和程序 字处理问题 错误 设计程序
+设计程序至少需要如下4个步骤
+理解程序的目的程序设计的目标是创建一个接收输入并产生结果的机制.因此在开发程序时应该给每一个程序一个有意义的名字,并且说明输入数据和所产生的数据的类型,这称为程序的合约. 构造并标注例子构造一个例子,并将其写入注释 程序体写出程序 测试检查程序计算所得的结果与预期数值是否相符. 设计诀窍并不能解决程序设计过程中所遇到的所有问题,它提供的是完成程序设计过程中不可避免的步骤的指导.
+领域知识
+阐明程序体通常需要与问题相关的知识,这种形式的知识称为领域知识.它可能来自简单或复杂的数学,或来自非数学学科.
+程序就是函数加上变量定义 函数的复合
+辅助函数原则: 对问题表述中所提到的或在进行实例计算中所发现的每种依赖关系都使用一个辅助函数进行明确表达.
+变量定义
+如果一个数值在程序中多次出现,应该使用变量定义给它一个名字.变量定义将一个名字与一个值相关联.
+条件表达式和函数 布尔类型和关系
+复合条件: and or not
+函数和测试条件 条件和条件函数
 </span>
                 </div>
                 <div class="postcard-metadata">
@@ -334,7 +347,8 @@ BEGIN 在第一个输入文件的第一行之前被匹配 END 在最后一个输
                 </div>
                 <div class="postcard-summary">
                     <span>入门 什么是Docker docker是一个容器技术。
-Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker </span>
+Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker &ndash;help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi &hellip; 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 &ndash;name containerName -it 导入容器 docker load -i dockerTag.tar 查看当前运行的容器 docker ps 查看所有的容器，包括已停止的 docker ps -a 返回正在运行的容器ID docker ps -q 重启，停止容器 docker start dockerContainerId | dockerName docker restart dockerContainerid | dockerName docker stop dockerCOntainerid | dockerName 删除容器 docker rm dockerContainerId | dockerName 强制删除， 包括正在运行的容器 docker rm -f dockerContainerid | dockerName 查看容器内运行日志 docker log dockerContainerid | dockerName 实时查看日志 -f 加入时间戳实时展示日志 -t 显示指定行数的日志 &ndash;tail Number 查看容器内的进程 docker top dockerContainerid | dockerName 与容器内部进行交互 docker exec -it dockerCOntainerid | dockerName Command [args] 宿主与容器的传输文件 从容器到操作系统 docker cp dockerContainerid | dockerName :/path/file ./file 从宿主到容器 docker cp 文件 | 目录 dockerContainerid | dockerName: 容器内目录 查看容器内部细节 docker inspect dockerContainerid | dockerName 数据卷 Volume 使用： 实现襥机系统与容器之间的文件共享 特点： 数据卷可以在容器之间共享和重用。 对数据卷的修改会立即影响到对应容器。 对数据卷的更新修改，不会影响镜像。 数据卷默认会一直存在， 即使容器被删除。 使用 自定义数据卷 docker run -v 宿主机目录:容器目录:ro dockerImageId 自动创建数据卷 docker run -v 卷名:容器内路径 dockerImageId 查看卷 docker volume inspect volumeName docker volume ls 将正在运行的容器打包成镜像 docker commit -m &rsquo;&rsquo; -a &rsquo;&rsquo; dockerContainerid dockerImageName:dockerTag 将镜像备份 docker save 镜像名称:tag -o dockerBak-tag.tar 网络配置 docker容器与操作系统通信机制默认使用网桥
+</span>
                 </div>
                 <div class="postcard-metadata">
                     <span>2024/09/04 · 
@@ -366,6 +380,19 @@ pipenv shell # 进入虚拟环境 pipenv run command #使用虚拟环境执行�
 pipenv graph # 查看当前环境的依赖
 Hello，Flask
 创建程序实例
+新建app.py(可以是除flask.py之外任意名字)
+from flask import Flask app = Flask(name)
+注册路由
+概括：
+用户在浏览器输入URL访问某个资源 Flask接收用户请求并分析请求的URL 为这个URL找到对应的处理函数 执行函数并生成响应，浏览器 浏览器接收并解析响应，将信息显示在页面中。 ?? (????)(&rsquo;/&rsquo;) def index(): ​return '
+&lt;h1&gt;
+hello, world
+&lt;/h1&gt;
+'
+可以为视图绑定多个URL
+?? ()(&lsquo;hi&rsquo;) ?? ()(&rsquo;/hello&rsquo;) def say_hello(): ​return '
+&lt;h1&gt;
+Hello, Flask!
 </span>
                 </div>
                 <div class="postcard-metadata">
@@ -391,6 +418,7 @@ Hello，Flask
                 </div>
                 <div class="postcard-summary">
                     <span>函数式编程 函数式编程中没有赋值语句,因此变量一旦有了值,就不会再改变了.更通俗地说,函数式编程完全没有副作用.
+Lambda表达式 格式 () -&gt; {} 参数： (): 表式没有参数 单个参数可不加括号 参数可以不加类型，由编译器去推断类型，也可以加上类型。加类型的话需要使用小括号包起来。 参数引用的值而不是变量。但不必须写final变量。 主体： 可以是一个表达式，也可以是一段代码块，如果是一段代码块需要使用大括号包起来。 函数式接口 Java里函数式接口的主要类型 接口 参数 返回类型 示例 &mdash;&mdash;&mdash;&mdash;&mdash;&ndash; &mdash;- &mdash;&mdash;&ndash; &mdash;- Predicate&lt;T&gt; T boolean Consumer&lt;T&gt; T void Function&lt;T, R&gt; T R Supplier&lt;T&gt; None T UnaryOperator&lt;T&gt; T T BinaryOperator&lt;T&gt; T, T T 流（Stream） Stream是用函数式编程方式 在集合类上进行复杂操作的工具。
 </span>
                 </div>
                 <div class="postcard-metadata">
@@ -441,6 +469,8 @@ Hello，Flask
                 </div>
                 <div class="postcard-summary">
                     <span>Maven库： http://repo2.maven.org/maven2/
+Maven依赖查询： http://mvnrepository.com/
+Maven常用命令： 创建Maven的普通java项目： mvn archetype:create -DgroupId=packageName -DartifactId=projectName 创建Maven的Web项目： ​ mvn archetype:create ​ -DgroupId=packageName ​ -DartifactId=webappName ​ -DarchetypeArtifactId=maven-archetype-webapp
 </span>
                 </div>
                 <div class="postcard-metadata">
@@ -491,6 +521,7 @@ Hello，Flask
                 </div>
                 <div class="postcard-summary">
                     <span>数据结构与算法 解压序列赋值给多个变量 注意_, /, /_, 级别的使用
+保留最后N个元素 collections deque
 </span>
                 </div>
                 <div class="postcard-metadata">
