@@ -1,0 +1,556 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java Stream简单了解 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/language/java/stream/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Java Stream简单了解">
+  <meta property="og:description" content="Stream Stream的创建方式 通过Collection系列集合提供 List&lt;String&gt; list = new ArrayList&lt;&gt;(); Stream&lt;String&gt; stream1 = list.stream(); 通过Arrays中的静态方法获取数组流 String[] emps = new String[10]; Stream&lt;String&gt; stream2 = Arrays.stream(emps); 通过Stream类中的静态方法of() Stream&lt;String&gt; stream3 = Stream.of(&#34;aa&#34;, &#34;bb&#34;, &#34;cc&#34;); 创建无限流 迭代 Stream&lt;Integer&gt; stream4 = Stream.iterate(0, x -&gt; x &#43; 2); 生成 Stream.generate(() -&gt; Math.random()) 中间操作 筛选与切片 filter stream.filter(Predicate) limit stream.filter(long) skip stream.skip(long) distinct 通过hashcode(),equals()进行去重 stream.distinct() 映射 map 将元素转换成其他形式或提取信息。map中的Function本身也会返回一个流。 map(Function) flatMap 会整合Function本身返回的流。 flatMap(Function) 排序 sorted() 自然排序 stream.sorted() sorted(Comparator) 定制排序，指定Comparator stream.sorted(Comparator) 终止操作 查找与匹配 allMatch 检查是否匹配所有元素 stream.allMatch() anyMatch 检查是否至少匹配一个元素 nonMatch 检查是否没有匹配所有元素 findFisrt() 返回第一个元素 findAny 返回当前流中的任意元素 count 返回流中的元素的个数 max(Comparator) 返回流中的最大值 min(Comparator) 返回流中的最小值 归约 reduce(T, BinaryOperator) 将流中的元素反复结合起来，得到一个新值。 Stream.of(1,2,3,4,5).reduce(0, (x, y) -&gt; x &#43; y) 收集 collect(Collector) 将流转换为其他形式,包括转换，分组，分区等 Stream.of(&#34;11&#34;, &#34;aa&#34;, &#34;bb&#34;).collect(Collectors.toSet()); Stream.of(&#34;11&#34;, &#34;aa&#34;, &#34;bb&#34;).collect(Collectors.coutning()); ... 并行流与串行流 了解使用Fork/Join框架 Stream可以使用parallel()与sequential()切换并行流与顺序流。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-03T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="函数式">
+    <meta property="article:tag" content="Stream">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Java Stream简单了解">
+  <meta name="twitter:description" content="Stream Stream的创建方式 通过Collection系列集合提供 List&lt;String&gt; list = new ArrayList&lt;&gt;(); Stream&lt;String&gt; stream1 = list.stream(); 通过Arrays中的静态方法获取数组流 String[] emps = new String[10]; Stream&lt;String&gt; stream2 = Arrays.stream(emps); 通过Stream类中的静态方法of() Stream&lt;String&gt; stream3 = Stream.of(&#34;aa&#34;, &#34;bb&#34;, &#34;cc&#34;); 创建无限流 迭代 Stream&lt;Integer&gt; stream4 = Stream.iterate(0, x -&gt; x &#43; 2); 生成 Stream.generate(() -&gt; Math.random()) 中间操作 筛选与切片 filter stream.filter(Predicate) limit stream.filter(long) skip stream.skip(long) distinct 通过hashcode(),equals()进行去重 stream.distinct() 映射 map 将元素转换成其他形式或提取信息。map中的Function本身也会返回一个流。 map(Function) flatMap 会整合Function本身返回的流。 flatMap(Function) 排序 sorted() 自然排序 stream.sorted() sorted(Comparator) 定制排序，指定Comparator stream.sorted(Comparator) 终止操作 查找与匹配 allMatch 检查是否匹配所有元素 stream.allMatch() anyMatch 检查是否至少匹配一个元素 nonMatch 检查是否没有匹配所有元素 findFisrt() 返回第一个元素 findAny 返回当前流中的任意元素 count 返回流中的元素的个数 max(Comparator) 返回流中的最大值 min(Comparator) 返回流中的最小值 归约 reduce(T, BinaryOperator) 将流中的元素反复结合起来，得到一个新值。 Stream.of(1,2,3,4,5).reduce(0, (x, y) -&gt; x &#43; y) 收集 collect(Collector) 将流转换为其他形式,包括转换，分组，分区等 Stream.of(&#34;11&#34;, &#34;aa&#34;, &#34;bb&#34;).collect(Collectors.toSet()); Stream.of(&#34;11&#34;, &#34;aa&#34;, &#34;bb&#34;).collect(Collectors.coutning()); ... 并行流与串行流 了解使用Fork/Join框架 Stream可以使用parallel()与sequential()切换并行流与顺序流。">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#stream">Stream</a>
+      <ul>
+        <li><a href="#stream的创建方式">Stream的创建方式</a></li>
+        <li><a href="#中间操作">中间操作</a></li>
+        <li><a href="#终止操作">终止操作</a></li>
+        <li><a href="#并行流与串行流">并行流与串行流</a></li>
+        <li><a href="#特点">特点</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="stream" class="header-anchor-wrapper">Stream
+  <a href="#stream" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="stream的创建方式" class="header-anchor-wrapper">Stream的创建方式
+  <a href="#stream%e7%9a%84%e5%88%9b%e5%bb%ba%e6%96%b9%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ol>
+<li>通过Collection系列集合提供
+<pre  class="mc-prism hide language-text" ><code class="language-java">List&lt;String&gt; list = new ArrayList&lt;&gt;();
+Stream&lt;String&gt; stream1 = list.stream();
+</code></pre>
+</li>
+<li>通过Arrays中的静态方法获取数组流
+<pre  class="mc-prism hide language-text" ><code class="language-java">String[] emps = new String[10];
+Stream&lt;String&gt; stream2 = Arrays.stream(emps);
+</code></pre>
+</li>
+<li>通过Stream类中的静态方法of()
+<pre  class="mc-prism hide language-text" ><code class="language-java">Stream&lt;String&gt; stream3 = Stream.of(&quot;aa&quot;, &quot;bb&quot;, &quot;cc&quot;);
+</code></pre>
+</li>
+<li>创建无限流
+<ol>
+<li>迭代
+<pre  class="mc-prism hide language-text" ><code class="language-java">Stream&lt;Integer&gt; stream4 = Stream.iterate(0, x -&gt; x + 2);
+</code></pre>
+</li>
+<li>生成
+<pre  class="mc-prism hide language-text" ><code class="language-java">Stream.generate(() -&gt; Math.random())
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+
+<h3 id="中间操作" class="header-anchor-wrapper">中间操作
+  <a href="#%e4%b8%ad%e9%97%b4%e6%93%8d%e4%bd%9c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ol>
+<li>筛选与切片
+<ol>
+<li>filter
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.filter(Predicate)
+</code></pre>
+</li>
+<li>limit
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.filter(long)
+</code></pre>
+</li>
+<li>skip
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.skip(long)
+</code></pre>
+</li>
+<li>distinct
+通过hashcode(),equals()进行去重
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.distinct()
+</code></pre>
+</li>
+</ol>
+</li>
+<li>映射
+<ol>
+<li>map
+将元素转换成其他形式或提取信息。map中的Function本身也会返回一个流。
+<pre  class="mc-prism hide language-text" ><code class="language-java">map(Function)
+</code></pre>
+</li>
+<li>flatMap
+会整合Function本身返回的流。
+<pre  class="mc-prism hide language-text" ><code class="language-java">flatMap(Function)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>排序
+<ol>
+<li>sorted()
+自然排序
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.sorted()
+</code></pre>
+</li>
+<li>sorted(Comparator)
+定制排序，指定Comparator
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.sorted(Comparator)
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+
+<h3 id="终止操作" class="header-anchor-wrapper">终止操作
+  <a href="#%e7%bb%88%e6%ad%a2%e6%93%8d%e4%bd%9c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ol>
+<li>查找与匹配</li>
+<li>allMatch
+检查是否匹配所有元素</li>
+</ol>
+<!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-java">stream.allMatch()
+</code></pre>
+<ul>
+<li>anyMatch
+检查是否至少匹配一个元素</li>
+<li>nonMatch
+检查是否没有匹配所有元素</li>
+<li>findFisrt()
+返回第一个元素</li>
+<li>findAny
+返回当前流中的任意元素</li>
+<li>count
+返回流中的元素的个数</li>
+<li>max(Comparator)
+返回流中的最大值</li>
+<li>min(Comparator)
+返回流中的最小值</li>
+<li>归约
+<ul>
+<li>reduce(T, BinaryOperator)
+将流中的元素反复结合起来，得到一个新值。
+<pre  class="mc-prism hide language-text" ><code class="language-java">Stream.of(1,2,3,4,5).reduce(0, (x, y) -&gt; x + y)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>收集
+<ul>
+<li>collect(Collector)
+将流转换为其他形式,包括转换，分组，分区等
+<pre  class="mc-prism hide language-text" ><code class="language-java">Stream.of(&quot;11&quot;, &quot;aa&quot;, &quot;bb&quot;).collect(Collectors.toSet());
+Stream.of(&quot;11&quot;, &quot;aa&quot;, &quot;bb&quot;).collect(Collectors.coutning());
+...
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="并行流与串行流" class="header-anchor-wrapper">并行流与串行流
+  <a href="#%e5%b9%b6%e8%a1%8c%e6%b5%81%e4%b8%8e%e4%b8%b2%e8%a1%8c%e6%b5%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>了解使用Fork/Join框架
+Stream可以使用parallel()与sequential()切换并行流与顺序流。</p>
+
+<h3 id="特点" class="header-anchor-wrapper">特点
+  <a href="#%e7%89%b9%e7%82%b9" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>惰性求值</li>
+<li>内部迭代</li>
+</ul>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

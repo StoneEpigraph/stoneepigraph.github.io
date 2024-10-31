@@ -1,0 +1,1799 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>重构2 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Whatspeng!!!" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="重构2">
+  <meta property="og:description" content="开始 本章重构：
+将原函数分解成一组嵌套的函数 分离计算逻辑与输出格式化逻辑 为计算器引入多态性来处理计算逻辑 好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积
+重构的原则 何谓重构 名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本. 动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构. 重构时不添加新功能,添加新功能时不重构. 为何重构 改进软件的设计 使软件更容易理解 帮助找到BUG 提高编程速度 何时重构 事不过三, 三则重构">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-11-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-25T00:00:00+00:00">
+    <meta property="article:tag" content="Book">
+    <meta property="article:tag" content="Read">
+    <meta property="article:tag" content="Architecture">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="重构2">
+  <meta name="twitter:description" content="开始 本章重构：
+将原函数分解成一组嵌套的函数 分离计算逻辑与输出格式化逻辑 为计算器引入多态性来处理计算逻辑 好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积
+重构的原则 何谓重构 名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本. 动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构. 重构时不添加新功能,添加新功能时不重构. 为何重构 改进软件的设计 使软件更容易理解 帮助找到BUG 提高编程速度 何时重构 事不过三, 三则重构">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开始">开始</a></li>
+    <li><a href="#重构的原则">重构的原则</a>
+      <ul>
+        <li><a href="#何谓重构">何谓重构</a></li>
+        <li><a href="#重构时不添加新功能-添加新功能时不重构-dot">重构时不添加新功能,添加新功能时不重构.</a></li>
+        <li><a href="#为何重构">为何重构</a></li>
+        <li><a href="#何时重构">何时重构</a></li>
+        <li><a href="#重构的挑战">重构的挑战</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码的坏味道">代码的坏味道</a>
+      <ul>
+        <li><a href="#神秘命名">神秘命名</a></li>
+        <li><a href="#重复代码">重复代码</a></li>
+        <li><a href="#过长函数">过长函数</a></li>
+        <li><a href="#过长的参数列表">过长的参数列表</a></li>
+        <li><a href="#全局数据">全局数据</a></li>
+        <li><a href="#可变数据">可变数据</a></li>
+        <li><a href="#发散式变化">发散式变化</a></li>
+        <li><a href="#霰弹式修改">霰弹式修改</a></li>
+        <li><a href="#依恋情结">依恋情结</a></li>
+        <li><a href="#数据泥团">数据泥团</a></li>
+        <li><a href="#基本类型偏执">基本类型偏执</a></li>
+        <li><a href="#重复的switch">重复的switch</a></li>
+        <li><a href="#循环语句">循环语句</a></li>
+        <li><a href="#冗赘的元素">冗赘的元素</a></li>
+        <li><a href="#夸夸其谈通用性">夸夸其谈通用性</a></li>
+        <li><a href="#临时字段">临时字段</a></li>
+        <li><a href="#过长的消息链">过长的消息链</a></li>
+        <li><a href="#中间人">中间人</a></li>
+        <li><a href="#内幕交易">内幕交易</a></li>
+        <li><a href="#过大的类">过大的类</a></li>
+        <li><a href="#异曲同工的类">异曲同工的类</a></li>
+        <li><a href="#纯数据的类">纯数据的类</a></li>
+        <li><a href="#被拒绝的遗赠">被拒绝的遗赠</a></li>
+        <li><a href="#注释">注释</a></li>
+      </ul>
+    </li>
+    <li><a href="#构筑测试体系">构筑测试体系</a>
+      <ul>
+        <li><a href="#自测试代码的价值">自测试代码的价值</a></li>
+      </ul>
+    </li>
+    <li><a href="#介绍重构名录">介绍重构名录</a>
+      <ul>
+        <li><a href="#第一组重组">第一组重组</a></li>
+        <li><a href="#封装">封装</a></li>
+        <li><a href="#搬移特性">搬移特性</a></li>
+        <li><a href="#重新组织数据">重新组织数据</a></li>
+        <li><a href="#简化条件逻辑">简化条件逻辑</a></li>
+        <li><a href="#重构api">重构API</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="开始" class="header-anchor-wrapper">开始
+  <a href="#%e5%bc%80%e5%a7%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+<p>本章重构：</p>
+<ul>
+<li>将原函数分解成一组嵌套的函数</li>
+<li>分离计算逻辑与输出格式化逻辑</li>
+<li>为计算器引入多态性来处理计算逻辑</li>
+</ul>
+<p>好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积</p>
+
+<h2 id="重构的原则" class="header-anchor-wrapper">重构的原则
+  <a href="#%e9%87%8d%e6%9e%84%e7%9a%84%e5%8e%9f%e5%88%99" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="何谓重构" class="header-anchor-wrapper">何谓重构
+  <a href="#%e4%bd%95%e8%b0%93%e9%87%8d%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本.</li>
+<li>动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构.</li>
+</ul>
+
+<h3 id="重构时不添加新功能-添加新功能时不重构-dot" class="header-anchor-wrapper">重构时不添加新功能,添加新功能时不重构.
+  <a href="#%e9%87%8d%e6%9e%84%e6%97%b6%e4%b8%8d%e6%b7%bb%e5%8a%a0%e6%96%b0%e5%8a%9f%e8%83%bd-%e6%b7%bb%e5%8a%a0%e6%96%b0%e5%8a%9f%e8%83%bd%e6%97%b6%e4%b8%8d%e9%87%8d%e6%9e%84-dot" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="为何重构" class="header-anchor-wrapper">为何重构
+  <a href="#%e4%b8%ba%e4%bd%95%e9%87%8d%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="改进软件的设计" class="header-anchor-wrapper">改进软件的设计
+  <a href="#%e6%94%b9%e8%bf%9b%e8%bd%af%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="使软件更容易理解" class="header-anchor-wrapper">使软件更容易理解
+  <a href="#%e4%bd%bf%e8%bd%af%e4%bb%b6%e6%9b%b4%e5%ae%b9%e6%98%93%e7%90%86%e8%a7%a3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="帮助找到bug" class="header-anchor-wrapper">帮助找到BUG
+  <a href="#%e5%b8%ae%e5%8a%a9%e6%89%be%e5%88%b0bug" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="提高编程速度" class="header-anchor-wrapper">提高编程速度
+  <a href="#%e6%8f%90%e9%ab%98%e7%bc%96%e7%a8%8b%e9%80%9f%e5%ba%a6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="何时重构" class="header-anchor-wrapper">何时重构
+  <a href="#%e4%bd%95%e6%97%b6%e9%87%8d%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>事不过三, 三则重构</p>
+<ul>
+<li>预备性重构: 在添加新功能之前进行重构</li>
+<li>帮助理解的重构:</li>
+<li>捡垃圾式重构:
+不想从眼下正要完成的代码上跑题太多,但也不想把垃圾留在原地.所以在重构可以很快完成时就立即重构,如果需要花一些精力,可以做一个TODO.至少要让营地比你到达时干净.</li>
+<li>有计划的重构和见机行事的重构每次修改时,首先令修改很容易,然后再进行这次容易的修改.</li>
+<li>长期重构如果想替换掉一个正在使用的库,需要很长时间,可以先引入一层新的抽象,使其兼容新旧的两个库的接口.一旦调用方已经完全为使用这层抽象,替换掉下面的库就会容易很多.</li>
+<li>重审代码时重构</li>
+<li>何是不应该重构
+<ul>
+<li>如果我看见一块凌乱的代码,但并不需要修改它,那么我就不需要重构它.</li>
+<li>如果丑陋的代码能被隐藏在一个API之下,我就可以容忍它继续保持丑陋.</li>
+<li>如果重写比重构还容易,就别重构了.</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="重构的挑战" class="header-anchor-wrapper">重构的挑战
+  <a href="#%e9%87%8d%e6%9e%84%e7%9a%84%e6%8c%91%e6%88%98" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>延缓新功能开发</li>
+</ul>
+
+<h2 id="代码的坏味道" class="header-anchor-wrapper">代码的坏味道
+  <a href="#%e4%bb%a3%e7%a0%81%e7%9a%84%e5%9d%8f%e5%91%b3%e9%81%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="神秘命名" class="header-anchor-wrapper">神秘命名
+  <a href="#%e7%a5%9e%e7%a7%98%e5%91%bd%e5%90%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="重复代码" class="header-anchor-wrapper">重复代码
+  <a href="#%e9%87%8d%e5%a4%8d%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="过长函数" class="header-anchor-wrapper">过长函数
+  <a href="#%e8%bf%87%e9%95%bf%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>现代编程语言几乎已经完全免除了进程内的函数调用开销.</p>
+
+<h3 id="过长的参数列表" class="header-anchor-wrapper">过长的参数列表
+  <a href="#%e8%bf%87%e9%95%bf%e7%9a%84%e5%8f%82%e6%95%b0%e5%88%97%e8%a1%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>如果可以向某个参数发起查询而获得另一个参数的值,那么就可以使用以查询取代参数去掉这第二个参数.</li>
+<li>如果正在从现有的数据结构中抽出很多数据荐,就可以考虑使用保持对象完整手法</li>
+<li>如果有几项参数总是同时出现,可以引入参数对象</li>
+<li>如果某个参数被用作区分函数行为的标记,可以使用移除标记参数.</li>
+</ul>
+
+<h3 id="全局数据" class="header-anchor-wrapper">全局数据
+  <a href="#%e5%85%a8%e5%b1%80%e6%95%b0%e6%8d%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>可以把全局数据用一个函数包装起来,至少能看见修改它的地方.</p>
+
+<h3 id="可变数据" class="header-anchor-wrapper">可变数据
+  <a href="#%e5%8f%af%e5%8f%98%e6%95%b0%e6%8d%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="发散式变化" class="header-anchor-wrapper">发散式变化
+  <a href="#%e5%8f%91%e6%95%a3%e5%bc%8f%e5%8f%98%e5%8c%96" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>每次只关心一个上下文</p>
+
+<h3 id="霰弹式修改" class="header-anchor-wrapper">霰弹式修改
+  <a href="#%e9%9c%b0%e5%bc%b9%e5%bc%8f%e4%bf%ae%e6%94%b9" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="依恋情结" class="header-anchor-wrapper">依恋情结
+  <a href="#%e4%be%9d%e6%81%8b%e6%83%85%e7%bb%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>总是将一起变化的东西放在一块儿.</p>
+
+<h3 id="数据泥团" class="header-anchor-wrapper">数据泥团
+  <a href="#%e6%95%b0%e6%8d%ae%e6%b3%a5%e5%9b%a2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="基本类型偏执" class="header-anchor-wrapper">基本类型偏执
+  <a href="#%e5%9f%ba%e6%9c%ac%e7%b1%bb%e5%9e%8b%e5%81%8f%e6%89%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>可以运用使用对象取代基本类型</p>
+
+<h3 id="重复的switch" class="header-anchor-wrapper">重复的switch
+  <a href="#%e9%87%8d%e5%a4%8d%e7%9a%84switch" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>任何switch语句都应该用以多态取代条件表达式.</p>
+
+<h3 id="循环语句" class="header-anchor-wrapper">循环语句
+  <a href="#%e5%be%aa%e7%8e%af%e8%af%ad%e5%8f%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>可以使用管道取代循环</p>
+
+<h3 id="冗赘的元素" class="header-anchor-wrapper">冗赘的元素
+  <a href="#%e5%86%97%e8%b5%98%e7%9a%84%e5%85%83%e7%b4%a0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>有些类或者额外的结构在设计过程中不再有用,就把它抛弃</p>
+
+<h3 id="夸夸其谈通用性" class="header-anchor-wrapper">夸夸其谈通用性
+  <a href="#%e5%a4%b8%e5%a4%b8%e5%85%b6%e8%b0%88%e9%80%9a%e7%94%a8%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>那些我们想的总有一天需要做这些事,并且企图以各式各样的钩子和特殊情况来处理一些非必要的事情.</p>
+
+<h3 id="临时字段" class="header-anchor-wrapper">临时字段
+  <a href="#%e4%b8%b4%e6%97%b6%e5%ad%97%e6%ae%b5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="过长的消息链" class="header-anchor-wrapper">过长的消息链
+  <a href="#%e8%bf%87%e9%95%bf%e7%9a%84%e6%b6%88%e6%81%af%e9%93%be" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>可以使用隐藏委托关系</p>
+
+<h3 id="中间人" class="header-anchor-wrapper">中间人
+  <a href="#%e4%b8%ad%e9%97%b4%e4%ba%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>如果你看到某个类中有一半的函数都委托给其它类,这样就是过度运用.应该移除中间人.</p>
+
+<h3 id="内幕交易" class="header-anchor-wrapper">内幕交易
+  <a href="#%e5%86%85%e5%b9%95%e4%ba%a4%e6%98%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>如果两个模块有共同的兴趣,可以尝试再新建一个模块,把这些共用的数据放在一个管理良好的地方</p>
+
+<h3 id="过大的类" class="header-anchor-wrapper">过大的类
+  <a href="#%e8%bf%87%e5%a4%a7%e7%9a%84%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>如果想利用单个类做太多的事情,其内往往就会出现太多字段</p>
+
+<h3 id="异曲同工的类" class="header-anchor-wrapper">异曲同工的类
+  <a href="#%e5%bc%82%e6%9b%b2%e5%90%8c%e5%b7%a5%e7%9a%84%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="纯数据的类" class="header-anchor-wrapper">纯数据的类
+  <a href="#%e7%ba%af%e6%95%b0%e6%8d%ae%e7%9a%84%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="被拒绝的遗赠" class="header-anchor-wrapper">被拒绝的遗赠
+  <a href="#%e8%a2%ab%e6%8b%92%e7%bb%9d%e7%9a%84%e9%81%97%e8%b5%a0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="注释" class="header-anchor-wrapper">注释
+  <a href="#%e6%b3%a8%e9%87%8a" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>如果需要太多注释注解的代码,往往意味着需要重构</p>
+
+<h2 id="构筑测试体系" class="header-anchor-wrapper">构筑测试体系
+  <a href="#%e6%9e%84%e7%ad%91%e6%b5%8b%e8%af%95%e4%bd%93%e7%b3%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="自测试代码的价值" class="header-anchor-wrapper">自测试代码的价值
+  <a href="#%e8%87%aa%e6%b5%8b%e8%af%95%e4%bb%a3%e7%a0%81%e7%9a%84%e4%bb%b7%e5%80%bc" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h2 id="介绍重构名录" class="header-anchor-wrapper">介绍重构名录
+  <a href="#%e4%bb%8b%e7%bb%8d%e9%87%8d%e6%9e%84%e5%90%8d%e5%bd%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="第一组重组" class="header-anchor-wrapper">第一组重组
+  <a href="#%e7%ac%ac%e4%b8%80%e7%bb%84%e9%87%8d%e7%bb%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="提炼函数" class="header-anchor-wrapper">提炼函数
+  <a href="#%e6%8f%90%e7%82%bc%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>将意图与实现分开</p>
+
+<h4 id="内联函数" class="header-anchor-wrapper">内联函数
+  <a href="#%e5%86%85%e8%81%94%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="提练变量" class="header-anchor-wrapper">提练变量
+  <a href="#%e6%8f%90%e7%bb%83%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="内联变量" class="header-anchor-wrapper">内联变量
+  <a href="#%e5%86%85%e8%81%94%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="改变函数声明" class="header-anchor-wrapper">改变函数声明
+  <a href="#%e6%94%b9%e5%8f%98%e5%87%bd%e6%95%b0%e5%a3%b0%e6%98%8e" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>函数改名</li>
+<li>添加参数</li>
+<li>移除参数</li>
+<li>修改签名</li>
+</ul>
+
+<h4 id="封装变量" class="header-anchor-wrapper">封装变量
+  <a href="#%e5%b0%81%e8%a3%85%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>封装能提供一个清晰的观测点，可以由此监控数据的变化和使用情况。</p>
+
+<h4 id="变量改名" class="header-anchor-wrapper">变量改名
+  <a href="#%e5%8f%98%e9%87%8f%e6%94%b9%e5%90%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="引入参数对象" class="header-anchor-wrapper">引入参数对象
+  <a href="#%e5%bc%95%e5%85%a5%e5%8f%82%e6%95%b0%e5%af%b9%e8%b1%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>将多个总是同时出现的值参数组合成类，形成一个概念，可以更好的理解业务。</p>
+
+<h4 id="函数组合成类" class="header-anchor-wrapper">函数组合成类
+  <a href="#%e5%87%bd%e6%95%b0%e7%bb%84%e5%90%88%e6%88%90%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="函数组合成变换" class="header-anchor-wrapper">函数组合成变换？
+  <a href="#%e5%87%bd%e6%95%b0%e7%bb%84%e5%90%88%e6%88%90%e5%8f%98%e6%8d%a2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="拆分阶段" class="header-anchor-wrapper">拆分阶段
+  <a href="#%e6%8b%86%e5%88%86%e9%98%b6%e6%ae%b5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>每当看见一段代码在同时处理两件不同的事，就可以把它拆分成各自独立的模块。</p>
+
+<h3 id="封装" class="header-anchor-wrapper">封装
+  <a href="#%e5%b0%81%e8%a3%85" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="封装记录" class="header-anchor-wrapper">封装记录
+  <a href="#%e5%b0%81%e8%a3%85%e8%ae%b0%e5%bd%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>以数据类取代记录</p>
+
+<h4 id="封装集合" class="header-anchor-wrapper">封装集合
+  <a href="#%e5%b0%81%e8%a3%85%e9%9b%86%e5%90%88" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>不要直接使用集合的字段，而是通过定义类上的方法来代替。</p>
+
+<h4 id="以对象取代基本类型" class="header-anchor-wrapper">以对象取代基本类型
+  <a href="#%e4%bb%a5%e5%af%b9%e8%b1%a1%e5%8f%96%e4%bb%a3%e5%9f%ba%e6%9c%ac%e7%b1%bb%e5%9e%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>一旦发现对某个数据的操作不仅仅局限于打印时，就为它创建一个类。</p>
+
+<h4 id="以查询取代临时变量" class="header-anchor-wrapper">以查询取代临时变量
+  <a href="#%e4%bb%a5%e6%9f%a5%e8%af%a2%e5%8f%96%e4%bb%a3%e4%b8%b4%e6%97%b6%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>把临时变量抽取成函数</p>
+
+<h4 id="提炼类" class="header-anchor-wrapper">提炼类
+  <a href="#%e6%8f%90%e7%82%bc%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="内联类" class="header-anchor-wrapper">内联类
+  <a href="#%e5%86%85%e8%81%94%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="隐藏委托关系" class="header-anchor-wrapper">隐藏委托关系
+  <a href="#%e9%9a%90%e8%97%8f%e5%a7%94%e6%89%98%e5%85%b3%e7%b3%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="移除中间人" class="header-anchor-wrapper">移除中间人
+  <a href="#%e7%a7%bb%e9%99%a4%e4%b8%ad%e9%97%b4%e4%ba%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="替换算法" class="header-anchor-wrapper">替换算法
+  <a href="#%e6%9b%bf%e6%8d%a2%e7%ae%97%e6%b3%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="搬移特性" class="header-anchor-wrapper">搬移特性
+  <a href="#%e6%90%ac%e7%a7%bb%e7%89%b9%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>在不同的上下文之间搬移元素</p>
+
+<h4 id="搬移函数" class="header-anchor-wrapper">搬移函数
+  <a href="#%e6%90%ac%e7%a7%bb%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>搬移函数的一个直接原因是,它频繁引用其他上下文中的元素,而对自身上下文中的元素却关心甚少.
+为了做出决定,我们需要仔细检查函数当前上下文与目标上下文之间的区别,需要查看函数的调用都有谁,它自身又调用的哪些函数.</p>
+
+<h4 id="搬移字段" class="header-anchor-wrapper">搬移字段
+  <a href="#%e6%90%ac%e7%a7%bb%e5%ad%97%e6%ae%b5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>可能是因为发现每当调用某个函数时,除了传入一个记录参数,还总是需要同时传入另一条记录的某个字段一起做为参数.</p>
+
+<h4 id="搬移语句到函数" class="header-anchor-wrapper">搬移语句到函数
+  <a href="#%e6%90%ac%e7%a7%bb%e8%af%ad%e5%8f%a5%e5%88%b0%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>如果发现调用某个函数时,总有一些相同的代码也需要每次执行,那么就需要考虑将此段代码合并到函数里头.这样, 日后对这段代码的修改只需要修改一处地方,还能对所有调用者同时生效.
+如果某些语句与一个函数放在一起更像一个整体,并且更有助于理解,那么就会将语句搬移到函数里去.</p>
+
+<h4 id="搬移语句到调用者" class="header-anchor-wrapper">搬移语句到调用者
+  <a href="#%e6%90%ac%e7%a7%bb%e8%af%ad%e5%8f%a5%e5%88%b0%e8%b0%83%e7%94%a8%e8%80%85" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="以函数调用取代内联代码" class="header-anchor-wrapper">以函数调用取代内联代码
+  <a href="#%e4%bb%a5%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e5%8f%96%e4%bb%a3%e5%86%85%e8%81%94%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>抽取函数</p>
+
+<h4 id="移动语句" class="header-anchor-wrapper">移动语句
+  <a href="#%e7%a7%bb%e5%8a%a8%e8%af%ad%e5%8f%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>让存在关联的语句一起出现,可以全代码更容易理解要判断一次语句移动是否安全,都意味着我得真正理解代码的工作原理,以及运算之间的组合方式等.</p>
+
+<h4 id="拆分循环" class="header-anchor-wrapper">拆分循环
+  <a href="#%e6%8b%86%e5%88%86%e5%be%aa%e7%8e%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>让每个循环只做一件事儿,便于理解代码.</p>
+
+<h4 id="以管道取代循环" class="header-anchor-wrapper">以管道取代循环
+  <a href="#%e4%bb%a5%e7%ae%a1%e9%81%93%e5%8f%96%e4%bb%a3%e5%be%aa%e7%8e%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="移除死代码" class="header-anchor-wrapper">移除死代码
+  <a href="#%e7%a7%bb%e9%99%a4%e6%ad%bb%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>版本控制系统出现之前注释还是有必要的,版本控制系统出现之后就可以直接删除无用代码了.</p>
+
+<h3 id="重新组织数据" class="header-anchor-wrapper">重新组织数据
+  <a href="#%e9%87%8d%e6%96%b0%e7%bb%84%e7%bb%87%e6%95%b0%e6%8d%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="拆分变量" class="header-anchor-wrapper">拆分变量
+  <a href="#%e6%8b%86%e5%88%86%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>让每个变量只承担一个责任</p>
+
+<h4 id="字段改名" class="header-anchor-wrapper">字段改名
+  <a href="#%e5%ad%97%e6%ae%b5%e6%94%b9%e5%90%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="以查询取代派生变量" class="header-anchor-wrapper">以查询取代派生变量
+  <a href="#%e4%bb%a5%e6%9f%a5%e8%af%a2%e5%8f%96%e4%bb%a3%e6%b4%be%e7%94%9f%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将引用对象改为值对象" class="header-anchor-wrapper">将引用对象改为值对象
+  <a href="#%e5%b0%86%e5%bc%95%e7%94%a8%e5%af%b9%e8%b1%a1%e6%94%b9%e4%b8%ba%e5%80%bc%e5%af%b9%e8%b1%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将值对象改为引用对象" class="header-anchor-wrapper">将值对象改为引用对象
+  <a href="#%e5%b0%86%e5%80%bc%e5%af%b9%e8%b1%a1%e6%94%b9%e4%b8%ba%e5%bc%95%e7%94%a8%e5%af%b9%e8%b1%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="简化条件逻辑" class="header-anchor-wrapper">简化条件逻辑
+  <a href="#%e7%ae%80%e5%8c%96%e6%9d%a1%e4%bb%b6%e9%80%bb%e8%be%91" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="分解条件表达式" class="header-anchor-wrapper">分解条件表达式
+  <a href="#%e5%88%86%e8%a7%a3%e6%9d%a1%e4%bb%b6%e8%a1%a8%e8%be%be%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="合并条件表达式" class="header-anchor-wrapper">合并条件表达式
+  <a href="#%e5%90%88%e5%b9%b6%e6%9d%a1%e4%bb%b6%e8%a1%a8%e8%be%be%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="以卫语句取代嵌套条件表达式" class="header-anchor-wrapper">以卫语句取代嵌套条件表达式
+  <a href="#%e4%bb%a5%e5%8d%ab%e8%af%ad%e5%8f%a5%e5%8f%96%e4%bb%a3%e5%b5%8c%e5%a5%97%e6%9d%a1%e4%bb%b6%e8%a1%a8%e8%be%be%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>卫语句告诉阅读者:这种情况不是本函数的核心逻辑所关心的,如果它真发生了,请做一些必要的整理工作,然后退出.</p>
+
+<h4 id="以多态取代条件表达式" class="header-anchor-wrapper">以多态取代条件表达式
+  <a href="#%e4%bb%a5%e5%a4%9a%e6%80%81%e5%8f%96%e4%bb%a3%e6%9d%a1%e4%bb%b6%e8%a1%a8%e8%be%be%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="引入特例" class="header-anchor-wrapper">引入特例
+  <a href="#%e5%bc%95%e5%85%a5%e7%89%b9%e4%be%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="引入断言" class="header-anchor-wrapper">引入断言
+  <a href="#%e5%bc%95%e5%85%a5%e6%96%ad%e8%a8%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>如果发现代码假设某个条件始终为真,就加入一个断言明确说明这种情况</p>
+
+<h3 id="重构api" class="header-anchor-wrapper">重构API
+  <a href="#%e9%87%8d%e6%9e%84api" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

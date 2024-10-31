@@ -1,0 +1,3011 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emacs Lisp - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Whatspeng!!!" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/emacslisp/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Emacs Lisp">
+  <meta property="og:description" content="ELisp 快捷键 格式化区域代码： C - M - \ 执行代码： C - x C - e 相当于 eval-last-sexp">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-17T00:00:00+00:00">
+    <meta property="article:tag" content="Emacs Lisp">
+    <meta property="article:tag" content="Emacs">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emacs Lisp">
+  <meta name="twitter:description" content="ELisp 快捷键 格式化区域代码： C - M - \ 执行代码： C - x C - e 相当于 eval-last-sexp">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#elisp">ELisp</a>
+      <ul>
+        <li><a href="#快捷键">快捷键</a></li>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#函数">函数</a></li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#循环和递归">循环和递归</a></li>
+        <li><a href="#正则">正则</a></li>
+        <li><a href="#缓冲区">缓冲区</a></li>
+        <li><a href="#变窄与增宽">变窄与增宽</a></li>
+        <li><a href="#剪切和存储文本">剪切和存储文本</a></li>
+        <li><a href="#defun">DEFUN</a></li>
+        <li><a href="#lisp-file">Lisp File</a></li>
+        <li><a href="#emacs">Emacs</a></li>
+        <li><a href="#宏">宏</a></li>
+        <li><a href="#库">库</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="elisp" class="header-anchor-wrapper">ELisp
+  <a href="#elisp" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="快捷键" class="header-anchor-wrapper">快捷键
+  <a href="#%e5%bf%ab%e6%8d%b7%e9%94%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="格式化区域代码-c-m" class="header-anchor-wrapper">格式化区域代码： C - M - \
+  <a href="#%e6%a0%bc%e5%bc%8f%e5%8c%96%e5%8c%ba%e5%9f%9f%e4%bb%a3%e7%a0%81-c-m" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="执行代码-c-x-c-e" class="header-anchor-wrapper">执行代码： C - x C - e
+  <a href="#%e6%89%a7%e8%a1%8c%e4%bb%a3%e7%a0%81-c-x-c-e" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>相当于 eval-last-sexp</p>
+
+<h4 id="执行代码并将执行结果放到光标处-c-u-c-x-c-e" class="header-anchor-wrapper">执行代码并将执行结果放到光标处： C - u C - x C - e
+  <a href="#%e6%89%a7%e8%a1%8c%e4%bb%a3%e7%a0%81%e5%b9%b6%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%94%be%e5%88%b0%e5%85%89%e6%a0%87%e5%a4%84-c-u-c-x-c-e" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="查找更多信息" class="header-anchor-wrapper">查找更多信息
+  <a href="#%e6%9f%a5%e6%89%be%e6%9b%b4%e5%a4%9a%e4%bf%a1%e6%81%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>查询函数信息： C - h f</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>查询变量信息： C - h v</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>查询快捷键信息： C - h k</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>使用正则表达式查询函数名： M - x apropos</li>
+</ul>
+
+<h3 id="数据类型" class="header-anchor-wrapper">数据类型
+  <a href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="内建" class="header-anchor-wrapper">内建
+  <a href="#%e5%86%85%e5%bb%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>内建的Emacs数据类型称为primitive types, 包括整数、浮点数、cons、符号（symbol)、字符串、向量(vector)、散列表(hash-table)、subr(内建函数， 比如cons, if, and)、byte-code function, 和其它特殊类型， 例如缓冲区(buffer)</p>
+
+<h4 id="数字" class="header-anchor-wrapper">数字
+  <a href="#%e6%95%b0%e5%ad%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>Emacs的数字分为整数和浮点数。1.属于整数</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>整数</p>
+<p>一般来说最小范围是在-2**28 ~ 2**28-1.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(message &quot;%s&quot; most-positive-fixnum)   ;&quot;2305843009213693951&quot;
+(message &quot;%s&quot; most-negative-fixnum)   ;&quot;-2305843009213693952&quot;
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>测试函数</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(integerp 1.)   ; t
+(integerp 1.0)   ;nil
+(floatp 1.)     ;nil
+(floatp -0.0e+NaN)   ;t
+(numberp 1)     ;t
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>娄的比较</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(= 1.0 1)   ;t
+(eql 1.0 1) ;nil
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数的转换</p>
+<ul>
+<li>truncate 转换面靠近0的整数</li>
+<li>floor 转换成最接近的不比本身大的整数</li>
+<li>celling 转换成最接近的不比本身小的整数</li>
+<li>round 四舍五入的整数，换句话说和它的差绝对值最小的整数</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数的运算</p>
+<p>作为除法时，两个操作数都是整数，结果就是整数，如果其中有浮点数，结果就自动转换成浮点数。</p>
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>*</li>
+<li>/</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>常用函数</p>
+<ul>
+<li>abs</li>
+<li>sqrt</li>
+<li>exp</li>
+<li>expt</li>
+<li>log</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>三角函数</p>
+<ul>
+<li>sin</li>
+<li>cos</li>
+<li>tan</li>
+<li>asin</li>
+<li>acos</li>
+<li>atan</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="字符和-字符串" class="header-anchor-wrapper">字符和 字符串
+  <a href="#%e5%ad%97%e7%ac%a6%e5%92%8c-%e5%ad%97%e7%ac%a6%e4%b8%b2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>在emacs里字符串是有序的字符数组，和C语言的字符串数组不同，Emacs的字符串可以容纳任何字符，包括\0。</li>
+<li>构成字符串的字符其实就是一个整数。一个字符‘A’就是一个整数65。可以使用?A获取字符对应的数字。</li>
+<li>对于标点来说，也可以用同样的语法，但最好在前面加上转义符\。</li>
+<li>对于控制 字符 可以用多种表示方式比如C-i</li>
+</ul>
+<!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">?\^I ?\^i ?\C-I ?\C-i
+</code></pre>
+<ul>
+<li>对于修饰字符meta键可以使用\M-</li>
+</ul>
+<!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">?\M-A
+</code></pre>
+<!--list-separator-->
+<ul>
+<li>
+<p>测试函数</p>
+<p>对于字符串测试使用stringp，没有charp，因为字符就是整数。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">;; string-or-null-p当对象是一个字符串或nil时返回t
+(string-or-null-p nil)  ; t
+(string-or-null-p &quot;null&quot;)  ; t
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>字符串比较</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">;; char-equal是比较两个字符是否相等，它在case-fold-search变量是t时是忽略大小写的。
+(char-equal ?A ?a)  ; t
+;; 字符串比较使用string=或string-equal
+(string= &quot;A&quot; &quot;a&quot;)
+;; 按字典顺序比较两个字符串
+(string&lt; &quot;a&quot; &quot;A&quot;) ;; nil  它是string-less的别名
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>转换函数</p>
+<ul>
+<li>char-to-string</li>
+<li>string-to-char</li>
+<li>number-to-string  只能转换10进制的数字。如果需要输出八进制或者十六进制，可以使用format函数。</li>
+<li>string-to-number  可以设置字符串的进制，可以从2到16</li>
+<li>concat 可以把一个字符构成的列表或者微量转换成字符串。</li>
+<li>vconcat 可以把一个字符串转换成一个向量</li>
+<li>append 可以把一个字符串转换成一个列表。</li>
+<li>downcase</li>
+<li>upcase</li>
+<li>capitalize 可以使字符串中单词的第一个字符大写。</li>
+<li>upcase-initials 只使第一个单词的第一个字符大写。</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>格式化字符串</p>
+<ul>
+<li>format</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>查找和替换</p>
+<ul>
+<li>string-match 从指定的位置对字符串进行正则表达式匹配，如果匹配成功返回匹配的起点. 注意第一个参数是正则表达式。如果想处理非正则，可以使用regexp-quote函数预处理一下。
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(string-match &quot;12&quot; &quot;3412&quot;)   ; 2
+(string-match &quot;12&quot; &quot;134&quot;)    ; nil
+(string-match &quot;2*&quot; &quot;123232*123&quot;)   ; 0
+(string-match (regexp-quote &quot;2*&quot;) &quot;123232*123&quot;)  ; 5
+</code></pre>
+</li>
+<li>replace-match
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(let ((str &quot;01234567890123456789&quot;))
+  (string-match &quot;34&quot; str)
+  (princ (replace-match &quot;x&quot; nil nil str 0))
+  (princ &quot;\n&quot;)
+  (princ str))
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>把字符串按分隔符分解</p>
+<p>可以使用split-string</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(split-string &quot;key = val&quot; &quot;\\s-*=\\s-*&quot;)  ; (&quot;key&quot; = &quot;val&quot;)
+</code></pre>
+</li>
+</ul>
+
+<h4 id="cons-cell-和列表" class="header-anchor-wrapper">Cons Cell 和列表
+  <a href="#cons-cell-%e5%92%8c%e5%88%97%e8%a1%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>测试函数</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(consp '(1 2))   ;t
+(consp '(1 . (2 . nil)))  ;t
+(consp nil)   ;nil
+(listp '(1 . 2))   ;t
+(listp '(1 . (2 . nil)))  ;t
+(listp nil)  ;t
+(null '())    ;t
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>构造函数</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(cons 1 2)
+(cons 1 '())
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>相关函数</p>
+<p>注意, 以n打头的函数都要慎用</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(setq foo '(a b))
+(cons 'x foo)
+(print foo)  ; (a b)
+(push 'x foo)
+(print foo)   ; (x a b)
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>生成列表</p>
+<ul>
+<li>list
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(list 1 2 3)
+</code></pre>
+list与‘(quote)的葂是，quote是把参数直接返回而不进行求值，而list和cons是对参数求值后再生成一个列表或者cons cell。</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>添加元素</p>
+<ol>
+<li>在列表前边新增元素
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(cons 'a '(b c))   ;(a b c)
+</code></pre>
+</li>
+<li>在列表后边添加元素， 一般来说append的参数都要是列表，但是最后一个参数可以不是列表，但是这样得到的结果就不再是一个真列表了。如果再进行append操作就会产生一个错误。
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(append '(a b) 'c)  ;(a b . c) 不是真列表
+(append '(a b) '(c))   ;(a b c)
+</code></pre>
+append的参数不限于列表，还可以是字符串或者向量。相当于把一个字符串转换成一个字符列表，向量转换成一个列表。
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(append [a b] &quot;cd&quot; nil)  ; (a b 99 100)
+(append [a b] &quot;cd&quot;)   ;(a b . &quot;cd&quot;)
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取列表索引为N的元素</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(nth 3 '(0 1 2 3 4 5 6 7 8 9))  ; 3
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取列表索引为N后的列表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(nthcdr 2 '(0 1 2 3 4 5 6 7 8))   ;(2 3 4 5 6 7 8)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取列表倒数n个长度的列表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(last '(1 2 3 4 5 6 7) 3) ;;(5 6 7)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取除了倒数n个元素的列表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(butlast '(1 2 3 4 5 6 7 8) 4)  ;(1 2 3 4)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>改变头元素或改变后续元素</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(setq foo '(a b c))
+(setcar foo 'x)
+(print foo)
+(setcdr foo '(y z))
+(print foo)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>移除列表的头元素并返回</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(setq foo '(a b))
+(pop foo)   ;(a)
+(print foo)  ;(b)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>重排列表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(setq foo '(a b c d))
+(reverse foo)  ;(d c b a)
+(nreverse foo)
+(foo)  ;(a)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>排序列表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(setq foo '(3 2 541  5 2 34 2 34  34))
+(sort foo '&lt;)   ;; (2 2 2 3 5 34 34 34 541)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>把列表当集合用</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>把列表当关联表</p>
+<p>列表实现的关联表有一个专门的名字叫association list.
+在Emacs Lisp里是有hashtable的,可是hashtable没有列表丰富的函数,只有一个maphash函数可以遍历列表.
+在Emacs Lisp的association list中关键字是放在元素的car部分,与它对应的数据放在这个元素的cdr部分.根据比较方法的不同有assq和assoc两个函数,它们分别 对应查找使用eq和equal两种方法.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(assoc &quot;a&quot; '((&quot;a&quot; 97) (&quot;b&quot; 98)))        ; =&gt; (&quot;a&quot; 97)
+(assq 'a '((a . 97) (b . 98)))          ; =&gt; (a . 97)
+;; 通常我们只需要查找对应的数据，所以一般来说都要用 cdr 来得到对应的数据：
+(cdr (assoc &quot;a&quot; '((&quot;a&quot; 97) (&quot;b&quot; 98))))  ; =&gt; (97)
+(cdr (assq 'a '((a . 97) (b . 98))))    ; =&gt; 97
+;; assoc-default 可以进一步完成这样的操作
+(assoc-default &quot;a&quot; '((&quot;a&quot; 97) (&quot;b&quot; 98)))          ; =&gt; (97)
+</code></pre>
+<p>如果查找用的键值（key）对应的数据也可以作为一个键值的话，还可以用 rassoc 和 rassq来根据数据查找键值：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(rassoc '(97) '((&quot;a&quot; 97) (&quot;b&quot; 98)))     ; =&gt; (&quot;a&quot; 97)
+(rassq '97 '((a . 97) (b . 98)))        ; =&gt; (a . 97)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>把列表当树</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>遍历列表</p>
+<ul>
+<li>遍历列表最常用的函数就是 mapc 和 mapcar 了。它们的第一个参数都是一个函数，这个函数只接受一个参数，每次处理一个列表里的元素。这两个函数唯一的差别是前者返回的还是输入的列表，而 mapcar 返回的函数返回值构成的列表：</li>
+</ul>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(mapc '1+ '(1 2 3))                     ; =&gt; (1 2 3)
+(mapcar '1+ '(1 2 3))                   ; =&gt; (2 3 4)
+</code></pre>
+<ul>
+<li>dolist
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(dolist (var list [result]) body...)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p><span class="org-todo todo TODO">TODO</span>  将列表按指定分隔符合并成一个字符串</p>
+<p>可以使用mapconcat,</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(mapconcat 'identity '(&quot;a&quot; &quot;b&quot; &quot;c&quot;) &quot;\t&quot;)   ;&quot;a	b	c&quot;
+;; identity是一个特殊的函数,它会直接返回参数.
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="数组和序列" class="header-anchor-wrapper">数组和序列
+  <a href="#%e6%95%b0%e7%bb%84%e5%92%8c%e5%ba%8f%e5%88%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>序列是列表和数组的统称,也就是说列表和数组都是序列.它们的共性是内部的元素都是有序的.elisp里的数组包括字符串、向量、char-table和布尔向量。它们关系如下所示：</p>
+<ul>
+<li>sequence
+<ul>
+<li>list</li>
+<li>Array
+<ul>
+<li>Vector</li>
+<li>String</li>
+<li>char-table</li>
+<li>Bool-vector</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数组</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数组的特性</p>
+<ol>
+<li>数组内的元素都对应一个下标，第一个元素的下标是0.数组内的元素可以在常数时间内访问。</li>
+<li>数组在创建之后就无法改变它的长度。</li>
+<li>数组是自求值的。</li>
+<li>数组里的元素都可以用aref来访问，用aset设置。</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数组的相关函数</p>
+<ol>
+<li>fillarray： 填充数组使用filearray可以把整个数组用某个元素填充
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(fillarray (make-vector 3 'a) 6) ;[6 6 6]
+</code></pre>
+</li>
+<li>aref: 访问数组</li>
+<li>aset：修改数组</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>向量</p>
+<p>向量可以看成是一种通用的数组，它的元素可以是任意的对象。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建向量</p>
+<ol>
+<li>vector
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(vector 'foo 23 [bar baz] &quot;react&quot;)  ;[foo 23 [bar baz] &quot;react&quot;]
+</code></pre>
+</li>
+<li>make-vector
+使用make-vector可以生成元素相同的向量
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(make-vector 9 'a) ;[a a a a a a a a a]
+</code></pre>
+</li>
+<li>vconcat: 可以把多个序列连接成一个微量。但是这个序列必须是真列表。这也是把列表转换成向量的方法。
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(vconcat [A B C] &quot;aa&quot; '(foo (6 7)))     ; =&gt; [A B C 97 97 foo (6 7)]
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>字符串</p>
+<p>字符串是一种特殊的数组，它的元素只能是字符。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>测试函数</p>
+<ol>
+<li>测试一个对象是否是一个序列。
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(sequencep '())   ;t
+</code></pre>
+</li>
+<li>测试一个对象是否是数组
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(arrayp '())   ;nil
+(arrayp '[])   ;t
+</code></pre>
+</li>
+<li>vectorp、char-table-p和bool-vector-p分别测试对象是否是向量、char-table、bool-vector。</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>通用函数</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取序列的长度</p>
+<p>length可以得到序列的长度，但这个函数只对真列表有效。对于一个点列表和环形列表这个函数就不适用了。点列表会两难参数类型不对的错误，而环形列表就会陷入死循环。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(length '(1 2 3))   ;3
+(safe-length '(a . b))  ;1
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>复制</p>
+<ol>
+<li>copy-sequence： 复制序列</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="真与假" class="header-anchor-wrapper">真与假
+  <a href="#%e7%9c%9f%e4%b8%8e%e5%81%87" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>非nil和() 即为真</p>
+
+<h4 id="符号" class="header-anchor-wrapper">符号
+  <a href="#%e7%ac%a6%e5%8f%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>符号是有名字的对象。</p>
+
+<h3 id="函数" class="header-anchor-wrapper">函数
+  <a href="#%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="基本函数" class="header-anchor-wrapper">基本函数：
+  <a href="#%e5%9f%ba%e6%9c%ac%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>car： 取列表的第一个元素，非破坏性。</li>
+<li>cdr：取列表中除第一个元素个的剩下的元素，非破坏性。</li>
+<li>cons：将一个新元素插入到一个列表的开始处，第一个参数为一个元素，第二个元素为一个列表。</li>
+<li>consp: 判断参数是不是一个列表, 空列表返回nil</li>
+<li>listp: 判断参数是不是一个列表, 空列表返回t</li>
+<li>null: 判断参数是不是nil, 空列表返回t</li>
+<li>atom: 判断参数是不是一个原子, 空列表也是原子</li>
+<li>append: takes any number of lists and makes a new list by concatenating the top-level elements of all the lists.
+将任意数量的列表中的顶级子元素连接成一个新的列表</li>
+<li>reverse: takes a list and makes a new list by reversing its top-level elements.
+通过颠倒参数列表的顶级元素来生成一个新的元素.</li>
+<li>nreverse: 破坏性的reverse</li>
+<li>length：取一个列表的长度</li>
+<li>nthcdr: 重复的取列表的cdr，非破坏性， 第一个参数为次数，第二个参数为一个列表。</li>
+<li>nth: 返回列表的第几个元素.   (nth n var)</li>
+<li>assoc:</li>
+<li>setcar: 将一个列表的car设置成为一个新值，破坏性</li>
+<li>setcdr：将一个列表的cdr设置为一个新值， 破坏性</li>
+<li>progn: 使其每一个参量被逐一求值并返回最后一个参量的值。</li>
+<li>prog1: 与progn类似。不同之处在于prog1函数依次对它的参量求值并将其第一个参量的值作为整个表达式的值返回。</li>
+<li>concat: 将新文本的字符串连接到老文件之前。</li>
+<li>substring: 将第一个参数（字符串）截取按第二个和第三个字符串之间的内容。</li>
+<li>message： 给用户发送消息。</li>
+<li>if: 对函数的第一个参量求值，如果这个值是“真”，则对第二个参量求什；否则，如果有第三个参量的话就对第三个参量求值。</li>
+<li>equal，eq: 测试两个对象是否相同。如果两个对象有相似的结构和内容，equal则返回“真”，如果两个参量确实是完全相同的对象，则另一个函数eq返回“真”。</li>
+<li>buffer-name: 它将缓冲区的名字以一个字符串的形式返回。</li>
+<li>buffer-file-name: 它返回缓冲区正在访问的文件的名字。</li>
+<li>current-buffer: 返回Emacs中当前缓冲区的名字。</li>
+<li>other-buffer: 返回最近选择过的缓冲区。</li>
+<li>set-buffer: 将Emacs的注意力切换到另外一个运行程序的缓冲区。不改变当前窗口正在显示的内容。</li>
+<li>buffer-size: 返回当前缓冲区中的字符数。</li>
+<li>point: 返回当前光标位置对应的值。</li>
+<li>point-min: 返回当前缓冲区中位点的最小可能值。</li>
+<li>point-max: 返回当前缓冲区中位点的最大可能值。</li>
+<li>eobp: End of buffer P，当位点处于这个缓冲区末尾时，这个函数返回“真”。</li>
+<li>looking-at: 当紧跟在位点之后的文本与传递给looking-at函数作为其参量的正则表达式匹配时，函数返回“真”。</li>
+<li>or: 逐一对每一个参量求值，并返回第一个非空值。如果所有参量的值都是nil就返回nil。</li>
+<li>and: 逐一对每一个参量求值，如果有一个参量的值是nil, 则返回nil。</li>
+<li>not: 取反。</li>
+<li>&amp;optional: 在函数定义中用于指出一个参量是可选参量。</li>
+<li>&amp;rest: 聚合剩下的所有参数成一个集合到当前参数.必须为参数列表的最后一个参数
+collect up any remaining arguments into a list and assign it to the last parameter</li>
+<li>forward-line: 将光标移动到下一行的行首，如果其参量大于1,则移动多行。</li>
+<li>erase-buffer: 删除当前缓冲区的全部内容。</li>
+<li>bufferp: 如果其参量是一个缓冲区则返回“真”，否则返回“假”。</li>
+<li>pp: 格式化输出内容。</li>
+</ol>
+
+<h4 id="破坏性函数" class="header-anchor-wrapper">破坏性函数
+  <a href="#%e7%a0%b4%e5%9d%8f%e6%80%a7%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>nconc:</li>
+</ol>
+
+<h4 id="定义函数" class="header-anchor-wrapper">定义函数
+  <a href="#%e5%ae%9a%e4%b9%89%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>定义函数的模板</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(defun function-name (arguments...)
+  &quot;optional-documentation...&quot;
+  (interactive argument-passing-info)  ; optional
+  body..)
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>参数</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>可选参量</p>
+<p>如果一个参量跟在&amp;optional这个关键词后面，则当调用这个函数时就不一定传送一个值给这个参量。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>interactive</p>
+<p>使函数成为交互式函数</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>argument-passing-info</p>
+<ul>
+<li>&ldquo;p&rdquo; : 表示要传送一个前缀参量给这个函数，并将它的值用于函数参量</li>
+<li>&ldquo;r&rdquo; : 表示将位点所在区域的开始值和结束值做为函数的两个参量</li>
+<li>&ldquo;B&rdquo; : 表示用缓冲区的名称作为函数的参量， 允许使用不存在的缓冲区</li>
+<li>&ldquo;b&rdquo; : 表示用缓冲区的名称作为函数的参量， 如果缓冲区不存在，你将收到一条错误消息</li>
+<li>&ldquo;f&rdquo; : 一个已经存在的文件的名字</li>
+<li>&ldquo;*&rdquo; : 用于缓冲区是一个只读缓冲区的情况， 指如果函数被一个只读缓冲区调用，一条消息将打印在回显区，终端将发出蜂鸣或者闪亮一下。</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用两个以上的参量</p>
+<p>两个部分之间使用\n分隔开</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elips">(defun name-of-function (buffer start end)
+  &quot;documentation&quot;
+  (interactive &quot;BAppend to buffer: \nr&quot;)
+  body-of-function)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>永久安装代码</p>
+<p>可以将定义的函数放到.emacs或.emacs.d/init.el， 也可以放到load函数的目录</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>特殊表</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>常用特殊表</p>
+<ol>
+<li>
+<p>set: 将第二参数赋值给第一个参数。</p>
+</li>
+<li>
+<p>setq: 将第二个参数赋值给第一个参数，与set的区别是，第一个参数不需要加单引号。</p>
+</li>
+<li>
+<p>defvar: 给一个变量赋值，与setq函数相似，但它只对无值的变量赋值。另外,使用defvar可以为变量提供文档字符串,当 变量是在文中定义的话, C-h v后能给出变量定义的位置.</p>
+</li>
+<li>
+<p>defun: 定义函数。最多可以有五个部分： 函数名，传送给函数的参量的模板，文档，一个可选的交互函数声明以及函数体。例：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(defun back-to-indentation ()
+     &quot;Point to first visible character on line.&quot;
+     (interactive)
+     (beginning-of-line 1)
+     (skip-chars-forward &quot; \t&quot;)
+ )
+</code></pre>
+</li>
+<li>
+<p>interactive:
+向Lisp解释器声明这个函数可以被交互地使用。这个特殊表可以用一个字符串，分成一个部分或几个部分，依次传送信息到这个函数的参数。这些部分也可以告诉Lisp解释器提示这些信息。字符串的每一个部分用换行符（\n）分开。其中常用到的控制字符是：</p>
+<ul>
+<li>b: 一个已经存在的缓冲区的名字。</li>
+<li>f: 一个已经存在的文件的名称。</li>
+<li>p: 数字前缀参量。</li>
+<li>r: 位点和标记，作为两个数字参量，小的在前面。</li>
+</ul>
+</li>
+<li>
+<p>let: 声明在let表达式主体中使用的变量列表并给它们赋初始值，初始值要么是nil,要么是一个指定的值。然后对let表达式主体的其他表达式求值并返回最后一个表达式的值。在let表达式主体中，Lisp解释器看一到被绑定在let表达式之外的同名变量的值。</p>
+</li>
+<li>
+<p>let*: 与let类似，let*表达式中，变量列表中后面的变量可以使用前面变量已经由Emacs设置的值。</p>
+</li>
+<li>
+<p>while:while循环将包含三个部分：</p>
+<ol>
+<li>一个真假测试表达式。</li>
+<li>一个求值表达式。</li>
+<li>一个表达式。</li>
+</ol>
+</li>
+<li>
+<p>递归：一个递归函数通常包含一个条件表达式，这个条件表达式有三个部分：</p>
+<ol>
+<li>一个真假测试</li>
+<li>函数名</li>
+<li>一个表达式。</li>
+</ol>
+<p>模板：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(defun name-of-recursive-function (argument-list)
+&quot;documentation...&quot;
+body...
+(if do-again-test
+(name-of-recursive-function
+next-step-expression))
+)
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>let</p>
+<p>创建函数内的局部变量例：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(let ((variable1 value)
+      (variable2 value)
+      ...)
+      body...)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>let*</p>
+<p>与let类似.let*表达式中，变量列表中后面的变量可以使用前面变量已经由emacs设置的值。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>if</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(if (true-or-false-test)
+    (action-to-carry-out-if-test-is-true))
+</code></pre>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(if (true-or-false-test)
+    (action-to-carry-out-if-the-test-returns-true)
+    (action-to-carry-out-if-the-test-returns-false))
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>cond</p>
+<p>if为cond的特殊形式</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(cond
+  (first-true-or-false-test first-consequent)
+  (second-true-or-false-test second-consequent)
+  (third-true-or-false-test third-consequent)
+  ...)
+</code></pre>
+<p>当Lisp解释器对cond表达式求值时，它先计算cond表达式主体当中的一系列表达式中的第一个表达式的第一个元素，如果这个真假测试表达式返回nil，则这个表达式的其余部分就被忽略，而下一个表达式中的真假测试被求值，如果有一个表达式的真假测试结果不是nil,则那个表达式的后续部分就被求值。后续部分可以是一个表达式也可以是多个表达式。如果后续表达式是多个表达式组成的，则这些表达式被依次求值，并且最后一个表达式的值被返回。如果这 个表达式只有真假测试表达式而没有后续表达式，真假测试表达式的值就作为结果返回。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>save-excursion</p>
+<p>这个函数将当前的位点和标记保存起来，执行函数体，然后，如果位点和标记发生改变就将位点和标记恢复成原来的值。这个特殊表的主要目的是使用户避免位点和标记的不必要移动。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>代码模板</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(save-excursion
+  body...)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>save-restriction</p>
+<p>跟踪变窄开启的部分</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>如果同时使用save-secursion和save-restriction时（并且是一个紧接着另一个使用时），应当在外层使用save-excursion.如果采用了相反的次序，就会在调用save-excursion之后无法记录缓冲区中变窄开启的标记。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(save-excursion
+  (save-restriction
+    body...))
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>save-match-data</p>
+<p>保存之前的搜索结果,不想因为我们的函数修改了全局的匹配数据.</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>defvar</p>
+<p>给一个变量赋值， 与setq类似。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elsip">(defvar var value &quot;Documentation &quot;)
+</code></pre>
+<p>不同之处：</p>
+<ol>
+<li>它只对无值的变量赋值</li>
+<li>它有一个文档字符串</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="常用函数" class="header-anchor-wrapper">常用函数
+  <a href="#%e5%b8%b8%e7%94%a8%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>将人能读懂的代码转换成字节编码： byte-compile-file</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>将两个或更多的字符串连接： (concat &ldquo;one str &quot; &ldquo;two str&rdquo;)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>截取字符串 (substring &ldquo;str&rdquo; startNum endNum)3</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>在回显区打印消息   (message &ldquo;This is a message in buffer  %s&rdquo; (buffer-name) )</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>给一个变量赋值</p>
+ <!--list-separator-->
+<ul>
+<li>(set &lsquo;oneList &lsquo;(this is a list))</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>(setq oneList &lsquo;(this is a list)</p>
+<p>twoList &lsquo;(this another list))</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>判断相等，判断两个对象有相似的结构和内容： (equals var1 var2)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>判断相等，判断两个对象完全相同的对象： (eq obj1 obj2)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>设置标记： C - SPC   set-mark-command</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>将光标移动到位点处： C - x C - x   exchange-point-and-mark</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>移动光标的函数</p>
+ <!--list-separator-->
+<ul>
+<li>将光标移动到缓冲区的开始位置： beginning-of-buffer M - &lt;</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>逻辑函数</p>
+<p>and和or具有短路性质.</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>or</p>
+<p>很多人喜欢在表达式短时,用or代替unless
+or经常用于设置函数的缺省值</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(or name (setq name &quot;Emacser&quot;))
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>not</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>and</p>
+<p>很多人喜欢在表达式短时,用and代替when
+and经常用于用于参数检查</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(and (&gt;= n 0) (= (/ n (sqrt n)) (sqrt n)))
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>将一个由(interactive &ldquo;p&rdquo;)产生的未加工的前缀参量转换成一个数值： (prefix-numeric-value arg)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>打印字符串： (print msg)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>在位点处插入字符串: (insert &ldquo;message&rdquo;)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>将文件名转换成文件的绝对的长路径形式： (expand-file-name file-name)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>对列表进行排序： (sort list-variable ‘&lt;)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>构建文件列表： (directory-files &ldquo;.&rdquo; t &ldquo;\\.el$&rdquo;)</p>
+<ul>
+<li>第一个参数是要遍历的目录</li>
+<li>第二个参数如果非空则返回目录中文件的绝对路径</li>
+<li>第三个参量是一个可选项， 如果它包含一个颪表达式，则只能路径名与颪表达式匹配的文件被返回</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>将第一个参量应用到苦命参量上： (apply &lsquo;funcName params)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>mapcar</p>
+<p>它依次使用第二个参量中的每一个元素调用第一个参量，第二个参量必须是一个列表。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(mapcar '1+ '(1 2 3))
+(2 3 4)
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>查找与指定内容相关的内容： M - x appropos RET document RET</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>向前过滤指定字符移动光标: (skip-chars-forward &ldquo;&rdquo;)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>向后过滤指定字符移动光标: (skip-chars-backed &ldquo;&rdquo;)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>return a character&rsquo;s syntax code as another character: (char-syntax ?\n)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>将字符转字符串: (char-to-string &ldquo;c&rdquo;)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>判断cursor是否在当前Buffer的开始: (bobp)</li>
+</ul>
+
+<h4 id="lambda" class="header-anchor-wrapper">lambda
+  <a href="#lambda" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">((lambda (arg) (/ arg 50)) 100)
+</code></pre>
+<p>其中后边的100是传递给lambda的参量arg的实际值</p>
+
+<h4 id="defadvice" class="header-anchor-wrapper">defadvice
+  <a href="#defadvice" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>creates a new piece of advice, its first argument is the (unquoted) name of the existing function being advised.Next comes a specially formatted list.</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>progn</p>
+<p>每一个参量被逐一求值并反回最后一个参量的值。因为if后只能求一条语句的值,可以使用progn把所有想要执行的语句包起来成一条语句.</p>
+</li>
+</ul>
+
+<h3 id="变量" class="header-anchor-wrapper">变量
+  <a href="#%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="let" class="header-anchor-wrapper">let
+  <a href="#let" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>当同一个变量名既是全局变量也是局部变量，或者用let多层绑定，只有最里层的那个变量是有效的，用setq改变的也只是了里层的变量，而不影响外层的变量。另外需要注意一点的是局部变量的绑定不能超过一定的层数，也就是说，你不能把foo用let绑定最多max-specpdl-size层。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(message &quot;%d&quot; max-specpdl-size)
+</code></pre>
+
+<h3 id="循环和递归" class="header-anchor-wrapper">循环和递归
+  <a href="#%e5%be%aa%e7%8e%af%e5%92%8c%e9%80%92%e5%bd%92" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="while" class="header-anchor-wrapper">while
+  <a href="#while" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>对第一个参量求值，并测试这个返回值，如果第一个参量的求值结果是“假”，则Lisp解释器跳过这个表达式的其余部分，如果第一个参量的求值结果是“真”，则Lisp解释器就继续对这个表达式的主体求值，然后再次测试while的第一个参量。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elisp">(while true-or-false-test
+  body...)
+</code></pre>
+<!--list-separator-->
+<ul>
+<li>
+<p>常用循环方式</p>
+<ol>
+<li>使用空列表做结束</li>
+<li>使用固定次数做循环</li>
+<li>使用减量计数器做循环</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="递归" class="header-anchor-wrapper">递归
+  <a href="#%e9%80%92%e5%bd%92" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>递归函数就是自己调用自己的函数。一个递归函数通常包含一个条件表达式，这个条件表达式有三个部分：</p>
+<ol>
+<li>一个真假测试， 它决定函数是否继续调用自身</li>
+<li>函数名</li>
+<li>一个表达式，它在函数被重复求值正确的次数之后使条件表达式返回“假”值</li>
+</ol>
+
+<h3 id="正则" class="header-anchor-wrapper">正则
+  <a href="#%e6%ad%a3%e5%88%99" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="相关规则" class="header-anchor-wrapper">相关规则
+  <a href="#%e7%9b%b8%e5%85%b3%e8%a7%84%e5%88%99" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>.: matches any single character except newline.</li>
+<li>Backslash: followed by a magic character, matches that character literally.</li>
+<li>[]: A set of characters inside square brackets matches any one of the enclosed characters.
+the syntax of square brackets in regular expressions has its own &ldquo;subsyntax&rdquo; as follows:
+<ol>
+<li>a range of consecutive characters, such as abcd, can be abbreviated a-d. Any number of such ranges can be included.</li>
+<li>if the first character is a caret(^), then the expression matches any character not appearing inside the square brackets.</li>
+<li>To include a right-square-bracket, it must be the first character in the set.</li>
+<li>to include a hyphen: it must appear where it can&rsquo;t be interpreted as part of a range.So [a-e-z] matches a, b,c,d,e,-, or z.</li>
+<li>to include a caret(^): it must appear someplace other than as the first character in the set.</li>
+<li>Other characters that are normally &ldquo;magic&rdquo; in  regexps, such as &ldquo;*&rdquo; and &ldquo;.&rdquo; are not magic inside square brackets.
+在正则表达式中通常具有魔术的字符,比如*和.在[]里不具备魔术.</li>
+</ol>
+</li>
+<li>a regexp x may have one of the following suffixes:
+<ol>
+<li>*: zero or more</li>
+<li>+: one or more</li>
+<li>?: zero or one</li>
+</ol>
+</li>
+<li>^x: matches x is beginning of a line.</li>
+<li>x$: matches x is end of a line.</li>
+<li>two regualr expressions x and y separated by \I : match whatever x matches or whatever y matches.
+so hello\Igoodbye matches hello or goodbye.</li>
+<li>a regular expression x enclosed in escaped parentheses: \(and\): matches whatever x matches.
+This can be used for grouping complicated expressions.
+So \(ab\)+matches ab, abab, ababab, and son on. Also \(ab\Icd\)ef matches abef or cdef.
+As a side effect, any text matched by a parenthesized subexpression is called a submatch and is memorzized in a numbered register.Submatches are numbered from 1 through 9 by counting occurrences of \( in a regexp from left to right.</li>
+<li>Backslash followed by a digit n matches the same text matched by the nth parenthesized subexpression from earlier in the same regexp.
+So the expression \(a+b\)\1 matches abab, aabaab, and aaabaaab, but not abaab.</li>
+<li>The empty string can be matched in a wide variety of ways.
+<ol>
+<li>\&rsquo;: matches the empty string that&rsquo;s at the beginning of the buffer.</li>
+<li>\ &lsquo;: matches the empty string that&rsquo;s at the end of the buffer.</li>
+<li>&lsquo;=: matches the empty string that&rsquo;s at the current location of point.</li>
+<li>\b: matches the empty string that&rsquo;s at the beginning or end of a word.</li>
+<li>\B: matches the empty string that&rsquo;s anywhere but at the beginning or end of a word.</li>
+<li>\&lt;: matches the empty string at the beginning of a word only.</li>
+<li>\&gt;: matches the empty string at the end of a word only.</li>
+</ol>
+</li>
+</ol>
+
+<h4 id="相关函数" class="header-anchor-wrapper">相关函数
+  <a href="#%e7%9b%b8%e5%85%b3%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>regexp-quote</p>
+<p>which understands regexp syntax and can turn a possibly-magic string into the corresponding non-magic one.
+它个函数可以将一个包含魔术字符的字符串转为没有魔术字符的字符串.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>re-search-forward</p>
+<p>查询一个正则表达式，如果查询成功，它就紧接在最后的目标字符后面设置位点。如果查询是朝向进行的，就在第一个目标字符之前设置位点。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-elsip">(re-search-forward &quot;regular-expression&quot;    ;;第一参量是正则表达式
+   limit-of-search                         ;; 第二个参量是可选的， 它限制函数查询的范围；它是在缓冲区中指定一个位置的约束值
+   what-to-do-if-search-fails              ;; 第三个参量是可选的， 它告诉函数如果对查询失败做出响应： 如果第三个参量是nil， 函数在查询失败时产生一个错误消息；如果第三个参量是其他值，函数在查询失败时返回nil， 查询成功时返回t
+   repeat-count)                           ;; 第四个参量也是可选的，它是一个重复计数。一个负的重复计数使re-search-forward函数向后查询。
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>replace-match</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(replace-match
+  new-string    ;; new string to insert
+  preserve-case  ;; preserve alphabetic case in new-string
+  literal       ;; set t means 'treat new-string literally.' if it's nil, then replacematch interprets new-string according to some special syntax rules.
+  base-string    ;; nil means 'Modify the current buffer', If this were a string, then replace-match would perform the replacement in the string instead of in a buffer.
+  subexpression  ;; is a digit means &quot;Rplace submatch n&quot;
+)
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>forward-paragraph</p>
+<p>函数将位点朝前移动到段落末尾。它一般绑定到M - }上。</p>
+</li>
+</ul>
+
+<h3 id="缓冲区" class="header-anchor-wrapper">缓冲区
+  <a href="#%e7%bc%93%e5%86%b2%e5%8c%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="缓冲区名称--buffer-name" class="header-anchor-wrapper">缓冲区名称： (buffer-name)
+  <a href="#%e7%bc%93%e5%86%b2%e5%8c%ba%e5%90%8d%e7%a7%b0--buffer-name" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="缓冲区所属文件名称--buffer-file-name" class="header-anchor-wrapper">缓冲区所属文件名称： (buffer-file-name)
+  <a href="#%e7%bc%93%e5%86%b2%e5%8c%ba%e6%89%80%e5%b1%9e%e6%96%87%e4%bb%b6%e5%90%8d%e7%a7%b0--buffer-file-name" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="获取缓冲区本身--current-buffer" class="header-anchor-wrapper">获取缓冲区本身： (current-buffer)
+  <a href="#%e8%8e%b7%e5%8f%96%e7%bc%93%e5%86%b2%e5%8c%ba%e6%9c%ac%e8%ba%ab--current-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="返回最近使用过的缓冲区--other-buffer" class="header-anchor-wrapper">返回最近使用过的缓冲区： (other-buffer)
+  <a href="#%e8%bf%94%e5%9b%9e%e6%9c%80%e8%bf%91%e4%bd%bf%e7%94%a8%e8%bf%87%e7%9a%84%e7%bc%93%e5%86%b2%e5%8c%ba--other-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="切换缓冲区--switch-to-buffer-other-buffer" class="header-anchor-wrapper">切换缓冲区： (switch-to-buffer (other-buffer))
+  <a href="#%e5%88%87%e6%8d%a2%e7%bc%93%e5%86%b2%e5%8c%ba--switch-to-buffer-other-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将计算机的注意力切换到另一个不同的缓冲区--set-buffer-other-buffer" class="header-anchor-wrapper">将计算机的注意力切换到另一个不同的缓冲区： (set-buffer (other-buffer))
+  <a href="#%e5%b0%86%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%9a%84%e6%b3%a8%e6%84%8f%e5%8a%9b%e5%88%87%e6%8d%a2%e5%88%b0%e5%8f%a6%e4%b8%80%e4%b8%aa%e4%b8%8d%e5%90%8c%e7%9a%84%e7%bc%93%e5%86%b2%e5%8c%ba--set-buffer-other-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="获取当前缓冲区的大小--buffer-size" class="header-anchor-wrapper">获取当前缓冲区的大小： (buffer-size)
+  <a href="#%e8%8e%b7%e5%8f%96%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba%e7%9a%84%e5%a4%a7%e5%b0%8f--buffer-size" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="光标在这个缓冲区中当前点位的字符计数--point" class="header-anchor-wrapper">光标在这个缓冲区中当前点位的字符计数： (point)
+  <a href="#%e5%85%89%e6%a0%87%e5%9c%a8%e8%bf%99%e4%b8%aa%e7%bc%93%e5%86%b2%e5%8c%ba%e4%b8%ad%e5%bd%93%e5%89%8d%e7%82%b9%e4%bd%8d%e7%9a%84%e5%ad%97%e7%ac%a6%e8%ae%a1%e6%95%b0--point" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="当前缓冲区中位点的最小可能值--point-min" class="header-anchor-wrapper">当前缓冲区中位点的最小可能值： (point-min)
+  <a href="#%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba%e4%b8%ad%e4%bd%8d%e7%82%b9%e7%9a%84%e6%9c%80%e5%b0%8f%e5%8f%af%e8%83%bd%e5%80%bc--point-min" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="当前缓冲区中位点的最大可能值--point-max" class="header-anchor-wrapper">当前缓冲区中位点的最大可能值： (point-max)
+  <a href="#%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba%e4%b8%ad%e4%bd%8d%e7%82%b9%e7%9a%84%e6%9c%80%e5%a4%a7%e5%8f%af%e8%83%bd%e5%80%bc--point-max" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="在光标当前位置设置一个标记--push-mark" class="header-anchor-wrapper">在光标当前位置设置一个标记： (push-mark)
+  <a href="#%e5%9c%a8%e5%85%89%e6%a0%87%e5%bd%93%e5%89%8d%e4%bd%8d%e7%bd%ae%e8%ae%be%e7%bd%ae%e4%b8%80%e4%b8%aa%e6%a0%87%e8%ae%b0--push-mark" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将光标放到某处--goto-char-point-min---将光标放到缓冲区的开始处" class="header-anchor-wrapper">将光标放到某处： (goto-char (point-min)): 将光标放到缓冲区的开始处
+  <a href="#%e5%b0%86%e5%85%89%e6%a0%87%e6%94%be%e5%88%b0%e6%9f%90%e5%a4%84--goto-char-point-min---%e5%b0%86%e5%85%89%e6%a0%87%e6%94%be%e5%88%b0%e7%bc%93%e5%86%b2%e5%8c%ba%e7%9a%84%e5%bc%80%e5%a7%8b%e5%a4%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="全选当前缓冲区--mark-whole-buffer--c-x-h" class="header-anchor-wrapper">全选当前缓冲区： (mark-whole-buffer)  C -x h
+  <a href="#%e5%85%a8%e9%80%89%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba--mark-whole-buffer--c-x-h" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="从当前缓冲区中拷贝一个域到一个指定缓冲区--append-to-buffer-buffer-start-end" class="header-anchor-wrapper">从当前缓冲区中拷贝一个域到一个指定缓冲区： (append-to-buffer buffer start end)
+  <a href="#%e4%bb%8e%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba%e4%b8%ad%e6%8b%b7%e8%b4%9d%e4%b8%80%e4%b8%aa%e5%9f%9f%e5%88%b0%e4%b8%80%e4%b8%aa%e6%8c%87%e5%ae%9a%e7%bc%93%e5%86%b2%e5%8c%ba--append-to-buffer-buffer-start-end" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="从一个缓冲区提取一个部分作为一个字符串--insert-buffer-substring-buffer-start-end" class="header-anchor-wrapper">从一个缓冲区提取一个部分作为一个字符串： (insert-buffer-substring buffer start end)
+  <a href="#%e4%bb%8e%e4%b8%80%e4%b8%aa%e7%bc%93%e5%86%b2%e5%8c%ba%e6%8f%90%e5%8f%96%e4%b8%80%e4%b8%aa%e9%83%a8%e5%88%86%e4%bd%9c%e4%b8%ba%e4%b8%80%e4%b8%aa%e5%ad%97%e7%ac%a6%e4%b8%b2--insert-buffer-substring-buffer-start-end" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="找到存放某个函数或者变量的源代码的文件-并切换到这个缓冲区-将位点置于相应函数或者变量的开始处--find-tag--m-dot" class="header-anchor-wrapper">找到存放某个函数或者变量的源代码的文件，并切换到这个缓冲区， 将位点置于相应函数或者变量的开始处： (find-tag) M - .
+  <a href="#%e6%89%be%e5%88%b0%e5%ad%98%e6%94%be%e6%9f%90%e4%b8%aa%e5%87%bd%e6%95%b0%e6%88%96%e8%80%85%e5%8f%98%e9%87%8f%e7%9a%84%e6%ba%90%e4%bb%a3%e7%a0%81%e7%9a%84%e6%96%87%e4%bb%b6-%e5%b9%b6%e5%88%87%e6%8d%a2%e5%88%b0%e8%bf%99%e4%b8%aa%e7%bc%93%e5%86%b2%e5%8c%ba-%e5%b0%86%e4%bd%8d%e7%82%b9%e7%bd%ae%e4%ba%8e%e7%9b%b8%e5%ba%94%e5%87%bd%e6%95%b0%e6%88%96%e8%80%85%e5%8f%98%e9%87%8f%e7%9a%84%e5%bc%80%e5%a7%8b%e5%a4%84--find-tag--m-dot" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将另外一个缓冲区的内容拷贝到当前缓冲区--insert-buffer" class="header-anchor-wrapper">将另外一个缓冲区的内容拷贝到当前缓冲区： (insert-buffer)
+  <a href="#%e5%b0%86%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aa%e7%bc%93%e5%86%b2%e5%8c%ba%e7%9a%84%e5%86%85%e5%ae%b9%e6%8b%b7%e8%b4%9d%e5%88%b0%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba--insert-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="判断参量是一个缓冲区还是一个缓冲区的名称--bufferp-buffer" class="header-anchor-wrapper">判断参量是一个缓冲区还是一个缓冲区的名称： (bufferp buffer)
+  <a href="#%e5%88%a4%e6%96%ad%e5%8f%82%e9%87%8f%e6%98%af%e4%b8%80%e4%b8%aa%e7%bc%93%e5%86%b2%e5%8c%ba%e8%bf%98%e6%98%af%e4%b8%80%e4%b8%aa%e7%bc%93%e5%86%b2%e5%8c%ba%e7%9a%84%e5%90%8d%e7%a7%b0--bufferp-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将光标移动到缓冲区的十分之几--beginning-of-buffer--c-u-1-10-m" class="header-anchor-wrapper">将光标移动到缓冲区的十分之几： (beginning-of-buffer)  C - u {1 - 10} M - &lt;
+  <a href="#%e5%b0%86%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8%e5%88%b0%e7%bc%93%e5%86%b2%e5%8c%ba%e7%9a%84%e5%8d%81%e5%88%86%e4%b9%8b%e5%87%a0--beginning-of-buffer--c-u-1-10-m" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="光标移动到下一行的行首--forward-line" class="header-anchor-wrapper">光标移动到下一行的行首： (forward-line)
+  <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8%e5%88%b0%e4%b8%8b%e4%b8%80%e8%a1%8c%e7%9a%84%e8%a1%8c%e9%a6%96--forward-line" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="删除当前缓冲区的全部内容--erase-buffer" class="header-anchor-wrapper">删除当前缓冲区的全部内容： (erase-buffer)
+  <a href="#%e5%88%a0%e9%99%a4%e5%bd%93%e5%89%8d%e7%bc%93%e5%86%b2%e5%8c%ba%e7%9a%84%e5%85%a8%e9%83%a8%e5%86%85%e5%ae%b9--erase-buffer" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="显示光标所在的行--what-line" class="header-anchor-wrapper">显示光标所在的行： (what-line)
+  <a href="#%e6%98%be%e7%a4%ba%e5%85%89%e6%a0%87%e6%89%80%e5%9c%a8%e7%9a%84%e8%a1%8c--what-line" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将光标当前位置与出现特定字符的下一个位置之间的这一区域中的文本剪切掉放到kill环-zap-to-char-m-z" class="header-anchor-wrapper">将光标当前位置与出现特定字符的下一个位置之间的这一区域中的文本剪切掉放到Kill环： zap-to-char   M - z
+  <a href="#%e5%b0%86%e5%85%89%e6%a0%87%e5%bd%93%e5%89%8d%e4%bd%8d%e7%bd%ae%e4%b8%8e%e5%87%ba%e7%8e%b0%e7%89%b9%e5%ae%9a%e5%ad%97%e7%ac%a6%e7%9a%84%e4%b8%8b%e4%b8%80%e4%b8%aa%e4%bd%8d%e7%bd%ae%e4%b9%8b%e9%97%b4%e7%9a%84%e8%bf%99%e4%b8%80%e5%8c%ba%e5%9f%9f%e4%b8%ad%e7%9a%84%e6%96%87%e6%9c%ac%e5%89%aa%e5%88%87%e6%8e%89%e6%94%be%e5%88%b0kill%e7%8e%af-zap-to-char-m-z" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="删除文档的一部分-并放到kill环中--kill-region-beg-end" class="header-anchor-wrapper">删除文档的一部分, 并放到Kill环中： (kill-region beg end)
+  <a href="#%e5%88%a0%e9%99%a4%e6%96%87%e6%a1%a3%e7%9a%84%e4%b8%80%e9%83%a8%e5%88%86-%e5%b9%b6%e6%94%be%e5%88%b0kill%e7%8e%af%e4%b8%ad--kill-region-beg-end" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="将区域中的文本复制一份到kill环中--copy-region-as-kill-beg-end-optional-region" class="header-anchor-wrapper">将区域中的文本复制一份到kill环中： (copy-region-as-kill beg end $optional REGION)
+  <a href="#%e5%b0%86%e5%8c%ba%e5%9f%9f%e4%b8%ad%e7%9a%84%e6%96%87%e6%9c%ac%e5%a4%8d%e5%88%b6%e4%b8%80%e4%bb%bd%e5%88%b0kill%e7%8e%af%e4%b8%ad--copy-region-as-kill-beg-end-optional-region" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="删除一个区域的内容--delete-region-start-end" class="header-anchor-wrapper">删除一个区域的内容： (delete-region start end)
+  <a href="#%e5%88%a0%e9%99%a4%e4%b8%80%e4%b8%aa%e5%8c%ba%e5%9f%9f%e7%9a%84%e5%86%85%e5%ae%b9--delete-region-start-end" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="变窄与增宽" class="header-anchor-wrapper">变窄与增宽
+  <a href="#%e5%8f%98%e7%aa%84%e4%b8%8e%e5%a2%9e%e5%ae%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="剪切和存储文本" class="header-anchor-wrapper">剪切和存储文本
+  <a href="#%e5%89%aa%e5%88%87%e5%92%8c%e5%ad%98%e5%82%a8%e6%96%87%e6%9c%ac" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>C -y 可以从Kill环中取出第一个元素插入到当前的缓冲区中如果C - y命令后紧跟一个M - y命令，则不是第一个元素而是第二个元素被插入到当前缓冲区中。连续的M - y命令则使第三个元素或第四个元素等代替第二个元素而被插入到当前缓冲区中。</p>
+
+<h4 id="kill环" class="header-anchor-wrapper">Kill环
+  <a href="#kill%e7%8e%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>Kill环是文本字符串的一个列表。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>kill-ring</p>
+<p>指向Kill环</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>kill-ring-yank-pointer</p>
+<p>指向Kill环的第二个字符串</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>kill-ring-max</p>
+<p>kill环的最大容量</p>
+</li>
+</ul>
+
+<h3 id="defun" class="header-anchor-wrapper">DEFUN
+  <a href="#defun" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="参数" class="header-anchor-wrapper">参数
+  <a href="#%e5%8f%82%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>第一部分是Lisp中的函数名</li>
+<li>第二部分是C语言中的函数名</li>
+<li>第三部分是C常数结构名</li>
+<li>第四部分和第五部分指定了函数中允许的参量数目的最小值与最大值</li>
+<li>第六部分类似Lisp函数中interactive说明之后的参量。</li>
+<li>第七部分是文档字符串</li>
+</ol>
+
+<h4 id="defsubst" class="header-anchor-wrapper">defsubst
+  <a href="#defsubst" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>when function definitions are very short, it&rsquo;s usually a goods idea to turn them into inlinefunctions using defsubst instead of defun.</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>drawbacks</p>
+<ol>
+<li>that the inline function is duplicated everywhere it&rsquo;s used, which can increase memory requirements.</li>
+<li>If the inline function definition changes, the old definition will still be &ldquo;frozen&rdquo; into compiled files that use it .</li>
+</ol>
+</li>
+</ul>
+
+<h3 id="lisp-file" class="header-anchor-wrapper">Lisp File
+  <a href="#lisp-file" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="loading-the-files" class="header-anchor-wrapper">Loading the Files
+  <a href="#loading-the-files" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>Finding Lisp Files</p>
+ <!--list-separator-->
+<ul>
+<li>Emacs can load files based on full path names: Emacs可以基于全路径加载文件.</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>Emacs can load files based on a files&rsquo;s base name, Emacs find it among the directories in the loadpath: Emacs可以基于一个基础文件名去加载文件,Emacs会去loadpath指定的目录去找这个文件.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Interactive Loading 交互式加载</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>load-file</p>
+<p>does not search load-path
+uses the normal filename-prompting mechanisms. 会有正常的文件名提示.</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>load-library</p>
+<p>can find library in the load-path
+It does not use filename-prompting and completion.</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Programmatic Loading 编程式加载</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Explicit loading 显示式载</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(load &quot;filename or absolute file&quot;)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Conditional loading</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>require and provide</p>
+<p>give a way to make sure it only gets loaded once instead of n times.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(provide 'lib-name)
+(require 'lib-name)
+(require 'lib-name &quot;lib-name&quot;) ;; means if the lib-name feature is not yet present , load lib-name(use load, which searches load-path)
+;; if the filename is the &quot;string equivalent&quot; of the feature name, then the filename can be omitted and will be inferred from the feature name.
+;; so can use (require 'lib-name) instead of (require 'lib-name &quot;lib-name&quot;)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>autoloading</p>
+<p>with autoloading, you can arrange to defer loading a file until it&rsquo;s needed that is , until you call one of its functions.
+使用autoload, 你可以在使用动指定模块的指定函数时才会自动加载这个模块.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(autoload 'insert-date  &quot;timestamp&quot; &quot;docstring&quot;)
+;; insert-date : 函数名
+;; timestamp: 模块名
+;; docstring: 函数说明.
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>compiling the File</p>
+<p>There are serveral ways to byte-compile files. The most straightforward ways are</p>
+<ol>
+<li>From within Emacs: Execute M-x byte-compile-file RET filename.el RET</li>
+<li>From the Unix shell: Run Emacs -batch -f batch-byte-compilefile.el</li>
+</ol>
+ <!--list-separator-->
+<ul>
+<li>
+<p>eval-after-load</p>
+<p>If you&rsquo;d like to defer the execution of some code until a particular file has been loaded, eval-after-load is the way to do it.
+So</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(eval-after-load
+  &quot;dired&quot;
+  (defun dired-sort-toggle ()))
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="emacs" class="header-anchor-wrapper">Emacs
+  <a href="#emacs" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="一些函数" class="header-anchor-wrapper">一些函数
+  <a href="#%e4%b8%80%e4%ba%9b%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>(seq-default key value)</p>
+<p>在缓冲区中设置值，而不是为变量设置它自己的局部值。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>(global-set-key &ldquo;\C -c w&rdquo; &lsquo;funcname)</p>
+<p>设置全局性的绑定键</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>(global-unset-key (kbd &ldquo;C - c&rdquo;))</p>
+<p>取消全局绑定键</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>(setq load-path (cons &ldquo;~/.emacs/config&rdquo; load-path))</p>
+<p>将~/.emacs/config目录添加到加载目录列表中。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>(setq debug-on-error t)</p>
+<p>这个表达式使Emacs在它下一次遇到一个错误的时候进入调试器。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>M - x debug-on-entry RET triangle-bugged RET</p>
+<p>当你调用一个函数的时候进入调度器， 按d前进， 按q退出</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>M - x cancel-debug-on-entry RET triangle-deubgged RET</p>
+<p>退出Debug调试器</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>(debug)</p>
+<p>当代码运行到这一行的时候进入调试器</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>(next-error): 下一个错误  C - x `</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>(transpose-chars ARG): 切换两个字 C - t</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>(org-transpose-words): 切换两个单词 M - t</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>(transpose-lines ARG): 切换两行 C - x C - t</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>(transpose-sentences): 切换两个句子的位置</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>(transpose-paragraphs): 切换两个段落的位置。</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>切换单词的大小写</p>
+ <!--list-separator-->
+<ul>
+<li>(capitalize-word): 把单词的首字母改为大写： ESC c</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>(upcase-word): 把单词的字母全部改为大写： ESC u</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>(downcase-word): 把单词的字母全部改为小写： ESC l</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>中止与撤消</p>
+ <!--list-separator-->
+<ul>
+<li>(keyboard-quit): 放弃当前命令： C - g</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>(advertised-undo): 撤消上一次编辑（可重复使用）: C - x u</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>(undo): 撤消上一次编辑： C - _ 或 C - /</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>(revert-buffer): 把缓冲区恢复到上𥪐对文件进行存盘时的状态。</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="major-mode" class="header-anchor-wrapper">Major Mode
+  <a href="#major-mode" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>Major mode Skeleton</p>
+<ol>
+<li>Choose a name .The name for our mode is quip</li>
+<li>create a file called name.el to contain the code for the mode.</li>
+<li>Define a variable called name-mode-hook. This will contain the user&rsquo;s hook functions to execute when entering the mode.
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(defvar quip-mode-hook nil
+  &quot;*List of functions to call when entering Quip mode.*&quot;)
+</code></pre>
+</li>
+<li>If appropriate,  define a mode-specific keymap . Put it in a variable called name-mode-up. Create a mode&rsquo;s keymap like this:
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(defvar name-mode-map nil
+  &quot;Keymap for name major mode.&quot;)
+  (if name-mode-map
+      nil
+    (setq name-mode-map (make-keymap))
+    (define-key name-mode-map keysequence command)
+  ...)
+</code></pre>
+instead of make-keymap, youi could use make-sparse-keymap, which is better suited to keymaps that contain only a few keybindings.</li>
+<li>If appropriate, define a mode-specific syntax table. Put it in a variable named name-mode-syntax-table.</li>
+<li>If appropriate, define a mode-specific abbrev table. Put it in a variable named name-mode-abbrev-table.</li>
+<li>Define a command named name-mode. This is the major mode command, and it tabkes no arguments(unlike a minor mode command, which takes one optional argument). When executed, it should cause the current buffer to enter name-mode by performing the following steps:
+<ol>
+<li>It must call kill-all-local-variables, which removes the definitions for all buffer-local variables. This effectively turns off whatever modes, major and minor, were previously active.
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(kill-all-local-variables)
+</code></pre>
+</li>
+<li>It must set the variable marjor-mode to name-mode.
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(setq major-mode 'quip-mode)
+</code></pre>
+</li>
+<li>It must set the variable mode-name to a shor string describing the mode, to be used in the buffer&rsquo;s mode line
+(setq mode-name &ldquo;Quip&rdquo;)</li>
+<li>It must install the mode-specific keymap, if any, by calling use-local-map  on name-mode-map.</li>
+<li>It must run the user&rsquo;s hook functions by calling run-hooks on namemode-hook.
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(run-hooks 'quip-mode-hook)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>It must &ldquo;provide&rdquo; the feature implemented by this mode by calling provide on name.
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(provide 'quip)  ; allows users to (require 'quip)
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>define-derived-mode</p>
+<p>从一个模式推导一个新模式。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-Emacs">(define-derived-mode new-mode old-mode mode-line-string
+  docstring
+  body1
+  body2
+  ...)
+</code></pre>
+</li>
+</ul>
+
+<h3 id="宏" class="header-anchor-wrapper">宏
+  <a href="#%e5%ae%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="相关函数" class="header-anchor-wrapper">相关函数
+  <a href="#%e7%9b%b8%e5%85%b3%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>macroexpand</p>
+<p>宏展开</p>
+</li>
+</ul>
+
+<h4 id="tips" class="header-anchor-wrapper">Tips
+  <a href="#tips" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>宏与函数的区别</p>
+<p>函数不会修改外部变量的值，而宏会把传进去的参数做一个宏展开，会修改外部变量。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>` Backquote</p>
+<p>`引用的S表达式里如果使用了,符号会展开,符号关联的S表达式。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>,@varname: 将参数中的最外层括号去掉。将参数拼接到代码中</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(defmacro limited-save-excursion (&amp;rest subexprs)
+  &quot;Like save-excursion, but only restores point. &quot;
+  '(let ((roig-point (point)))
+  ,@subexprs
+  (goto-char orig-point))
+)
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>make-symbol</p>
+<p>创建符号，</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>unwind-protect</p>
+<p>它可以在出现错误或使用throw时进行一些清理操作</p>
+<pre  class="mc-prism hide language-text" ><code class="language-emacs">(defmacro limited-save-excusion (&amp;rest subexprs)
+  &quot;Like save-excursion, but only restores point.&quot;
+  (let ((orig-point-symbol (make-symbol &quot;orig-point&quot;)))
+    '(let ((,orig-point-symbol (point)))
+      (unwind-protect
+          (progn ,@subexprs)
+        (goto-char ,orig-point-symbol)))))
+</code></pre>
+</li>
+</ul>
+
+<h3 id="库" class="header-anchor-wrapper">库
+  <a href="#%e5%ba%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="use-package" class="header-anchor-wrapper">use-package
+  <a href="#use-package" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>:init</p>
+<p>会在require之前执行</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>:config</p>
+<p>会在require之后执行， 里边如果有多条语句，可以使用(progn)包起来。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>:commands</p>
+<p>当我们调用一个命令的时候才加载对应的包</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>:bind</p>
+<p>修改按键绑定</p>
+</li>
+</ul>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

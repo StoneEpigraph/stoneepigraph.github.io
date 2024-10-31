@@ -1,0 +1,805 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>如何设计程序 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="如何设计程序">
+  <meta property="og:description" content="如何设计程序 Base 基本程序设计步骤 六个基本的程序设计步骤
+问题分析和数据定义 合约,用途说明与结果的描述,函数头部 例子 函数模板 函数定义 测试 六个步骤产生定义明确的中间结果
+问题数据类型描述 程序行为的非形式描述 说明程序行为的例子 开发程序的模板或视图 把模板转换成完整的定义 通过测试发现错误 要正确的设计程序需要做到
+分析通常使用文字表述的问题 在抽象表达问题实质的同时使用例子进行说明 用精确的语言阐明所表述的语句和注释 通过检查,测试对上述活动进行评价和修改 关注细节 简单数据的处理 学生,教师和计算机 程序只是计算速度非常快的学生,不过程序并不能理解自然语言,所以我们需要学会一门计算机语言将自然语言翻译给计算机.但程序设计需要耐心和专心,保能关注每个微小的细节,并严格规划和对规划忠诚,才能避免错误.
+数,表达式和简单程序 数和算术运算
+讲述了数和Scheme的一些基本知识
+变量和程序 字处理问题 错误 设计程序
+设计程序至少需要如下4个步骤
+理解程序的目的程序设计的目标是创建一个接收输入并产生结果的机制.因此在开发程序时应该给每一个程序一个有意义的名字,并且说明输入数据和所产生的数据的类型,这称为程序的合约. 构造并标注例子构造一个例子,并将其写入注释 程序体写出程序 测试检查程序计算所得的结果与预期数值是否相符. 设计诀窍并不能解决程序设计过程中所遇到的所有问题,它提供的是完成程序设计过程中不可避免的步骤的指导.
+领域知识
+阐明程序体通常需要与问题相关的知识,这种形式的知识称为领域知识.它可能来自简单或复杂的数学,或来自非数学学科.
+程序就是函数加上变量定义 函数的复合
+辅助函数原则: 对问题表述中所提到的或在进行实例计算中所发现的每种依赖关系都使用一个辅助函数进行明确表达.
+变量定义
+如果一个数值在程序中多次出现,应该使用变量定义给它一个名字.变量定义将一个名字与一个值相关联.
+条件表达式和函数 布尔类型和关系
+复合条件: and or not
+函数和测试条件 条件和条件函数">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-04T16:35:00+08:00">
+    <meta property="article:modified_time" content="2024-09-04T16:35:00+08:00">
+    <meta property="article:tag" content="Book">
+    <meta property="article:tag" content="设计">
+    <meta property="article:tag" content="程序">
+    <meta property="article:tag" content="架构">
+    <meta property="article:tag" content="读书">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="如何设计程序">
+  <meta name="twitter:description" content="如何设计程序 Base 基本程序设计步骤 六个基本的程序设计步骤
+问题分析和数据定义 合约,用途说明与结果的描述,函数头部 例子 函数模板 函数定义 测试 六个步骤产生定义明确的中间结果
+问题数据类型描述 程序行为的非形式描述 说明程序行为的例子 开发程序的模板或视图 把模板转换成完整的定义 通过测试发现错误 要正确的设计程序需要做到
+分析通常使用文字表述的问题 在抽象表达问题实质的同时使用例子进行说明 用精确的语言阐明所表述的语句和注释 通过检查,测试对上述活动进行评价和修改 关注细节 简单数据的处理 学生,教师和计算机 程序只是计算速度非常快的学生,不过程序并不能理解自然语言,所以我们需要学会一门计算机语言将自然语言翻译给计算机.但程序设计需要耐心和专心,保能关注每个微小的细节,并严格规划和对规划忠诚,才能避免错误.
+数,表达式和简单程序 数和算术运算
+讲述了数和Scheme的一些基本知识
+变量和程序 字处理问题 错误 设计程序
+设计程序至少需要如下4个步骤
+理解程序的目的程序设计的目标是创建一个接收输入并产生结果的机制.因此在开发程序时应该给每一个程序一个有意义的名字,并且说明输入数据和所产生的数据的类型,这称为程序的合约. 构造并标注例子构造一个例子,并将其写入注释 程序体写出程序 测试检查程序计算所得的结果与预期数值是否相符. 设计诀窍并不能解决程序设计过程中所遇到的所有问题,它提供的是完成程序设计过程中不可避免的步骤的指导.
+领域知识
+阐明程序体通常需要与问题相关的知识,这种形式的知识称为领域知识.它可能来自简单或复杂的数学,或来自非数学学科.
+程序就是函数加上变量定义 函数的复合
+辅助函数原则: 对问题表述中所提到的或在进行实例计算中所发现的每种依赖关系都使用一个辅助函数进行明确表达.
+变量定义
+如果一个数值在程序中多次出现,应该使用变量定义给它一个名字.变量定义将一个名字与一个值相关联.
+条件表达式和函数 布尔类型和关系
+复合条件: and or not
+函数和测试条件 条件和条件函数">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#如何设计程序">如何设计程序</a>
+      <ul>
+        <li><a href="#base">Base</a></li>
+        <li><a href="#简单数据的处理">简单数据的处理</a></li>
+        <li><a href="#任意数目数据的处理">任意数目数据的处理</a></li>
+        <li><a href="#再论任意大数据的处理">再论任意大数据的处理</a></li>
+        <li><a href="#抽象设计">抽象设计</a></li>
+        <li><a href="#生成递归">生成递归</a></li>
+        <li><a href="#知识积累">知识积累</a></li>
+        <li><a href="#改变变量的状态">改变变量的状态</a></li>
+        <li><a href="#复合值的改变">复合值的改变</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#tips">TIPS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2>如何设计程序</h2>
+
+
+<h3>Base</h3>
+
+
+<h4>基本程序设计步骤</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>六个基本的程序设计步骤</p>
+<ul>
+<li>问题分析和数据定义</li>
+<li>合约,用途说明与结果的描述,函数头部</li>
+<li>例子</li>
+<li>函数模板</li>
+<li>函数定义</li>
+<li>测试</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>六个步骤产生定义明确的中间结果</p>
+<ul>
+<li>问题数据类型描述</li>
+<li>程序行为的非形式描述</li>
+<li>说明程序行为的例子</li>
+<li>开发程序的模板或视图</li>
+<li>把模板转换成完整的定义</li>
+<li>通过测试发现错误</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>要正确的设计程序需要做到</p>
+<ul>
+<li>分析通常使用文字表述的问题</li>
+<li>在抽象表达问题实质的同时使用例子进行说明</li>
+<li>用精确的语言阐明所表述的语句和注释</li>
+<li>通过检查,测试对上述活动进行评价和修改</li>
+<li>关注细节</li>
+</ul>
+</li>
+</ul>
+
+<h3>简单数据的处理</h3>
+
+
+<h4>学生,教师和计算机</h4>
+
+<p>程序只是计算速度非常快的学生,不过程序并不能理解自然语言,所以我们需要学会一门计算机语言将自然语言翻译给计算机.但程序设计需要耐心和专心,保能关注每个微小的细节,并严格规划和对规划忠诚,才能避免错误.</p>
+
+<h4>数,表达式和简单程序</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>数和算术运算</p>
+<p>讲述了数和Scheme的一些基本知识</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>变量和程序</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>字处理问题</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>错误</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>设计程序</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>设计程序至少需要如下4个步骤</p>
+<ol>
+<li>理解程序的目的程序设计的目标是创建一个接收输入并产生结果的机制.因此在开发程序时应该给每一个程序一个有意义的名字,并且说明输入数据和所产生的数据的类型,这称为程序的合约.</li>
+<li>构造并标注例子构造一个例子,并将其写入注释</li>
+<li>程序体写出程序</li>
+<li>测试检查程序计算所得的结果与预期数值是否相符.</li>
+</ol>
+<p>设计诀窍并不能解决程序设计过程中所遇到的所有问题,它提供的是完成程序设计过程中不可避免的步骤的指导.</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>领域知识</p>
+<p>阐明程序体通常需要与问题相关的知识,这种形式的知识称为领域知识.它可能来自简单或复杂的数学,或来自非数学学科.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4>程序就是函数加上变量定义</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>函数的复合</p>
+<p>辅助函数原则: 对问题表述中所提到的或在进行实例计算中所发现的每种依赖关系都使用一个辅助函数进行明确表达.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>变量定义</p>
+<p>如果一个数值在程序中多次出现,应该使用变量定义给它一个名字.变量定义将一个名字与一个值相关联.</p>
+</li>
+</ul>
+
+<h4>条件表达式和函数</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>布尔类型和关系</p>
+<p>复合条件: and or not</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>函数和测试条件</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>条件和条件函数</p>
+<p>cond表达式</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>条件函数的设计</p>
+<ol>
+<li>数据分析和定义了解问题表述所涉及的不同情况</li>
+<li>主体-问题主体包含的cond表达式的数目应该与不同情况的数目一样.</li>
+<li>主体-答案最后要确定对于每一个cond子句,函数应产生什么结果.</li>
+<li>简化检查表达式是否可以被简化.</li>
+</ol>
+</li>
+</ul>
+
+<h4>非数值信息</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-scheme">(symbol=? 'oneSymbol 'anotherSymbol)
+;; 这个函数会返回两个参数是否相等.
+</code></pre>
+<!--list-separator-->
+<ul>
+<li>
+<p>关于字符串</p>
+<p>字符串是第2种形式的符号数据.和符号(symbol)一样,字符串是一个字符序列,但被包含在双引号中.
+字符串是复合数据.可以使用&quot;string=?&ldquo;对两个字符串进行比较.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-scheme">(string=? &quot;oneString&quot; &quot;anotherString&quot;)
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>关于图像</p>
+<p>图像(image)是第3种形式的符号数据.图像本身并没有固有的含义,但我们往往趋向于将其和相关的信息联系在一起.</p>
+</li>
+</ul>
+
+<h4>复合数据之一,结构体</h4>
+
+<p>scheme提供了多种不同的数据组合方法.本节讨论结构体,结构体将固定数目的值组合为单一数据.</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>结构体定义</p>
+<p>drScheme允许程序设计者定义自己的结构体,用以表示属性数目固定的任何类型的对象.
+通常结构体包含构造器和选择器.而构造器的前缀通常为&quot;make-&quot;,选择器的后缀为字段名.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-DrScheme">&gt; (define-struct entry (name zip phone))
+&gt; (make-entry 'Stone 110101 '13366331320)
+(make-entry 'Stone 110101 13366331320)
+&gt; (entry-name (make-entry 'Stone 110101 '13366331320))
+'Stone
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据定义</p>
+<p>数据定义是程序设计者和用户间的界面.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>设计处理复合数据的函数</p>
+<ol>
+<li>数据分析和设计在开始函数设计之前,先必须了解如何在程序设计语言中表示问题的信息.
+通常使用Scheme的原子数据(数,符号和图像等)来表示信息,如果发现一个对象有N个属性,可以引入一个有N个字段的结构 体,同时给出每个字段的数据定义.</li>
+<li>合约为了阐述合约,可以使用诸如数和符号等原子类型的数据.</li>
+<li>模板一个读入复合数据的函数在计算中一般会使用到输入数据的组成成分.</li>
+<li>例子</li>
+<li>主体</li>
+<li>测试</li>
+</ol>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>阶段</th>
+          <th>目标</th>
+          <th>活动</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>数据分析和设计</td>
+          <td>阐明数据定义</td>
+          <td>确定在问题表述中所涉及的对象的数据种类, 对于每类数据增加结构定义和数据定义</td>
+      </tr>
+      <tr>
+          <td>合约,用途说明和函数头部</td>
+          <td>给函数命名,说明输入和输出数据的类型, 描述函数的用途说明,阐明函数头部</td>
+          <td>给函数命名,说明输入数据的类型,输出数据的类型,指出函数的目的</td>
+      </tr>
+      <tr>
+          <td>Examples 例子</td>
+          <td>使用例子刻划输入和输出间的关系</td>
+          <td>搜索问题表述中的例子: 计算例子,如果可能的话,验证结果, 构造例子</td>
+      </tr>
+      <tr>
+          <td>模板</td>
+          <td>阐明程序框架</td>
+          <td>若参数是复合数据,使用选择器表达式填写主体,如果函数是条件式的,写出所有合适的分支</td>
+      </tr>
+      <tr>
+          <td>主体</td>
+          <td>定义函数</td>
+          <td>使用scheme基本操作,其他函数,选择器表达式和变量设计Scheme表达式</td>
+      </tr>
+      <tr>
+          <td>测试</td>
+          <td>发现错误</td>
+          <td>应用函数于例子中的输入,检查程序输出是否与预期的值相符</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+
+<h4>数据的多样性</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>数据混合与区分</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>scheme提供了辨别数据形式的谓词</p>
+<ol>
+<li>number? 判断是不是数</li>
+<li>boolean? 判断是不是布尔值</li>
+<li>symbol? 判断是不是符号</li>
+<li>struct? 判断是不是结构体</li>
+<li>对于每种结构体,scheme都将引入一个谓词,如(define-struct posn (x y))结构体会引入(posn? posn-obj)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>设计处理混合数据的函数</p>
+<ol>
+<li>数据分析和设计分析问题表述的任务之一就是判断该问题有没有涉及不同类型的数据.</li>
+<li>模板模板就是把输入数据翻译成Scheme表达式.</li>
+<li>主体模板将任务分割成多个子任务,主体就需要单独处理每一个子任务了.</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>再论函数复合</p>
+<p>在分析问题时,比起设计一个大型的数据定义,先设计多个小型数据定义,再把它们组合起来要容易的多.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>输入错误</p>
+<p>如果要把函数提供给他人使用,为了防止意外输入错误类型,应当定义自带检查的函数.</p>
+</li>
+</ul>
+
+<h4>语法和语义</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>Scheme的词汇</p>
+<p>基本的Scheme词汇有五类.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-scheme">&lt;var&gt; = x | area-of-disk | perimeter | ...
+&lt;con&gt; = true | false
+        'a | 'doll | ...
+             1 | -1 | 3/5 | 1.22 | ...
+&lt;prm&gt; = + | - | ...
+</code></pre>
+<ol>
+<li>变量,也就是函数和值和名字</li>
+<li>常量, 包括布尔值,符号和数值常量.</li>
+<li>基本操作, 也是不Scheme提供的基本函数.</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Scheme的文法</p>
+<pre  class="mc-prism hide language-text" ><code class="language-scheme">&lt;def&gt; = (define (&lt;var&gt; &lt;var&gt; ... &lt;var&gt;) &lt;exp&gt;)
+&lt;exp&gt; = &lt;var&gt;
+        | &lt;con&gt;
+             | (&lt;prm&gt; &lt;exp&gt; ... &lt;exp&gt;)
+             | (&lt;var&gt; &lt;exp&gt; ... &lt;exp&gt;)
+             | (cond (&lt;exp&gt; &lt;exp&gt;) ... (&lt;exp&gt; &lt;exp&gt;))
+             | (cond (&lt;exp&gt; &lt;exp&gt;) ... (else &lt;exp&gt;))
+</code></pre>
+<p>上述的两条方法描述了简单句和复合句的结构.所谓复合句,就是由多个语句组成的语句.
+表达式的类别有六种: 变量, 常量, 基本操作, 函数调用以及两种cond表达式.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>布尔表达式</p>
+<p>and表达式和or表达式和not表达式</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>变量定义</p>
+<pre  class="mc-prism hide language-text" ><code class="language-scheme">(define RAADIUS 5)
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>结构体的定义</p>
+<p>define-struct
+在定义结构体的时候,实际上定义了几个基本操作: 包括一个构造器,若干个选择器以及一个谓词.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-scheme">(define-struct struct-name (struct-attr struct-attr ...))
+</code></pre>
+</li>
+</ul>
+
+<h3>任意数目数据的处理</h3>
+
+
+<h4>复合数据类型之二: 表</h4>
+
+<p>使用cons
+例如： (cons x (cons y (cons z empty)))</p>
+<!--list-separator-->
+<ul>
+<li>处理任意长的表</li>
+</ul>
+
+<h4>表的进一步处理</h4>
+
+
+<h4>自然数</h4>
+
+
+<h4>三论函数复合</h4>
+
+
+<h4>使用list构造表</h4>
+
+<p>（define var1 (list var2 var3 &hellip; varn)）</p>
+
+<h3>再论任意大数据的处理</h3>
+
+
+<h4>再论自引用数据定义</h4>
+
+
+<h3>抽象设计</h3>
+
+
+<h4>定义的相似性</h4>
+
+<!--list-separator-->
+<p>-</p>
+
+<h3>生成递归</h3>
+
+
+<h3>知识积累</h3>
+
+
+<h3>改变变量的状态</h3>
+
+
+<h3>复合值的改变</h3>
+
+
+<h3>总结</h3>
+
+
+<h3>TIPS</h3>
+
+
+<h4>本书的两个创新</h4>
+
+<ol>
+<li>本书是给出一系列明确的程序设计指导, 由此引导学生一步一步地从问题的描述出发,通过明确定义的中间过程, 得出程序.在这个过程中,学生将会学会阅读,分析,组织,实验和系统思维能力.</li>
+<li>使用了一个全新的程序设计环境. Scheme???</li>
+</ol>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

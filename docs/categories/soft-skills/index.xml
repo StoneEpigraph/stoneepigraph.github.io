@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Soft Skills on 石记</title>
+    <link>https://stoneepigraph.github.io/categories/soft-skills/</link>
+    <description>Recent content in Soft Skills on 石记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/soft-skills/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>代码之外的生存指南</title>
+      <link>https://stoneepigraph.github.io/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h3 id=&#34;为何这本书与你先前读过的任何书籍都迥然不同&#34; class=&#34;header-anchor-wrapper&#34;&gt;为何这本书与你先前读过的任何书籍都迥然不同
+  &lt;a href=&#34;#%e4%b8%ba%e4%bd%95%e8%bf%99%e6%9c%ac%e4%b9%a6%e4%b8%8e%e4%bd%a0%e5%85%88%e5%89%8d%e8%af%bb%e8%bf%87%e7%9a%84%e4%bb%bb%e4%bd%95%e4%b9%a6%e7%b1%8d%e9%83%bd%e8%bf%a5%e7%84%b6%e4%b8%8d%e5%90%8c&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;讲述如何成为一名优秀的软件开发人员的书，优秀开发人员指的是那些能够把控自己的职业生涯，达成目标，享受生活的人。本书并不再讨论你能做什么，而是讨论你自己。关乎你的职业生涯，你的生活，你的身体，你的思想及你的灵魂。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;职业生涯：学习如何主动管理自己的职业生涯，从而达到自己追寻的结果。&lt;/li&gt;
+&lt;li&gt;自我营销：学习如何推销自己。
+&lt;ul&gt;
+&lt;li&gt;如何打造个人品牌，如何打造一个成功的博客，如何通过演讲，教学，著书立说的方式让你扬名立万。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;学习：学习如何学习，学习如何自觉&lt;/li&gt;
+&lt;li&gt;生产力：关于如何让工作更加富有成效的&lt;/li&gt;
+&lt;li&gt;理财：学习如何有效地管理你赚到的财。&lt;/li&gt;
+&lt;li&gt;健身：&lt;/li&gt;
+&lt;li&gt;精神：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;职业&#34; class=&#34;header-anchor-wrapper&#34;&gt;职业
+  &lt;a href=&#34;#%e8%81%8c%e4%b8%9a&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;你所能犯的最大错误就是相信自己是在为别人工作。这样一来你对工作的安全感已然尽失。职业发展的驱动力一定是来自个体本身。记住：工作是属于公司的，而职业生涯却是属于你自己的。体验决策过程：你要决定自己想要从软件开发这个职业中获得什么，以及如何去获得。&lt;/p&gt;
+
+&lt;h3 id=&#34;从非同凡响开始-绝不要做其他人都在做的事&#34; class=&#34;header-anchor-wrapper&#34;&gt;从非同凡响开始：绝不要做其他人都在做的事
+  &lt;a href=&#34;#%e4%bb%8e%e9%9d%9e%e5%90%8c%e5%87%a1%e5%93%8d%e5%bc%80%e5%a7%8b-%e7%bb%9d%e4%b8%8d%e8%a6%81%e5%81%9a%e5%85%b6%e4%bb%96%e4%ba%ba%e9%83%bd%e5%9c%a8%e5%81%9a%e7%9a%84%e4%ba%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;拥有商业心态&#34; class=&#34;header-anchor-wrapper&#34;&gt;拥有商业心态
+  &lt;a href=&#34;#%e6%8b%a5%e6%9c%89%e5%95%86%e4%b8%9a%e5%bf%83%e6%80%81&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;p&gt;因为只有你开始把自己当作一个企业去思考时，你才能开始做出良好的商业决策。尽管在你的职业生涯的某个特定时间段里，你可能确实是在为某家公司打工，但是千万不要让那个特定的角色固化了你和你的整个职业生涯。我们需要把雇主当作是自己的软件开发企业的一个客户。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

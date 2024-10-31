@@ -1,0 +1,932 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Git常用命令 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Whatspeng!!!" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Git常用命令">
+  <meta property="og:description" content="Git常用命令 新建代码库 在当前目录新建一个Git代码库 &gt; git init
+新建一个目录，将其初始化为Git代码库 &gt; git init [Project_name]
+下载一个项目和它的整个代码历史 &gt; git clone [url]
+配置 添加指定文件到暂存区 &gt; git add [fileName] …">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-11-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-25T00:00:00+00:00">
+    <meta property="article:tag" content="CSV">
+    <meta property="article:tag" content="GIT">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Git常用命令">
+  <meta name="twitter:description" content="Git常用命令 新建代码库 在当前目录新建一个Git代码库 &gt; git init
+新建一个目录，将其初始化为Git代码库 &gt; git init [Project_name]
+下载一个项目和它的整个代码历史 &gt; git clone [url]
+配置 添加指定文件到暂存区 &gt; git add [fileName] …">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#git常用命令">Git常用命令</a>
+      <ul>
+        <li><a href="#新建代码库">新建代码库</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#代码提交">代码提交</a></li>
+        <li><a href="#分支">分支</a></li>
+        <li><a href="#查看信息">查看信息</a></li>
+        <li><a href="#远程同步">远程同步</a></li>
+        <li><a href="#撤消">撤消</a></li>
+        <li><a href="#其他">其他</a></li>
+        <li><a href="#other">Other</a></li>
+      </ul>
+    </li>
+    <li><a href="#tips">Tips</a>
+      <ul>
+        <li><a href="#忽略文件mode的配置">忽略文件Mode的配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用问题处理">常用问题处理</a>
+      <ul>
+        <li><a href="#push相关">push相关</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="git常用命令" class="header-anchor-wrapper">Git常用命令
+  <a href="#git%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="新建代码库" class="header-anchor-wrapper">新建代码库
+  <a href="#%e6%96%b0%e5%bb%ba%e4%bb%a3%e7%a0%81%e5%ba%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>在当前目录新建一个Git代码库</li>
+</ul>
+<p>&gt; git init</p>
+<ul>
+<li>新建一个目录，将其初始化为Git代码库</li>
+</ul>
+<p>&gt; git init [Project_name]</p>
+<ul>
+<li>下载一个项目和它的整个代码历史</li>
+</ul>
+<p>&gt; git clone [url]</p>
+
+<h3 id="配置" class="header-anchor-wrapper">配置
+  <a href="#%e9%85%8d%e7%bd%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>添加指定文件到暂存区</li>
+</ul>
+<p>&gt; git add [fileName] &hellip;</p>
+<ul>
+<li>添加当前目录的所有的文档到暂存区</li>
+</ul>
+<p>&gt; git add .</p>
+<ul>
+<li>删除工作区文件，并且将这次删除放入暂存区</li>
+</ul>
+<p>&gt; git rm [fileName] &hellip;</p>
+<ul>
+<li>停止追踪指定文件，但该文件会保留在工作区
+&gt; git rm &ndash;cached [filename]</li>
+<li>改名文件，并且将这个改名放入暂存区
+&gt; git mv [file-original] [file-renamed]</li>
+<li>全局配置忽略Linux与Windows回车的类型
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git config --global core.autocrlf true
+</code></pre>
+</li>
+</ul>
+
+<h3 id="代码提交" class="header-anchor-wrapper">代码提交
+  <a href="#%e4%bb%a3%e7%a0%81%e6%8f%90%e4%ba%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>提交暂存区到仓库区
+&gt; git commit -m [Message]</li>
+<li>提交暂存区的指定文件到仓库区
+&gt; git commit [file1] [file2] &hellip; -m [message]</li>
+<li>提交工作区自上次commit之后的变化，直接到仓库区
+&gt; git commit -a</li>
+<li>提交时显示所有diff信息
+&gt; git commit -v</li>
+<li>使用一次新的commit, 替代上一次提交，如果代码没有变化，则用来改写上一次commit的提交信息
+&gt; git commit &ndash;amend -m [message]</li>
+<li>重做上一次commit, 并包括指定文件的新变化
+&gt; git commit &ndash;amend &hellip;</li>
+</ul>
+
+<h3 id="分支" class="header-anchor-wrapper">分支
+  <a href="#%e5%88%86%e6%94%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>列出所有本地分支</li>
+</ul>
+<p>&gt; git branch</p>
+<ul>
+<li>列出所有远程分支
+&gt; git branch -r</li>
+<li>列出所有本地分支和远程分支
+&gt; git branch -a</li>
+<li>新建一个分支，但依然停留在当前分支</li>
+</ul>
+<p>&gt; git branch [branch_name]</p>
+<ul>
+<li>新建一个分支，并切换到该分支
+&gt; git checkout -b [branch_name]</li>
+<li>新建一个分支，指向指定的commit</li>
+</ul>
+<p>&gt; git branch [branch_name] [commit_id]</p>
+<ul>
+<li>新建一个分支，与指定的远程分支建立追踪关系
+&gt; git branch &ndash;track [branch_name] [remote_branch]</li>
+<li>切换到指定分支，并更新工作区</li>
+</ul>
+<p>&gt; git checkout [branch_name]</p>
+<ul>
+<li>建立追踪关系，在现有分支与指定远程分支之间
+&gt; git branch &ndash;set-upstream [branch_name] [remote-branch]</li>
+<li>合并指定分支到当前分支</li>
+</ul>
+<p>&gt; git merge [branch_name]</p>
+<ul>
+<li>选择一个commit,合并到当前分支
+&gt; git cherry-pick [commit]</li>
+<li>删除分支
+&gt; git branch -d [branch_name]</li>
+<li>删除远程分支
+&gt; git push origin &ndash;delete
+&gt; git branch -dr</li>
+<li>列出所有tag</li>
+</ul>
+<p>&gt; git tag</p>
+<ul>
+<li>新建一个Tag在当前commit</li>
+</ul>
+<p>&gt; git tag [tag_name]</p>
+<ul>
+<li>查看tag信息</li>
+</ul>
+<p>&gt; git show [tag_name]</p>
+<ul>
+<li>提交指定Tag</li>
+</ul>
+<p>&gt; git push [remote] [tag]</p>
+<ul>
+<li>提交所有Tag
+&gt; git push [remote] &ndash;tags</li>
+<li>新建一个分支，指向某个Tag
+&gt; git checkout -b [branch_name] [tag_name]</li>
+</ul>
+
+<h3 id="查看信息" class="header-anchor-wrapper">查看信息
+  <a href="#%e6%9f%a5%e7%9c%8b%e4%bf%a1%e6%81%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>显示有变更的文件</li>
+</ul>
+<p>&gt; git status</p>
+<ul>
+<li>显示当前分支的版本历史</li>
+</ul>
+<p>&gt; git log</p>
+<ul>
+<li>显示commit历史，以及每次commit发生变更的文件
+&gt; git log &ndash;stat</li>
+<li>显示某个文件的版本历史，包括文件改名
+&gt; git log &ndash;follow [file]</li>
+</ul>
+<p>&gt; git whatchanged [file]</p>
+<ul>
+<li>显示指定文件相关的每一次diff
+&gt; git log -p [file]</li>
+<li>显示指定文件是什么人在什么时候修改过</li>
+</ul>
+<p>&gt; git blame [file_name]</p>
+<ul>
+<li>显示暂存区和工作区的差异</li>
+</ul>
+<p>&gt; git diff</p>
+<ul>
+<li>显示暂存区和上一个commit的差异
+&gt; git diff &ndash;cached []</li>
+<li>显示工作区与当前分支最新commit之间的差异</li>
+</ul>
+<p>&gt; git diff HEAD</p>
+<ul>
+<li>显示两次提交之间的差异</li>
+</ul>
+<p>&gt; git diff [first_branch] &hellip; [second_branch]</p>
+<ul>
+<li>显示某次提交的元数据和内容变化</li>
+</ul>
+<p>&gt; git show [commit]</p>
+<ul>
+<li>显示某次提交发生变化的文件
+&gt; git show &ndash;name-only [commit]</li>
+<li>显示某次提交旱，某个文件的内容</li>
+</ul>
+<p>&gt; git show [commit]:[fileName]</p>
+<ul>
+<li>显示当前分支的最近几次提交</li>
+</ul>
+<p>&gt; git reflog</p>
+<ul>
+<li>查看哪些文件在某个提交commit中有变更
+git whatchanged</li>
+</ul>
+
+<h3 id="远程同步" class="header-anchor-wrapper">远程同步
+  <a href="#%e8%bf%9c%e7%a8%8b%e5%90%8c%e6%ad%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>下载远程仓库的所有变动</li>
+</ul>
+<p>&gt; git fetch [remote]</p>
+<ul>
+<li>显示所有远程仓库
+&gt; git remote -v</li>
+<li>显示某个远程仓库的信息</li>
+</ul>
+<p>&gt; git remote show [remote]</p>
+<ul>
+<li>增加一个新的远程仓库，并命名</li>
+</ul>
+<p>&gt; git remote add [shornamt] [url]</p>
+<ul>
+<li>取回远程仓库的变化，并与本地分支合并</li>
+</ul>
+<p>&gt; git pull [remote] [branch]</p>
+<ul>
+<li>上传本地指定分支到远程仓库</li>
+</ul>
+<p>&gt; git push [remote] [branch]</p>
+<ul>
+<li>强行推送当前分支到远程仓库，即使有冲突
+&gt; git push [remote] &ndash;force</li>
+<li>推送所有分支到远程仓库
+&gt; git push [remote] &ndash;all</li>
+</ul>
+
+<h3 id="撤消" class="header-anchor-wrapper">撤消
+  <a href="#%e6%92%a4%e6%b6%88" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>恢复暂存区的指定文件到工作区</li>
+</ul>
+<p>&gt; git checkout [filename]</p>
+<ul>
+<li>恢复某个commit的指定文件到工作区</li>
+</ul>
+<p>&gt; git checkout [commit] [file]</p>
+<ul>
+<li>恢复上一个commit的所有文件到工作区</li>
+</ul>
+<p>&gt; git checout .</p>
+<ul>
+<li>重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</li>
+</ul>
+<p>&gt; git reset [file]</p>
+<ul>
+<li>重置暂存区与工作区， 与上一次commit保持一致
+&gt; git reset &ndash;hard</li>
+<li>重置当前分支 的指针 为指定 commit, 同时重置暂存区，但工作区不变</li>
+</ul>
+<p>&gt; git reset [commit]</p>
+<ul>
+<li>重置当前分支 的HEAD为指定commit,同时重置暂存区和工作区，与指定commit一致
+&gt; git reset &ndash;hard [commit]</li>
+<li>重置当前HEAD为指定commit， 但保持 暂存区和工作区不变
+&gt; git reset &ndash;keep [commit]</li>
+<li>新建一个commit，用来撤消指定的commit,后者的所有变化 都将被前者抵消，并且 应用到当前分支</li>
+</ul>
+<p>&gt; git revert [commit]</p>
+
+<h3 id="其他" class="header-anchor-wrapper">其他
+  <a href="#%e5%85%b6%e4%bb%96" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>生成一个可供发布的压缩包
+git archiv</li>
+<li>备份当前工作区的修改
+git stash</li>
+<li>备份当前工作区的修改及新增</li>
+<li>从Git栈中读取最近一次保存的内容，恢复工作区的相关内容
+git stash pop</li>
+<li>显示Git栈内的所有备份
+git stash list</li>
+<li>清空Git栈
+git stash clear</li>
+</ul>
+
+<h3 id="other" class="header-anchor-wrapper">Other
+  <a href="#other" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>git init                                                  # 初始化本地git仓库（创建新仓库）
+git config &ndash;global user.name &ldquo;xxx&rdquo;                       # 配置用户名
+git config &ndash;global user.email &ldquo;<a href="mailto:xxx@xxx.com">xxx@xxx.com</a>&rdquo;              # 配置邮件
+git config &ndash;global color.ui true                         # git status等命令自动着色
+git config &ndash;global color.status auto
+git config &ndash;global color.diff auto
+git config &ndash;global color.branch auto
+git config &ndash;global color.interactive auto
+git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓库
+git status                                                # 查看当前版本状态（是否修改）
+git add xyz                                               # 添加xyz文件至index
+git add .                                                 # 增加当前子目录下所有更改过的文件至index
+git commit -m &lsquo;xxx&rsquo;                                       # 提交
+git commit &ndash;amend -m &lsquo;xxx&rsquo;                               # 合并上一次提交（用于反复修改）
+git commit -am &lsquo;xxx&rsquo;                                      # 将add和commit合为一步
+git rm xxx                                                # 删除index中的文件
+git rm -r *                                               # 递归删除
+git log                                                   # 显示提交日志
+git log -1                                                # 显示1行日志 -n为n行
+git log -5
+git log &ndash;stat                                            # 显示提交日志及相关变动文件
+git log -p -m
+git log &ndash;online &ndash;since=&ldquo;2022-01-01&rdquo; &ndash;until=&ldquo;2022-12-01&rdquo; &ndash;author=&ldquo;WhatsUpeng&rdquo; # 查看WhatsUpeng在2022-01-02至2022-12-01的所有的提交纪录。
+git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容
+git show dfb02                                            # 可只用commitid的前几位
+git show HEAD                                             # 显示HEAD提交日志
+git show HEAD^                                            # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本
+git tag                                                   # 显示已存在的tag
+git tag -a v2.0 -m &lsquo;xxx&rsquo;                                  # 增加v2.0的tag
+git show v2.0                                             # 显示v2.0的日志及详细内容
+git log v2.0                                              # 显示v2.0的日志
+git diff                                                  # 显示所有未添加至index的变更
+git diff &ndash;cached                                         # 显示所有已添加index但还未commit的变更
+git diff HEAD^                                            # 比较与上一个版本的差异
+git diff HEAD &ndash; ./lib                                    # 比较与HEAD版本lib目录的差异
+git diff origin/master..master                            # 比较远程分支master上有本地分支master上没有的
+git diff origin/master..master &ndash;stat                     # 只显示差异的文件，不显示具体内容
+git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch）
+git branch                                                # 显示本地分支
+git branch &ndash;contains 50089                               # 显示包含提交50089的分支
+git branch -a                                             # 显示所有分支
+git branch -r                                             # 显示所有原创分支
+git branch &ndash;merged                                       # 显示所有已合并到当前分支的分支
+git branch &ndash;no-merged                                    # 显示所有未合并到当前分支的分支
+git branch -m master master_copy                          # 本地分支改名
+git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出
+git checkout -b master master_copy                        # 上面的完整版
+git checkout features/performance                         # 检出已存在的features/performance分支
+git checkout &ndash;track hotfixes/BJVEP933                    # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支
+git checkout v2.0                                         # 检出版本v2.0
+git checkout -b devel origin/develop                      # 从远程分支develop创建新本地分支devel并检出
+git checkout &ndash; README                                    # 检出head版本的README文件（可用于修改错误回退）
+git merge origin/master                                   # 合并远程master分支至当前分支
+git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改
+git push origin master                                    # 将当前分支push到远程master分支
+git push origin :hotfixes/BJVEP933                        # 删除远程仓库的hotfixes/BJVEP933分支
+git push &ndash;tags                                           # 把所有tag推送到远程仓库
+git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）
+git fetch &ndash;prune                                         # 获取所有原创分支并清除服务器上已删掉的分支
+git pull origin master                                    # 获取远程分支master并merge到当前分支
+git mv README README2                                     # 重命名文件README为README2
+git reset &ndash;hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）
+git rebase
+git branch -d hotfixes/BJVEP933                           # 删除分支hotfixes/BJVEP933（本分支修改已合并到其他分支）
+git rebase -i HEAD<del>n                                      # 合并前n次提交为一次提交
+git branch -D hotfixes/BJVEP933                           # 强制删除分支hotfixes/BJVEP933
+git ls-files                                              # 列出git index包含的文件
+git show-branch                                           # 图示当前分支历史
+git show-branch &ndash;all                                     # 图示所有分支历史
+git whatchanged                                           # 显示提交历史对应的文件修改
+git revert dfb02e6e4f2f7b573337763e5c0013802e392818       # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818
+git ls-tree HEAD                                          # 内部命令：显示某个git对象
+git rev-parse v2.0                                        # 内部命令：显示某个ref对于的SHA1 HASH
+git reflog                                                # 显示所有提交，包括孤立节点
+git show HEAD@{5}
+git show master@{yesterday}                               # 显示master分支昨天的状态
+git log &ndash;pretty=format:&rsquo;%h %s&rsquo; &ndash;graph                   # 图示提交日志
+git show HEAD</del>3
+git show -s &ndash;pretty=raw 2be7fcb476
+git stash                                                 # 暂存当前修改，将所有至为HEAD状态
+git stash list                                            # 查看所有暂存
+git stash show -p stash@{0}                               # 参考第一次暂存
+git stash apply stash@{0}                                 # 应用第一次暂存
+git grep &ldquo;delete from&rdquo;                                    # 文件中搜索文本“delete from”
+git grep -e &lsquo;#define&rsquo; &ndash;and -e SORT_DIRENT
+git gc
+git fsck
+git config &ndash;global core.autocrlf input			  # 在LInux下忽略Winodws与Linux的换行符的不同</p>
+
+<h2 id="tips" class="header-anchor-wrapper">Tips
+  <a href="#tips" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="忽略文件mode的配置" class="header-anchor-wrapper">忽略文件Mode的配置
+  <a href="#%e5%bf%bd%e7%95%a5%e6%96%87%e4%bb%b6mode%e7%9a%84%e9%85%8d%e7%bd%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git config --add core.filemode false
+</code></pre>
+
+<h2 id="常用问题处理" class="header-anchor-wrapper">常用问题处理
+  <a href="#%e5%b8%b8%e7%94%a8%e9%97%ae%e9%a2%98%e5%a4%84%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="push相关" class="header-anchor-wrapper">push相关
+  <a href="#push%e7%9b%b8%e5%85%b3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="remote-rejected-master-master--shallow-update-not-allowed" class="header-anchor-wrapper">! [remote rejected] master -&gt; master (shallow update not allowed)
+  <a href="#remote-rejected-master-master--shallow-update-not-allowed" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>原因</p>
+<ul>
+<li>因为使用git clone时使用了&ndash;depth &lt;number&gt;复制本地版本。这样的克隆将限制你不能将它捈新的存储库。</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>解决</p>
+<ul>
+<li>如果想把它推入到新的存储库，需要从旧存储库中拉取所有深度
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git fetch --unshallow oldOrigin
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

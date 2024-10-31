@@ -1,0 +1,4605 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>csapp - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/csapp/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="csapp">
+  <meta property="og:description" content="计算机系统漫游 信息就是位&#43;上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-30T00:00:00+00:00">
+    <meta property="article:tag" content="Book">
+    <meta property="article:tag" content="Csapp">
+    <meta property="article:tag" content="深入理解计算机系统">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="csapp">
+  <meta name="twitter:description" content="计算机系统漫游 信息就是位&#43;上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#计算机系统漫游">计算机系统漫游</a>
+      <ul>
+        <li><a href="#信息就是位-plus-上下文">信息就是位+上下文</a></li>
+        <li><a href="#程序被其他程序翻译成不同的格式">程序被其他程序翻译成不同的格式</a></li>
+        <li><a href="#了解编译系统如何工作是大有益处的">了解编译系统如何工作是大有益处的</a></li>
+        <li><a href="#处理器读并解释储存在中的指令">处理器读并解释储存在中的指令</a></li>
+        <li><a href="#高速缓存至关重要">高速缓存至关重要</a></li>
+        <li><a href="#存储设备形成层次结构">存储设备形成层次结构</a></li>
+        <li><a href="#操作系统管理硬件">操作系统管理硬件</a></li>
+        <li><a href="#系统之间利用网络通信">系统之间利用网络通信</a></li>
+      </ul>
+    </li>
+    <li><a href="#程序结构和执行">程序结构和执行</a>
+      <ul>
+        <li><a href="#信息的表示和处理">信息的表示和处理</a></li>
+        <li><a href="#程序的机器级表示">程序的机器级表示</a></li>
+        <li><a href="#处理器体系结构">处理器体系结构</a></li>
+        <li><a href="#优化程序性能">优化程序性能</a></li>
+        <li><a href="#存储器层次结构">存储器层次结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#在系统上运行程序">在系统上运行程序</a>
+      <ul>
+        <li><a href="#链接">链接</a></li>
+        <li><a href="#异常控制流">异常控制流</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="计算机系统漫游" class="header-anchor-wrapper">计算机系统漫游
+  <a href="#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%b3%bb%e7%bb%9f%e6%bc%ab%e6%b8%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="信息就是位-plus-上下文" class="header-anchor-wrapper">信息就是位+上下文
+  <a href="#%e4%bf%a1%e6%81%af%e5%b0%b1%e6%98%af%e4%bd%8d-plus-%e4%b8%8a%e4%b8%8b%e6%96%87" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="程序被其他程序翻译成不同的格式" class="header-anchor-wrapper">程序被其他程序翻译成不同的格式
+  <a href="#%e7%a8%8b%e5%ba%8f%e8%a2%ab%e5%85%b6%e4%bb%96%e7%a8%8b%e5%ba%8f%e7%bf%bb%e8%af%91%e6%88%90%e4%b8%8d%e5%90%8c%e7%9a%84%e6%a0%bc%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。</p>
+
+<h3 id="了解编译系统如何工作是大有益处的" class="header-anchor-wrapper">了解编译系统如何工作是大有益处的
+  <a href="#%e4%ba%86%e8%a7%a3%e7%bc%96%e8%af%91%e7%b3%bb%e7%bb%9f%e5%a6%82%e4%bd%95%e5%b7%a5%e4%bd%9c%e6%98%af%e5%a4%a7%e6%9c%89%e7%9b%8a%e5%a4%84%e7%9a%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="优化程序性能" class="header-anchor-wrapper">优化程序性能
+  <a href="#%e4%bc%98%e5%8c%96%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="理解链接时出现的错误" class="header-anchor-wrapper">理解链接时出现的错误
+  <a href="#%e7%90%86%e8%a7%a3%e9%93%be%e6%8e%a5%e6%97%b6%e5%87%ba%e7%8e%b0%e7%9a%84%e9%94%99%e8%af%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="避免安全漏洞" class="header-anchor-wrapper">避免安全漏洞
+  <a href="#%e9%81%bf%e5%85%8d%e5%ae%89%e5%85%a8%e6%bc%8f%e6%b4%9e" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="处理器读并解释储存在中的指令" class="header-anchor-wrapper">处理器读并解释储存在中的指令
+  <a href="#%e5%a4%84%e7%90%86%e5%99%a8%e8%af%bb%e5%b9%b6%e8%a7%a3%e9%87%8a%e5%82%a8%e5%ad%98%e5%9c%a8%e4%b8%ad%e7%9a%84%e6%8c%87%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="系统的硬件组成" class="header-anchor-wrapper">系统的硬件组成
+  <a href="#%e7%b3%bb%e7%bb%9f%e7%9a%84%e7%a1%ac%e4%bb%b6%e7%bb%84%e6%88%90" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>总线</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>I/O设备</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>主存</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>处理器</p>
+ <!--list-separator-->
+<ul>
+<li>加载</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>存储</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>操作</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>跳转</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="高速缓存至关重要" class="header-anchor-wrapper">高速缓存至关重要
+  <a href="#%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e8%87%b3%e5%85%b3%e9%87%8d%e8%a6%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="存储设备形成层次结构" class="header-anchor-wrapper">存储设备形成层次结构
+  <a href="#%e5%ad%98%e5%82%a8%e8%ae%be%e5%a4%87%e5%bd%a2%e6%88%90%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。</p>
+
+<h3 id="操作系统管理硬件" class="header-anchor-wrapper">操作系统管理硬件
+  <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e7%ae%a1%e7%90%86%e7%a1%ac%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>所有应用程序对硬件的操作深度都必须通过操作系统。</p>
+
+<h4 id="操作系统有两个基本功能" class="header-anchor-wrapper">操作系统有两个基本功能
+  <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%9c%89%e4%b8%a4%e4%b8%aa%e5%9f%ba%e6%9c%ac%e5%8a%9f%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>防止硬件被失控的应用程序滥用</li>
+<li>向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。</li>
+</ol>
+
+<h4 id="操作系统通过几个基本的抽象概念来实现这两个功能" class="header-anchor-wrapper">操作系统通过几个基本的抽象概念来实现这两个功能
+  <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e9%80%9a%e8%bf%87%e5%87%a0%e4%b8%aa%e5%9f%ba%e6%9c%ac%e7%9a%84%e6%8a%bd%e8%b1%a1%e6%a6%82%e5%bf%b5%e6%9d%a5%e5%ae%9e%e7%8e%b0%e8%bf%99%e4%b8%a4%e4%b8%aa%e5%8a%9f%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>进程
+进程则是对处理器、主存和I/O设备的抽象表示。</li>
+<li>虚拟内存
+虚拟内存是对主存和磁盘I/O设备的抽象表示</li>
+<li>文件
+文件是对I/O设备的抽象表示</li>
+</ol>
+<!--list-separator-->
+<ul>
+<li>进程</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>线程</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>虚拟内存</p>
+<p>虚拟内存是一个抽象概念，它为每个进程提供了一个假象，即每个进程都在独占地使用主存。每个进程看到的内存都是一致的，称为虚拟地址空间。
+在Linux中，地址空间最上面的区域是保留给操作系统中的代码和数据的，这对所有进程来说都是一样。地址空间的底部区域存放用户进程定义的代码和数据。注意，地址是从下往上增大的。
+从下往上依次是：</p>
+<ol>
+<li>程序代码和数据。</li>
+<li>堆</li>
+<li>共享库</li>
+<li>栈</li>
+<li>内核虚拟内存</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>文件</p>
+<p>文件就是字节序列，每个I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成是文件。</p>
+</li>
+</ul>
+
+<h3 id="系统之间利用网络通信" class="header-anchor-wrapper">系统之间利用网络通信
+  <a href="#%e7%b3%bb%e7%bb%9f%e4%b9%8b%e9%97%b4%e5%88%a9%e7%94%a8%e7%bd%91%e7%bb%9c%e9%80%9a%e4%bf%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h2 id="程序结构和执行" class="header-anchor-wrapper">程序结构和执行
+  <a href="#%e7%a8%8b%e5%ba%8f%e7%bb%93%e6%9e%84%e5%92%8c%e6%89%a7%e8%a1%8c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="信息的表示和处理" class="header-anchor-wrapper">信息的表示和处理
+  <a href="#%e4%bf%a1%e6%81%af%e7%9a%84%e8%a1%a8%e7%a4%ba%e5%92%8c%e5%a4%84%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="信息存储" class="header-anchor-wrapper">信息存储
+  <a href="#%e4%bf%a1%e6%81%af%e5%ad%98%e5%82%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>十六进制表示法</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>字数据大小</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>寻址和字节顺序</p>
+<p>大端法
+小端法</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>表示字符串</p>
+<p>C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数组。每个字符都同某个标准编码来表示，最常见的是ASCII字符码。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>表示代码</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>布尔代数简介</p>
+<p>二进制值是计算机编码、存储和操作信息的核心，所以围绕数值0和1的研究已经深化出了丰富的数学知识体系。被称作布尔代数。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>C语言中的位级运算</p>
+<ol>
+<li>|</li>
+<li>&amp;</li>
+<li>^</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>C语言中的逻辑运算</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>类型</p>
+<ol>
+<li>||</li>
+<li>&amp;&amp;</li>
+<li>!</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>与位级运算的区别</p>
+<ol>
+<li>逻辑运算认为所有非零的参数都表示TRUE，而参数0表示FALSE</li>
+<li>逻辑运算符&amp;&amp;和||与它们对应的位级运算&amp;和|之间第三个重要的区别是，如果对第一个参数求值就能确定表达式的结果，那么逻辑运算符就不会对第二个参数求值。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>C语言中的移位运算</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>类型</p>
+<ol>
+<li>&lt;&lt;</li>
+<li>&gt;&gt;</li>
+<li>&gt;&gt;&gt;</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="整数表示" class="header-anchor-wrapper">整数表示
+  <a href="#%e6%95%b4%e6%95%b0%e8%a1%a8%e7%a4%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>一些术语
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>符号</th>
+          <th>类型</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>B2T_w</td>
+          <td>函数</td>
+          <td>二进制转补码</td>
+      </tr>
+      <tr>
+          <td>B2U_w</td>
+          <td>函数</td>
+          <td>二进制转无符号数</td>
+      </tr>
+      <tr>
+          <td>U2B_w</td>
+          <td>函数</td>
+          <td>无符号数转二进制</td>
+      </tr>
+      <tr>
+          <td>U2T_w</td>
+          <td>函数</td>
+          <td>无符号转补码</td>
+      </tr>
+      <tr>
+          <td>T2B_w</td>
+          <td>函数</td>
+          <td>补码转二进制</td>
+      </tr>
+      <tr>
+          <td>T2U_w</td>
+          <td>函数</td>
+          <td>补码转无符号数</td>
+      </tr>
+      <tr>
+          <td>TMin_w</td>
+          <td>常数</td>
+          <td>最小补码值</td>
+      </tr>
+      <tr>
+          <td>TMax_w</td>
+          <td>常数</td>
+          <td>最大补码值</td>
+      </tr>
+      <tr>
+          <td>UMax_w</td>
+          <td>常数</td>
+          <td>最大无符号数</td>
+      </tr>
+      <tr>
+          <td>+^t_w</td>
+          <td>操作</td>
+          <td>补码加法</td>
+      </tr>
+      <tr>
+          <td>+^u_w</td>
+          <td>操作</td>
+          <td>无符号数加法</td>
+      </tr>
+      <tr>
+          <td>*^t_w</td>
+          <td>操作</td>
+          <td>补码乘法</td>
+      </tr>
+      <tr>
+          <td>*^u_w</td>
+          <td>操作</td>
+          <td>无符号乘法</td>
+      </tr>
+      <tr>
+          <td>-^t_w</td>
+          <td>操作</td>
+          <td>补码取反</td>
+      </tr>
+      <tr>
+          <td>-^u_w</td>
+          <td>操作</td>
+          <td>无符号取反</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>整数数据类型</p>
+<p>C语言支持多种整形数据类型——表示有限范围的整数。每种类型都能用关键字来指定大小，这些关键字包括char、short、long，同时还可以指示被表示的数字是非负数(声明为unsigned),歌者可能是负数（默认）。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>无符号数的编码</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>补码编码</p>
+<p>最常见的有符号数的计算机表示方式誻补码形式。在这个定义中，将字的最高有效位解释为负权。
+补码的范围是不对称的： |TMin| = |TMax| + 1, 也就是说，TMin没有与之对应的正数。
+最大的无符号数值刚好比补码的最大值的两倍大一点： UMax = 2TMax + 1。
+C语言标准并没有要求要用补码形式来表示有符号整数，但是几乎所有的机器都是这么做的。
+C库中的文件 &lt;limits.h&gt;定义了一组常量，来限定编译器运行的这台机器的不同整形数据类型的取值范围。
+ISOC99标准在文件stdint.h中引入了这个整数类型类。这个文件定义了一组数据类型，它们的声明形式如intN_t和uintN_t,对应不同的N值指定N位有称号和无符号整数。
+关于整数数据类型的范围和表示，Java标准是非常明确的。它要求采用补码表示。在Java中，单字节数据类型称为byte,而不是char。这些非常具体的要求都是为了保证无论在什么机器上运行，Java程序都能表现地完全一样。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>有符号数和无符号数之间的转换</p>
+<p>C语言允许在各种不同的数字数据类型之间做强制类型转换。
+对于大多数C语言的实现，处理同样字长的有符号数和无符号数之间的转换的一般规则是：数值可能会改变，但是位模式不变。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>C语言中的有符号数与无符号数</p>
+<p>C语言支持所有整形数据类型的有符号和无符号运算。尽管C语言标准i同有指定有符号数要采用某种表示，但是几乎所有的机器都使用补码。
+C语言允许无符号数和有符号数之间的转换。虽然C标准没有精确规定应如何进行这种转换，但大多数系统遵循的原则是底层的位表示保持不变。
+另外，当一种类型的表达式被赋值给另外一种类型的变量时，转换是隐式发生的。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>扩展一个数字的位表示</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>截断数字</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>关于有符号数与无符号数的建议</li>
+</ul>
+
+<h4 id="整数运算" class="header-anchor-wrapper">整数运算
+  <a href="#%e6%95%b4%e6%95%b0%e8%bf%90%e7%ae%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>无符号加法</p>
+<p>当执行C程序时， 不会将溢出作为错误而发信号。不过有的时候，我们可能希望判定是否发生的溢出。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>补码加法</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>补码的非</p>
+<p>对于w位的补码加法来说， TMin是自己的加法的逆，而对其他任何数值x都有-x作为基加法的逆。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>无符号乘法</p>
+<p>C语言中的无符号乘法被定义为产生w位的值，就是2w位的整数税种的低w从头再来表示的值。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>补码乘法</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>乘以常数</p>
+<p>由于整数乘法比移位和加法的代价要大得多，许多C语言编译器试图以移位、加法和减法的组和来消除很多整数乘以常数的情况。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>除以2的幂</p>
+<p>除以2的幂也可以用移位运算来实现，只不过我们用的是右移，而不是左移。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>关于整数运算的最后思考</li>
+</ul>
+
+<h4 id="浮点数" class="header-anchor-wrapper">浮点数
+  <a href="#%e6%b5%ae%e7%82%b9%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>浮点数表示对形如V=x*2^y的有理数进行编码。它对执行涉及非常大的数字、非常接近于0的数字，以及更普遍地作为实数运算的近似值的计算，是很有用的。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>二进制小数</p>
+<p>数字权的与十进制的小数点符号相关，这意味着小数点左边的数字的权是10的正幂，得到整数值，而小数点右边的数字的权是10的负幂，得到小数值。
+假定我们公考虑有限长度的编码，那么十进制表示法不能准确地表达像三分之一这样的数。类似，小数的二进制表示法只能表示那些能够被写成x*2^y的数。其他的值只能够被近似的表示。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>IEEE浮点表示</p>
+<p>IEEE浮点标准用V=(-1)^s*M*2^E的形式来表示一个数</p>
+<ol>
+<li>符号sign: s决定这个ovtj是负数还是正数</li>
+<li>尾数significand M是一个二进制小数</li>
+<li>阶码 exponent E的作用是对浮点数加权，这个权重是2的E次幂（可能是负数）。</li>
+</ol>
+ <!--list-separator-->
+<ul>
+<li>
+<p>表示的数值类型</p>
+<ol>
+<li>规格化的值
+这是最普遍的情况，当exp的位模式既不全为0,也不全为1</li>
+<li>非规格化的值
+当阶码哉为全0时</li>
+<li>特殊值
+当阶码全为1的时候。当小数域全为0时，得到的值表示无穷，当s=0时是正无穷，当s=1时为负无穷。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>数字示例</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>舍入</p>
+<p>因为表示方法限制了浮点数的范围和精度，所以浮点运算只能挖地表示实数运算。因此，对于值x,我们一般想用一种系统的方法，能够找到“最接近的”匹配值x&rsquo;，它可以用期望的浮点形式表示出来。这就是舍入运算的任务。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>浮点运算</p>
+<p>浮点加法不具有结合性。
+激战加法满足了单调性。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>C语言中的浮点数</p>
+<p>所有的C语言版本提供了两种不同的浮点数据类型:float和double。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>当int, float和double格式之间进行强制类型转换时，程序改变数值和位模式的原则如下（假设int是32位的）</p>
+<ul>
+<li>从int转换成float,数字不会溢出，但是可能被舍入。</li>
+<li>从int或float转换成double,因为double有更大的范围，也有更高的精度，所以能够保留精确的数值。</li>
+<li>从double转换成float,因为范围要小一些，所以值可能溢出成正无穷或负无穷。另外，由于精确度较小，它还可能被舍入。</li>
+<li>从float或者double转换成int,值将会向零舍入。例如1.99将被转换成1,而-1.99将被转换成-1。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="程序的机器级表示" class="header-anchor-wrapper">程序的机器级表示
+  <a href="#%e7%a8%8b%e5%ba%8f%e7%9a%84%e6%9c%ba%e5%99%a8%e7%ba%a7%e8%a1%a8%e7%a4%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="程序编码" class="header-anchor-wrapper">程序编码
+  <a href="#%e7%a8%8b%e5%ba%8f%e7%bc%96%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>机器级代码</p>
+<p>汇编代码表示非常接近于机器代码。与机器代码的二进格式相比，汇编代码的主要特点是它用可读性更好的文本格式表示。
+一条机器指令只执行一个基本的操作。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>示例</p>
+<ol>
+<li>查看C语言编译器产生的汇编代码
+<pre  class="mc-prism hide language-text" ><code class="language-shell">gcc -Og -S filename.c
+</code></pre>
+</li>
+<li>汇编代码
+<pre  class="mc-prism hide language-text" ><code class="language-shell">gcc -Og -c filename.c
+</code></pre>
+</li>
+<li>生成可执行文件
+<pre  class="mc-prism hide language-text" ><code class="language-shell">gcc -Og -p prog file1.c file2.c
+</code></pre>
+</li>
+<li>反汇编
+<pre  class="mc-prism hide language-text" ><code class="language-shell">objdump -d program.o
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>关于格式的注解</p>
+<p>gcc产生的汇编代码中所有以.形状的行都是指导汇编器和链接器工作的伪指令。我们通常可以忽略这些行。</p>
+</li>
+</ul>
+
+<h4 id="数据格式" class="header-anchor-wrapper">数据格式
+  <a href="#%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>由于是从16位体系结构扩展成32位的，Intel用术语“字（word）”表示16位数据类型。因此，称32位数为“双字（double word）”， 64位数为“四字（quad word）”</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>C声明</th>
+          <th>Intel数据类型</th>
+          <th>汇编代码后缀</th>
+          <th>大小（字节</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>char</td>
+          <td>字节</td>
+          <td>b</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>short</td>
+          <td>字</td>
+          <td>w</td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>int</td>
+          <td>双字</td>
+          <td>l</td>
+          <td>4</td>
+      </tr>
+      <tr>
+          <td>long</td>
+          <td>四字</td>
+          <td>q</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>char*</td>
+          <td>四字</td>
+          <td>q</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>float</td>
+          <td>单精度</td>
+          <td>s</td>
+          <td>4</td>
+      </tr>
+      <tr>
+          <td>double</td>
+          <td>双精度</td>
+          <td>l</td>
+          <td>8</td>
+      </tr>
+  </tbody>
+</table>
+<p>大多数GCC生成的汇编代码指令都有一个字符的后缀，表明操作数的大小。
+例如：数据传送指令有四个变种：movb, movw, movl, movq</p>
+
+<h4 id="访问信息" class="header-anchor-wrapper">访问信息
+  <a href="#%e8%ae%bf%e9%97%ae%e4%bf%a1%e6%81%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>一个x86-64的CPU包含一组16个存储64位值的通用目的寄存器。这些寄存器用来存储整数数据和指针。
+整数寄存器。所有16个寄存器的低位部分都可以作为字节、字（16位）、双字（32位）和四字（64位）数字来访问。</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>63</th>
+          <th>31</th>
+          <th>15</th>
+          <th>7</th>
+          <th>0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>%rax</td>
+          <td>%eax</td>
+          <td>%ax</td>
+          <td>%al</td>
+          <td>返回值</td>
+      </tr>
+      <tr>
+          <td>%rbx</td>
+          <td>%ebx</td>
+          <td>%bx</td>
+          <td>%bl</td>
+          <td>被调用者保存</td>
+      </tr>
+      <tr>
+          <td>%rcx</td>
+          <td>%ecx</td>
+          <td>%cx</td>
+          <td>%cl</td>
+          <td>第4个参数</td>
+      </tr>
+      <tr>
+          <td>%rdx</td>
+          <td>%edx</td>
+          <td>%dx</td>
+          <td>%dl</td>
+          <td>第3个参数</td>
+      </tr>
+      <tr>
+          <td>%rsi</td>
+          <td>%esi</td>
+          <td>%si</td>
+          <td>%sil</td>
+          <td>第2个参数</td>
+      </tr>
+      <tr>
+          <td>%rdi</td>
+          <td>%edi</td>
+          <td>%di</td>
+          <td>%dil</td>
+          <td>第1个参数</td>
+      </tr>
+      <tr>
+          <td>%rbp</td>
+          <td>%ebp</td>
+          <td>%bp</td>
+          <td>%bpl</td>
+          <td>被调用者保存</td>
+      </tr>
+      <tr>
+          <td>%rsp</td>
+          <td>%esp</td>
+          <td>%sp</td>
+          <td>%spl</td>
+          <td>栈指针</td>
+      </tr>
+      <tr>
+          <td>%r8</td>
+          <td>%r8d</td>
+          <td>%r8w</td>
+          <td>%r8b</td>
+          <td>第5个参数</td>
+      </tr>
+      <tr>
+          <td>%r9</td>
+          <td>%r9d</td>
+          <td>%r9w</td>
+          <td>%r9b</td>
+          <td>第6个参数</td>
+      </tr>
+      <tr>
+          <td>%r10</td>
+          <td>%r10d</td>
+          <td>%r10w</td>
+          <td>%r10b</td>
+          <td>调用者保存</td>
+      </tr>
+      <tr>
+          <td>%r11</td>
+          <td>%r11d</td>
+          <td>%r11w</td>
+          <td>%r11b</td>
+          <td>调用者保存</td>
+      </tr>
+      <tr>
+          <td>%r12</td>
+          <td>%r12d</td>
+          <td>%r12w</td>
+          <td>%r12b</td>
+          <td>被调用者保存</td>
+      </tr>
+      <tr>
+          <td>%r13</td>
+          <td>%r13d</td>
+          <td>%r13w</td>
+          <td>%r13b</td>
+          <td>被调用者保存</td>
+      </tr>
+      <tr>
+          <td>%r14</td>
+          <td>%r14d</td>
+          <td>%r14w</td>
+          <td>%r14b</td>
+          <td>被调用者保存</td>
+      </tr>
+      <tr>
+          <td>%r15</td>
+          <td>%r15d</td>
+          <td>%r15w</td>
+          <td>%r15b</td>
+          <td>被调用者保存</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>对于生成小于8字节结果的指令，寄存器中剩下的字节会怎样，对此有两条规则
+<ol>
+<li>生成1字节和2字节数字的指令会保持剩下的字节不变。</li>
+<li>生成4字节数字的指令会把高4个字节置0.</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>操作数指示符</p>
+<p>大多数指令有一个或多个操作数(operand)，指示出执行一个操作中要使用的源数据值，以及旋转结果的目的位置。</p>
+<ul>
+<li>各种不同的操作数的可能性被分为三种类型。
+<ol>
+<li>立即数(immediate): 用来表示常数值
+在ATT格式的汇编代码中，立即数的书写方式是$后面跟一个用标准C表示法表示的整数。
+不同的指令允许的立即数值范围不同，汇编器会自动造势最紧凑的方式进行数值编码。</li>
+<li>寄存器(register): 它表示某个寄存器的内容
+16个寄存器的低位1字节，2字节，4字节，8字节中的一个作为操作数，这些字节数分别对应于8位，16位，32位，64位。
+我们使用rN来表示任意寄存器N,用引用R[rN]来表示它的值，这是将寄存器集合看成一个数组R.</li>
+<li>内存引用
+它会根据计算出来的地址访问某个内存位置。
+我们使用Mb[Addr]表示对存储在内存中从地址Addr开始的b个字节值的引用。
+<ul>
+<li>寻址模式
+有多种不同的寻址模式，允许不同形式的内存引用。
+下表中Imm(r_b,r_i, s)表示的是最常用的形式。这样的引用有四个组成部分： 一个立即数偏移Imm,一个基址寄存器r_b,一个变址寄存器r_i和一个比例因子s,这里s必须是1,2,4或者8。基址和变址寄存器都必须是64位寄存器。有效地址被计算为Imm+R[r_b] + R[r_i] * s。
+操作数模式
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>格式</th>
+          <th>操作数值</th>
+          <th>名称</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>立即数</td>
+          <td>$Imm</td>
+          <td>Imm</td>
+          <td>立即数寻址</td>
+      </tr>
+      <tr>
+          <td>寄存器</td>
+          <td>r_a</td>
+          <td>R[r_a]</td>
+          <td>寄存器寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>Imm</td>
+          <td>M[Imm]</td>
+          <td>绝对寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>(r_a)</td>
+          <td>M[R[r_a]]</td>
+          <td>间接寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>Imm(r_b)</td>
+          <td>M[Imm+R[r_b]]</td>
+          <td>（基址+偏移量）寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>(r_b, R_i)</td>
+          <td>M[R[r_b] + R[r_i]]</td>
+          <td>变址寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>Imm(r_b, r_i)</td>
+          <td>M[Imm+R[r_b] + R[r_i]]</td>
+          <td>变址寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>(,r_i,s)</td>
+          <td>M[R[r_i] * s]</td>
+          <td>比例变址寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>Imm(,r_i, s)</td>
+          <td>M[Imm + R[r_i] * s]</td>
+          <td>比例变址寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>(r_b, r_i, s)</td>
+          <td>M[R[r_b] + R[r_i] * s]</td>
+          <td>比例变址寻址</td>
+      </tr>
+      <tr>
+          <td>存储器</td>
+          <td>Imm(r_b, r_i, s)</td>
+          <td>M[Imm + R[r_b] + R[r_i] * s]</td>
+          <td>比例变址寻址</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据传送指令</p>
+<p>源操作数指定的值是一个立即数，存储在寄存器中或者内存中。目的操作紵个位置，要么是一个寄存器，要么是一个内存地址。
+x86-64加了一条限制，传送指令的两个操作数不能都指向内存地址。
+大多数情况下，MOV指令只会更新目的操作数指定的那些寄存器字节或内存位置。唯一例外的是movl指令以寄存器作为目的时，它会把该寄存器高位4字节设置为0。</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>效果</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MOV s, D</td>
+          <td>D &lt;- S</td>
+          <td>传送</td>
+      </tr>
+      <tr>
+          <td>movb</td>
+          <td></td>
+          <td>传送字节</td>
+      </tr>
+      <tr>
+          <td>movw</td>
+          <td></td>
+          <td>传送字</td>
+      </tr>
+      <tr>
+          <td>movl</td>
+          <td></td>
+          <td>传送双字</td>
+      </tr>
+      <tr>
+          <td>movq</td>
+          <td></td>
+          <td>传送四字</td>
+      </tr>
+      <tr>
+          <td>movabsq I, R</td>
+          <td>R &lt;- I</td>
+          <td>传送绝对的四字</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>MOV指令的一种可能的组合。第一个是源操作数，第二个是目的操作数。
+<ol>
+<li>movl $0x4050, %eax
+Immediate - Register, 4 bytes</li>
+<li>movw %bp, %sp
+Register - Register, 2bytes</li>
+<li>movb (%rdi, %rcx), %al
+Memory - Register, 1byte</li>
+<li>movb $-17, (%rsp)
+Immediate - Memory, 1byte</li>
+<li>movq %rax, -12(%rbp)
+Register - Memory, 8bytes</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>将较小的源值复制到较大的目的指令</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>MOVZ类</p>
+<p>指令会把目的中简便的字节填充为0</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>效果</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MOVZ S, R</td>
+          <td>R &lt;- 零扩展(S)</td>
+          <td>以零扩展进行传送</td>
+      </tr>
+      <tr>
+          <td>movzbw</td>
+          <td></td>
+          <td>将做了零扩展的字节传送到字</td>
+      </tr>
+      <tr>
+          <td>movzbl</td>
+          <td></td>
+          <td>将做了零扩展的字节传送双字</td>
+      </tr>
+      <tr>
+          <td>movzwl</td>
+          <td></td>
+          <td>将做了零扩展的字传送到双字</td>
+      </tr>
+      <tr>
+          <td>movzbq</td>
+          <td></td>
+          <td>将做了零扩展的字节传送到四字</td>
+      </tr>
+      <tr>
+          <td>movzwq</td>
+          <td></td>
+          <td>将做了零扩展的字传送到四字</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>MOVS</p>
+<p>指令通过符号扩展来填充，把源操作的最高位进行复制。</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>效果</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MOVS S,R</td>
+          <td>R &lt;- 符号扩展（S）</td>
+          <td>传送符号扩展的字节</td>
+      </tr>
+      <tr>
+          <td>movsbw</td>
+          <td></td>
+          <td>将做了符号扩展的字节传送到字</td>
+      </tr>
+      <tr>
+          <td>movsbl</td>
+          <td></td>
+          <td>将做了符号扩展的字节传送到双字</td>
+      </tr>
+      <tr>
+          <td>movswl</td>
+          <td></td>
+          <td>将做了符号扩展的字传送到双字</td>
+      </tr>
+      <tr>
+          <td>movsbq</td>
+          <td></td>
+          <td>将做了符号扩展的字节传送到四字</td>
+      </tr>
+      <tr>
+          <td>movswq</td>
+          <td></td>
+          <td>将做了符号扩展的字传送到四字</td>
+      </tr>
+      <tr>
+          <td>movslq</td>
+          <td></td>
+          <td>将做了符号扩展的双字传送到四字</td>
+      </tr>
+      <tr>
+          <td>cltq</td>
+          <td>%rax &lt;- 符号扩展(%eax)</td>
+          <td>%eax符号扩展到%rax</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>压入和弹出栈数据</p>
+<p>栈指针%rsp保存着栈顶元素的地址。</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>效果</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pusq S</td>
+          <td>R[%rsp] &lt;- R[%rsp] - 8; M[R[%rsp]] &lt;- S</td>
+          <td>将四字压入栈</td>
+      </tr>
+      <tr>
+          <td>popq D</td>
+          <td>D &lt;- M[R[%rsp]]; R[%rsp] &lt;- R[%rsp] + 8</td>
+          <td>将四字弹出栈</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+
+<h4 id="算术和逻辑操作" class="header-anchor-wrapper">算术和逻辑操作
+  <a href="#%e7%ae%97%e6%9c%af%e5%92%8c%e9%80%bb%e8%be%91%e6%93%8d%e4%bd%9c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>整数算术和逻辑操作，大多数操作都分成了指令类，这些指令类有各种带不同大小操作数的变种（只有lead没有其他大小的变种）。这些操作被分为四组：加载有效地址，一元操作，二元操作和移位。</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>效果</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>leaq S,D</td>
+          <td>D &lt;- &amp;S</td>
+          <td>加载有效地址</td>
+      </tr>
+      <tr>
+          <td>INC D</td>
+          <td>d &lt;- d + 1</td>
+          <td>加1</td>
+      </tr>
+      <tr>
+          <td>DEC D</td>
+          <td>D &lt;- D - 1</td>
+          <td>减1</td>
+      </tr>
+      <tr>
+          <td>NEG D</td>
+          <td>D &lt;- -D</td>
+          <td>取负</td>
+      </tr>
+      <tr>
+          <td>NOT D</td>
+          <td>D &lt;- ~D</td>
+          <td>取补</td>
+      </tr>
+      <tr>
+          <td>ADD S,D</td>
+          <td>D &lt;- D + S</td>
+          <td>加</td>
+      </tr>
+      <tr>
+          <td>SUB S,D</td>
+          <td>D &lt;- D - S</td>
+          <td>减</td>
+      </tr>
+      <tr>
+          <td>IMUL S,D</td>
+          <td>D &lt;- D * S</td>
+          <td>乘</td>
+      </tr>
+      <tr>
+          <td>XOR S,D</td>
+          <td>D &lt;- D ^ S</td>
+          <td>异或</td>
+      </tr>
+      <tr>
+          <td>OR S,D</td>
+          <td>D &lt;- D 或 S</td>
+          <td>或</td>
+      </tr>
+      <tr>
+          <td>AND S,D</td>
+          <td>D &lt;- D &amp; S</td>
+          <td>与</td>
+      </tr>
+      <tr>
+          <td>SAL K,D</td>
+          <td>D &lt;- D &lt;&lt; K</td>
+          <td>左移</td>
+      </tr>
+      <tr>
+          <td>SHL K,D</td>
+          <td>D &lt;- D &lt;&lt; K</td>
+          <td>左移（等同于SAL）</td>
+      </tr>
+      <tr>
+          <td>SAR K,D</td>
+          <td>D &lt;- D &gt;&gt; K</td>
+          <td>算术右移</td>
+      </tr>
+      <tr>
+          <td>SHR K,D</td>
+          <td>D &lt;- D &gt;&gt;&gt; K</td>
+          <td>逻辑右移</td>
+      </tr>
+  </tbody>
+</table>
+<!--list-separator-->
+<ul>
+<li>
+<p>加载有效地址</p>
+<p>加载有效地址leaq实际上是movq指令的变形。它的指令形式是从内存读数据到寄存器但实际上它根本就没有引用内存。它的第一个操作数看上去是一个内存引用，但该指令并不是从指定的位置读入数据，而是将有效地址写入到目的操作数。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>一元和二元操作</p>
+<p>第二组中的操作是一元操作，只有一个操作数，既是源又是目的。这个操作数可以是一个寄存器，也可以是一个内存位置。
+第三组是二元操作，其中，第二个操作数既是源又是目的。不过，要注意，源操作数是第一个 ，目的操作数是第二个。第一个操作数可以是立即数、寄存器或是内存位置。第二个操作数可以是寄存器或是内存位置。注意，当第二个操作数为内存地址时，处理器必须从内存读出值，执行操作，再把结果写回内存。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>移位操作</p>
+<p>最后一组是移位操作，先给出移位量，然后第二项给出的是要移位的数。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>说明</p>
+<p>算术和逻辑操作的大多数指令，既可以用于无符号运算，也可以用于补码运算。只有右移操作要求区分有符号和无符号数。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>特殊的算术操作</p>
+<p>两个64位有符号整数相乘得到的乘积需要128位来表示。x86-64指令对128位（16字节）数的操作提供有限的支持。Intel把16字节的数称为八字（oct word）。
+支持产生两个64位数字的全128位税种以及整数除尘的指令如下：</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>效果</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>imulq S</td>
+          <td>R[%rdx]: R[%rax] &lt;- S * R[%rax]</td>
+          <td>有符号全乘法</td>
+      </tr>
+      <tr>
+          <td>mulq S</td>
+          <td>R[%rdx]: R[%rax] &lt;- S * R[%rax]</td>
+          <td>无符号全乘法</td>
+      </tr>
+      <tr>
+          <td>clto</td>
+          <td>R[%rdx]: R[%rax] 符号扩展（R[%rax]）</td>
+          <td>转换为八字</td>
+      </tr>
+      <tr>
+          <td>idivq S</td>
+          <td>R[%rdx] &lt;- R[%rdx]: R[%rax] mod S</td>
+          <td>有符号除法</td>
+      </tr>
+      <tr>
+          <td>divq S</td>
+          <td>R[%rdx] &lt;- R[%rdx]: R[%rax] mod S</td>
+          <td>无符号除法</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+
+<h4 id="控制" class="header-anchor-wrapper">控制
+  <a href="#%e6%8e%a7%e5%88%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>条件码</p>
+<p>除了整数寄存器，CPU还维护着一组单个位的条件码（condition code）寄存器，它们描述了最近的算术或逻辑操作的属性。可以检测这些寄存器来执行条件分支指令。最常见的条件码有：</p>
+<ul>
+<li>CF：进位标志。阳近的操作使最高位产生了进位。可用来检查无符号操作的溢出。</li>
+<li>ZF：零标志。最近的操作得出的结果为0。</li>
+<li>SF：符号标志。最近的操作得到的结果为负数。</li>
+<li>OF：溢出标志。最近的操作导致一个补码溢出&ndash;正溢出或负溢出。</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>比较和测试指令
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>基于</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CMP S1, S2</td>
+          <td>S2 - S1</td>
+          <td>比较</td>
+      </tr>
+      <tr>
+          <td>cmpb</td>
+          <td></td>
+          <td>比较字节</td>
+      </tr>
+      <tr>
+          <td>cmpw</td>
+          <td></td>
+          <td>比较字</td>
+      </tr>
+      <tr>
+          <td>cmpl</td>
+          <td></td>
+          <td>比较双字</td>
+      </tr>
+      <tr>
+          <td>cmpq</td>
+          <td></td>
+          <td>比较四字</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>TEST S1, S2</td>
+          <td>S1 &amp; S2</td>
+          <td>测试</td>
+      </tr>
+      <tr>
+          <td>testb</td>
+          <td></td>
+          <td>测试字节</td>
+      </tr>
+      <tr>
+          <td>testw</td>
+          <td></td>
+          <td>测试字</td>
+      </tr>
+      <tr>
+          <td>testl</td>
+          <td></td>
+          <td>测试双字</td>
+      </tr>
+      <tr>
+          <td>testq</td>
+          <td></td>
+          <td>测试四字</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>访问条件码</p>
+<p>条件码通常不会直接读取，常用的使用方法有三种：我们将这一豆类指令称为SET指令。</p>
+<ol>
+<li>可以根据条件码的某种组合，将一个字节设置为0或1,2</li>
+<li>可以条件中转到程序的某个其他的部分</li>
+<li>可以有条件地传送数据</li>
+</ol>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>同义名</th>
+          <th>效果</th>
+          <th>设置条件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>sete D</td>
+          <td>setz</td>
+          <td>D &lt;- ZF</td>
+          <td>相等/零</td>
+      </tr>
+      <tr>
+          <td>setne D</td>
+          <td>setnz</td>
+          <td>D &lt;- ~ZF</td>
+          <td>不等/非零</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>sets D</td>
+          <td></td>
+          <td>D &lt;- SF</td>
+          <td>负数</td>
+      </tr>
+      <tr>
+          <td>setns D</td>
+          <td></td>
+          <td>D &lt;- ~SF</td>
+          <td>非负数</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>setg D</td>
+          <td>setnle</td>
+          <td>D &lt;- ~(SF ^ OF) &amp; ~ZF</td>
+          <td>大于（有符号&gt;）</td>
+      </tr>
+      <tr>
+          <td>setge D</td>
+          <td>setnl</td>
+          <td>D &lt;- ~(SF ^ OF)</td>
+          <td>大于等于（有符号&gt;=）</td>
+      </tr>
+      <tr>
+          <td>setl D</td>
+          <td>setnge</td>
+          <td>D &lt;- SF ^ OF</td>
+          <td>小于（有符号&lt;）</td>
+      </tr>
+      <tr>
+          <td>setle D</td>
+          <td>setng</td>
+          <td>D &lt;- (SF ^ OF) 或 ZF</td>
+          <td>小于等于（有符号&lt;=）</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>seta D</td>
+          <td>setnbe</td>
+          <td>D &lt;- ~CF &amp; ~ZF</td>
+          <td>超过（无符号&gt;）</td>
+      </tr>
+      <tr>
+          <td>setae D</td>
+          <td>setnb</td>
+          <td>D &lt;- ~CF</td>
+          <td>超过或相等（无符号&gt;=）</td>
+      </tr>
+      <tr>
+          <td>setb D</td>
+          <td>setnae</td>
+          <td>D &lt;- CF</td>
+          <td>低于（无符号&lt;）</td>
+      </tr>
+      <tr>
+          <td>setbe D</td>
+          <td>setna</td>
+          <td>D &lt;- CF 或 ZF</td>
+          <td>低于或相等（无符号&lt;=）</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>跳转指令</p>
+<p>正常执行的情况下，指令按照它们出现的顺序一条一条地执行。跳转（jump）指令会导致执行切换到程序中一个全新的位置。这些跳转的目的地通常用一个标号（label）指明。
+下表列举了不同的跳转指令。jmp指令是无条件跳转。它可以是直接跳转，即跳转目标是作为指令的一部分编码的;也可以是间接跳转，即跳转目标是从寄存器或内存位置中读出的。
+汇编语言中，直接跳转是给出一个标号作为跳转目标的，间接跳转的写法是*后面跟一个操作数指示符。
+例如：jmp *%rax 用寄存器%rax中的值作为跳转目标
+jmp *(%rax) 以%rax中的值作为读地址，从内存中读出跳转目标。</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>同义名</th>
+          <th>跳转条件</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>jmp Label</td>
+          <td></td>
+          <td>1</td>
+          <td>直接跳转</td>
+      </tr>
+      <tr>
+          <td>jmp *Operand</td>
+          <td></td>
+          <td>1</td>
+          <td>间接跳转</td>
+      </tr>
+      <tr>
+          <td>je Label</td>
+          <td>jz</td>
+          <td>ZF</td>
+          <td>相等/零</td>
+      </tr>
+      <tr>
+          <td>jne Label</td>
+          <td>jnz</td>
+          <td>~ZF</td>
+          <td>不相等/非零</td>
+      </tr>
+      <tr>
+          <td>js Label</td>
+          <td></td>
+          <td>SF</td>
+          <td>负数</td>
+      </tr>
+      <tr>
+          <td>jns Label</td>
+          <td></td>
+          <td>~SF</td>
+          <td>非负数</td>
+      </tr>
+      <tr>
+          <td>jg Label</td>
+          <td>jnle</td>
+          <td>~(SF ^ OF) &amp; ~ZF</td>
+          <td>大于</td>
+      </tr>
+      <tr>
+          <td>jge Label</td>
+          <td>jnl</td>
+          <td>~(SF ^ OF)</td>
+          <td>大于或等于</td>
+      </tr>
+      <tr>
+          <td>jl Label</td>
+          <td>jnge</td>
+          <td>SF ^ OF</td>
+          <td>小于</td>
+      </tr>
+      <tr>
+          <td>jle Label</td>
+          <td>jng</td>
+          <td>(SF ^ OF) 或 ZF</td>
+          <td>小于或等于</td>
+      </tr>
+      <tr>
+          <td>ja Label</td>
+          <td>jnbe</td>
+          <td>~CF &amp; ~ZF</td>
+          <td>超过</td>
+      </tr>
+      <tr>
+          <td>jae Label</td>
+          <td>jnb</td>
+          <td>~CF</td>
+          <td>超过或相等</td>
+      </tr>
+      <tr>
+          <td>jb Label</td>
+          <td>jnae</td>
+          <td>CF</td>
+          <td>低于</td>
+      </tr>
+      <tr>
+          <td>jbe Label</td>
+          <td>jna</td>
+          <td>CF 或 ZF</td>
+          <td>低于或相等</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>跳转指令的编码</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>用条件控制来实现条件分支</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>用条件传送来实现条件分支</p>
+<p>条件传送指令</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>同义名</th>
+          <th>传送条件</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>cmove S,R</td>
+          <td>cmovz</td>
+          <td>ZF</td>
+          <td>相等/零</td>
+      </tr>
+      <tr>
+          <td>cmovne S,R</td>
+          <td>cmovnz</td>
+          <td>~ZF</td>
+          <td>不相等/非零</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>循环</p>
+<p>C语言提供了多种循环结构，即do-while，while和for。</p>
+ <!--list-separator-->
+<ul>
+<li>do-while</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>while</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>for</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nil">for (init-expr; test-expr; update-expr) {
+  body-statement
+}
+</code></pre>
+<p>这样一个循环的行为与下面这段使用while循环的代码的行为一样</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nil">init-expr;
+while (test-expr) {
+  body-statement
+  update-expr;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>switch语句</p>
+<p>switch(开关)语句可以根据一个整数索引值进行多重分支。在处理具有多种可能结果的测试时，这种语句特别有用。它们不公提高了C代码的可读性，而且通过使用跳转表(jump table)这种数据结构使得实现更加高效。和使用一组很长的if-else语句相比，使用跳转表的优点是执行开关语句的时间与开关情况的数量无关。</p>
+</li>
+</ul>
+
+<h4 id="过程" class="header-anchor-wrapper">过程
+  <a href="#%e8%bf%87%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>过程是软件中一种很重要的抽象。它提供了一种封闭代码的方式，用一组指定的参数和一个可选反返回值实现了某种功能。然后，可以在程序中不同的地方调用这个函数。
+要提供对过程的机器级支持，必须要处理许多不同的属性。为了讨论方便，假设过程P调用过程Q,Q执行后返回到P.这些动作包括下面一个或多个机制：</p>
+<ul>
+<li>传递控制：在进入过程Q的时候，程序计数器必须被设置成Q的代码的起始地址，然后在返回时，要把程序计数器设置为P中调用Q后面那条指令的地址。</li>
+<li>传递数据：P必须能够向Q提供一个或多个参数，Q必须能够向P返回一个值。</li>
+<li>分配和释放内存：在开始时，Q可能需要为局部变量分配空间，而在返回前，又必须释放这些存储空间。</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>运行时栈</p>
+<p>C语言过程调用机制的一个关键特性（大多数其他语言也是如此）在于使用了栈数据结构提供的后进先出的内存管理原则。在过程P调用过程Q的例子中，可以看到当Q在执行时，P以及所有在向上追溯到P的调用链中的过程，都是暂时被挂起的。当Q运行时，它只需要为局部变量分配新的存储空间，或者设置到另一个过程的调用。另一方面，当Q返回时，任何它所分配的局部存储空间都可以被释放。因此，程序可以用栈来管理它的过程所需要的存储空间，栈和程序寄存器存放着传递控制和数据、分配内存所需要的信息。当P调用Q时，控制和数据信息添加到栈尾。当P返回时，这些信息会释放掉。
+当X86_64过程需要的存储空间走出寄存器能够存放的大小时，就会在栈上分配空间。这个部分称为过程的栈帧(stack fram)。当前正在执行的过程的帧总是在栈顶。
+通过寄存器，过程P可以传递最多6个整数值（也就是指针和整数），但是如果Q需要更多的参数，P可以在调用Q之前在自己的栈帧里存储好这些参数。
+为了提高空间和时间效率，x86_64过程只分配自己所需要的栈帧部分。例如，许多过程有6个或者更少的参数，那么所有的参数都可以通过寄存器传递。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>转移控制</p>
+<p>将控制从函数P转移到函数Q只需要简单地把程序计数器（PC）设置为Q的代码的起始位置。不过，当稍后从Q返回的时候，处理器必须记录好它需要继续P的执行的代码位置。在x86——64机器中，这个信息是用指令call Q调用过程Q来记录的。该指令会把地址A压入栈中，并将PC设置为Q的起始地址。压入的地址A被称为返回地址，是紧跟在call指令后面的那条指令的地址。对应的指令ret会从栈中弹出地址A,并把PC设置为A.
+call指令有一个目标，即指明被调用过程起始的指令地址。同跳转一样，调用可以是直接，也可以是间接的。在汇编代码中，直接调用的目标是一个标号，而间接调用的目标是*后面跟一个操作数指示符。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据传送</p>
+<p>当调用一个过程时，除了要把控制传递给它并在过程返回时再传递回来之外，过程调用还可能包括把数据作为参数传递，而从过程返回还有可能包括返回一个值。x86-64中，大部分过程间的数据传送是通过寄存器实现的。
+x86-64中，可以通过寄存器最多传递6个整形（例如整数和指针）参数。寄存器的使用是有特殊顺序的，寄存器使用的名字取决于要传递的数据类型的大小，会根据参数在参数列表中的顺序为它们分配寄存器。</p>
+ <div class="table-caption">
+   <span class="table-number">Table 1:</span>
+   传递函数参数的寄存器。
+ </div>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>操作数据大小</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>64</td>
+          <td>%rdi</td>
+          <td>%rsi</td>
+          <td>%rdx</td>
+          <td>%rcx</td>
+          <td>%r8</td>
+          <td>%r9</td>
+      </tr>
+      <tr>
+          <td>32</td>
+          <td>$edi</td>
+          <td>%esi</td>
+          <td>%edx</td>
+          <td>%ecx</td>
+          <td>%r8d</td>
+          <td>%r9d</td>
+      </tr>
+      <tr>
+          <td>16</td>
+          <td>%di</td>
+          <td>%si</td>
+          <td>%dx</td>
+          <td>%cx</td>
+          <td>%r8w</td>
+          <td>%r9w</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>%dil</td>
+          <td>%sil</td>
+          <td>%dl</td>
+          <td>%cl</td>
+          <td>%r8b</td>
+          <td>%r9b</td>
+      </tr>
+  </tbody>
+</table>
+<p>如果一个函数有大于6个整形参数，走出个的部分就要通过栈来传递。把参数7-N个参数放到栈上，而参数7位于栈顶。通过栈传递参数时，所有的数据大小都向8的倍数对齐。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>栈上的局部存储</p>
+<p>e 些时候，局部数据必须存放在内存中，学见的情况包括：</p>
+<ul>
+<li>寄存器不足够存放所有的本地数据</li>
+<li>对一个局部变量使用地址运算符&rsquo;&amp;&rsquo;，因此必须能够为它产生一个地址</li>
+<li>某些局部变量是数组或结构，因此必须能够通过数组或结构引用被访问到。</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>寄存器中的局部存储空间</p>
+<p>寄存器组是唯一被所有过程共享的资源。虽然在给定时刻只有一个过程是活动的，我们仍然必须确保当一个过程（调用者）调用另一个过程（被调用者）时，被调用者不会覆盖调用者稍后会使用的寄存器值。
+根据惯例，寄存器%rbx、%rbp和%r12-%r15被划分为被调用者保存寄存器。当过程P调用过程Q时，Q必须保存这些寄存器的值，保证它们的值在Q返回到P时与Q被调用时是一样的。过程Q保存一个寄存器的值不变，要么就是根据不去改变它，要么就是把原始值压入栈中，改变寄存器的值，然后在返回前从栈中弹出旧值。压入寄存器的值会在栈帧中创建标号为“保存的寄存器”的一部分。
+所有其他的寄存器，除了栈指针%rsp,都分类为调用者保存寄存器。这就意味着任何函数都能修改它们。可以这样来理解“调用者保存”这个名字：过程P在某个此类寄存器中有局部数据，然后调用过程Q。因为Q可以随意修改这个寄存器，所以在调用之前首先保存好这个数据是P（调用者）的现任。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>递归过程</li>
+</ul>
+
+<h4 id="数组分配和访问" class="header-anchor-wrapper">数组分配和访问
+  <a href="#%e6%95%b0%e7%bb%84%e5%88%86%e9%85%8d%e5%92%8c%e8%ae%bf%e9%97%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>基本原则</p>
+<p>对于数据类型T和整形常数N,声明如下：
+T A[N];
+起始位置表示为x_A。这个声明有两个效果。首先，它在内存中分配一个L*N字节的连续区域，这里的L是数据类型T的大小（单位为字节）。其次，它引入了标识符A,可以用A来作为指向数组开头的指针，这个指针的值就是x_A。可以用0-N-1的整数索引来访问该数组元素。数组元素i会被存放在地址为x_A + L * i的地方。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>指针运算</p>
+<p>C语言允许对指针进行运算，而计算出来的值会根据该指针引用的数据类型的大小进行伸缩。也就是说，如果p是一个指向类型为T的数据的指针，p的值为x_p，那么表达式p + i的值为x_p + L * i，这里的L是数据类型t的大小。
+单操作数操作符&quot;&amp;&ldquo;t &ldquo;*&ldquo;可以产生指针和间接引用指针。也就是说，对于一个表示某个对象的表达式Expr, &amp;Expr是给出该对象地址的一个指针。对于一个表示地址的表达式AExpr, *AExpr给出该地址处的值。因此，表达式Expr和*&amp;Expr是等价的。数组引用A[i]等同于表达式*(A + i)。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>嵌套的数组</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>定长数组</p>
+<p>C语言编译器能够优化定长多维数组上的操作代码。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>变长数组</p>
+<p>C99允许数组的维度是表达式，在数组被分配的时候才计算出来。</p>
+</li>
+</ul>
+
+<h4 id="异质的数据结构" class="header-anchor-wrapper">异质的数据结构
+  <a href="#%e5%bc%82%e8%b4%a8%e7%9a%84%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>C语言提供了两种将不同匠对象组合到一起创建数据类型的机制：结构(structure)，用关键字struct来声明，将多个对象集合一个单位中; 联合(union)， 用关键字union来声明，允许用几种不同的类型来引用一个对象。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>结构</p>
+<p>C语言的struct声明创建一个数据类型，将可能不同类型的对象聚合到一个对象中。用名字来引用结构的各个组成部分。类似于数组的实现，结构的所有组成部分都存放在内存中一段连续的区域内，而指向结构的指针就是结构第一个字节的地址。编译器维护关于每个结构类型的信息，指示每个字段的字节偏移。它以这些偏移作为内存引用指令中的位移，从而产生对结构元素的引用。结构的各个字段的选取完全是在编译时处理的。机器代码不包含关于字段声明或字段名字的信息。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>联合</p>
+<p>联合提供了一种方式，能够规避C语言的类型系统，允许以多种类型来引用一个对象。联合声明的语法与结构的语法一样，只不过主义相差比较大。它们是用不同的字段来引用相同的内存块。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据对齐</p>
+<p>许多计算机系统对基本数据类型的合法地址做出了一些限制，要求某种类型对象的地址必须是某个值K（通常是2、4、8）的倍数。这种对齐限制简化了形成处理器和内存系统之间接口的硬件设计。
+编译器在汇编代码中放入命令，指明僵尸数据所需的对齐。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-asm">.align 8
+</code></pre>
+<p>对于包含结构的代码，编译器可能需要在字段的分配中插入间隙，以保证每个结构元素都满足它的对齐要求。而结构本身对它的起始地址也有一些对齐要求。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>在机器级程序中将控制与数据结合起来</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>理解指针</p>
+<p>指针是C语言的一个核心特色。它们以一种统一方式，对不同数据结构中的元素产生引用。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>指针和它们映射到机器代码的关键原则</p>
+<ul>
+<li>每个指针都对应一个类型
+通常，如果对象类型为T,那么指针的类型为T*。特殊的void *类型代表通用指针。</li>
+<li>每个指针都有一个值。
+这个值是某个指定类型的对象的地址。特殊的NULL(0)值表示该指针没有指向任何地方。</li>
+<li>指针用&rsquo;&amp;&lsquo;运算符创建
+这个运算符可以应用到任何lvalue类的C表达式上，lvalue意指可以出现在同仁语句左边的表达式。</li>
+<li>* 操作衔用于间接引用指针
+其结果是一个值，它的类型与该指针的类型一致。</li>
+<li>数组与指针紧密联系
+将指针从一种类型强制转换成另一种类型，只改变它的类型，而不改变它的值。</li>
+<li>指针也可以指向函数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用GDB调试器</p>
+ <div class="table-caption">
+   <span class="table-number">Table 2:</span>
+   GDB命令示例
+ </div>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>效果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>开始和停止</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>quit</td>
+          <td>退出GDB</td>
+      </tr>
+      <tr>
+          <td>run</td>
+          <td>运行程序(在此给出命令行参数)</td>
+      </tr>
+      <tr>
+          <td>kill</td>
+          <td>停止程序</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>断点</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>break multstore</td>
+          <td>在函数multstore入口处设置断点</td>
+      </tr>
+      <tr>
+          <td>break * 0x400540</td>
+          <td>在地址0x400540处设置断点</td>
+      </tr>
+      <tr>
+          <td>delete 1</td>
+          <td>删除断点1</td>
+      </tr>
+      <tr>
+          <td>delete</td>
+          <td>删除所有断点</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>执行</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>stepi</td>
+          <td>执行一条指令</td>
+      </tr>
+      <tr>
+          <td>stepi 4</td>
+          <td>执行4条指令</td>
+      </tr>
+      <tr>
+          <td>nexti</td>
+          <td>类似于stepi,但以函数调用为单位</td>
+      </tr>
+      <tr>
+          <td>continue</td>
+          <td>继续执行</td>
+      </tr>
+      <tr>
+          <td>finish</td>
+          <td>运行到当前函数返回</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>检查代码</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>disas</td>
+          <td>反汇编当前函数</td>
+      </tr>
+      <tr>
+          <td>disas multstore</td>
+          <td>反汇编函数multstore</td>
+      </tr>
+      <tr>
+          <td>disas 0x400540</td>
+          <td>反汇编位于地址0x400540附近的函数</td>
+      </tr>
+      <tr>
+          <td>disas 0x400540,0x40054d</td>
+          <td>反汇编指定地址范围内的代码</td>
+      </tr>
+      <tr>
+          <td>print /x $rip</td>
+          <td>以十六进制输出程序计数器的值</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>检查数据</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>print $rax</td>
+          <td>以十进制输出%rax的内容</td>
+      </tr>
+      <tr>
+          <td>print /x $rax</td>
+          <td>以十六进制输出%rax的内容</td>
+      </tr>
+      <tr>
+          <td>print /t $rax</td>
+          <td>以二进制输出%rax的内容</td>
+      </tr>
+      <tr>
+          <td>print 0x100</td>
+          <td>输出0x100的十进制表示</td>
+      </tr>
+      <tr>
+          <td>print /x 555</td>
+          <td>输出555的十六进制表示</td>
+      </tr>
+      <tr>
+          <td>print /x ($rsp + 8)</td>
+          <td>以十六进制输出%rsp的内容加上8</td>
+      </tr>
+      <tr>
+          <td>print *(long *) 0x7fffffffe818</td>
+          <td>输出位于地址0x7fffffffe818的长整数</td>
+      </tr>
+      <tr>
+          <td>print *(long *)($rsp + 8)</td>
+          <td>输出位于地址%rsp+8处的长整数</td>
+      </tr>
+      <tr>
+          <td>x/2g 0x7fffffffe818</td>
+          <td>检查从地址0x7fffffffe818开始的双(8字节)字</td>
+      </tr>
+      <tr>
+          <td>x/20bmultstore</td>
+          <td>检查函数multstore的前20个字节</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>有用的信息</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>info frame</td>
+          <td>有关当前栈帧的信息</td>
+      </tr>
+      <tr>
+          <td>info registers</td>
+          <td>所有寄存器的值</td>
+      </tr>
+      <tr>
+          <td>help</td>
+          <td>获取有关GDB的信息</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>内存越界引用和缓冲区溢出</p>
+<p>C对于数组引用不进行任何边界检查，而且局部变量和状态信息（例如保存的寄存器值和返回地址）都存放在栈中。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>对抗缓冲区举出攻击</p>
+<ol>
+<li>栈随机化
+栈随机化的思想使得栈的位置在程序每次运行时都有变化。在Linux系统中，栈随机化已经变成了标准行为。它是更大的一类技术中的一种，这类技术称为地址空间布局随机化（Address-Space Layout Randomization），或者简称ASLR。</li>
+<li>栈破坏检测
+计算机的第二道防线是能够检测到何时栈已经被破坏。
+最近的GCC版本在产生的代码中加入了一种栈保护者(stack protector)机制，来检测缓冲区越界。其思想是在栈帧中任何局部缓冲区与栈状态之间存储一个特殊的金丝雀值。是在程序每次运行时随机产生的，因此，攻击同有简单的办法能够知道它是什么。在恢复寄存器状态和从函数返回之前，程序检查这个金丝雀值是否被该函数的某个操作或者该函数调用 的某个函数的某个操作改变了。如果是的，那么程序异常中止。</li>
+<li>限制可执行代码区域</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>支持变长栈帧</p>
+<p>为了管理变长栈帧，x86-64代码使用寄存器%rbp作为帧指针（frame pointer）（有时称为基指针(base pointer)，这也是%rbp中bp两个字母的由来）</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="浮点代码" class="header-anchor-wrapper">浮点代码
+  <a href="#%e6%b5%ae%e7%82%b9%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>处理器的浮点体系结构包括多个方面，会影响对浮点数据操作的程序如何被映射到机器上，包括：</p>
+<ul>
+<li>如何存储和访问浮点数值。通常是通过某种寄存器方式来完成</li>
+<li>对浮点数据操作的指令</li>
+<li>向函数传递浮点数参数和从函数返回浮点数结果的规则</li>
+<li>函数调用过程中保存寄存器的规则</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>浮点传送和转换操作</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>过程中的浮点代码</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>浮点运算操作</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>定义和使用浮点常数</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>在浮点代码中使用位级操作</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>浮点比较操作</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>对浮点代码的观察结论</li>
+</ul>
+
+<h3 id="处理器体系结构" class="header-anchor-wrapper">处理器体系结构
+  <a href="#%e5%a4%84%e7%90%86%e5%99%a8%e4%bd%93%e7%b3%bb%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>一个处理器支持的指令和指令的字节级编码称为它的指令集体系结构（Instruction-Set Architecture, ISA）</p>
+
+<h4 id="y86-64指令集体系结构" class="header-anchor-wrapper">Y86-64指令集体系结构
+  <a href="#y86-64%e6%8c%87%e4%bb%a4%e9%9b%86%e4%bd%93%e7%b3%bb%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>定义一个指令集体系结构包括定义各种状态单元、指令集和它们的编码、一组编程规范和异常事件处理。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>程序员可见的状态</p>
+<p>Y86-64程序中的每条指令都会读取或修改处理器状态的某些部分。这称为程序员可见状态，这里的程序员既可以是用汇编代码写程序的人，也可以是产生机器级代码的编译器。在处理器实现中，只要我们保证机器 级程序能够访问程序员可见状态，就不需要完全按照ISA暗示的方式来表示和组织这个处理器状态。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>Y86-64指令</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>指令编码</p>
+ <!--list-separator-->
+<ul>
+<li>比较CISC和最初的RISC指令集
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>CISC</th>
+          <th>RISC</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>指令数量很多。Intel描述全套指令的文档有1200多页</td>
+          <td>指令数量少得多，通常少于100个</td>
+      </tr>
+      <tr>
+          <td>有些指令的延迟很长。包括将一个整块从内存的一个部分复制到另一部分的指令，以及其他一些将多个寄存器的值复制到内存或从内存复制到多个寄存器的指令</td>
+          <td>没有较长的延迟的指令。有些早期 的RISC机器甚至没有整数乘法指令，要求编译器通过一系列g加法为实现乘法。</td>
+      </tr>
+      <tr>
+          <td>编码是可变长度的。X86-64的指令长度可以是1-15个字节</td>
+          <td>编码是固定长度的。通常所有的指令都编码为4个字节</td>
+      </tr>
+      <tr>
+          <td>指定操作数的方式很多样。在X86-64中，内存操作数指示符可以有许多不同的组合，这些组合由领衔量、基址和变址寄存器以及伸缩因子组成</td>
+          <td>简单寻址方式。通常只有基址和统称量寻址</td>
+      </tr>
+      <tr>
+          <td>可以对内存和寄存器操作数进行算术和逻辑运算。</td>
+          <td>只能对寄存器操作数进行算术和逻辑运算，允许使用内存引用的只有load和store指令，load是从内存读到寄存器，store是从寄存器写到内存。这种方法被称为load/store体系结构</td>
+      </tr>
+      <tr>
+          <td>对机器级程序来说实现细节是不可见的。ISA提供了程序和如何执行程序之间的清晰的抽象</td>
+          <td>对机器级程序来说实现细节是可见的。有些RISC机器禁止某些特殊的指令序列，而有些跳转要到下一条指令执行完了以后才会第一次。编译器必须在这些约束条件下进行性能优化。</td>
+      </tr>
+      <tr>
+          <td>有条件码，作为指令执行的副产品，设置了一些特殊的标志位，可以用于条件分支检测</td>
+          <td>没有条件码。相反，对条件检测来说，要用明确的测试指令，这些指令会将测试结果放在一个普通的寄存器中。</td>
+      </tr>
+      <tr>
+          <td>栈密集的过程链接。栈被用来存取过程参数和返回地址。</td>
+          <td>寄存器密集的过程链接。寄存器被用来存取过程参数和返回地址。因此有些过程能完全避免内存引用。通常处理器有更多的（最多的有32个）寄存器</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="逻辑设计和硬件控制语言hcl" class="header-anchor-wrapper">逻辑设计和硬件控制语言HCL
+  <a href="#%e9%80%bb%e8%be%91%e8%ae%be%e8%ae%a1%e5%92%8c%e7%a1%ac%e4%bb%b6%e6%8e%a7%e5%88%b6%e8%af%ad%e8%a8%80hcl" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>在硬件设计中，用电子电路来计算对位进行运算的函数，以及在各种存储器单元中存储位。大多数现代电路技术都是用信号线上的高电压和低电压来表示不同的位值。
+要实现一个数字系统需要三个主要的组成部分：计算对位进行操作的函数的组合逻辑、存储位的存储器单元，以及控制存储器单元更新的时钟信号。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>逻辑门</p>
+<p>逻辑门是数字电路的基本计算单元。它们产生的输出，等于它们输入位值的某个布尔函数。逻辑门总是活动的。一旦一个门的输入变化了，在很短的时间内，输出就会相应的变化。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>组合电路和HCL布尔表达式</p>
+<p>将很多的逻辑门组合成一个网，就能构建计算块，称为组合电路。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>构建这些网有几个限制</p>
+<ul>
+<li>每个逻辑门的输入必须连接到下述选项之一
+<ol>
+<li>一个系统输入（称为主输入）</li>
+<li>某个存储器单元的输出</li>
+<li>某个逻辑门的输出</li>
+</ol>
+</li>
+<li>两个或多个逻辑门的输出不能连接在一起。否则它们可能会使线上的信号矛盾，可能会导致一个不合法的电压a中电路故障。</li>
+<li>这个网必须是无环的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>字级的组合电路和HCL整数表达式</p>
+<p>通过将逻辑门组合成大的网，可以构造出能计算更加复杂函数的组合电路。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>集合关系</p>
+<p>在处理器设计中，很多时候都需要将一个信号与许多可能匹配的信号做比较，以此来检测正在处理的某个指令代码是否属于某一类指令代码。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>存储器和时钟</p>
+<p>组合电路从本质上讲，不存储任何信息。相反，它们只是简单地响应输入信号，产生等于输入的某个函数的输出。为了产生时序电路，也就是有状态并且在这个状态上进行计算的系统，我们必须引入按位存储信息的设置。存储设备都是由同一个时钟控制的，时钟是一个周期性信号，决定什么时候要把新值加载到设軠中。</p>
+<ul>
+<li>考虑两类存储器设备
+<ul>
+<li>时钟寄存器（简称寄存器）：存储单个位或字。时钟信号控制寄存器加载输入值。</li>
+<li>随机访问存储器（简称内存）存储多个字，用地址来选择该读或该写哪个字。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="y86-64的顺序实现" class="header-anchor-wrapper">Y86-64的顺序实现
+  <a href="#y86-64%e7%9a%84%e9%a1%ba%e5%ba%8f%e5%ae%9e%e7%8e%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>将处理组织成阶段</p>
+<p>通常，处理一条指令包括很多操作。将它们组织成霜个特殊的阶段序列，即使指令的动作差异很大，但所有的指令都遵循统一的序列。每一步的具体处理取决于正在执行的指令。创建这样一个框架，我们就能够设计一个充分利用硬件的处理器。下面是关于各个阶段以及各有阶段内执行操作的简略描述：</p>
+<ul>
+<li>取指(fetch): 指从内存读取指令字节，地址为程序计数器（PC）的值。</li>
+<li>译码(decode):</li>
+<li>执行(execute):</li>
+<li>访存(memory):</li>
+<li>写回(write back):</li>
+<li>更新PC(PC udpate):</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>SEQ硬件结构</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>SEQ的时序</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>SEQ阶段的实现</li>
+</ul>
+
+<h4 id="流水线的通用原理" class="header-anchor-wrapper">流水线的通用原理
+  <a href="#%e6%b5%81%e6%b0%b4%e7%ba%bf%e7%9a%84%e9%80%9a%e7%94%a8%e5%8e%9f%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>流水线化的一个重要我就是提高了系统的吞量，也就是单位时间内服务的顾客总数，不过它也会轻微地增加延迟，就是服务一个用户所需要的时间。</p>
+<!--list-separator-->
+<ul>
+<li>计算流水线</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>流水线操作的详细说明</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>流水线的局限性</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>带反馈的流水线系统</li>
+</ul>
+
+<h4 id="y86-64的流水线实现" class="header-anchor-wrapper">Y86-64的流水线实现
+  <a href="#y86-64%e7%9a%84%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%ae%9e%e7%8e%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="流水线冒险" class="header-anchor-wrapper">流水线冒险
+  <a href="#%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%86%92%e9%99%a9" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="优化程序性能" class="header-anchor-wrapper">优化程序性能
+  <a href="#%e4%bc%98%e5%8c%96%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>在程序开发和优化的过程中，我们必须考虑代码使用的方式，以及影响它的关键因素。通常程序员必须在实现和维护程序的简单性与它的运行速度之间做出权衡。
+研究程序的汇编代码表示是理解编译器以及产生的代码会如何运行的最有效手段之一。
+一个很有用的策略是只重写程序到编译器由此就能产生有效代码所需要的程度就好了。这样能尽量避免损害代码的可读性、模块性和可移植性，就好像我们使用的是具有最低能力的编译器。同样，通过测量值和检查生成的汇编代码，反复修改源代码和分析它的性能是很有帮助的。对于新手程序员来说，不断修改源代码，试图欺骗编译器产生有效的代码，看起来很奇怪，但这确实是编写很多高性能程序的方式。</p>
+
+<h4 id="优化编译器的能力和局限性" class="header-anchor-wrapper">优化编译器的能力和局限性
+  <a href="#%e4%bc%98%e5%8c%96%e7%bc%96%e8%af%91%e5%99%a8%e7%9a%84%e8%83%bd%e5%8a%9b%e5%92%8c%e5%b1%80%e9%99%90%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>现代编译器运用复杂精细的算法来确定一个程序中计算的是什么值，以及它们是被如何使用的。然后会利用一些机会来简化表达式，在几个不同的地方使用同一个计算，以及降低一个给定的计算必须被执行的次数。大多数编译器，包括GCC,向用户提供了一些对它们所使用的优化的控制。
+编译器必须很小心地对程序只使用安全的优化，也就是说对于程序可能遇到的所有可能的情况，在C语言标准提供的保证之下，优化后得到的程序和未优化的版本有一样的行为。限制编译器只进行安全的优化，消除了造成不希望的运行时行为的一些可能的原因，但是这也意味着程序员必须花费更大的力气写出编译器能够将之转换成有效机器代码的程序。</p>
+
+<h4 id="表示程序性能" class="header-anchor-wrapper">表示程序性能
+  <a href="#%e8%a1%a8%e7%a4%ba%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>我们引入试题标准每元素的周期数（Cycles Per Element, CPE），作为一种表示程序性能并指导我们改进代码的方法。CPE这种试题标准帮助我们在更细节的级别上理解迭代程序的循环性能。这样的试题标准对执行重复计算的程序来说是很适当的。
+处理器活动的顺序是由时钟控制的，时钟提供了某个频率的规律信号，通常用千兆赫兹（GHz），即十亿周期每秒来表示。每个时钟周期的时间是时钟频率的倒数。通常是以纳秒（nanosecond, 1纳秒等于10^-9秒）或皮秒（picosecond, 1皮秒等于10^-12秒）为单位。用时钟周期来表示，度量值表示的是执行了多少条指令，而不是时钟运行得有多快。</p>
+
+<h4 id="消除循环的低效率" class="header-anchor-wrapper">消除循环的低效率
+  <a href="#%e6%b6%88%e9%99%a4%e5%be%aa%e7%8e%af%e7%9a%84%e4%bd%8e%e6%95%88%e7%8e%87" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>将在循环中不改变的代码放到循环外边。</p>
+
+<h4 id="减少过程调用" class="header-anchor-wrapper">减少过程调用
+  <a href="#%e5%87%8f%e5%b0%91%e8%bf%87%e7%a8%8b%e8%b0%83%e7%94%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="消除不必要的内存引用" class="header-anchor-wrapper">消除不必要的内存引用
+  <a href="#%e6%b6%88%e9%99%a4%e4%b8%8d%e5%bf%85%e8%a6%81%e7%9a%84%e5%86%85%e5%ad%98%e5%bc%95%e7%94%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="理解现代处理器" class="header-anchor-wrapper">理解现代处理器
+  <a href="#%e7%90%86%e8%a7%a3%e7%8e%b0%e4%bb%a3%e5%a4%84%e7%90%86%e5%99%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>整体操作</p>
+<p>ICU从指令高速缓存（instruction cache）中读取指令，指令高速缓存是一个特殊的高速存储器，它包含最近访问的指令。当程序遇到分支时，现代处理器采用了一种分支预测的技术，处理器会猜测是否会选择分支，同时还预测分支的目的地址。
+指令译码逻辑接收实际的程序指令，，并将它们转换成一组基本操作（有时称为微操作）。
+EU接收来自取指单元的操作。通常，每个时钟周期会接收多个操作。这些操作会被分派到一组功能单元中，它们会执行实际的操作。这些功能单元专门用来处理不同类型的操作。
+读写内存是由加载和存储单元实现的。
+在ICU中，退役单元（retirement unit）记录正在进行的处理，并确保它遵守机器级程序的顺序主义。任何对程序寄存器的更新都只会在指令退役时才会发生，只有在处理器能够确信导致这条指令的所有分支都预测正确了，才会这样做。
+控制操作数在执行单元间传送的最常见的机制称为寄存器重命名。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>功能单元的性能</p>
+<p>每个运算都是由以下这些数值来刻画的：一个是延迟（latency），它表示完成运算所需要的总时间，另一个是发射时间（issue time），它表示两个 连续的同类型的运算之间需要的最小时钟周期数，还有一个是容量（capactiy），它表示能够执行该运算的功能单元的数量。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>处理器操作的抽象模型</p>
+<p>作为分析在现代处理器上执行的机器级程序性能的一个工具，我们会使用程序的数据流（data-flow）表示，这是一种图形化的表示方法，展现了不同操作之间的数据相关是如何限制它们的执行顺序的。这些限制形成了图中的关键路径（critical path），这是执行一组机器指令所需时钟周期数的一个下界。</p>
+</li>
+</ul>
+
+<h4 id="循环展开" class="header-anchor-wrapper">循环展开
+  <a href="#%e5%be%aa%e7%8e%af%e5%b1%95%e5%bc%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>循环展开是一种程序变换，通过增加每次迭代计算的元素的数量，减少循环的迭代次数。</p>
+
+<h4 id="提高并行性" class="header-anchor-wrapper">提高并行性
+  <a href="#%e6%8f%90%e9%ab%98%e5%b9%b6%e8%a1%8c%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>多个累积变量</p>
+<p>对于一个可结合和可交换的合并运算来说，比如说整数加法或乘法，我们可以通过将一组合并运算分割成两个或更多的部分，并在最后合并结果来提高性能。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>重新结合变换</p>
+<p>重新结合变换能够减少计算中关键路径上操作的数量，通过更好地利用功能单元的流水线能力得到更好的性能。</p>
+</li>
+</ul>
+
+<h4 id="理解内存性能" class="header-anchor-wrapper">理解内存性能
+  <a href="#%e7%90%86%e8%a7%a3%e5%86%85%e5%ad%98%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>加载的性能</p>
+<p>一个包含加载操作的程序的性能既依赖于流水线的能力，也依赖于加载单元的延迟。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>存储的性能</p>
+<p>与加载操作一样，在大多数情况中，存储操作能够在完全流水线化的模式中工作，每个周期开始一条新的存储。</p>
+</li>
+</ul>
+
+<h4 id="应用-性能提高技术" class="header-anchor-wrapper">应用：性能提高技术
+  <a href="#%e5%ba%94%e7%94%a8-%e6%80%a7%e8%83%bd%e6%8f%90%e9%ab%98%e6%8a%80%e6%9c%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>优化性能的基本策略</p>
+<ul>
+<li>高级设计：为遇到的问题选择适当的算法和数据结构。</li>
+<li>基本编码原则
+<ul>
+<li>消除连续的函数调用</li>
+<li>消除不必要的内存引用</li>
+</ul>
+</li>
+<li>低级优化
+<ul>
+<li>展开循环</li>
+<li>通过使用例如多个累积变量和重新结合等技术，找到方法提高指令级并行</li>
+<li>用功能性的风格重写条件操作，使得编译采用条件数据传送</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="确认和消除性能瓶颈" class="header-anchor-wrapper">确认和消除性能瓶颈
+  <a href="#%e7%a1%ae%e8%ae%a4%e5%92%8c%e6%b6%88%e9%99%a4%e6%80%a7%e8%83%bd%e7%93%b6%e9%a2%88" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>程序剖析</p>
+<p>程序剖析（profiling）运行程序的一个版本，其中插入了工具代码，以确定程序的各个部分需要多少时间。剖析的一个有力之处在于可以在现实的基准数据（benchmark data）上运行实际程序的同时，进行剖析。
+Unix系统提供了一个剖析程序GPROF.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>使用剖析程序来指导优化</li>
+</ul>
+
+<h3 id="存储器层次结构" class="header-anchor-wrapper">存储器层次结构
+  <a href="#%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>到目前为止，在对系统的研究中，我们依赖于一个简单的计算机系统模型，CPU执行指令，而存储器系统为CPU存放指令和数据。
+实际上，存储器系统是一个具有不同容量、成本和访问时间的存储设备的层次结构。CPU寄存器保存着最常用的数据。靠近CPU的小的、快速的调整缓存存储器作为一部分存储在相对慢速的主存储器中数据和指令的缓冲区域。主存缓存存储在容量较大的、慢速磁盘上的数据，而这些磁盘常常又作为存储在通过网络连接的其他机器的磁盘或磁带上的数据的缓冲区域。
+作为一个程序员，你需要理解存储器层次结构，因为它对应用程序的性能有着巨大的影响。如果你的程序需要的数据是存储在CPU寄存器中，那么在指令的执行期间，在0个周期内就能访问到它们。如果存储在调整缓存中，需要4-75个周期。如果存储在主存中，需要上百个周期。而如果存储在磁盘上，需要大约几千万个周期。
+这不是计算机系统中一个基本而持久的思想：如果你理解了系统是如何将数据在存储器层次结构中上上下下移动的，那么你就可以编写自己的应用程序，使得它们的数据项存储在层次结构中较高的地方，在那里CPU能更快地访问到它们。这个思想轻裘缓带着计算机程序的一个称为局部性的基本属性。具有良好局部性的程序倾向于一次又一次地访问相同的数据项集合，或是倾向于访问邻近的数据项集合。</p>
+
+<h4 id="存储技术" class="header-anchor-wrapper">存储技术
+  <a href="#%e5%ad%98%e5%82%a8%e6%8a%80%e6%9c%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>随机访问存储器 RAM</p>
+ <!--list-separator-->
+<ul>
+<li>静态RAM SRAM</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>动态RAM DRAM</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>访问主存</p>
+<p>数据流通过称为总线的共享电子电路在处理器和DRAM主存之间来来回回。每次CPU和主存之间的数据传送都是通过一系列步骤来完成的，这些步骤称为总线事务。读事务从主存传送数据到CPU.写事务从CPU传送数据到主存。</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>磁盘存储</p>
+<p>从磁盘上读信息的时间为毫秒级，比从DRAM读慢了10万倍，比从SRAM读慢了100万倍。</p>
+ <!--list-separator-->
+<ul>
+<li>磁盘构造</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>磁盘容量</p>
+<p>一个磁盘上可以记录的最大位数称为它的最大容量，或者简称为容量。磁盘容量是由以下技术因素决定的：</p>
+<ul>
+<li>记录密度：磁盘一英寸的上可以放入的位数。</li>
+<li>磁道密度：从盘片中心出发半径一英寸的段内可以有的磁道数。</li>
+<li>面密度：记录密度与磁道密度的乘积</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>磁盘操作</p>
+<p>磁盘用读写头来读写储存在磁性表面的位，而读写头连接到一个传送臂一端，通过沿着半径前后移动这个传动臂，鸡翅器可以将读写头定位在盘面上的任何磁道上。这样的机械运行称为寻道。一旦读写头定位到了期望的磁道上，那么当磁道上的每个经的下面时，读写头可以感知到这个位的值，也可以修改这个位的值。
+三产以扇区大小的块来读写数据。对扇区的访问时间有三个主要的部分：</p>
+<ul>
+<li>寻道时间</li>
+<li>旋转时间</li>
+<li>传送时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>固态硬盘</p>
+<p>固态硬盘是一种基于闪存的存储技术。
+固态硬盘随机访问时间比旋转磁盘要快，能耗更低，同时也更结实。不过反复写之后，闪存块会磨损，所以SSD也容易损坏。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>存储技术趋势</p>
+<ul>
+<li>不同的存储技术有不同的价格和性能折中</li>
+<li>不同存储技术的价格和性能属性以截然不同的速率变化着</li>
+<li>DRAM和磁盘的性能满后于CPU的性能</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="局部性" class="header-anchor-wrapper">局部性
+  <a href="#%e5%b1%80%e9%83%a8%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>一个编写良好的计算机程序常常具有良好的局部性。
+局部性通常有两种不同的形式：时间局部性和空间局部性。</p>
+<!--list-separator-->
+<ul>
+<li>对程序数据引用的局部性</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>取指令的局部性</p>
+<p>因为程序指令是存放在内存中的，CPU必须取出这些指令，所以我们也能够评价一个程序关于取指令的局部性。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>评价程序中局部性的一些简单原则</p>
+<ul>
+<li>重复引用相同变量的程序有良好的时间局部性。</li>
+<li>对于具有步长为k的引用模式的程序，步长越小，空间局部性越好。具有步长为l的引用模式的程序有很好的空间局部性。在内存中以大步长跳来跳去的程序空间局部性会很差</li>
+<li>对于取指令来说，循环有好的时间和空间局部性。循环体越小，循环迭代次数越多，局部性越好。</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="存储器层次结构" class="header-anchor-wrapper">存储器层次结构
+  <a href="#%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>存储器层次结构中的缓存</p>
+<p>层次结构中的每一层都缓存来自较低一层的数据对象。
+数据总是以块大小为传送单元在第K层和第K+1层之间来回复制的。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>缓存命中问题</p>
+<ol>
+<li>缓存命中
+当程序需要第K+1层的某个数据对象时，它首先在当前存储在第K层的一个块中查找。如果刚好缓存在第K层中，那么就是我们所说的缓存命中。</li>
+<li>缓存不命中
+如果第K层中没有缓存数据对象，那么就是我们所说的缓存不命中。当发生缓存不命中时，第K层的缓存从第K+1层缓存中取出包含对象的那个块，如果第K层的缓存已经満了，可能就会覆盖现存的一个块。覆盖一个现存的块的过程称为替换或驱逐这个块。被驱逐的这个块有时也称为牺牲块。决定该替换哪个块是由缓存的替换策略来控制的。</li>
+<li>缓存不命中的种类
+<ol>
+<li>冷不命中</li>
+<li>冲突不命中</li>
+</ol>
+</li>
+<li>缓存管理</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="高速缓存存储器" class="header-anchor-wrapper">高速缓存存储器
+  <a href="#%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e5%ad%98%e5%82%a8%e5%99%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>通用的高速缓存存储器组织结构</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>映射映射高速缓存</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>组相联高速缓存</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>全相联高速缓存</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>有关写的问题</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>高速缓存参数的性能影响</p>
+<ol>
+<li>高速缓存大小的影响
+较大的高速缓存可能会提高命中率，但是使较大存储器运行得更快总是要难一些。</li>
+<li>块大小的影响
+大的块有利有弊。
+较大的块能利用程序中可能存在的空间局部性，帮助提高命中率。不过对于给定的高速缓存大小，块越大就意味着高速缓存行数越少，这会损害时间局部性比空间局部性更好的程序中的命中率。</li>
+<li>相联度的影响</li>
+<li>写策略的影响</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="编写高速缓存友好的代码" class="header-anchor-wrapper">编写高速缓存友好的代码
+  <a href="#%e7%bc%96%e5%86%99%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e5%8f%8b%e5%a5%bd%e7%9a%84%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>确保代码高速缓存友好的基本方法</p>
+<ol>
+<li>让最常见的情况运行得快。</li>
+<li>尽量减小每个循环内部的缓存不命中数量</li>
+<li>将你的注意力集中在内循环上，大部分计算和内存访问都发生在这里</li>
+<li>通过按照数据对象存储在内存中的顺序、以步长为1的来读数据，从而使得你程序中的空间局部性最大。</li>
+<li>一旦从存储器中诗篇了一个数据对象，京尽可能多地使用它，从而使得程序跌时间局部性最大。</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="高速缓存对程序性能的影响" class="header-anchor-wrapper">高速缓存对程序性能的影响
+  <a href="#%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e5%af%b9%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd%e7%9a%84%e5%bd%b1%e5%93%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h2 id="在系统上运行程序" class="header-anchor-wrapper">在系统上运行程序
+  <a href="#%e5%9c%a8%e7%b3%bb%e7%bb%9f%e4%b8%8a%e8%bf%90%e8%a1%8c%e7%a8%8b%e5%ba%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="链接" class="header-anchor-wrapper">链接
+  <a href="#%e9%93%be%e6%8e%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>链接(linking)是将各种代码和数据片段收集并组合成为一个单一文件的过程，这个文件可被加载（复制）到内存并执行。
+链接可以执行于编译时（compile time），也就是在源代码被翻译成机器代码时;也可以执行于加载时（load time），也就是在程序被加载器（loader)加载到内存并执行时;甚至执行于运行时（run time）,也就是由应用程序来执行。在现代系统中，链接是由叫做链接器（linker）的程序自动执行的。
+链接器在软件开发中扮演着一个关键的角色，因为它们使得健康编译成为可能。</p>
+<ul>
+<li>理解链接器的重要性
+<ul>
+<li>理解链接器将帮助你构造大型程序</li>
+<li>理解链接器将帮助你避免一些危险的编程错误</li>
+<li>理解链接将帮助你理解语言的作用域规则是如何实现的</li>
+<li>理解链接将帮助你理解其他重要的系统概念</li>
+<li>理解链接将使你能够利用共享库</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="编译器驱动程序" class="header-anchor-wrapper">编译器驱动程序
+  <a href="#%e7%bc%96%e8%af%91%e5%99%a8%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>一个例子： gcc -Og -o prog main.c sum.c</p>
+<ol>
+<li>cpp(C预处理器)将源程序翻译成一个ASCII码的中间文件main.i</li>
+<li>ccl（C编译器）将main.i翻译成一个ASCII汇编语言文件main.s</li>
+<li>as（汇编器）将main.s翻译成一个可重定位目标文件main.o</li>
+<li>经过相同的过程生成sum.o</li>
+<li>ld(链接器)将main.o和sum.o以及一些必要的系统目标文件组合起来，创建一个可执行目标文件prog</li>
+</ol>
+
+<h4 id="静态链接" class="header-anchor-wrapper">静态链接
+  <a href="#%e9%9d%99%e6%80%81%e9%93%be%e6%8e%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>像Linux LD程序这样的静态链接器以一组可重定位目标文件和命令行参数作为输入，生成一个完全链接的、可以加载和运行的可执行目标文件作为输出。
+为了构造可执行文件，链接器必须完成两个主要任务：</p>
+<ul>
+<li>符号解析</li>
+<li>重定位</li>
+</ul>
+
+<h4 id="目标文件" class="header-anchor-wrapper">目标文件
+  <a href="#%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>目标文件有三种形式：</p>
+<ul>
+<li>可重定位目标文件。</li>
+<li>可执行目标文件</li>
+<li>共享目标文件</li>
+</ul>
+
+<h4 id="可重定位目标文件" class="header-anchor-wrapper">可重定位目标文件
+  <a href="#%e5%8f%af%e9%87%8d%e5%ae%9a%e4%bd%8d%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>典型的ELF可重定位目标文件内容</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>内容</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ELF 头</td>
+          <td>以一个16字节的序列开始，这个序列描述了生成该文件的系统的字的大小和字节顺序。ELF头剩下的部分包含帮助链接器语法分析和解释目标文件的信息</td>
+      </tr>
+      <tr>
+          <td>.text</td>
+          <td>已编译程序的机器代码</td>
+      </tr>
+      <tr>
+          <td>.rodata</td>
+          <td>只读数据，比如printf语句中的格式串和开关语句的跳转表</td>
+      </tr>
+      <tr>
+          <td>.data</td>
+          <td>已初始化的全局和静态C变量</td>
+      </tr>
+      <tr>
+          <td>.bss</td>
+          <td>未初始化的僵尸和静态C变量，以及所有被初始化为0的全局或静态变量</td>
+      </tr>
+      <tr>
+          <td>.symtab</td>
+          <td>一个符号表，它存放在程序中定义和引用的函数和全局变量的信息</td>
+      </tr>
+      <tr>
+          <td>.rel.text</td>
+          <td>一个.text中位置的列表，当链接器把这个目标文件 和其他文件组合时，需要修改这些位置</td>
+      </tr>
+      <tr>
+          <td>.rel.data</td>
+          <td>被模块引用或pgyqr所有全局变量的重定位信息</td>
+      </tr>
+      <tr>
+          <td>.debug</td>
+          <td>一个高度符号表，其条目是程序中定义的局部变量和类型定义，程序中定义和引用的全局变量，以及原始的C源文件。只有以-g选项编译器驱动程序时，才会得到这张表。</td>
+      </tr>
+      <tr>
+          <td>.line</td>
+          <td>原始C源程序中的行号和.text节中机器指令之间的映射。只有以-g选项调用编译器驱动程序时，才会得到这张表</td>
+      </tr>
+      <tr>
+          <td>.strtab</td>
+          <td>一个字符串表，其内容包括.symtab和.debug节中的符号表，以及节头部中的节名字。字符串表就是以null结尾的字符串的序列。</td>
+      </tr>
+      <tr>
+          <td>节头部表</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 id="符号和符号表" class="header-anchor-wrapper">符号和符号表
+  <a href="#%e7%ac%a6%e5%8f%b7%e5%92%8c%e7%ac%a6%e5%8f%b7%e8%a1%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>每个可重定位目标模块m都有一个符号表，它包含m定义和引用的符号的信息。在链接器的上下文中，有三种不同的符号：</p>
+<ul>
+<li>由模块m定义并能被其他模块引用的全局符号。全局链接器符号对应于非静态的C函数和全局变量</li>
+<li>同其他模块定义并被模块m引用的全局符号。这些符号称为外部符号，对应于在其他模块中定义的非静态C函数和全局变量</li>
+<li>只被模块m定义和引用的局部符号。它们对应于带static属性的C函数和全局变量。这些符号在模块m中任何位置都可见，但是不能被其他模块引用。</li>
+</ul>
+
+<h4 id="符号解析" class="header-anchor-wrapper">符号解析
+  <a href="#%e7%ac%a6%e5%8f%b7%e8%a7%a3%e6%9e%90" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>链接器解析符号引用的方法是将每个引用与它输入的可重定位目标文件的符号表中的一个确定的符号定义关联起来。对那些和引用定义在相同模块中的局部符号的引用，符号解析是非常简单明了的。编译器只允许每个模块中每个局部符号有一个定义。静态局部变量也会有本地链接器符号，编译器还要确保它们拥有唯一的名字。
+不过，对全局符号的引用解析就棘手得多。当编译器遇到一个不是在当前模块中定义的符号(变量或函数名)时，会假设该符号是在其他某个模块中定义的，生成一个链接器符号表条目，并把它交给链接器处理。如果链接吕在它的任何输入模块中都找不到这个被引用符号的定义，就输出一条（通常很难阅读的）错误信息并终止。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>链接器如何解析多重定义的全局符号</p>
+<p>在编译时，编译器向汇编器输出每个全局符号，或者昌强或者是弱，而汇编器把这个信息隐含地编码在可重定位目标文件的符号表里。函数和已初始化的全局变量是强符号，未初始化的全局变量是弱k答。根据强弱符号的定义，Linux链接器使用下面的规则来处理多重定义的符号名：</p>
+<ol>
+<li>不允许有多个同名的强符号</li>
+<li>如果有一个强符号和多个弱符号同名，那么选择强符号。</li>
+<li>如果有多个弱符号同名，那么从这些弱符号中任意选择一个。
+这是一个细微而令人讨厌的错误，尤其是因为它只会触发链接器发出一条警告。
+当你怀疑有此类错误时，用像GCC-fno-common标志这样的选项调用链接器，这个选项会告诉链接器，在遇到多重定义的全局符号时，触发一个错误。或者使用-Werror选项，它会的把所有的警告都变为错误。</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>与静态库链接</p>
+<p>所有的编译系统都提供一种机制，将所有相关的目标模块打包成为一个单独的文件，称为静态库（static library），它可以用做链接器的输入。当链接器构造一个输出的可执行文件时，它只复制静态库里被应用程序引用的目标模块。
+静态库概念被提出来，将相关的函数可以被编译为独立的目标模块，然后封装成一个单独的静态库文件。然后应用程序可以通过在命令行上指定单独的文件名字来使用这些库中定义的函数。在链接时，链接器将只复制被程序引用的目标模块，这就减少了可执行文件在磁盘和内存中的大小。
+在Linux系统中，静态库以一种称为存档（archive）的特殊文件格式存放在磁盘中。存档文件是一组连接起来的可重定位目标文件的集合，有一个头部用来描述每个成员目标文件的大小和位置。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>链接器如何使用静态库来解析引用</p>
+<p>虽然静态库很有用，但是它们同时b民是一个程序员迷惑的源头，原因在于Linux链接器使用它们解析外部引用的方式。在符号解析阶段，链接器从左到右按照它们在编译器驱动程序命令行上出现的顺序来扫描可重定位目标文件和存档文件。在这次扫描中，链接器维护一个可重定位目标文件的集合E, 一个未解析的符号集合U,以及一个在前面输入文件中已定义的符号集合D。初始时，E，U和D均为空。</p>
+<ol>
+<li>对于命令行上的每个输入文件f,链接器会判断f是一个目标文件还是一个存档文件。如果f是一个目标文件，那么链接器把f添加到E,修改U和D来反映f中的符号定义和引用，并继续下一个输入文件。</li>
+<li>如果f是一个存档文件，那么链接器就深度匹配U中 esrr符号和由存档文件成员定义的符号。如果某个存档文件成员m,定义了一个符号来解析U中的一个引用，那么就将m添加到E中，并且链接器修改U和D来反映m中的符号定义和引用。对存档文件中所有的成员目标文件都依次进行这个过程，直到U和D都不再发生变化。此时，任何不包含在E中的成员目标文件都简单地被丢弃，而链接器将继续处理下一个输入文件。</li>
+<li>如果当链接器完成对命令行上输入文件的扫描后，U是非空的，那么链接器就会输出一个错误并终止。否则，它会合并和重定位E中的目标文件，构建输出的可执行文件。
+不幸的是，这种算法会导致一些令人困扰的链接时错误，因为命令行上的库和目标文件的顺序非常重要。在命令行中，如果定义一个符号的库出现在引用这个符号的目标文件之前，那么引用就不能被解析，链接会失败。所以，关于库的一般准则是将它们放在命令行的结尾。如果各个库的成员是相互独立的（也誻说没有成员引用另一个成员定义的符号），那么这些库就可以以任何顺序放置在命令行的结尾处。另一方面，如果库不是相互独立的，那么必须对它们排序，使得对于每个被存档文件的成员外部引用的符号s,在命令行中至少有一个s的定义是在对s的引用之后的。如果需要满足依赖需求，可以在命令行上重复库。</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="重定位" class="header-anchor-wrapper">重定位
+  <a href="#%e9%87%8d%e5%ae%9a%e4%bd%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>一旦链接器完成了符号解析这一步，就把代码中的每个符号引用和正好一个符号定义关联起来。此时，链接器就知道它的输入目标模块中的代码节和数据节的确切大小。现在就可以开始重定位步骤了，在这个步骤中，将合并输入模块，并为每个符号分配运行时地址。
+重定位由两步组成：</p>
+<ul>
+<li>重定位节和符号定义。
+在这一步中，链接器将所有相同类型的节合并为同一类型的新的聚合节。</li>
+<li>重定位节中的符号引用。
+在这一步中，链接器修改代码节和数据节中对每个符号的引用，使得它们指向正确的运行时地址。要执行这一步，链接器依赖于可重定位目标模块中称为重定位条目（relocation entry）的数据结构。</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>重定位条目</p>
+<p>当汇编器生成一个目标模块时，它并不知道数据和代码最终将放在内存中的什么位置。它也不知道这个模块引用的任何外部定义的函数或者全局变量的位置。所以，无论何时汇编器遇到对最终位置未知的目标引用，它就会生成一个重定位条目，告诉链接器在将目标文件合并成可执行文件时如何修改这个引用。代码的重定位条目放在.rel.text中。已初始化数据的重定位条目放在.rel.data中。
+ELF重定位条目.每个条目表示一个必须被重定位的引用，并指明如何计算被修改的引用：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-C">typedef struct {
+     long offset;  // 需要被修改的引用的节偏移
+      long type:32,   // 告知链接器如何修改新的引用
+            symbol:32;  // 标识被修改引用应该指向的符号
+        long addend;  // 一些类型的重定位要使用它对被修改引用的值做偏移调整
+} Elf64_Rela;
+</code></pre>
+<p>ELF定义了32种不同的重定位类型，我们只关心其中两种最基本的重定位类型：</p>
+<ol>
+<li>R_X86_64_PC32
+重定位一个使用32位PC相对地址的引用</li>
+<li>R_X86_64_32
+重定位一个使用32位绝对地址的引用</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>重定位符号引用</p>
+<ol>
+<li>重定位PC相对引用</li>
+<li>重定位绝对引用</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>可执行目标文件</p>
+<p>可执行目标文件的格式类似于可重定位目标文件的格式。ELF头描述文件的总体格式。它还包括程序的入口点，也就是当程序运行时要执行的第一条指令的地址。.text、.rodata和.data节与可重定位目标文件中的节是相似的，除了这些节已经被重定位到它们最终的运行时内存地址以外。.init节定义了一个小函数，叫做_init，程序的初始化代码会调用它。因为可执行文件是完全链接的（已被重定位），所以它不再需要.rel节。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>加载可执行目标文件</p>
+<p>在Linux shell的命令行中我们可以使用./programName的方式调用可执行目标文件 programName。因为programName不是一个内置的shell命令，所以shell会认为它是一个可执行目标文件，通过调用某个驻留在存储器中称为加载器（loader）的操作系统代码来运行它。任何Linux程序都可以通过调用execve函数来调用加载器。加载器将可执行目标文件中的代码和数据从磁盘复制到内存中，然后通过跳转到程序的第一条指令或入口点来运行该程序。这个将程序复制到内存并运行的过程叫做加载。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>共享链接共享库</p>
+<p>静态库的缺点：需要定期维护和更新，一些代码会复制到每个运行进程的广西上。是对稀缺的内存系统资源的极大浪费。
+共享库（shared library）是致力于解决静态库缺陷的一个现代创新产物。
+共享库是一个目标模块，在运行或加载时，可以加载到任意的内存地址，并和一个在内存中的程序链接起来。这个过程称为动态链接（dynamic linking）,是由一个叫做动态链接器（dynamic linker）的程序来执行的。共享库也称为共享目标（shared object)，在Linux系统中通常用.so缀来表示。微软的操作系统大师地使用了共享库，它们称为DDL。
+共享库是以两种不同的方式来“共享”的。</p>
+<ul>
+<li>首先，在任何给定的文件系统中，对于一个库只有一个.so文件。所有引用该库的可执行目标文件共享这个.so文件中的代码和数据，而不是像静态库的内容那样被复制和嵌入到引用它们的可执行的文件中。</li>
+<li>其次，在内存中，一个共享库的.text节的一个副本可以被不同的正在运行的进程共享。</li>
+</ul>
+<p>一个例子，使用共享库libvector.so: -fpic选项指示编译器生成与位置无关的代码。 -shared选项指示链接器创建一个共享的目标文件。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">gcc -shared -fpic -o libvector.so addvec.c multvec.c
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>从应用程序中加载和链接共享库</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>位置无关代码</p>
+<p>共享库的一个主要目的就是允许多个正在运行的进程共享内存中的相同的库代码，因而节约富贵的内存资源。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>PIC数据引用</p>
+<p>编译器通过运用以下这个有趣的事实来生成对全局变量的PIC引用：无论我们在内存中的休息加载一个目标模块（包括共享目标模块），数据段与代码段的距离总是保持不变。因此，代码段中任何指令和数据上任何变量之间距离都是一个运行时常量，与代码段和数据wdmr绝对内存位置是无关的。
+想要生成对全局变量PIC引用的编译器利用了这个事实，它在数据段开始的地方创建了一个表，叫做全局统称量表（Global Offset Table, GOT）。在GOT中，每个被这个目标模块引用的全局数据目标（过程或全局变量）都有一个8字节条目。编译器还为GOT中每个条目生成一个重定位记录。在加载时，动态链接器会重定位GOT中的每个条目，使得它包含目标的正确的绝对地址。每个引用全局目标的目标模块都有自己的GOT.</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>PIC函数调用</p>
+<p>假设程序调用一个由共享库定义的函数。编译器没有办法预测这个函数的运行时地址，因为定义它的共享模块在运行时可以加载到任意位置。GNU编译系统使用了一种很有趣的技术来解决这个问题，称为延迟绑定(lazy binding)，将过程地址的绑定推迟到第一次调用该过程时。所以第一次调用过程的运行时开销很大，但是其后的每次调用都只会花费一条指令和一个间接的内存引用。
+延迟绑定是通过两个数据结构之间简洁但又有些复杂的交互来实现的，这两个数据结构是：GOT和过程链接表（Procedure Linkage Table, PLT）。如果一个目标模块调用定义在共享库中的任何函数，那么它就有自己的GOT和PLT.</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>库打桩机制</p>
+<p>Linux链接器支持一很强大的技术，称为库打桩（library interpositioning)，它允许你截获对共享库函数的调用，取而代之执行自己的代码。
+打桩可以发生在编译时、链接时或当程序被加载和执行的运行时。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>编译时打桩</p>
+<p>在gcc时使用-I参数进行打桩</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>链接时打桩</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>运行时打桩</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>处理目标文件工具</p>
+<p>在Linux系统中有大量可用的工具可以理解和处理目标文件。特别地，GNU binutils包尤其有帮助，而且可以运行在每个Linux上。</p>
+<ul>
+<li>AR：创建静态库，插入、删除、列出和提取成员。</li>
+<li>STRINGS：列出一个目标文件中所有可打印的字符串。</li>
+<li>STRIP：从目标文件中删除符号表信息。</li>
+<li>NM：列出一个目标文件符号表中定义的符号</li>
+<li>SIZE：列出目标文件中节的名字和大小。</li>
+<li>READELF： 显示一个目标文件的完整结构，包括ELF头中编码的所有信息。包含SIZE和NM的功能。</li>
+<li>OBJDUMP：所有二进制工具之母。能够显示一个目标文件中所有的信息。它最大的作用是反汇编.text节中的二进制指令。</li>
+</ul>
+<p>Linux系统为操作共享库还提供了LDD程序：</p>
+<ul>
+<li>LDD： 列出一个可执行文件在运行时所需要的共享库。</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="异常控制流" class="header-anchor-wrapper">异常控制流
+  <a href="#%e5%bc%82%e5%b8%b8%e6%8e%a7%e5%88%b6%e6%b5%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>现代系统通过使控制流发生突变来对这些情况做出反应。一般而言，我们把这些突变称为异常控制流（Exceptional Control Flow, ECF）。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>ECF的重要性</p>
+<ul>
+<li>理解ECF将帮助你理解重要的系统概念</li>
+<li>理解ECF将帮助你理解应用程序是如何与操作系统交互的。</li>
+<li>理解ECF将帮助你编写有趣的新应用程序。</li>
+<li>理解ECF将帮助你理解并发。</li>
+<li>理解ECF将理解软件异常如何工作。</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="异常" class="header-anchor-wrapper">异常
+  <a href="#%e5%bc%82%e5%b8%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>异常是异常控制流的一种形式，它一部分由硬件实现，一部分由操作系统实现。异常就是控制流中的突变，用来响应处理器状态中的某些变化。在任何情况下，当处理器检测到有事件发生时，它就会通过一张叫做异常表（exception tablee）的跳转表，进行一个间接过程调用（异常），到一个专门设计用来处理这类事件的操作系统子程序（异常处理程序（exception handler））。当异常处理程序完成处理后，根据引起异常的事件的类型，会发生以下3种情况中的一种：</p>
+<ol>
+<li>处理程序将控制返回给当前指令，即当事件发生时正在执行的指令。</li>
+<li>处理程序将控制返回给将会执行的下一条指令。</li>
+<li>处理程序终止被中断的程序。</li>
+</ol>
+<!--list-separator-->
+<ul>
+<li>
+<p>异常处理</p>
+<p>系统中可能的每种类型的异常都分配了一个唯一的非负整数的异常号（exception number）。其中一些号码是由处理器的设计者分配的，其他号码是由操作系统内核的设计者分配的。
+当系统启动时（当计算机重启或者加电时），操作系统分配和初始化一张称为异常表的跳转表，使得K包含异常K的处理程序的地址。异常号是到异常表中的索引，异常表的起始地址放在一个叫做异常表基地址寄存器（exception table base register）的特殊CPU寄存器里。</p>
+<ul>
+<li>异常处理类似于过程调用，但是有一些重要的不同之处：
+<ul>
+<li>过程调用时，在跳转到处理器程序之前，处理器将返回地址压入栈中。然后，根据异常的类型，返回地址要么是当前指令（当事件发生时正在执行的指令），要么是下一条指令（如果事件不发生，将会在当前指令后执行的指令）。</li>
+<li>处理器也把一些额外的处理器状态压到栈里，在处理程序返回时，重新开始执行被中断的程序会需要这些状态。</li>
+<li>如果控制从用户程序转移到内核，所有这些项目都被压到内核中，而不是压到用户栈中。</li>
+<li>异常处理程序运行在内核模式下，这意味着它们对所有的系统资源都有完全的访问权限。</li>
+</ul>
+</li>
+</ul>
+<p>一旦硬件触发了异常，剩下的工作就是由异常处理程序在软件中完成。在处理程序处理完事件后，它通过执行一条特殊的“从中断返回”指令，可选地返回到被中断的程序，该指令将适当的状态绞架到处理器控制和数据寄存器中，如果异常中断的是一个用户程序，就将状态恢复为用户模式，然后将控制返回给被中断的程序。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>异常的类别</p>
+<p>异常可以分为四类：中断（interrupt），陷阱（trap），故障（fault）和终止（abort）.</p>
+ <div class="table-caption">
+   <span class="table-number">Table 3:</span>
+   异常分类的属性
+ </div>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>原因</th>
+          <th>异常/同步</th>
+          <th>返回行为</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>中断</td>
+          <td>来自IO设备的信号</td>
+          <td>异步</td>
+          <td>总是返回到下一条指令</td>
+      </tr>
+      <tr>
+          <td>陷阱</td>
+          <td>有意的异常</td>
+          <td>同步</td>
+          <td>总是返回到下一条指令</td>
+      </tr>
+      <tr>
+          <td>故障</td>
+          <td>潜在可恢复的错误</td>
+          <td>同步</td>
+          <td>可能返回到当前指令</td>
+      </tr>
+      <tr>
+          <td>终止</td>
+          <td>不可恢复的错误</td>
+          <td>同步</td>
+          <td>不会返回</td>
+      </tr>
+  </tbody>
+</table>
+ <!--list-separator-->
+<ul>
+<li>
+<p>中断</p>
+<p>中断是异步发生的，是来自处理器外部的IO设备的信号的结果。硬件的中断的异常处理程序常常称为中断处理程序（interrupt handler）。
+剩下的异常类型（陷阱，故障和终止）是同步发生的 ，是执行当前指令的结果。我们把这类指令叫做故障指令（faulting instruction）。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>陷阱和系统调用</p>
+<p>陷阱是有意的异常，是执行一条指令的结果。就像中断处理程序一样，陷阱处理程序将控制返回到下一条指令。陷阱最重要的用途是在用户程序和内核之间提供一个像过程一样的接口，叫做系统调用。
+从程序员的角度来看，系统调用和普通的函数调用是一样的。然而，它们的实现非常不同。普通的函数运行在用户模式中，用户模式限制了函数可以执行的指令的类型，而且它们只能访问与调用函数相同的栈。系统调用运行在内核模式中，内核模式允许系统调用执行特权指令，并访问定义在内核中的栈。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>故障</p>
+<p>故障由错误情况引起，它可能能够被故障处理程序修正。当故障发生时，处理器将控制转移给故障处理程序。如果处理程序能够修正这个错误情况，它就将控制返回到引起故障的指令，从而重新执行它。否则，处理程序返回到内核中的abort例程，abort例程会终止引起故障的应用程序。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>终止</p>
+<p>终止是不可恢复的致命错误造成的结果，通常是一些硬件错误，比如DRAM或者SRAM位被损坏时发生的奇偶错误。终止处理程序从不将控制返回给应用程序。</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Linux/x86-64系统中的异常</p>
+<p>x86-64系统定义了一些异常有高达256种，0-31的号码对应的是由Intel架构师定义的异常，因此对任何x86-64系统都是一样的。32-255的号码对应的是操作系统定义的中断和陷阱。</p>
+ <!--list-separator-->
+<ul>
+<li>Linux/x86-64故障和终止</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Linux/x86-64系统调用</p>
+<p>我们将系统调用和与它们相关联的包装函数都称为系统级函数，这两个术语可以互换使用。在x86-64系统上，系统调用 是通过一条称为syscall的陷阱指令来提供的。所有到Linux系统调用的参数都是通过通用寄存器而不是栈传递的。按照惯例，寄存器%rax包含系统调用号，寄存器%rdi、%
+rsi、%rdx、%10、%r8和%r9包含最多6个参数。从系统调用返回时，寄存器%rcx和%r11都会被破坏，%rax包含返回值。</p>
+ <div class="table-caption">
+   <span class="table-number">Table 4:</span>
+   Linux x86-64系统中常用的系统调用示例
+ </div>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>编号</th>
+          <th>名字</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>read</td>
+          <td>读文件</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>write</td>
+          <td>写文件</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>open</td>
+          <td>打开文件</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>close</td>
+          <td>关闭文件</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>stat</td>
+          <td>获得文件信息</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>mmap</td>
+          <td>将内存页映射到文件</td>
+      </tr>
+      <tr>
+          <td>12</td>
+          <td>brk</td>
+          <td>重置堆顶</td>
+      </tr>
+      <tr>
+          <td>32</td>
+          <td>dup2</td>
+          <td>复制文件描述符</td>
+      </tr>
+      <tr>
+          <td>33</td>
+          <td>pause</td>
+          <td>挂起进程直到信号到达</td>
+      </tr>
+      <tr>
+          <td>37</td>
+          <td>alarm</td>
+          <td>调度告警信号的传送</td>
+      </tr>
+      <tr>
+          <td>39</td>
+          <td>getpid</td>
+          <td>获得进程ID</td>
+      </tr>
+      <tr>
+          <td>57</td>
+          <td>fork</td>
+          <td>创建进程</td>
+      </tr>
+      <tr>
+          <td>59</td>
+          <td>execve</td>
+          <td>执行一个程序</td>
+      </tr>
+      <tr>
+          <td>60</td>
+          <td>_exit</td>
+          <td>终止进程</td>
+      </tr>
+      <tr>
+          <td>61</td>
+          <td>wait4</td>
+          <td>等待一个进程终止</td>
+      </tr>
+      <tr>
+          <td>62</td>
+          <td>kill</td>
+          <td>发送信号到一个进程</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="进程" class="header-anchor-wrapper">进程
+  <a href="#%e8%bf%9b%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>异常是允许操作系统内核提供进程（process）概念的基本构造块，进程是计算机科学中最深度、最成功的概念之一。
+在现代系统上运行一个程序时，我们会到一个假象，就好像我们的程序是系统中当前运行的唯一的程序一样。我们的程序好像是独占地使用处理器和内存。
+进程的经典定义就是一个执行中程序的实例。系统中的每个程序都运行在某个进程的上下文（context）中。上下文是由程序正确运行所需的状态组成的。它个状态包括存放在内存中的程序的代码和数据，它的栈、通用上的寄存器的内容、程序计数器、环境变量以及打开文件描述符的集合。
+我们将关注进程提供给应用程序的关键抽象：</p>
+<ul>
+<li>一个独立的控制流，它提供一个假象，好像我们的程序独占地使用处理器。</li>
+<li>一个私有的地址pwuj，它提供一个假象，好像我们的程序独占地使用内存系统。</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>逻辑控制流</p>
+<p>实际上进程昌轮流使用处理器的。每个进程执行它的流的一部分，然后被抢占（preempted）(暂时挂起)，然后轮到其他进程。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>并发流</p>
+<p>一个逻辑流的执行在时间上与另一个流重叠，称为并发流（concurrent flow），这两个流被称为并发地运行。
+多个流并发地执行的一般现象被称为并发（concurrency）。一个进程和其他进程轮流运行的概念称为多任务（multitasking）。一个进程执行它的控制流的一部分的每一时间叫做时间片（time slice）。因此，多任务也叫做时间分片（time slicing）。
+如果两个流并发地运行在不同的处理器核或者计算机上，那么我们称它们为并行流（parallel flow），它们并行地运行（running in parallel），且并行地执行（parallel execution）。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>私有地址空间</p>
+<p>进程也为每个程序提供一种假象，好像它独占地使用系统地址空间。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>用户模型和内核模式</p>
+<p>为了使操作系统内核提供一个无懈可击的进程抽象，处理器必须提供一种机制，限制一个应用可以执行的指令以及它可以访问的地址空间范围。
+处理器通常是用某个控制寄存器中的一个模式们（mode bit）来提供这种功能的，该寄存器描述了进程当前享有的特权。当设置了模式位时，进程就运行在内核模式中（有时叫做超级用户模式）。一个运行在内核模式的进程可以执行指令集中的任何指令，并且可以访问系统中的任何内存位置。没有设置模式位时，进程就运行在用户模式中。用户模式中的进程不允许执行特权指令（privileged instruction），也不允许用户模式中的进程直接引用地址空间中内核区内的代码和数据。
+运行应用程序代码的进程初始时是在用户模式中的。进程从用户模式变为内核模式的唯一方法是通过诸如中断、故障或者陷入系统调用这样的异常。当异常发生时，控制传递到异常处理程序，处理器将模式从用户模式变为内核模式。
+Linux提供了一种聪明的机制，叫做/proc文件系统，它允许用户模式进程访问内核数据结构的内容。/proc文件系统将许多内核数据结构的内容输出为一个用户程序可以yfnr广西文件的层次结构。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>上下文切换</p>
+<p>操作系统内核使用一种称为上下文切换（context switch）的较高层形式的异常控制流来实现多任务。内核为每个进程维持一个上下文（context）。上下文誻内核重新启动一个被抢占的进程所需的状态。安由一些对象的值组成，这些对象包括通用上的寄存器、浮点寄存器、程序计数器、用户栈、状态寄存器、内核栈和各种内核数据结构，比如描述地址空间的页表、包含有关当前进程信息的进程表，以及包含进程已打开文件的信息的文件表。
+在进程执行的某些时刻，内核可以决定抢占当前进程，并重新开始一个先前被抢占了的进程。这种决策就叫做调度（scheduling），是由内核中称为调试器的（scheduler）的代码处理的。在内核调度了一个新的进程运行后，它就抢占当前进程，并使用一种称为上下文切换的机制来将控制转移到新的进程。
+上下文切换会：</p>
+<ol>
+<li>保存当前进程的上下文</li>
+<li>恢复某个先前被抢占的进程被保存的上下文</li>
+<li>将控制传递给这个新恢复的进程</li>
+</ol>
+<p>当内核代表用户执行系统调用时，可能会发生上下文切换。如果系统调用因为等待某个事件发生而阻塞，那么内核可以让当前进程休眠，切换到另一个进程。</p>
+</li>
+</ul>
+
+<h4 id="系统调用错误处理" class="header-anchor-wrapper">系统调用错误处理
+  <a href="#%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>当Unix系统级函数遇到错误时，它们通常会返回-1,并设置全局整数变量errno来表示什么出错了。</p>
+
+<h4 id="进程控制" class="header-anchor-wrapper">进程控制
+  <a href="#%e8%bf%9b%e7%a8%8b%e6%8e%a7%e5%88%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>获取进程ID</p>
+<p>每个进程都有一个唯一的正数（非零）进程ID（PID）。getpid函数返回调用进程的PID。getppid函数返回它的父进程的PID.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-C">  #include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+
+int main() {
+        pid_t pid = getpid();
+        printf(&quot;current pid: %d\n&quot;, pid);
+        return 0;
+}
+</code></pre>
+<p>getpid和getppid函数返回一个类型为pid_t的整数值，在Linux系统上它在types.h中被定义为int。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>创建和终止进程</p>
+<p>从程序员的角度来看，我们可以认为进程总是处于下面三种状态之一：</p>
+<ul>
+<li>运行：进程要么在CPU上运行，要么在等待被执行且最终会被内核调度。</li>
+<li>停止：进程的执行被挂起（suspended）,且不会被调试。</li>
+<li>终止：进程永远地停止了。
+进程会因为三种原因终止：
+<ul>
+<li>收到一个信号，该信号的默认行为是终止进程</li>
+<li>从主程序返回</li>
+<li>调用exit函数</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建进程</p>
+<p>父进程通过调用fork函数创建一个新的运行的子进程。
+新创建的子进程几乎但不完全与父进程相同。子进程得到与父进程用户级虚拟地址空间相同的（但是独立的）一份副本，包括代码和数据段、堆、共享库以及用户栈。子进程还获得与父进程任何打开文件描述符相同的副本，这就意味着当父进程调用fork时，子进程可以读写父进程打开的任何文件。父进程和新创建的子进程之间最大的区别在于它们有不同的PID.
+fork函数是有趣的，因为它只被调用一次，却会返回两次：一次是在调用进程（父进程）中，一次是在新创建的子进程中。在父进程中，fork函数返回子进程的PID.在子进程中，fork返回0.</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>回收子进程</p>
+<p>当一个进程由于某种原因终止时，内核并不是立即把它从系统中清除。相反，进程被保持在一种已终止的状态中，直到被它的父进程回收（reaped）。当父进程回收已终止的子进程时，内核将子进程的退出状态传递给父进程，然后热度已终止的进程，从此时开始，该进程就不存在了。
+一个终止了但还未被回收的进程被称为僵死进程(zommbie)。
+如果一个父进程终止了，内核会安排init进程成为它的孤独进程的养父。
+一个进程可以通过调用waitpid函数来等待它的子进程终止或者停止。
+waitpid函数有点复杂。默认情况下（当options=0时），waitpid挂起调用进程的执行，直到它的等待集合中的一个子进程终止。如果等待集合中的一个进程在刚调用的时刻就已经终止了，那么waitpid就立即返回。在这两种情况中，waitpid返回导致waitpid返回的已终止子进程的pid。</p>
+<ol>
+<li>
+<p>判断等待集合的成员
+等待集合的成员是由参数pid来确定的：</p>
+<ul>
+<li>如果Pid&gt;0,那么等待集合就是一个单独折子进程，它的进程id等于pid。</li>
+<li>如果Pid=-1,那么等待集合就是由父进程所有的子进程组成的。</li>
+</ul>
+</li>
+<li>
+<p>修改默认行为
+可以通过将options设置为常量以下值修改默认行为</p>
+<ul>
+<li>WNOHANG</li>
+<li>WUNTRACED</li>
+<li>WCONTINUED</li>
+</ul>
+<p>还可以用或运算把这些选项组合起来，例如：WNOHANG | WUNTRACED</p>
+</li>
+<li>
+<p>检查已回收子进程的退出状态
+如果statusp参数是非空的，那么waitpid京会在status中放上关于导致返回的子进程的状态信息，status是statusp指向的值。</p>
+</li>
+<li>
+<p>错误条件
+如果调用进程没有子进程，那么waitpid返回-1,并设置errno为ECHILD。
+如果waitpid函数被一个信号中断，那么它返回-1,并设置errno为EINTR。</p>
+</li>
+<li>
+<p>wait函数
+wait函数是waitpid函数的简单版本。调用wait(&amp;status)行人于调用waitpid(-1, &amp;status, 0)。</p>
+</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>让进程休眠</p>
+<p>sleep函数将一个进程挂起一段指定的时间。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-C">#include &lt;unistd.h&gt;
+unsigned int sleep(unsigned int secs);
+</code></pre>
+<p>如果请求的时间量已经到了，sleep返回0,否则返回还剩下的要休眠的秒数。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>加载并运行程序</p>
+<p>execve函数在当前进程的上下文中加载并运行一个新程序。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-C">#include &lt;unistd.h&gt;
+int execve(const char *filename, const char *argv[], const char *envp[]);
+</code></pre>
+<p>execve函数加载并运行可执行目标文件filename,且带参数列表argv和环境变量列表envp。只有当出现错误时，例如找不到filename，execve才会返回到调用程序。所以，与fork一次调用返回两次不同，execve调用一次并从不返回。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>利用fork和execve运行程序</li>
+</ul>
+
+<h4 id="信号" class="header-anchor-wrapper">信号
+  <a href="#%e4%bf%a1%e5%8f%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

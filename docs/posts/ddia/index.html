@@ -1,0 +1,1098 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DDIA - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/ddia/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="DDIA">
+  <meta property="og:description" content="数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-03T00:00:00+00:00">
+    <meta property="article:tag" content="DDIA">
+    <meta property="article:tag" content="数据密集型应用设计">
+    <meta property="article:tag" content="设计">
+    <meta property="article:tag" content="架构">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DDIA">
+  <meta name="twitter:description" content="数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据密集型应用设计">数据密集型应用设计</a>
+      <ul>
+        <li><a href="#数据系统基础">数据系统基础</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="数据密集型应用设计" class="header-anchor-wrapper">数据密集型应用设计
+  <a href="#%e6%95%b0%e6%8d%ae%e5%af%86%e9%9b%86%e5%9e%8b%e5%ba%94%e7%94%a8%e8%ae%be%e8%ae%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="数据系统基础" class="header-anchor-wrapper">数据系统基础
+  <a href="#%e6%95%b0%e6%8d%ae%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="可靠-可扩展与可维护的应用系统" class="header-anchor-wrapper">可靠、可扩展与可维护的应用系统
+  <a href="#%e5%8f%af%e9%9d%a0-%e5%8f%af%e6%89%a9%e5%b1%95%e4%b8%8e%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%e5%ba%94%e7%94%a8%e7%b3%bb%e7%bb%9f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：</p>
+<ul>
+<li>数据库： 用以存储数据，这样之后应用可以再次访问</li>
+<li>调整缓存：缓存那些复杂或操作代价昂贵的结果，以加快下一次访问。</li>
+<li>索引：用户可以按安搜索数据并支持各种过滤。</li>
+<li>流式处理：持续发送消息臻另一个进程，处理采用异步方式</li>
+<li>批处理：定期处理大量的累积数据。</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>可靠性</p>
+<p>当出现意外情况，如硬件、软件故障、人为失误等，系统应可以继续正常运转：虽然性能可能有所降低，但确保功能正确。对于软件,典型的可靠性期望包括:</p>
+<ul>
+<li>应用程序执行用户据期望的功能.</li>
+<li>可以容忍用户出现错误或者不正确的软件使用方法</li>
+<li>性能可以应对典型场景, 合理负载原动力和数据量</li>
+<li>系统可防止任何示经授权的访问和滥用</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>硬件故障</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>软件故障</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>原因</p>
+<ul>
+<li>由于软件错误</li>
+<li>一个应用进程使用了某些共享资源,但却不幸失控</li>
+<li>系统统带于某些服务,但该服务突然或无响应</li>
+<li>级联故障</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>人为失误</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>如果假定人是不可靠的,那么该如何保证系统的可靠性?</p>
+<ul>
+<li>以最小出错的方式来设计系统.</li>
+<li>想办法分离最容易出错的地方,容易引发故障的接口.</li>
+<li>充分的测试</li>
+<li>当出现人为失误时,提供快速的恢复机制以尽量减少故障影响</li>
+<li>设置详细而清晰的监控子系统</li>
+<li>推行管理流程并加以培训.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>可靠性的重要性</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>可扩展性</p>
+<p>随着规模的增长，例如数据量、流量或复杂性，系统应以合理的方式来匹配这种增长。可扩展性是描述系统应对负载增加能力的术语。它并不是衡量一个系统的一维指标，谈论“x是可扩展的”或“y不扩展”没有太大意义。相反，讨论可扩展性通常要考虑这类问题：“如果系统以某种方式增长，我们应对增长的措施有哪些”，“我们该如何添加计算资源来处理额外的负载”。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>描述负载</p>
+<p>负载可以用称为负载参数的若干数字来描述，参数的最佳选择取决于系统的体系结构。如Web服务器的每秒请示处理次数，数据库中定稿的比例等。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>描述性能</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>延迟和响应时间</p>
+<p>延迟和响应时间容易混淆使用，通常响应时间是客户端看到的：除了处理请示时间外还包括来回网络延迟和各种排除延迟。延迟是请示花费在处理上的时间。有时，即使所有请示都相同，也会由于其他变量因素而引入一些延迟拉动，这些因素包括上下文切换和进程调度、网络数据包丢失和TCP重传、垃圾回收暂停、缺页中断和磁盘IO,甚至服务器机架的机械振动等。我们经常考察的是服务请示的平均响应时间，然后如果想知道更典型的响应时间，平均值并不是合适的指标，因为它掩盖了一些信息，无法告诉有多少用户实际经历了多少延迟。因此最好使用百分位数(percentiles)。如果已经搜集到了响应时间信息，将其从最快到最慢排序，中位数(median)就是列表中间的响应时间。中位数指标非常适合描述多少用户需要等待多长时间，通常缩写为p50。为了弄清楚异常值有多糟糕，需要关注更大的百分位数，如觉的p95, p99和p999。采用较高的响应时间百分位数很重要，因为它们直接影响用户的总体服务体验。百分位数通常用于描述、定义服务质量目标（Service Level Objectives, SLO）和服务质量协议（Service Level Agreements, SLA），这些是规定服务预期质量和可用性的合同。排队延迟往往在高百分数响应时间中影响很大。由于服务器并行处理的请示有限，正在处理的少数请示可能会阻挡后续请示，这种情况有时被称为队头阻塞。即使后续请示可能处理很简单，但它阻塞在等待先前请示的完成，客户端会观察到极慢的响应时间。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>应对负载增加的方法</p>
+<p>把无状态服务分布然后扩展臻多台机器相对比较容易，而有状态服务从单个节点扩展到分布式多机环境的复杂性会大大增加。出于这个原因，址到最近通常的做法一直是，将数据库运行在一个节点上（采用垂直扩展策略），直到高扩展性或高可用性的要求近使不得不做水平扩展。超大规模的系统往往针对特定应用而高度定制，很验证有一种通用的架构。背后取舍因素包括数据读取量、写入量、待存储的数据量、的复杂程度、响应时间要求、访问模式等，或者更多的是上述所有因素的叠加，再加上其他更复杂的问题。对于特定应用来说，扩展能力好的架构通常会做出某些假设，然后有针对性地优化设计，如哪些操作是最频繁的，哪 些负载是少数情况。可扩展架构通常都是从通用模块逐步构建而来， 背后往往有规律可循。</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>可维护性</p>
+<p>随着时间的失衡，许多新的人员参与到系统开发和运维，以维护现有功能或甜酸新场景等，可维护性包括维护与缺陷修复，监控系统来保持正常运行、故障排查、适配新平台、搭配新场景、技术担风险的完善以及增加新功能等。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>我们需要特别关注软件系统的三个设计原则</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>可运维性</p>
+<p>方便运营团队来保持系统平衡运行。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>运营团队负责的主要内容</p>
+<ol>
+<li>监视系统的健康状况，并在服务出现异常状态时快速恢复服务。</li>
+<li>追踪问题的原因，例如系统故障或性能下降。</li>
+<li>保持软件和平台臻最新状态</li>
+<li>了解不同系统如何相互影响，避免执行带有破坏性的操作。</li>
+<li>预测未来可能的问题，并在问题发生之前即解决。</li>
+<li>建立用于部署、配置管理待良好的实中规范和工具包。</li>
+<li>执行复杂的维护任务</li>
+<li>当配置更改时，维护系统的安全稳健</li>
+<li>制定流程来规范操作行为，并保持生产环境稳定。</li>
+<li>保持相关知识的传承（如对系统的理解）。</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数据系统设计要点</p>
+<ol>
+<li>提供对系统运行时行为和内部的可观测性，方便监控。</li>
+<li>支持自动化，与标准工具集成。</li>
+<li>避免绑定特定的机器，这样在整个系统不间断运行的同时，允许机器停机维护。</li>
+<li>提供良好的文档和易于理解的操作模式。</li>
+<li>提供良好的默认配置，且允许管理员在需要时方便地修改默认值。</li>
+<li>尝试自我修复，在需要时让管理员手动控制系统状态。</li>
+<li>行为可预测，减少意外发生。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>简单性</p>
+<p>简化系统复杂性，使新工程师能够轻松理解系统。复杂性有各种各样的表面方式：状态空间的膨胀，模块紧耦合，令人纠结的相互依赖关系，不一致的命名和术语，为了性能而的特殊片，为解决某特定问题而引入的特殊框架等。简化系统设计并不意味关减少系统功能，而主要意味着意外方面的复杂性。消除意外复杂性最好手段之一是抽象。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>可演化性</p>
+<p>后续工程师能够轻松地对系统进行改进，并根据需求变化将其适配到非典型场景，也称为可延伸性、易修改性可可塑性。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="数据模型与查询语言" class="header-anchor-wrapper">数据模型与查询语言
+  <a href="#%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b%e4%b8%8e%e6%9f%a5%e8%af%a2%e8%af%ad%e8%a8%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>关系模型与文档模型</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>关系模型</p>
+<p>关系模型所做的是定义了所有数据的模式：关系（表）只是元组（行）的分文不值一，公此而已。没有复杂的嵌套结构，也没胡复杂的访问路径。可以读取表中的任何一行或者所有行，支持任意条件查询。可以指定某些列作为键并匹配这些列来读取特定行。可以在任何表中插入新行，而不必担心与其他表之间的外键关系。关系模型的一个核心要点是：只需要构建一次查询优化器，然后使用该数据库的所有应用程序都可以从中受益。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>NoSQL</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>采用NoSQL数据库的驱动因素</p>
+<ol>
+<li>比关系数据库更好的扩展性需求，錍巴拉圭超 大数据集或超市写入吞量</li>
+<li>普通偏爱免费和开源软件而不是商业数据库产品。</li>
+<li>关系模型不能很好地支持一些特定的查询操作。</li>
+<li>对关系模式一些限制性感到沮丧，渴望更具动态和表达力的数据模型。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>对象-关系不匹配</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>多对一与多对多的关系</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用ID比使用纯文本字符串的优势</p>
+<ol>
+<li>所有的数据保持和输入值一致。</li>
+<li>避免歧义。</li>
+<li>易于更新。</li>
+<li>本地化支持。</li>
+<li>更好的搜索支持。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>网络模型</p>
+<p>也被称为CODASYL模型，是层次模型的推广。在层次模型的要结构中，每个记录只有一个父结点；而在网络模型中，一个记录可能有多个父结点。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>关系数据库与文档数据库现状</p>
+<p>支持文档数据模型的主要论点是模式灵活性，由于局部性而带来较好的性能，对于某些应用来说，它更接近于应用程序据使用的数据结构。关系模型则强在联结操作、多对一和多对多关系更简洁的表达上。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>哪种数据模型的应用代码更简单？</p>
+<p>如果应用数据具有类似文档的结构，那么使用文档模型更为合适。而关系型模型则倾向于某种数据分解，它把文档结构分解为多个表，有可能使得模式更为笨重，以及不必要的应用代码复杂化。文档也有一定的局限性：例如，不能直接引用文档中的嵌套项，然而只要文档嵌套不太深，这通常不是问题。在文档数据库中，对联结的支持不足是否是问题取决于应用程序。但是如果应用程序确实使用了多对多关系，那么文档模型就变得不太吸引人。通常无法一概而论哪种数据模型的应用代码更简单。这主要取决于数据项之间的关系类型。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>文档模型中的模式灵活性</p>
+<p>文档数据库有时被称为无模型，wxjg这具有误导性，因为读数据的代码通常采用某种结构因而存在某种隐形模式，而不是由数据库强制执行。更准确的术语应该是读时模型，与写时模式（关系数据库的一种传统方法，模式是显式的，并且数据库确保数据写入时都必须遵循）相对应。读时模式类似编程语言中的动态（运行时）类型检查，而写时模式类似于静态（编译时）类型检查。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>查询数据局部性</p>
+<p>文档通常存储为编码为JSON、XML或其它二进制变化的连接字符串。如果应用程序需要频繁访问整个文档，则存储局部性具有性能优势。如果数据被在多个表中，则需要进行多次索引查找来检索所有数据，蹭可能需要更多的duteIO并花费更多的时间。局部性优势公适用需要同时访问文档大部分内容的场景。由于数据库通常会加载整个文档，如果应用只是访问其中的一小部分，则对于大型文档数据来讲就有些浪费。对于文档更新时，通常会重写整个文档，而只有修改量不改变源文件大小时，原地覆盖更新有更有效。因此，通常建议文档应该尽量小且避免定稿时增加文档大小。这些性能方面的不利因素大大限制了文档数据库的适用场景。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>文档数据库与关系数据库的融合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据查询语言</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>声明式查询</p>
+<p>声明式查询语言很有吸引力，它比命令式API更加简洁和容易使用。但更重要的是，它对外隐藏了数据库引擎的很多实现细节，这样数据库系统能够在不改变查询语句的情况下提高性能。声明式语言通常适合于并行执行,它仅仅指定了结果所满足的模式，而不指定如何得到结果的具体算法。所以如果可以的话，数据库者倾向于采用并行方式实现查询语言。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Web上的声明式查询</p>
+<ul>
+<li>css</li>
+<li>xpath</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>MapReduce查询</p>
+<p>MapReduce既不是声明式查询语言，也不是一个完全命令式的查询API,而是介于两者之间：查询的逻辑用代码片段来表示，这些代码片段可以被处理框架重复地调用。它主要基于许多函数式编程语言中的map（也称为collect)和reduce(也称为fold或inject)函数。
+map和reduce函数对于可执行的操作有所限制。它们必须是纯函数，这意味着只能使用传递进去的数据作为输入，而不能执行额外的数据库查询，也不能有任何副作用。这些限制使得数据库能够在任何位置、以任意顺序来运行函数，并在失败时重新运行这些函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>图状数据模型</p>
+<p>如果多对多的关系在数据中很觉，随着数据之间的关联越来越复杂，将数据建模转的为图模型会更加自然。图由两种对象组成：顶点（也称为结点或实体）和边（也称为关系或弧）。很多数据可以建模为图，例如：社交网络，web图，公路或铁路网。有多种不同但相关的方法可以构建和查询图中的数据。我们讨论属性图模型（property graph, 以Neo4j、Titan和InfiniteGraph为代表）和三元存储模型（triplestore、以Datomic、AllegroGraph等为代表）。讨论三种声明式图查询语言：Cypher、SPARQL和Datalog.这外，还有像Gremlin这样的命令式图查询语言，以及Pregel这样的图处理框架。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>图属性</p>
+<p>在属性图模型中，每个顶点包括：</p>
+<ul>
+<li>唯一的标识符</li>
+<li>出边的集合</li>
+<li>入边的集合</li>
+<li>属性的集合（键值对）</li>
+</ul>
+<p>每个边包括：</p>
+<ul>
+<li>唯一的标识符</li>
+<li>边开始的顶点（尾部顶点）</li>
+<li>边结束的顶点（头部顶点）</li>
+<li>描述两个顶点间关系类型的标签</li>
+<li>属性的集合（健值对）</li>
+</ul>
+<p>可以将图存储看作由两个关系表组成，一个用于顶点，一个用于边。关于图模型一些值得注意的地方：</p>
+<ol>
+<li>任何顶点都可以连接到其他任何顶点。没有模式限制哪种事物可以或不可以关联。</li>
+<li>给定某个顶点，可以高效地得到它的所有入边和出边，从而遍历图，即沿着这些顶点链条一直有向前或向后。</li>
+<li>通过对不同类型的关系使用不同的标签，可以在单个图中存储多种不同类型的信息，同时仍然保持整洁的数据模型。</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Cypher查询语言</p>
+<p>Cypher是一种用于属性图的声明式查询语言，最早为Neo4j图形数据库而创建。一个例子：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-cypher">create
+  (NAmerica:Location {name: 'North America', type:'continet'}),
+  (USA:Location {name: 'United States', type:'country'})
+  (Idaho:Location {name:'Idaho', type:'state'}),
+  (Lucy:Person {name:'Lucy'}),
+  (Idaho) - [:WITHIN]-&gt; (USA) -[:WITHIN]-&gt;(NAmerica),
+  (Lucy) -[:BORN_IN]-&gt; (Idaho)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>SQL中的图查询</p>
+<p>Crypher可以用:WITHIN*0..非常简洁地表达它沿着一个WINTHIN边遍历零次或多次。SQL:1999标准以后，查询过程中这种可变的遍历路径可以使用称为递归公用表表达式（即WITH RECURSIVE语法）来表示，但与Cypher相比，语法仍显得非常笨拙。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>三元存储与SPARQL</p>
+<p>三元存储模式几乎等同于 属性图模型，只是使用不同的名词描述了相同的思想。在三元存储中，所有信息都以非常简单的三部分形式存储（主体，谓语，客体）。三元组的主体相当于图中的顶点。而客体则是以下两种之一：</p>
+<ul>
+<li>原始数据类型中的值，如字符串或数字。在这种情况下，三元组的谓语和客体分别相当于主体（顶点）属性中的键和值。</li>
+<li>图中的另一个顶点。此时，谓语是图中的边，主体是尾部顶点，而客体是头部顶点。</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>语义网</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>RDF数据模型</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>SPARQL查询语言</p>
+<p>SPARQL是一种采用RDF数据模型的三元存储查询语言，名字是SPARQL Protocol和RDF Query Language的缩写一个例子：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nil">PREFIX : &lt;urn:example:&gt;
+select ?personName where {
+  ?person :name ?personName.
+  ?person :bornIn / :within* / :name &quot;United States&quot;.
+  ?person :livesIn / :within* / :name &quot;Europe&quot;.
+}
+</code></pre>
+<p>可以看到总体结构与Cypher非常相似。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nil">(person) -[:BORN_IN]-&gt; () -[:WITHIN*0..] -&gt; (location)  #Cypher
+?person :bornIn / :within* ?location.   #SPARQL
+</code></pre>
+<p>由于RDF不区分属性和边，可以同时对两者执行谓语操作，所以可以采用相同的语法来匹配属性上的查询条件。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Datalog基础</p>
+<p>Datalog的数据模型类似于三元存储模式，但更为通用一些。它采用“谓语（主体，客体）”的表达方式而不是三元组（主体，谓语，客体）。已经定义好了数据之后，可以执行之前类似的查询，Datalog是Prolog的子集。一个例子：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-nil">name(usa, 'United States').
+type(usa, country).
+within(usa, namerica).
+
+within_recursive(Location, Name) :- name(Location, Name). # 规则1
+within_recursive(Location, Name) :- within(Location, Via),
+                                     within_recursive(Via, Name).   # 规则2
+magrated(Name, BornIn, LivingIn) :- name(Person, name),
+                                     born_in(Person, BornLoc),
+                                     within_recursive(BornLoc, BornIn),
+                                     livs_in(Person, LivingLoc),
+                                     within_recursive(LivingLoc, LivingIn).   # 规则3
+?- migrated(Who, 'United States', &quot;Europe&quot;).
+</code></pre>
+<p>Datalog方法需要采取与其他查询语言略有不同的思维方式，但它非常强大，特别是规则可以在不同的查询中组合和重用。对于简单的一次性查询来说，这或许不太方便，但是如果数据非常复杂，处理起来会更加游刃有余。</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>小结</p>
+<p>历史上，数据最初被表示为一棵大树（层次模型），但是这不利于表示多对多关系，所以发明了关系模型来解决这个问题。最近，开发人员发现一些应用程序也不太适合关系模型。新的非关系“NoSQL”数据存储在两个主要方向上存在分歧：</p>
+<ol>
+<li>文档数据库的目标用例是数据来自于自包含文档，且一个文档与其他文档之间的关联很少。</li>
+<li>图数据库则针对相反的场景，目标用命是所有数据都可能会互相关联。所有这三种模型（文档模型、关系模型和图模型），如今都有广泛使用，并且在各有自的目标领域都足够优秀。</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="数据存储与检索" class="header-anchor-wrapper">数据存储与检索
+  <a href="#%e6%95%b0%e6%8d%ae%e5%ad%98%e5%82%a8%e4%b8%8e%e6%a3%80%e7%b4%a2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>从最基本的层面看，数据库只需要做两件事情：向它插入数据时，它就保存数据；之后查询时，它应该返回那些数据。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据库核心：数据结构</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>索引</p>
+<p>索引是基于原始数据派生而来的额外数据结构。由于每次写数据时，需要更新索引，因此任何类型的索引通常都会降低写的速度。这里涉及存储系统中重要的权衡设计：适当的索引可以加速读取查询，但每个索引都会减慢写速度。为此，默认情况下，数据库通常不会对所有内容进行fphx,它需要应用开发人员或数据库管理员，基于对应用程序典型查询模式的了解，来手动选择索引。目的是为了应用程序提供最有利加速的同时，避免引入过多不必要的开销。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>哈希索引</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>哈希索引的局限性</p>
+<ul>
+<li>哈希表必须全部放入内存，所以如果有大量的键，就没那么幸运了。原则上，可以在磁盘上维护hash map,但是不幸的是，很难使磁盘上的hash map表现良好。它需要大量的随机访问IO,当哈希变满时，继续增长代价昂贵，并且哈希冲突时需要复杂的处理逻辑。</li>
+<li>区间查询效率不高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>SSTables和LSM-Tree</p>
+<p>简单改变key-value日志文件的格式：要求key-value对的顺序按键排序。这种格式称为排序字符串表，或简称为SSTable.它要求每个键在每个合并的段文件中只能出现一次。
+SSTable相比哈希索引的日志段，具有以下优点：</p>
+<ol>
+<li>合并段更加简单高效，即使文件大于可用内存。</li>
+<li>在文件中查找特定的键时，不再需要在内存中保存所有键的索引。</li>
+<li>由于读请示往往需要扫描后未范围内的多个key-value对，可以考虑将这些记录保存到一个上并在写磁盘之前将其压缩。然后稀疏内存索引的每个条目指向压缩块的开头。除了节省磁盘空间，压缩还减少了IO带宽的占用。</li>
+</ol>
+ <!--list-separator-->
+<ul>
+<li>
+<p>构建和维护SSTables</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>存储引擎的基本工作流程如下：</p>
+<ol>
+<li>当写入时，将其添加到内存跌平衡树数据结构中（例如红黑树）。这个内存中的树有时被称为内存表。</li>
+<li>当内存表大于某个阈值（通常为几兆字节）时，将其作为SSTable文件写入磁盘。由于树已经维护了按键排序的key-value对，写磁盘可以比较高效。新的SSTable文件成为数据库的最新部分。当SSTable写磁盘的同时，写入可以继续添加到一个新的内存表实例。</li>
+<li>为了处理读请示，首先尝试在内存表中查找键，然后是最新的段文件，接下来是次新的谁的，以此类推，直到找到目标（或为空）。</li>
+<li>后台进程周期性地执行段合并与压缩过程，以合并多个段文件，并丢弃那些已经被覆盖或删除的值。上述方案可以很好地工作。但它还存在一个问题：如果数据库崩溃，最近的定稿（在内存表中但尚未写入磁盘）将会丢失。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>从STables到LSM-Tree</p>
+<p>基于合并和压缩排序文件原理的存储引擎通常都被称为LSM存储引擎。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>性能优化</p>
+<p>查找数据库中某个不存在的键时，LSM-Tree算法可能很慢：在确定键不存在之前必须先检查内存表，然后将段一直回溯访问到最旧的段文件。为了优化这种访问，存储引擎通常使用额外的过滤器。还有一同的策略会影响甚至决定SSTables压缩和合并时的具体顺序和时机。最觉的方式是大小分组和分层压缩。在大小分级的压缩中，较新的和较小的SSTables被连续合并到较旧和较大的SSTables.在分层中，键的范围分裂成多个更小的SSTables,旧数据被移动到单独的“层级”，这样压缩可以逐步进行并节省磁盘空间。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>B-trees</p>
+<p>B-tree将数据库分解成固定大小的块或页、传统上大小为4KB（有时更大），页是内部读/写的最小单元。这种设计更接近底层硬件，因为磁盘也是以固定大小的块排列。每个页面都可以使用地址或位置进行标识，这样可以让一个页面引用另一个页面，类似指针，不过是指向磁盘地址，而不是内存。可以使用这些页面引用来构造一个树状页面，某一页被指定为B-tree的楖每当查询索引中的一个键时，总是从这里开始。该页面包含若干个键和对子页的引用。每个孩子 都负责一个连续范围内的键，相信引用之间的键可以指示这些范围之间的边界。
+B-tree中一个页所包含的子页引用数量称为分支因子。在实际中，分支因素取决于存储页面引用和范围边界据需的空间总量，通常为几百个。如果需要更新B-tree中现有的值，首先搜索包含该键的叶子页，更改该页的值，并将页写回到磁盘。如果要添加新键，则需要找到其范围包含新键的页，并将其添加到该页。如果页中没有足够的可用空间来容纳新的那家，则将其分裂为两个半满的页，并且父页也需要更新以包含分裂之后的新的键范围。该算法确保树保持平衡：具有N个键的B-tree总是具有O(log n)的深度。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使B-tree可靠</p>
+<p>B-tree底层的基本写操作操作是使用新数据覆盖磁盘上的旧页。它假设覆盖不会改变页的磁盘存储位置，也就是说，当页被覆盖时，对该页的所有引用保持不变。为了使数据库能从崩溃中恢复，常见B-tree的实现需要支持磁盘上的额外的数据结构：预写日志（write-ahead log, WAL），也称为重做日志。这是一个公支持追加修改的文件，每个B-tree的修改必须先更新WAL然后再修改树本身的页。原地更新页的另一个复杂因素是，如果多个线程要同时访问B-tree,则需要注意并发控制，否则线程可能会看到树处于不一致的状态。通常使用锁存器（轻量级锁）保护树的数据结构来完成。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>优化B-tree</p>
+<ul>
+<li>一些数据库不使用覆盖页和维护RAL来进行崩溃恢复，而是使用写时复制方案。修改的页被定稿不同的位置，树中父页的新版本被创建，并指向新的位置。这种方法对于前功尽弃控制也很有帮助。</li>
+<li>保存键的缩略信息，而不是完整的键，这样可以节省页空间。</li>
+<li>一般来说，页可以放在磁盘上的任何位置；没有要求相信的页需要放在磁盘的相信位置。如果查询需要按照排序扫描大段的键范围，考虑到每个读取的页都可能需要磁盘IO,所以逐页的而已可能是低效的。因此，许多B-tree的实现深度对树进行布局，以便相信叶子页可以按顺序保存在磁盘上。</li>
+<li>添加额外的指针到上。例如每个叶子页面可能会向左和向右引用其同级的兄弟页，这样可以顺序扫描键，而不用跳回到父页。</li>
+<li>B-tree的谈何如分形树，借鉴了一些日志结构的想法来减少磁盘寻道。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>对比B-tree和LSM-tree</p>
+<p>根据经验，LSM-tree通常对于定稿更快，而B-tree被认为对于读取更快。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>LSM-tree的优点</p>
+<ul>
+<li>LSM-tree通常能够承受比B-tree更高的写入吞量，原因是磁盘的顺序写比随机写要快的多。</li>
+<li>LSM-tree可以支持更好的压缩，因此通常磁盘上的文件比B-tree小很多。</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>LSM-tree的缺点</p>
+<ul>
+<li>日志结构存储的缺点是压缩过程有时会干扰正在进行的读写操作。</li>
+<li>高写入吞量时，磁盘的有一般说来a要在初始写入和后台运行的压缩线程之间所共享。如果写入吞量很高并且压缩没有仔细配置，那么就会发生压缩无法匹配新数据定稿速率的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>其它索引结构</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在索引中存储值</p>
+<p>索引中的键是查询搜索的对象，而值则可以是以下两类之一：它可能是实际行，也可以是对其他地方存储的行的引用。在保存其他地方引用时，存储行的具体位置被称为堆文件，并且它不以特定的顺序存储数据。在某些情况下，从索引到堆文件的额外跳转对于读取来说意味着太多的性能损失，因此可能希望交款地直接存储在索引中，这被称为聚焦索引。例如MySQL InnoDB存储引擎中，表的主键始终是聚集索引，二级索引引用主键。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>多列索引</p>
+<p>最常见的多列索引类型称为级联索引，它通过将一列追加到另一列，将几个字段简单地组合成一个键。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>全文搜索和模糊索引</p>
+<p>全文搜索引擎通常支持对一个音讯的所有同义词进行查询，并忽略音讯语法上的变化，在同一文档中搜索彼此接近的音讯珠出现，并且支持多种依赖语言分析的其他高级功能。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在内存中保存所有内容</p>
+<p>内存数据库的性能优势并不是因为它们不需要从磁盘读取，而是因为它们避免使用写磁盘的格式对内存数据结构编码的开销。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>事务处理与分析处理</p>
+<p>事务主要指组成一个逻辑单元的一组读写操作。</p>
+ <div class="table-caption">
+   <span class="table-number">Table 1:</span>
+   对比事务处理（OLTP）与分析系统（OLAP）的主要特征
+ </div>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>事务处理系统（OLTP）</th>
+          <th>分析系统（OLAP）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>主要读特征</td>
+          <td>基于键，每次查询返回少量的记录</td>
+          <td>对大量记录进行汇总</td>
+      </tr>
+      <tr>
+          <td>主要写特征</td>
+          <td>随机访问，低延迟写入用户的输入</td>
+          <td>批量导入（ETL）或事件流</td>
+      </tr>
+      <tr>
+          <td>典型使用场景</td>
+          <td>终端用户，通过网络应用程序</td>
+          <td>内部分析师，为决策提供支持</td>
+      </tr>
+      <tr>
+          <td>数据表征</td>
+          <td>最新羼主（当前时间点）</td>
+          <td>随着时间而变化的所有事件历史</td>
+      </tr>
+      <tr>
+          <td>数据规模</td>
+          <td>GB到TB</td>
+          <td>TB到PB</td>
+      </tr>
+  </tbody>
+</table>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数据仓库</p>
+<p>使用单独的数据仓库而不是直接查询OLTP系统进行分析，很大的优势在于数据仓库可以针对分析访问模式进行优化。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>OLTP数据库和数据仓库之间的差异</p>
+<p>数据仓库的数据模型最常见的是关系型，因为SQL通常适合分析查询。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>星型与雪花型分析模式</p>
+<p>许多数据仓库都相当公式化的使用了星型模式，也称为维度建模。模式的中心是一个所谓的事实表。青衫表的每一行表示在特定的时间发生的事件。事实表中的列是属性, 其他列可能会引用其他表的外键，称为维度表。该模板一个谈何称为雪花模式，其中维度进一步细分为子空间。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>列式存储</p>
+<p>面向列存储的想法很简单：不要将一行中的所有值存储在一起，而是将每列中的所有值存储在一起。如果每个列存储在一个单独的文件中，查询只需要读取和解析在该查询中使用的那些列，这可以节省大量的工作。面向列的存储布局依赖一组列文件，每个文件以相同顺序保存着数据行。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>列压缩</p>
+<p>除了公从磁盘中加载查询所需的迾这个，还可以通过压缩数据来进一步降低对磁盘吞量的要求。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>内存带宽和矢量化处理</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>列存储的排序</p>
+<p>在列存储中，行的存储顺序并不太重要。最简单的是插入顺序保存。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>列存储的写操作</p>
+<p>面向列的存储、压缩和排序都非常有乃至于加速读取查询。但是，它们的缺点是让写入更加困难。我们可以使用LSM-tree.将所有的写入首行进入内存存储区，将其添加到已排序的结构中，接着再准备写入磁盘。执行查询时，需要检查磁盘上的烈vrnt内存中的最近的定稿，并结合这两者。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>聚合：数据立方体与物化视图</p>
+<p>如果许多不同查询使用相同的聚合，每次都处理原始数据将非常浪费，我们可以创建一种缓存：物化视图。物化视图是查询结果的实际副本，并被写到磁盘，而虚拟视图只是用于编写查询的快捷方式。当底层数据发生变化时，物化视图也需要随之更新，因为它是数据的非规范化副本。数据库可以自动执行，但这种更新方式会影响数据写入性能，这就是为什么在OLTP数据库中不经常使用物化视图的原因。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

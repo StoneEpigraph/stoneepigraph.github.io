@@ -1,0 +1,872 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker笔记 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/docker/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Docker笔记">
+  <meta property="og:description" content="入门 什么是Docker docker是一个容器技术。
+Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker –help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi … 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 –name containerName -it 导入容器 docker load -i dockerTag.tar 查看当前运行的容器 docker ps 查看所有的容器，包括已停止的 docker ps -a 返回正在运行的容器ID docker ps -q 重启，停止容器 docker start dockerContainerId | dockerName docker restart dockerContainerid | dockerName docker stop dockerCOntainerid | dockerName 删除容器 docker rm dockerContainerId | dockerName 强制删除， 包括正在运行的容器 docker rm -f dockerContainerid | dockerName 查看容器内运行日志 docker log dockerContainerid | dockerName 实时查看日志 -f 加入时间戳实时展示日志 -t 显示指定行数的日志 –tail Number 查看容器内的进程 docker top dockerContainerid | dockerName 与容器内部进行交互 docker exec -it dockerCOntainerid | dockerName Command [args] 宿主与容器的传输文件 从容器到操作系统 docker cp dockerContainerid | dockerName :/path/file ./file 从宿主到容器 docker cp 文件 | 目录 dockerContainerid | dockerName: 容器内目录 查看容器内部细节 docker inspect dockerContainerid | dockerName 数据卷 Volume 使用： 实现襥机系统与容器之间的文件共享 特点： 数据卷可以在容器之间共享和重用。 对数据卷的修改会立即影响到对应容器。 对数据卷的更新修改，不会影响镜像。 数据卷默认会一直存在， 即使容器被删除。 使用 自定义数据卷 docker run -v 宿主机目录:容器目录:ro dockerImageId 自动创建数据卷 docker run -v 卷名:容器内路径 dockerImageId 查看卷 docker volume inspect volumeName docker volume ls 将正在运行的容器打包成镜像 docker commit -m ’’ -a ’’ dockerContainerid dockerImageName:dockerTag 将镜像备份 docker save 镜像名称:tag -o dockerBak-tag.tar 网络配置 docker容器与操作系统通信机制默认使用网桥">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="容器">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Docker笔记">
+  <meta name="twitter:description" content="入门 什么是Docker docker是一个容器技术。
+Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker –help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi … 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 –name containerName -it 导入容器 docker load -i dockerTag.tar 查看当前运行的容器 docker ps 查看所有的容器，包括已停止的 docker ps -a 返回正在运行的容器ID docker ps -q 重启，停止容器 docker start dockerContainerId | dockerName docker restart dockerContainerid | dockerName docker stop dockerCOntainerid | dockerName 删除容器 docker rm dockerContainerId | dockerName 强制删除， 包括正在运行的容器 docker rm -f dockerContainerid | dockerName 查看容器内运行日志 docker log dockerContainerid | dockerName 实时查看日志 -f 加入时间戳实时展示日志 -t 显示指定行数的日志 –tail Number 查看容器内的进程 docker top dockerContainerid | dockerName 与容器内部进行交互 docker exec -it dockerCOntainerid | dockerName Command [args] 宿主与容器的传输文件 从容器到操作系统 docker cp dockerContainerid | dockerName :/path/file ./file 从宿主到容器 docker cp 文件 | 目录 dockerContainerid | dockerName: 容器内目录 查看容器内部细节 docker inspect dockerContainerid | dockerName 数据卷 Volume 使用： 实现襥机系统与容器之间的文件共享 特点： 数据卷可以在容器之间共享和重用。 对数据卷的修改会立即影响到对应容器。 对数据卷的更新修改，不会影响镜像。 数据卷默认会一直存在， 即使容器被删除。 使用 自定义数据卷 docker run -v 宿主机目录:容器目录:ro dockerImageId 自动创建数据卷 docker run -v 卷名:容器内路径 dockerImageId 查看卷 docker volume inspect volumeName docker volume ls 将正在运行的容器打包成镜像 docker commit -m ’’ -a ’’ dockerContainerid dockerImageName:dockerTag 将镜像备份 docker save 镜像名称:tag -o dockerBak-tag.tar 网络配置 docker容器与操作系统通信机制默认使用网桥">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#入门">入门</a>
+      <ul>
+        <li><a href="#什么是docker">什么是Docker</a></li>
+        <li><a href="#docker的优势">Docker的优势</a></li>
+        <li><a href="#docker与虚拟机的对比">Docker与虚拟机的对比</a></li>
+        <li><a href="#安装及配置">安装及配置</a></li>
+        <li><a href="#docker核心概念">Docker核心概念</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#dockerfile">Dockerfile</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-compose">Docker-Compose</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#命令行命令">命令行命令</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2>入门</h2>
+
+
+<h3>什么是Docker</h3>
+
+<p>docker是一个容器技术。</p>
+
+<h3>Docker的优势</h3>
+
+<ol>
+<li>一致的运行环境， 更轻松的迁移。</li>
+<li>对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。</li>
+<li>通过镜像复制多个环境一致的容器。</li>
+</ol>
+
+<h3>Docker与虚拟机的对比</h3>
+
+<ol>
+<li>Docker占用磁盘少</li>
+<li>Docker的引擎比虚拟机系统占用CPU资源低</li>
+<li>Docker启动速度快</li>
+<li>Docker安装管理方便</li>
+<li>Docker从第二次部署开始轻松简捷</li>
+<li>Docker可以每个应用使用一个服务，服务隔离</li>
+<li>Docker推荐使用Linux，不推荐使用Windows</li>
+</ol>
+
+<h3>安装及配置</h3>
+
+<ol>
+<li>下载安装</li>
+<li>配置
+<ol>
+<li>启动Docker
+<pre  class="mc-prism hide language-text" ><code class="language-shell">sudo systemctl enable docker
+sudo systemctl start docker
+</code></pre>
+</li>
+<li>创建Docker用户组
+<pre  class="mc-prism hide language-text" ><code class="language-shell">sudo groupadd docker
+</code></pre>
+</li>
+<li>将当前用户添加到docker组
+<pre  class="mc-prism hide language-text" ><code class="language-shell">sudo usermod -aG docker $USER
+</code></pre>
+</li>
+<li>测试Docker是否安装正确</li>
+<li>重启Docker
+<pre  class="mc-prism hide language-text" ><code class="language-shell">sudo systemctl restart docker
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+
+<h3>Docker核心概念</h3>
+
+
+<h4>整体架构图</h4>
+
+<figure><img src="/ox-hugo/2021-01-10_17-34-07_screenshot.png">
+</figure>
+
+
+<h4>仓库 Repository</h4>
+
+<ul>
+<li>定义： 用来存储Docker中的镜像。</li>
+<li>分类：
+<ul>
+<li>远程仓库</li>
+<li>本地仓库： 当前自己机器中下载镜像存储位置。</li>
+</ul>
+</li>
+</ul>
+
+<h4>镜像 Image</h4>
+
+<ul>
+<li>定义： 一个镜像代表一个软件安装包。</li>
+<li>特点： 只读</li>
+</ul>
+
+<h4>容器 Container</h4>
+
+<ul>
+<li>定义： 基于某个镜像启动的实例，称之为一个服务。</li>
+<li>特定： 可读可写</li>
+</ul>
+
+<h3>常用命令</h3>
+
+
+<h4>引擎， 以及镜像相关的操作</h4>
+
+<ol>
+<li>docker info</li>
+<li>docker &ndash;help || docker 查看docker所有帮助命令</li>
+<li>docker version</li>
+<li>docker 执行命令格式： docker [options] command</li>
+</ol>
+
+<h4>操作镜像images的相关命令</h4>
+
+<ol>
+<li>查看本地的镜像
+docker images</li>
+<li>下载新的镜像
+docker pull dockerImageName:dockerVersion
+docker pull dockerImageName:@digest(摘要)</li>
+<li>搜索镜像
+docker search dockerImageName</li>
+<li>删除镜像
+docker image rm dockerImageName:dockerVersion
+docker image rm dockerImageId
+docker rmi &hellip;</li>
+</ol>
+
+<h4>容器相关 Container</h4>
+
+<ol>
+<li>运行容器
+docker run dockerImageName:tag | 镜像ID
+<ol>
+<li>映射端口
+docker run -p 宿主机端口:容器内服务端口 dockerImageName</li>
+<li>后台运行
+-d</li>
+<li>给容器命名，唯一
+&ndash;name containerName</li>
+<li>-it</li>
+</ol>
+</li>
+<li>导入容器
+docker load -i dockerTag.tar</li>
+<li>查看当前运行的容器
+docker ps
+<ul>
+<li>查看所有的容器，包括已停止的
+docker ps -a</li>
+<li>返回正在运行的容器ID
+docker ps -q</li>
+</ul>
+</li>
+<li>重启，停止容器
+docker start dockerContainerId | dockerName
+docker restart dockerContainerid | dockerName
+docker stop dockerCOntainerid | dockerName</li>
+<li>删除容器
+docker rm dockerContainerId | dockerName
+<ol>
+<li>强制删除， 包括正在运行的容器
+docker rm -f dockerContainerid | dockerName</li>
+</ol>
+</li>
+<li>查看容器内运行日志
+docker log dockerContainerid | dockerName
+<ol>
+<li>实时查看日志
+-f</li>
+<li>加入时间戳实时展示日志
+-t</li>
+<li>显示指定行数的日志
+&ndash;tail Number</li>
+</ol>
+</li>
+<li>查看容器内的进程
+docker top dockerContainerid | dockerName</li>
+<li>与容器内部进行交互
+docker exec -it dockerCOntainerid | dockerName Command [args]</li>
+<li>宿主与容器的传输文件
+<ol>
+<li>从容器到操作系统
+docker cp dockerContainerid | dockerName :/path/file ./file</li>
+<li>从宿主到容器
+docker cp 文件 | 目录 dockerContainerid | dockerName: 容器内目录</li>
+</ol>
+</li>
+<li>查看容器内部细节
+docker inspect dockerContainerid | dockerName</li>
+<li>数据卷 Volume
+<ol>
+<li>使用： 实现襥机系统与容器之间的文件共享</li>
+<li>特点：
+<ol>
+<li>数据卷可以在容器之间共享和重用。</li>
+<li>对数据卷的修改会立即影响到对应容器。</li>
+<li>对数据卷的更新修改，不会影响镜像。</li>
+<li>数据卷默认会一直存在， 即使容器被删除。</li>
+</ol>
+</li>
+<li>使用
+<ol>
+<li>自定义数据卷
+docker run -v 宿主机目录:容器目录:ro dockerImageId</li>
+<li>自动创建数据卷
+docker run -v 卷名:容器内路径 dockerImageId</li>
+</ol>
+</li>
+<li>查看卷
+docker volume inspect volumeName
+docker volume ls</li>
+</ol>
+</li>
+<li>将正在运行的容器打包成镜像
+docker commit -m &rsquo;&rsquo; -a &rsquo;&rsquo; dockerContainerid dockerImageName:dockerTag</li>
+<li>将镜像备份
+docker save 镜像名称:tag -o dockerBak-tag.tar</li>
+</ol>
+
+<h4>网络配置</h4>
+
+<ol>
+<li>
+<p>docker容器与操作系统通信机制默认使用网桥</p>
+</li>
+<li>
+<p>docker网络使用注意: 一般在使用docker网桥实现容器与容器通信时，都是站在一个应用角度进行容器通信。</p>
+<ol>
+<li>查看默认网桥配置
+docker network ls</li>
+<li>创建自定义网桥
+docker network create brightName</li>
+<li>删除网桥
+docker network rm brightName</li>
+<li>查看网桥信息
+docker inspect brightName</li>
+<li>删除无用的网络</li>
+</ol>
+<p>docker network prune</p>
+<ol>
+<li>给一个窗口添加一个网络</li>
+</ol>
+<p>docker network connect bridge_name container_name</p>
+<ol>
+<li>给一个容器删除一个网络</li>
+</ol>
+<p>docker network disconnect bridge_name container_name</p>
+</li>
+</ol>
+<!--list-separator-->
+<ul>
+<li>
+<p>网络相关</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>网络模式， 使用&ndash;network指定</p>
+<ol>
+<li>bridge
+默认配置，隔离的网络配置</li>
+<li>host
+与宿主机使用同一个网络环境， 不需要做网络转发，不过会占用宿主机的资源，比如端口。
+&ndash;network host</li>
+<li>none
+无网络配置</li>
+<li>container
+与指定容器使用同一个网络环境，但是文件系统还是隔离的。不过目前docker文档里没有对应的配置，有可能会在以后的更新中取消。
+&ndash;network container:container_name</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3>Dockerfile</h3>
+
+
+<h4>定义</h4>
+
+<p>用来帮助我们自己构建一个自定义镜像， Dockerfile成为镜像构建文件</p>
+
+<h4>核心作用</h4>
+
+<p>用户可以将自己应用打包成镜像，这样就可以让我们应用进行容器运行。</p>
+
+<h4>原理</h4>
+
+<ul>
+<li>Tips
+<ul>
+<li>第一行Dockerfile都会构建成一个镜像，可以使用&ndash;no-cache禁用缓存。</li>
+<li>dockerfile所在的目录为docker的上下文目录，可以添加.dockerignore文件忽略文件</li>
+</ul>
+</li>
+</ul>
+
+<h4>Dockerfile的相关命令</h4>
+
+<p>官方文档： <a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></p>
+<!--list-separator-->
+<ul>
+<li>
+<p>FROME</p>
+<p>指当前镜像是基于的哪个镜像， 必须为Dockerfile的第行。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>RUN</p>
+<p>构建镜像时需要运行的指令</p>
+<pre  class="mc-prism hide language-text" ><code class="language-dockerfile">RUN yum install -y vim
+RUN [&quot;yum&quot;, &quot;install&quot;, &quot;-y&quot;, &quot;vim&quot;]
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>EXPOSE</p>
+<p>当前容器对外暴露的端口号只要暴露了端口才可能在运行时使用-p命令映射。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>WORKDIR</p>
+<p>指定在创建容器后， 终端默认登录进来的工作目录可以是绝对目录也可是相对目录，如果指定的目录不存在，那么会自动创建。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>ENV</p>
+<p>用来在构建镜像过程中设置环境变量, 在容器构建了使用时都可以使用</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>ARG</p>
+<p>在构建镜像过程中设置环境变量，在容器构建完成后消失。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>ADD</p>
+<p>将宿主机目录下的文件拷贝进镜像且ADD命令会自动处理URL和解压tar包</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>COPY</p>
+<p>类似于ADD， 拷贝文件和目录到镜像中</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>VOLUME</p>
+<p>容器数据卷， 用于数据保存和持久化工作</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>CMD</p>
+<p>指定一个容器启动时要运行的命令， Dockerfile中可以有多个CMD命令，但只有最后一个生效，CMD会被docker run之后的参数替换</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>ENTRYPOINT</p>
+<p>指定一个容器启动时要运行的命令， ENTRYPOINT的目的和CMD一样，都是在指定容器启动程序及参数。如果想覆盖ENTRYPOINT，必须显示指定&ndash;entrypoint=Command
+如果使用ENTRYPOINT会将docker run -I后的命令变成参数传递给ENTRYPOINT</p>
+</li>
+</ul>
+
+<h2>Docker-Compose</h2>
+
+
+<h3>常用命令</h3>
+
+
+<h4>version</h4>
+
+<p>版本</p>
+
+<h4>networks (top Level)</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>eg.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-yml">networks:
+         bjvm2_nacos:
+           driver: bridge
+           ipam:
+             driver: default
+             config:
+               - subnet: 172.25.0.0/16
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>参数说明</p>
+<ul>
+<li>bjvm2_nacos
+网络名称</li>
+<li>driver
+连接方式</li>
+</ul>
+</li>
+</ul>
+
+<h4>services</h4>
+
+<p>服务列表</p>
+
+<h4>image</h4>
+
+<p>使用哪个镜像的镜像名称, imageName:tag</p>
+
+<h4>container_name</h4>
+
+<p>容器名称，相当于docker run 的&ndash;name</p>
+
+<h4>ports</h4>
+
+<p>用来完成host与容器的端口映射关系数组。</p>
+
+<h4>volumes</h4>
+
+<p>用来指定宿主机与容器的目录数据的共享， 只能使用绝对路径或者自定义卷。相当于docker run的 -v
+自定义卷使用前必须定义.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-yml">version:
+services:
+  serviceName:
+    volumes:
+          volumesName:/容器内路径
+    networks:
+          -- networkName
+
+  ...
+volumes:
+  -- volumesName:
+newwork:
+  - networkName
+</code></pre>
+
+<h4>networks</h4>
+
+<p>代表当前服务使用哪个网络桥。使用前必须定义</p>
+<pre  class="mc-prism hide language-text" ><code class="language-yml">version:
+services:
+  serviceName:
+    networks:   # 相当于 docker run --network networkName
+          -- networkName
+  ...
+
+newwork:
+  - networkName
+</code></pre>
+
+<h4>cmd</h4>
+
+<p>用来覆盖容器的默认启动命令。</p>
+
+<h4>environment</h4>
+
+<p>用来指定容器启动时环境参数数组。</p>
+
+<h4>env_file</h4>
+
+<p>用来将environment的环境变量放入文件中， 使用相对路径。文件中使用key=value的形式，支持#开头的注释内容。</p>
+
+<h4>depends_on</h4>
+
+<p>指定容器的启动依赖，为容器ID的数组。代表为指定容器启动后才会启动。</p>
+
+<h4>build</h4>
+
+<p>用来指定Dockerfile所在目录，先根据build中的dockerfile自动构建镜像，自动运行容器。</p>
+
+<h3>命令行命令</h3>
+
+
+<h4>up</h4>
+
+<p>docker-compose up [options] [service&hellip;]
+用来启动所有docker-compose服务。默认前台启动，通过Ctrl-c会停止容器，</p>
+<ul>
+<li>-d选项</li>
+</ul>
+
+<h4>down</h4>
+
+<p>用来关闭所有docker-compose服务</p>
+
+<h4>exec</h4>
+
+<p>进入容器
+docker-compose exec docker-compose.yml中声明服务的ID   /bash(命令)</p>
+
+<h4>ps</h4>
+
+<p>用来展示当前docker-compose运行的所有容器</p>
+
+<h4>restart</h4>
+
+<p>用来重启项目服务中的某个容器
+docker-compose restart [options] [service &hellip;]</p>
+
+<h4>rm</h4>
+
+<p>删除容器</p>
+
+<h4>start</h4>
+
+<p>启动服务
+docker-compose start 服务ID</p>
+
+<h4>stop</h4>
+
+<p>关闭服务</p>
+
+<h4>top</h4>
+
+<p>展示容器内部的进程</p>
+
+<h4>unpause</h4>
+
+
+<h4>pause</h4>
+
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

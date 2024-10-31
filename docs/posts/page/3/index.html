@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en"
+    dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <title>
+    
+    Posts - Niello - Hugo Theme
+    
+</title>
+    
+    
+    
+    
+    
+    
+    <meta name="keywords" content="SEO keywords">
+    <meta name="description" content="SEO description">
+    <link rel="canonical" href="http://localhost:1313/posts/" />
+    <link rel="icon" href="/favicon.ico?v=1730192373" type="image/x-icon">
+    
+<link rel="stylesheet" href="/css/app.css">
+    
+<script src="/js/main.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+
+    
+    
+
+    
+    
+
+    
+    
+</head><body>
+    <div class="
+        mx-auto max-w-[calc(120rem)]
+        min-h-screen
+        2xl:px-[calc(16rem)]
+        xl:px-24
+        md:px-8
+        px-4
+    ">
+
+        <div x-data="{ openMenu: false }" class="relative">
+    <nav class="flex flex-1 flex-col lg:flex-row items-center justify-between">
+        <a href="/">
+            <img src="/image/logo.webp" alt="site logo"
+                class="w-16 h-16 my-5 p-1 bg-gray-100 rounded-full cursor-pointer hover:scale-110" />
+        </a>
+        <div class="hidden lg:block" :class="{'hidden': !openMenu}">
+            
+
+
+
+
+
+
+
+        </div>
+    </nav>
+    <div class="absolute top-8 right-5 flex items-center lg:hidden">
+        
+        <button @click="openMenu = !openMenu" type="button"
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-800 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="openMenu">
+            
+            <svg x-show="!openMenu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            
+            <svg x-show="openMenu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+        <header class="flex flex-col w-full items-center justify-center text-white pt-8 pb-8">
+    <div class="w-full">
+        <div class="flex flex-1 flex-row justify-between">
+            <h2 class="w-full text-center text-3xl sm:text-5xl font-crimson font-bold tracking-tight text-gray-300">
+                <a href="http://localhost:1313/">Niello - Hugo Theme</a>
+            </h2>
+        </div>
+        <p
+            class="w-full text-center pl-1 pb-4 sm:pt-3 sm:pb-0 font-crimson font-normal text-xl sm:text-2xl leading-8 text-gray-500">
+            Your site slogan.</p>
+    </div>
+
+    <div class="relative w-9/12 lg:w-1/2 h-12 my-5">
+        <form action="/en/search" method="get">
+            <input
+                class="bg-gray-800 placeholder:italic placeholder:text-gray-600 w-full h-12 rounded-full mt-1 pl-5 pr-5 border border-gray-800 text-gray-100"
+                placeholder='Input Keywords...' type="text" name="q" id="search-query" />
+
+            <button
+                class="absolute inset-y-2 right-1 w-28 h-10 font-light bg-gray-900 hover:bg-red-500 text-gray-500 hover:text-gray-100 rounded-full cursor-pointer"
+                type="submit">Search</button>
+        </form>
+    </div>
+
+    
+    <div class="w-full flex flex-row justify-start text-gray-500 text-lg px-1 border-l-4 border-l-red-500">
+        <ul class="flex flex-row gap-x-2">
+            <li class="">
+                <a href="/" class="hover:text-gray-100">Home</a>
+            </li>
+            
+            <li>
+                &gt;&nbsp;&nbsp;<a href="/posts/" class="hover:text-gray-100">Posts</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="w-full h-2 border-b border-b-gray-600/50 border-dashed font-light text-gray-300">
+    </div>
+    
+
+</header>
+
+        <div class="
+            flex flex-col overflow-hidden
+            xl:px-0
+            lg:flex-row lg:space-x-8
+        ">
+            <main class="w-full">
+                
+
+
+<div class="list-container">
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center  px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/git/gitignore/">
+                Gitignore
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                1 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="规则">规则</h2>
+<ul>
+<li><em>mtk</em> 过滤整个文件夹</li>
+<li>*.zip 过滤所有.zip文件</li>
+<li>/mtk/do.c 过滤某个具体文件</li>
+<li>!*.zip 反忽略</li>
+<li>!/mtk/one.txt反忽略</li>
+<li>*.a       # 忽略所有 .a 结尾的文件</li>
+<li>!lib.a    # 但 lib.a 除外</li>
+<li>/TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO</li>
+<li>build/    # 忽略 build/ 目录下的所有文件</li>
+<li>doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</li>
+</ul></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center bg-gray-800/50 px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+                Git常用命令
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                5 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="git常用命令">Git常用命令</h2>
+<h3 id="新建代码库">新建代码库</h3>
+<ul>
+<li>在当前目录新建一个Git代码库</li>
+</ul>
+<p>&gt; git init</p>
+<ul>
+<li>新建一个目录，将其初始化为Git代码库</li>
+</ul>
+<p>&gt; git init [Project_name]</p>
+<ul>
+<li>下载一个项目和它的整个代码历史</li>
+</ul>
+<p>&gt; git clone [url]</p>
+<h3 id="配置">配置</h3>
+<ul>
+<li>添加指定文件到暂存区</li>
+</ul>
+<p>&gt; git add [fileName] &hellip;</p>
+<ul>
+<li>添加当前目录的所有的文档到暂存区</li>
+</ul>
+<p>&gt; git add .</p>
+<ul>
+<li>删除工作区文件，并且将这次删除放入暂存区</li>
+</ul>
+<p>&gt; git rm [fileName] &hellip;</p>
+<ul>
+<li>停止追踪指定文件，但该文件会保留在工作区
+&gt; git rm &ndash;cached [filename]</li>
+<li>改名文件，并且将这个改名放入暂存区
+&gt; git mv [file-original] [file-renamed]</li>
+<li>全局配置忽略Linux与Windows回车的类型
+<pre><code class="language-shell">git config --global core.autocrlf true
+</code></pre>
+</li>
+</ul>
+<h3 id="代码提交">代码提交</h3>
+<ul>
+<li>提交暂存区到仓库区
+&gt; git commit -m [Message]</li>
+<li>提交暂存区的指定文件到仓库区
+&gt; git commit [file1] [file2] &hellip; -m [message]</li>
+<li>提交工作区自上次commit之后的变化，直接到仓库区
+&gt; git commit -a</li>
+<li>提交时显示所有diff信息
+&gt; git commit -v</li>
+<li>使用一次新的commit, 替代上一次提交，如果代码没有变化，则用来改写上一次commit的提交信息
+&gt; git commit &ndash;amend -m [message]</li>
+<li>重做上一次commit, 并包括指定文件的新变化
+&gt; git commit &ndash;amend &hellip;</li>
+</ul>
+<h3 id="分支">分支</h3>
+<ul>
+<li>列出所有本地分支</li>
+</ul>
+<p>&gt; git branch</p></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center  px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/maven/">
+                maven基础
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                2 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="maven库">Maven库：</h2>
+<p><a href="http://repo2.maven.org/maven2/">http://repo2.maven.org/maven2/</a></p>
+<h2 id="maven依赖查询">Maven依赖查询：</h2>
+<p><a href="http://mvnrepository.com/">http://mvnrepository.com/</a></p>
+<h2 id="maven常用命令">Maven常用命令：</h2>
+<ol>
+<li>创建Maven的普通java项目：
+mvn archetype:create
+-DgroupId=packageName
+-DartifactId=projectName</li>
+<li>创建Maven的Web项目：</li>
+</ol>
+<p>​    mvn archetype:create
+​    -DgroupId=packageName
+​    -DartifactId=webappName
+​    -DarchetypeArtifactId=maven-archetype-webapp</p>
+<ol>
+<li>编译源代码： mvn compile</li>
+<li>编译测试代码：mvn test-compile</li>
+<li>运行测试：mvn test</li>
+<li>产生site：mvn site</li>
+<li>打包：mvn package</li>
+<li>在本地Repository中安装jar：mvn install</li>
+<li>清除产生的项目：mvn clean</li>
+<li>生成eclipse项目：mvn eclipse:eclipse</li>
+<li>生成idea项目：mvn idea:idea</li>
+<li>组合使用goal命令，如只打包不测试：mvn -Dtest package</li>
+<li>编译测试的内容：mvn test-compile</li>
+<li>只打jar包: mvn jar:jar</li>
+<li>只测试而不编译，也不测试编译：mvn test -skipping compile -skipping test-compile</li>
+</ol>
+<p>​      ( -skipping 的灵活运用，当然也可以用于其他组合命令)</p>
+<ol>
+<li>清除eclipse的一些系统设置:mvn eclipse:clean</li>
+</ol>
+<p>ps：一 般使用情况是这样，首先通过cvs或svn下载代码到本机，然后执行mvn eclipse:eclipse生成ecllipse项目文件，然后导入到eclipse就行了；修改代码后执行mvn compile或mvn test检验，也可以下载eclipse的maven插件。
+mvn -version/-v  显示版本信息
+mvn archetype:generate        创建mvn项目
+mvn archetype:create -DgroupId=com.oreilly -DartifactId=my-app   创建mvn项目
+mvn package            生成target目录，编译、测试代码，生成测试报告，生成jar/war文件
+mvn jetty:run            运行项目于jetty上,
+mvn compile                    编译
+mvn test                    编译并测试
+mvn clean                    清空生成的文件
+mvn site                    生成项目相关信息的网站
+mvn -Dwtpversion=1.0 eclipse:eclipse        生成Wtp插件的Web项目
+mvn -Dwtpversion=1.0 eclipse:clean        清除Eclipse项目的配置信息(Web项目)
+mvn eclipse:eclipse                将项目转化为Eclipse项目在应用程序用使用多个存储库</p></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center bg-gray-800/50 px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/svn/">
+                SVN常用命令
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                1 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="常用svn命令">常用SVN命令</h2>
+<ol>
+<li>svn checkout 签出,创建新的工作拷贝.</li>
+<li>svn info 搞清楚工作拷贝从哪里来的.</li>
+<li>svn update 从项目仓库中更新目录中的所有文件</li>
+<li>svn add 添加文件的目录到项目仓库中</li>
+<li>svn propset 设置文件的属性</li>
+<li>svn add 添加文件</li>
+<li>svn delete 删除文件</li>
+<li>svn move src.file dist.file 移动文件</li>
+<li>svn commit -m &lsquo;提交信息&rsquo;</li>
+<li>svn log filename 查看指定文件的历史</li>
+<li>svn diff 展示文件版本之间的差异.
+<ol>
+<li>在版本之间找差异
+svn diff -r19:21 filename
+使用-r选项来指定一个版本范围</li>
+</ol>
+</li>
+<li>svn revert 删掉本地改动并使用项目仓库中的文件版本</li>
+<li>svn resolved 修正冲突后执行</li>
+<li>svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人</li>
+<li>svn update 获取最新的代码</li>
+<li>svn merge -r 27:26 filename 移除file中版本27的改动</li>
+<li>svn lock filename 给文件加锁</li>
+</ol></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center  px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/uml/">
+                UML
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                1 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="基础知识">基础知识</h2>
+<h3 id="uml图">UML图</h3>
+<h4 id="类图">类图</h4>
+<p>表述系统中各个对象的类型以及其间存在的各种静态关系.类图也示明类中的特性和操作以及用于对象连接方式的约束.</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>聚合与组合</p>
+<p>聚合是整体-部分关系.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>可见性</p>
+<ul>
+<li>+: 公用</li>
+<li>-: 私用</li>
+<li>~: 包</li>
+<li>#: 受护</li>
+</ul>
+</li>
+</ul>
+<h4 id="顺序图">顺序图</h4>
+<p>顺序图能明晰地指出参加者交互方面的区别.不擅长于示明诸如循环与条件行为等算法细节,但却能使参加者之间的调用一目了然.
+当你考查单个用例内部若干对象的行为时,</p>
+<h4 id="用例图">用例图</h4>
+<p>用例通过表述系统的用户和系统本向之间特有的交互而工作,提供了如何使用系统的一种陈述.</p>
+<h4 id="对象图">对象图</h4>
+<p>是在一个时间点上系统中各个对象的一个快照.
+由于对象图示明的是实例而不是类,</p>
+<h4 id="包图">包图</h4>
+<p>在UML中用双冒号表示包名.
+对大型系统要了解系统主要成分之间的依赖时,使用包图.
+包图表示一种编译时刻的聚组机制.关于示明在运行时刻如何来组合各个对象.</p>
+<h4 id="部署图">部署图</h4>
+<p>通过揭示&quot;哪些软件片段运行于哪些硬件片段上&quot;来示明系统的一个物理布局.
+任何复杂的部署都可以很好地使用部署图.</p>
+<h4 id="活动图">活动图</h4>
+<p>活动图可以示明组织机构的工作流,示明软件与人的活动如何交互.活动图还可以示明用例的环境发及复杂用例如何工作的细节.
+考查跨用例或跨线程的行为,就考虑活动图.
+活动图是一种表述过程基理,业务过程以及工作流的技术.</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>分划</p>
+<p>分划示明一个类或一个机构单位施行哪些动作.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>信号</p>
+<p>活动图有明确定义的起点,它对应于程序或例和的启用.动作亦可对应于信号.
+信号指明活动接收来自外部过程的一个事件.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>权标</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>流与边</p>
+<p>是UML2中用来表述两个动作之间连接的同义词.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>饰针与转换</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>展开区域</p>
+<p>展开区域是活动图上标出的一个区域,其中的动作对一个组中每一项均要发生一次.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>流终</p>
+<p>流终(flow final)指明在整个活动并未终止时,一个特定流的终结.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>汇合指明</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>何时使用活动图</p>
+<p>活动图最大的优点是,它们支持并鼓励并行行为.这使它们成为工作流建模和过程建模的一项重要工具.</p>
+</li>
+</ul>
+<h4 id="通信图">通信图</h4>
+<p>通信图是一种着重阐明交互中各个参加者之间的数据连接的交互图.
+在UML1.x中,这些图称为协作图.</p>
+<h4 id="构件图">构件图</h4>
+<h4 id="状态图">状态图</h4>
+<p>如果一个概念具有有趣的生命周期,具有各种状态发及改变状态的事件,状态图则可能有用.
+考虑用例的单个对象的行为,就用状态图.</p>
+<h4 id="交互概观图">交互概观图</h4>
+<p>是将活动图与顺序图嫁接在一起的图.</p></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center bg-gray-800/50 px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/">
+                代码之外的生存指南
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                5 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h3 id="为何这本书与你先前读过的任何书籍都迥然不同">为何这本书与你先前读过的任何书籍都迥然不同</h3>
+<p>讲述如何成为一名优秀的软件开发人员的书，优秀开发人员指的是那些能够把控自己的职业生涯，达成目标，享受生活的人。本书并不再讨论你能做什么，而是讨论你自己。关乎你的职业生涯，你的生活，你的身体，你的思想及你的灵魂。</p>
+<ul>
+<li>职业生涯：学习如何主动管理自己的职业生涯，从而达到自己追寻的结果。</li>
+<li>自我营销：学习如何推销自己。
+<ul>
+<li>如何打造个人品牌，如何打造一个成功的博客，如何通过演讲，教学，著书立说的方式让你扬名立万。</li>
+</ul>
+</li>
+<li>学习：学习如何学习，学习如何自觉</li>
+<li>生产力：关于如何让工作更加富有成效的</li>
+<li>理财：学习如何有效地管理你赚到的财。</li>
+<li>健身：</li>
+<li>精神：</li>
+</ul>
+<h2 id="职业">职业</h2>
+<p>你所能犯的最大错误就是相信自己是在为别人工作。这样一来你对工作的安全感已然尽失。职业发展的驱动力一定是来自个体本身。记住：工作是属于公司的，而职业生涯却是属于你自己的。体验决策过程：你要决定自己想要从软件开发这个职业中获得什么，以及如何去获得。</p>
+<h3 id="从非同凡响开始-绝不要做其他人都在做的事">从非同凡响开始：绝不要做其他人都在做的事</h3>
+<h4 id="拥有商业心态">拥有商业心态</h4>
+<p>因为只有你开始把自己当作一个企业去思考时，你才能开始做出良好的商业决策。尽管在你的职业生涯的某个特定时间段里，你可能确实是在为某家公司打工，但是千万不要让那个特定的角色固化了你和你的整个职业生涯。我们需要把雇主当作是自己的软件开发企业的一个客户。</p>
+<h4 id="如何像企业一样思考">如何像企业一样思考</h4>
+<p>理解企业的构成：首先，要有一个产品或服务，我的产品是什么？通常软件开发人员售卖的就是他们把一个想法变成一个数字化的现实产品的能力。作为一名软件开发人员，你提供的服务具备有形价值，你要传达的不仅是这款软件的价值是什么，还有它与别的成千上万款软件开发人员提供的服务有什么不同。同时，你需要认识到仅有服务或产品是不够的。想要赚钱，你就必须能让潜在的客户了解该产品或服务。所以我需要做到：</p>
+<ul>
+<li>专注于你正在提供怎样的服务，以及如何营销这项服务。</li>
+<li>想方设法提升你的服务</li>
+<li>思考你可以专注为哪一特定类型的客户或行业提供特定的服务</li>
+<li>集中精力成为一位专家，专门为某一特定类型的客户提供专业的整体服务（记住，作为一个软件开发人员，你只有真正专注于一类客户，才能找到非常好的工作）</li>
+</ul>
+<p>另外，还要想想如何更好地宣传你的服务，如何更好地找到你的客户。</p>
+<h3 id="思考未来-你的目标是什么">思考未来：你的目标是什么</h3>
+<p>定义你的业务目标要实现任何目标，都必须先知道目标是什么。</p>
+<h4 id="如何设定目标">如何设定目标</h4>
+<p>起步阶段最简单的就是在心中树立一个大目标，然后再建立能帮你达成这个大目标的小目标。因为很难清晰地界定远期可能发生的事情，所以大目标通常不是非常明确。不过大目标不一定要非常具体。只要目标能具体到给你提供清晰的方向即可。花点儿时间思考一下你的大目标，你希望从职业生涯中收获什么？你希望自己5年或10年之后在哪里？——这非常重要。一旦你想通了自己长远的大目标是什么，下一步注是设定路线，制订通往大目标的小目标。有时还可以运用一下逆向思维，反推一下如何从大目标到当前的情况。如果你可以驱动小目标逐渐前行并靠近你的大目标，那么你最终一定会达到目的地。</p>
+<h4 id="追踪你的目标">追踪你的目标</h4>
+<p>你应该定期追踪并更新自己设定的目标，必要时还要调整。建议你定期核对自己的目标，这有助于在必要时进行调整，让你对自己负责。反思自己在短期和长期取得的成果是大有裨益的，你能够弄清自己是否取得了合理的进展，或者是否需要进行某些调整。</p>
+<h3 id="人际交往能力-远比你想象的重要">人际交往能力：远比你想象的重要</h3>
+<h4 id="别管我-我只想一个人安静地写代码">别管我，我只想一个人安静地写代码</h4>
+<p>我曾经对软件开发人员的工作的印象就是写代码。事实上，在软件开发领域，我们大多数时候是与人而非与计算机打交道。甚至我们所写的代码首先是供人使用的，其次才是让计算机可以理解。</p>
+<h4 id="学会如何与人打交道">学会如何与人打交道</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>每个人都希望感觉自己很重要</p>
+<p>当你和别人打交道的时候，你应该知道 的最重要的一个概念就是：以自己为核心，每个人都希望自己很重要。这是人类最深邃，最致命的欲望之一，也是社会和生活中取得伟大成就的主要动机。我们常常容易犯的一个错误就是，轻率地否决同事的想法，以便于可以提出自己的想法。然而承着你作出这样的错误判断，你往往会发现他们对你的想法充耳不闻，仅仅因为你让他们感觉自己是无足轻重的。如果你希望人们接受你的想法，并认可其中的价值，首先你最好先主动给他人相同的礼遇。如果你不能保全他人的自尊，那你永远也不可能赢得他的心。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>永远不要批评</p>
+<p>研究表明，奖励积极行为要比惩罚消极行为有效得多。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>换位思考</p>
+<p>在人际交往方面获得成功的关键在于：停止用“我”和“我想要什么“来思考。你应当开始思考对他人而言什么才最重要，什么才是他们需要的。</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>避免争吵</p>
+<p>作为软件开发人员，我们有时候倾向于认为所有人是从逻辑角度来思考问题的，这很容易让你落入陷阱，错误地认为严谨的推理足以使他人接受你的思维方式。事情的真相是：尽管我们为自己的智慧感到骄傲，但人们依然是情感动物。我们就像那些穿着西装，打着领带，四处游荡的小孩，假装自己已经长大，其实任何轻微的伤害都能让我们号啕大哭，或者大发雷霆，我们只是已经学会了如何控制和隐藏这些情绪。如果你因为”该怎么做某事“与他人产生分歧，那么在很多情况下，你最好先确定分歧点是否值得你去拼命维护，特别是在你知道它已让他人卷入时。如果你从来没花时间来提高自己的人际交往能力，那现在正当其时。你会发现，当你学会了如何以令人愉悦的方式与他人互动和交往的时候，自己的生活也越来越愉快。通过买得这些技能，你积累了让自己获益终生的财富，它的价值无法用金钱衡量。</p>
+</li>
+</ul>
+<h3 id="破解面试之道">破解面试之道</h3>
+<h4 id="通过面试的最快捷的方式">通过面试的最快捷的方式</h4>
+<p>通过面试最快捷的方式是让面试官对你怀有好感。达成该目标有很多方法，其中大多数可以在面试之前完成。</p>
+<h4 id="我是如何得到最后一份工作的">我是如何得到最后一份工作的</h4>
+<p>我事先确定了我要入职的公司，我花了一些时间研究这家公司，找出这个公司有哪些开发人员在写博客。我开始关注为这家公司工作的开发人员的所有博客。并开始在他们的博客文章下留下经过沉思熟虑的评论。慢慢地，许多在这家公司供职的开发人员开始认识了我，并通过我给他们博客做出的评论知道了我是谁，他们中的一些人甚至开始读我的博客。接下来，当这家公司开始招聘开发人员的时候，我递交了申请。</p>
+<h4 id="突破陈规-建立融洽关系">突破陈规，建立融洽关系</h4>
+<p>“破解”面试的要诀就是在面试开始之前就思考应对面试的策略。大量工作岗位来自“个人推荐”。你要试图确保你申请的职位也适用于个人推荐。所以你必须要突破常规，想尽办法与公司内部人员建立联系。随着社交媒体和互联网的广泛应用，你能非常容易地找到任何公司的各种信息，也容易与他们的员工建立联系。</p>
+<h4 id="真正的面试会是什么样子的">真正的面试会是什么样子的</h4>
+<p>如果顺利的话，在你走进面试间的时候，面试官已经知道你是谁了，但无论如何 ，你都需要了解在面试时自己该做什么。现在，很明显，你需要从技术能力上证明你可以通过技术面试。接下来要关注的事情就是自信地展示自己的能力。——知道要获得这份工作需要做什么，做就是了。对于公司来说招聘员工就是一项投资。与其雇用技术高超但需要生拉硬拽才能干活的人相比，宁愿雇用这样的开发人员：知道的东西可以少一点，但是明确知道要做什么，以及怎样去做。从某种程度上，在你可控的内，面试的时候你要集中精力证明自己就是无需督促也能自动自发做好事情的员工。你还必须要证明：在技术上你确实胜任工作。同时，如果你能说服面试官相信你非常能干，不会被困难阻挡，那么他们不仅会喜欢你，而且更有可能会录用你。</p>
+<h4 id="当下你能做什么">当下你能做什么</h4>
+<p>不管你现在是正在积极寻找工作，还是给自己保留选择的余地，再没有比现在更好的时机去开始准备你的下一场求职面试了。你应该做的第一件事情是确保自己仍旧保持技术能力。所以确保自己一直阅读技术书籍和博客文章，并会花些时间提升自己的技能。你也可以未雨筹谋，拓展自己的社交网络。开始与本领域不同公司的员工接触，建立联系，他们日后会帮到你。通过阅读并评论他们的博客，认识本领域的其他开发人员甚至是招聘人员。想方设法扩大你的社交圈子。别忘了实践，即使你现在对换新工作毫无兴趣，为了获得面试经验，你也要去面试。集中精力推销自己会对你大有裨益。行动：</p>
+<ul>
+<li>即使你现在不需要努力找工作，也要整理一份清单，列出你想去工作的公司，以及你认识 的公司的人</li>
+<li>在这份清单上的，如果有的公司你一个人都不认识，那么制订计划至少去认识这些公司中的一位员工，并与之建立联系。</li>
+<li>在自己所在的领域找出至少一个本地用户组，参数聚会，并把自己介绍给尽可能多的人。</li>
+</ul>
+<h3 id="就业选择-列出你的选择">就业选择：列出你的选择</h3>
+<p>落入俗套很容易，循规蹈矩也很容易，只要跟其他人做一样的事情就是了。你自己甚至可能都不知道除了雇用型劳动关系之外还有其他选项。</p>
+<h4 id="选择一-雇员">选择一：雇员</h4>
+<p>对广大软件开发人员而言，这是一项常见的，默认的就业选择。一部分原因是因为不知道还有其他选项，一部分在于这是最容易的选择。身为雇员的最大的好处就是稳定。作为一名雇员也是一条比其他选择更轻松的道路，因为你的职责是有限的，路线明晰。寻找和申请工作都有一个明确定义的流程。你也无需要操心“做什么才能赚钱”这种问题。作为一名雇员，你通常还有带薪年假。作为一名雇员的消极方面，很大部分与自由相关。此外，作为一名雇员也意味着你的收入是事先确定好的，这就意味着收入有一个“封顶”的界限。</p>
+<h4 id="选择二-独立咨询师">选择二：独立咨询师</h4>
+<p>作为独立咨询师，软件开发人员不再为特定的单个雇主工作，而是服务于一个或多个客户。如果你曾兼职为某个客户写程序，他们以时薪或固定价格付你报酬，那你就明白什么是咨询了。做独立咨询师最大的好处可能就是赚钱的潜力。作为独立咨询师，你其实就是名副其实的经营者（不仅仅指心态），你要负责税务，法律咨询，销售，健康保险以及各种与企业经营有关的事情。</p>
+<h4 id="创业者">创业者</h4>
+<p>创业之路可能是你职业生涯中最验证，最不确定但却最具回报潜力的选择。“创业者”意味着软件开发者使用自己的软件技能开发自己的产品，拓展自己的业务。“创业者”的优势： 完全的自由和完全不封顶的赚钱潜力。但需要学习诸多方面的技能：销售，市场营销，以及商业和理财待。</p></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center  px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/study/">
+                学习
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                1 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="提问">提问</h2>
+<h3 id="提问的智慧">提问的智慧</h3>
+<ul>
+<li>提问的智慧<a href="http://www.catb.org/~esr/faqs/smart-questions.html">http://www.catb.org/~esr/faqs/smart-questions.html</a></li>
+<li>提问的智慧<a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md">https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md</a></li>
+</ul>
+<h3 id="学习新技术的逻辑">学习新技术的逻辑</h3>
+<ol>
+<li>这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。这个问题非常关键，也就是说，你在学习一个技术的时候，需要知道这个技术的成因和目标，也就是这个技术的灵魂。如果不知道这些的话，那么你会看不懂这个技术的一些设计理念。</li>
+<li>这个技术的优势和劣势分别是什么，或者说，这个技术的 trade-off 是什么。任何技术都有其好坏，在解决一个问题的时候，也会带来新的问题。另外，一般来说，任何设计都有 trade-off（要什么和不要什么），所以，你要清楚这个技术的优势和劣势，以及带来的挑战。</li>
+<li>这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景，这个技术可能会有很多槽点，所以学习技术不但要知道这个技术是什么，还要知道其适用的场景。没有任何一个技术是普适的。注意，所谓场景一般分别两个，一个是业务场景，一个是技术场景。</li>
+<li>技术的组成部分和关键点。这是技术的核心思想和核心组件了，也是这个技术的灵魂所在了。学习技术的核心部分是快速掌握的关键。</li>
+<li>技术的底层原理和关键实现。任何一个技术都有其底层的关键基础技术，这些关键技术很有可能也是其它技术的关键基础技术。所以，学习这些关键的基础底层技术，可以让你未来很快地掌握其它技术。可以参看我在 CoolShell 上写的 Docker 底层技术那一系列文章。</li>
+<li>已有的实现和它之间的对比。一般来说，任何一个技术都会有不同的实现，不同的实现都会有不同的侧重。学习不同的实现，可以让你得到不同的想法和思路，对于开阔思维，深入细节是非常重要的。</li>
+</ol></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center bg-gray-800/50 px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/git/readnote/%E7%B2%BE%E9%80%9Agit_22/">
+                精通Git(2)
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                2 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="精通git">精通Git</h2>
+<h3 id="git基础">Git基础</h3>
+<h4 id="获取git仓库">获取Git仓库</h4>
+<pre><code class="language-shell">$ git init
+</code></pre>
+<h4 id="记录每次更新到仓库">记录每次更新到仓库</h4>
+<pre><code class="language-shell">git add .
+git commit -m 'commit mesg'
+</code></pre>
+<h4 id="查询提交历史">查询提交历史</h4>
+<p>#+END_SRC
+git log
+#+END_SRC</p>
+<h4 id="撤消操作">撤消操作</h4>
+<pre><code class="language-shell">git commit --amend
+</code></pre>
+<p>这个命令会将暂存区中的文件提交，如果自上次提交以来你还未做任何修改，那么快照会保持不变，而你所修改的只是提交信息。
+e.g.</p>
+<pre><code class="language-shell">git commit -m 'initial commit'
+git add ofrgotten_file
+git commit --amend
+</code></pre>
+<p>最终你只会有一个提交 - 第二冷饮提交将代替第一次提交的结果。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>取消暂存的文件</p>
+<pre><code class="language-shell">git reset HEAD
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>撤消对文件的修改</p>
+<pre><code class="language-shell">git checkout xxx.file
+</code></pre>
+</li>
+</ul>
+<h4 id="远程仓库的使用">远程仓库的使用</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>查看远程仓库</p>
+<pre><code class="language-shell">get remote -v
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>添加远程仓库</p>
+<pre><code class="language-shell">git remote add &lt;shortname&gt; &lt;url&gt;
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>从远程仓库中抓取与拉取</p></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center  px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/%E9%87%8D%E6%9E%842/">
+                重构2
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+            <time datetime="2025-03-16" class="text-gray-600">2022-11-25 00:00
+                |
+                1 minute read</time>
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="开始">开始</h2>
+<p>本章重构：</p>
+<ul>
+<li>将原函数分解成一组嵌套的函数</li>
+<li>分离计算逻辑与输出格式化逻辑</li>
+<li>为计算器引入多态性来处理计算逻辑</li>
+</ul>
+<p>好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积</p>
+<h2 id="重构的原则">重构的原则</h2>
+<h3 id="何谓重构">何谓重构</h3>
+<ul>
+<li>名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本.</li>
+<li>动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构.</li>
+</ul>
+<h3 id="重构时不添加新功能-添加新功能时不重构-dot">重构时不添加新功能,添加新功能时不重构.</h3>
+<h3 id="为何重构">为何重构</h3>
+<h4 id="改进软件的设计">改进软件的设计</h4>
+<h4 id="使软件更容易理解">使软件更容易理解</h4>
+<h4 id="帮助找到bug">帮助找到BUG</h4>
+<h4 id="提高编程速度">提高编程速度</h4>
+<h3 id="何时重构">何时重构</h3>
+<p>事不过三, 三则重构</p>
+<ul>
+<li>预备性重构: 在添加新功能之前进行重构</li>
+<li>帮助理解的重构:</li>
+<li>捡垃圾式重构:
+不想从眼下正要完成的代码上跑题太多,但也不想把垃圾留在原地.所以在重构可以很快完成时就立即重构,如果需要花一些精力,可以做一个TODO.至少要让营地比你到达时干净.</li>
+<li>有计划的重构和见机行事的重构每次修改时,首先令修改很容易,然后再进行这次容易的修改.</li>
+<li>长期重构如果想替换掉一个正在使用的库,需要很长时间,可以先引入一层新的抽象,使其兼容新旧的两个库的接口.一旦调用方已经完全为使用这层抽象,替换掉下面的库就会容易很多.</li>
+<li>重审代码时重构</li>
+<li>何是不应该重构
+<ul>
+<li>如果我看见一块凌乱的代码,但并不需要修改它,那么我就不需要重构它.</li>
+<li>如果丑陋的代码能被隐藏在一个API之下,我就可以容忍它继续保持丑陋.</li>
+<li>如果重写比重构还容易,就别重构了.</li>
+</ul>
+</li>
+</ul>
+<h3 id="重构的挑战">重构的挑战</h3>
+<ul>
+<li>延缓新功能开发</li>
+</ul>
+<h2 id="代码的坏味道">代码的坏味道</h2>
+<h3 id="神秘命名">神秘命名</h3>
+<h3 id="重复代码">重复代码</h3>
+<h3 id="过长函数">过长函数</h3>
+<p>现代编程语言几乎已经完全免除了进程内的函数调用开销.</p>
+<h3 id="过长的参数列表">过长的参数列表</h3>
+<ul>
+<li>如果可以向某个参数发起查询而获得另一个参数的值,那么就可以使用以查询取代参数去掉这第二个参数.</li>
+<li>如果正在从现有的数据结构中抽出很多数据荐,就可以考虑使用保持对象完整手法</li>
+<li>如果有几项参数总是同时出现,可以引入参数对象</li>
+<li>如果某个参数被用作区分函数行为的标记,可以使用移除标记参数.</li>
+</ul>
+<h3 id="全局数据">全局数据</h3>
+<p>可以把全局数据用一个函数包装起来,至少能看见修改它的地方.</p>
+<h3 id="可变数据">可变数据</h3>
+<h3 id="发散式变化">发散式变化</h3>
+<p>每次只关心一个上下文</p>
+<h3 id="霰弹式修改">霰弹式修改</h3>
+<h3 id="依恋情结">依恋情结</h3>
+<p>总是将一起变化的东西放在一块儿.</p>
+<h3 id="数据泥团">数据泥团</h3>
+<h3 id="基本类型偏执">基本类型偏执</h3>
+<p>可以运用使用对象取代基本类型</p>
+<h3 id="重复的switch">重复的switch</h3>
+<p>任何switch语句都应该用以多态取代条件表达式.</p>
+<h3 id="循环语句">循环语句</h3>
+<p>可以使用管道取代循环</p>
+<h3 id="冗赘的元素">冗赘的元素</h3>
+<p>有些类或者额外的结构在设计过程中不再有用,就把它抛弃</p>
+<h3 id="夸夸其谈通用性">夸夸其谈通用性</h3>
+<p>那些我们想的总有一天需要做这些事,并且企图以各式各样的钩子和特殊情况来处理一些非必要的事情.</p>
+<h3 id="临时字段">临时字段</h3>
+<h3 id="过长的消息链">过长的消息链</h3>
+<p>可以使用隐藏委托关系</p>
+<h3 id="中间人">中间人</h3>
+<p>如果你看到某个类中有一半的函数都委托给其它类,这样就是过度运用.应该移除中间人.</p></div>
+    </div>
+</article>
+
+    
+
+    
+    <article class="flex flex-col lg:flex-row items-center bg-gray-800/50 px-1 rounded-md">
+    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
+        
+        
+        <img src="/image/common-writing-empty.webp?v=1730192373" alt=""
+            class="w-full h-48 rounded-2xl object-cover" />
+        
+
+    </div>
+    <div class="w-full lg:p-5 overflow-auto">
+        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
+            <a href="/posts/jenkins%E5%85%A5%E9%97%A8/">
+                Jenkins入门
+            </a>
+        </h3>
+        <div class="flex flex-row items-center justify-start py-1 text-lg">
+            
+        </div>
+        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"><h2 id="gitlab配置">gitlab配置</h2>
+<ol>
+<li>wget &ndash;content-disposition <a href="https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-13.2.4-ce.0.el7.x86_64.rpm/download.rpm">https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-13.2.4-ce.0.el7.x86_64.rpm/download.rpm</a></li>
+<li>安装信赖
+<ol>
+<li>yum install curl openssh-server postfix cronie</li>
+<li>yum -y install policycoreutils-python</li>
+</ol>
+</li>
+<li>rpm -ivh gitlab-ce</li>
+<li>config gitlab
+<ol>
+<li>vi /etc/gitlab/gitlab.rb
+external_url:
+nginx[&rsquo;listen_port']</li>
+<li>gitlab-ctl reconfigure</li>
+<li>gitlab-ctl restart</li>
+</ol>
+</li>
+<li>配置防火墙</li>
+<li>配置gitlab组及用户</li>
+</ol>
+<h2 id="jenkins安装">jenkins安装</h2>
+<ol>
+<li>安装Jenkins跳过插件安装</li>
+<li>jenkins插件安装</li>
+</ol>
+<h2 id="tips">tips</h2>
+<h3 id="三台服务器-一台gitlab-一台jenkins-一台测试服务器">三台服务器,一台gitlab, 一台Jenkins, 一台测试服务器</h3></div>
+    </div>
+</article>
+
+    
+    
+</div>
+
+
+
+<ul class="pagination pagination-default mx-2 my-10 text-2xl flex gap-1 sm:gap-5 font-light">
+<li class="page-item">
+    <a href="/posts/" aria-label="First" class="page-link" role="button"><span
+            aria-hidden="true">&laquo;&laquo;</span></a>
+</li>
+<li class="page-item">
+    <a href="/posts/page/2/" aria-label="Previous" class="page-link" role="button"><span
+            aria-hidden="true">&laquo;</span></a>
+</li>
+<li class="page-item px-3 hover:bg-gray-600 hover:rounded-full hover:cursor-pointer">
+    <a href="/posts/" aria-label="Page 1" class="page-link"
+        role="button">1</a>
+</li>
+<li class="page-item px-3 hover:bg-gray-600 hover:rounded-full hover:cursor-pointer">
+    <a href="/posts/page/2/" aria-label="Page 2" class="page-link"
+        role="button">2</a>
+</li>
+<li class="page-item active font-medium text-white bg-red-500 px-3 rounded-full">
+    <a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+</li>
+<li class="page-item px-3 hover:bg-gray-600 hover:rounded-full hover:cursor-pointer">
+    <a href="/posts/page/4/" aria-label="Page 4" class="page-link"
+        role="button">4</a>
+</li>
+<li class="page-item">
+    <a href="/posts/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+</li>
+<li class="page-item">
+    <a href="/posts/page/4/" aria-label="Last" class="page-link" role="button"><span
+            aria-hidden="true">&raquo;&raquo;</span></a>
+</li>
+</ul>
+
+
+            </main>
+
+            <aside id="sidebar" class="aside-container">
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+        About
+    </div>
+
+    <img src="/image/logo.webp?v=1730192373" class="w-80 self-center" alt="Logo" />
+
+    <p class="leading-8 text-center text-lg font-light mt-3">
+        
+    </p>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+        </svg>
+        Latest Post
+    </div>
+
+    <ul class="text-lg">
+        
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/" class="py-5 hover:text-gray-300">如何设计程序</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/posts/vim/" class="py-5 hover:text-gray-300">VIM</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/posts/sicp/" class="py-5 hover:text-gray-300">SICP</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/" class="py-5 hover:text-gray-300">Python核心编程（3）</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/posts/python-cookbook/" class="py-5 hover:text-gray-300">Python CookBook</a>
+        </li>
+        
+        
+    </ul>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
+        </svg>
+        Hot Categories
+    </div>
+    <ul class="leading-10 text-lg">
+        
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/book/" class="hover:text-gray-300">Book <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">5</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/python/" class="hover:text-gray-300">Python <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">3</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/git/" class="hover:text-gray-300">GIT <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">3</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/linux/" class="hover:text-gray-300">Linux <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">3</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/csv/" class="hover:text-gray-300">CSV <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">3</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/java/" class="hover:text-gray-300">Java <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">3</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/read/" class="hover:text-gray-300">Read <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/maven/" class="hover:text-gray-300">Maven <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/html/" class="hover:text-gray-300">HTML <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/template/" class="hover:text-gray-300">Template <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    </ul>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+        </svg>
+        Top Tags
+    </div>
+    <div class="flex flex-wrap gap-2 text-lg leading-8 pt-3 pl-1">
+        
+        
+        
+        
+        <a href="/tags/book/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Book&nbsp;&nbsp;4</span></a>
+        
+        
+        
+        <a href="/tags/java/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Java&nbsp;&nbsp;3</span></a>
+        
+        
+        
+        <a href="/tags/linux/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Linux&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/%E6%9E%B6%E6%9E%84/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">架构&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">函数式&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/%E8%AE%BE%E8%AE%A1/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">设计&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/read/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Read&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/ddia/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">DDIA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/emacs/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Emacs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/%E8%84%9A%E6%9C%AC/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">脚本&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/soft-skills/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Soft Skills&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/todo/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Todo&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/git/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GIT&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/jvm/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">JVM&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">程序&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/daily/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Daily&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/maven/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Maven&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/project-build/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Project Build&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/rust/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Rust&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E8%AE%BE%E8%AE%A1/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">数据密集型应用设计&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+        </svg>
+        Archive Analytics
+    </div>
+    <ul class="leading-10 text-lg font-light">
+        
+        
+        
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Sep, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">14</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Sep, 2023<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Nov, 2022<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">10</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">May, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Jan, 0001<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">6</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Aug, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Apr, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Apr, 2014<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+    </ul>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        </svg>
+        Contact
+    </div>
+    <div class="flex flex-row gap-2">
+        Email：angularcorp@outlook.com
+    </div>
+</aside>
+        </div>
+
+        <footer class="p-5 text-xl text-center mt-8 pt-8 pb-8 border-t border-gray-100/10">
+    <div class="text-gray-500">
+        
+        &#xA9; 2019 - 2023 by <a class="hover:text-gray-100" href="https://github.com/guangmean/Niello"
+            target="_blank">guangmean</a>. All Rights
+        Reserved.
+        
+
+        
+        | <a class="hover:text-gray-100" href=" /en "></a>
+        
+    </div>
+</footer>
+
+        <div class="cookie-container text-center py-12 text-2xl font-thin text-gray-500">
+  <p>
+    We use cookies on this website to give you the best experience on our
+    site and show you relevant ads. To find out more, read our
+    <a href="/privacy/" class="text-red-600">privacy policy</a> and <a href="/cookies/" class="text-red-600">cookie
+      policy</a>.
+  </p>
+  <button class="cookie-btn w-32 h-22 mt-5 py-2 bg-red-600 text-white rounded-full hover:scale-110">
+    Okay
+  </button>
+</div>
+<script src="/js/cookie.js"></script>
+
+    </div>
+</body>
+
+</html>

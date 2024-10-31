@@ -1,0 +1,2472 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python核心编程（3） - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Python核心编程（3）">
+  <meta property="og:description" content="正则表达式 网络编程 因特网客户端编程 因特网客户端简介 文件传输 文件传输因特协议 在当下，HTTP,FTP,scp/rsync的应用仍然广泛。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-04T00:00:00+00:00">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python核心编程（3）">
+  <meta name="twitter:description" content="正则表达式 网络编程 因特网客户端编程 因特网客户端简介 文件传输 文件传输因特协议 在当下，HTTP,FTP,scp/rsync的应用仍然广泛。">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#正则表达式">正则表达式</a></li>
+    <li><a href="#网络编程">网络编程</a></li>
+    <li><a href="#因特网客户端编程">因特网客户端编程</a>
+      <ul>
+        <li><a href="#因特网客户端简介">因特网客户端简介</a></li>
+        <li><a href="#文件传输">文件传输</a></li>
+        <li><a href="#网络新闻">网络新闻</a></li>
+        <li><a href="#电子邮件">电子邮件</a></li>
+      </ul>
+    </li>
+    <li><a href="#多线程编程">多线程编程</a>
+      <ul>
+        <li><a href="#简介动机">简介、动机</a></li>
+        <li><a href="#线程和进程">线程和进程</a></li>
+        <li><a href="#线程和python">线程和Python</a></li>
+        <li><a href="#thread模块">thread模块</a></li>
+        <li><a href="#theading-模块">theading 模块</a></li>
+        <li><a href="#单线程和多线程执行对比">单线程和多线程执行对比</a></li>
+        <li><a href="#多线程实践">多线程实践</a></li>
+        <li><a href="#生产者-消费者问题和queuequeue模块">生产者-消费者问题和Queue/queue模块</a></li>
+        <li><a href="#线程的替代方案">线程的替代方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#gui编程">GUI编程</a></li>
+    <li><a href="#数据库编程">数据库编程</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#python的db-api">Python的DB-API</a></li>
+        <li><a href="#orm">ORM</a></li>
+        <li><a href="#非关系数据库">非关系数据库</a></li>
+      </ul>
+    </li>
+    <li><a href="#web客户端和服务器">Web客户端和服务器</a>
+      <ul>
+        <li><a href="#python-web客户端工具">Python Web客户端工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#web编程cgi和wsgi">Web编程：CGI和WSGI</a></li>
+    <li><a href="#web框架django">Web框架：Django</a>
+      <ul>
+        <li><a href="#python-应用shell">python 应用shell</a></li>
+      </ul>
+    </li>
+    <li><a href="#python2与python3的区别">Python2与Python3的区别</a></li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="正则表达式" class="header-anchor-wrapper">正则表达式
+  <a href="#%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h2 id="网络编程" class="header-anchor-wrapper">网络编程
+  <a href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h2 id="因特网客户端编程" class="header-anchor-wrapper">因特网客户端编程
+  <a href="#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="因特网客户端简介" class="header-anchor-wrapper">因特网客户端简介
+  <a href="#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%ae%80%e4%bb%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="文件传输" class="header-anchor-wrapper">文件传输
+  <a href="#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="文件传输因特协议" class="header-anchor-wrapper">文件传输因特协议
+  <a href="#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93%e5%9b%a0%e7%89%b9%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>在当下，HTTP,FTP,scp/rsync的应用仍然广泛。</p>
+
+<h4 id="python和ftp" class="header-anchor-wrapper">Python和FTP
+  <a href="#python%e5%92%8cftp" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="ftplib.ftp类" class="header-anchor-wrapper">ftplib.FTP类
+  <a href="#ftplib.ftp%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="客户端ftp程序实例" class="header-anchor-wrapper">客户端FTP程序实例
+  <a href="#%e5%ae%a2%e6%88%b7%e7%ab%afftp%e7%a8%8b%e5%ba%8f%e5%ae%9e%e4%be%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+# coding: utf-8
+import ftplib
+import os
+import socket
+HOST = 'ftp.mozilla.org'
+DIRN = 'pub/mozilla.org/webtools'
+FILE = 'bugzilla-LATEST.tar.gz'
+def main():
+    try:
+        f = ftplib.FTP(HOST)
+    except (socket.error, socket.gaierror) as e:
+        print(&quot;ERROR: can't reach '%s' &quot; % HOST)
+        return
+    print(&quot;*** Connected to host '%s'&quot; % HOST)
+    try:
+        f.login()
+    except ftplib.error_perm:
+        print(&quot;ERROR: can't login anonymously&quot;)
+        f.quit()
+        return
+    print(&quot;*** Logged in as 'anonymous&quot;)
+    try:
+        f.cwd(DIRN)
+    except ftplib.error_perm:
+        print(&quot;ERROR: can't CD to '%s&quot; % DIRN)
+        f.quit()
+        return
+    print(&quot;*** Change to '%s' folder&quot; % DIRN )
+    try:
+        f.retrbinary(&quot;RETR %s&quot; % FILE, open(FILE, 'wb').write())
+    except ftplib.error_perm:
+        print(&quot;ERROR: can't read file '%s'&quot; % FILE)
+        os.unlink(FILE)
+    else:
+        print(&quot;*** Download '%s' to CWD&quot; % FILE)
+        f.quit()
+if __name__ == '__main__':
+    main()
+</code></pre>
+
+<h4 id="ftp的其他内容" class="header-anchor-wrapper">Ftp的其他内容
+  <a href="#ftp%e7%9a%84%e5%85%b6%e4%bb%96%e5%86%85%e5%ae%b9" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>命令行客户端程序</li>
+<li>GUI客户端程序</li>
+<li>Web浏览器</li>
+<li>自定义应用程序</li>
+</ul>
+
+<h3 id="网络新闻" class="header-anchor-wrapper">网络新闻
+  <a href="#%e7%bd%91%e7%bb%9c%e6%96%b0%e9%97%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="usenet与新闻组" class="header-anchor-wrapper">Usenet与新闻组
+  <a href="#usenet%e4%b8%8e%e6%96%b0%e9%97%bb%e7%bb%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="网络新闻传输协议" class="header-anchor-wrapper">网络新闻传输协议
+  <a href="#%e7%bd%91%e7%bb%9c%e6%96%b0%e9%97%bb%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>NNTP</p>
+
+<h4 id="python和nntp" class="header-anchor-wrapper">Python和NNTP
+  <a href="#python%e5%92%8cnntp" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>有一个nntplib库和一个需要实例化的nntplib.NNTP类</p>
+
+<h3 id="电子邮件" class="header-anchor-wrapper">电子邮件
+  <a href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="电子邮件系统组件和协议" class="header-anchor-wrapper">电子邮件系统组件和协议
+  <a href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%bb%84%e4%bb%b6%e5%92%8c%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="发送电子邮件" class="header-anchor-wrapper">发送电子邮件
+  <a href="#%e5%8f%91%e9%80%81%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>SMTP、ESMTP、LMTP</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>MTA</p>
+<p>一些实现SMTP的MTA</p>
+<ul>
+<li>开源
+<ul>
+<li>Sendmail</li>
+<li>Postfix</li>
+<li>Exim</li>
+<li>qmail</li>
+</ul>
+</li>
+<li>商业
+<ul>
+<li>Microsoft Exchange</li>
+<li>Lotus Notes Domino Mail Server</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="python和smtp" class="header-anchor-wrapper">Python和SMTP
+  <a href="#python%e5%92%8csmtp" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>有一个smtplib模块和一个需要实例化的smtplib.SMTP类</p>
+
+<h4 id="smtplib.smtp类方法" class="header-anchor-wrapper">smtplib.SMTP类方法
+  <a href="#smtplib.smtp%e7%b1%bb%e6%96%b9%e6%b3%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="接收电子邮件" class="header-anchor-wrapper">接收电子邮件
+  <a href="#%e6%8e%a5%e6%94%b6%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="pop和imap" class="header-anchor-wrapper">POP和IMAP
+  <a href="#pop%e5%92%8cimap" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="python和pop3" class="header-anchor-wrapper">Python和POP3
+  <a href="#python%e5%92%8cpop3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>导入poplib并实例化poplib.POP3</p>
+
+<h2 id="多线程编程" class="header-anchor-wrapper">多线程编程
+  <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="简介动机" class="header-anchor-wrapper">简介、动机
+  <a href="#%e7%ae%80%e4%bb%8b%e5%8a%a8%e6%9c%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="线程和进程" class="header-anchor-wrapper">线程和进程
+  <a href="#%e7%ba%bf%e7%a8%8b%e5%92%8c%e8%bf%9b%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="线程和python" class="header-anchor-wrapper">线程和Python
+  <a href="#%e7%ba%bf%e7%a8%8b%e5%92%8cpython" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="全局解释器锁" class="header-anchor-wrapper">全局解释器锁
+  <a href="#%e5%85%a8%e5%b1%80%e8%a7%a3%e9%87%8a%e5%99%a8%e9%94%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>对Pyton虚拟机的访问是由*全局解释器锁（GIL）*控制的。在多线程环境中，Python虚拟机将按照正面所述折方式执行</p>
+<ol>
+<li>设置GIL</li>
+<li>切换进一个线程去运行</li>
+<li>执行正面的操作这一
+<ol>
+<li>指定数量的字节码指令</li>
+<li>线程主动让出控制权（可以调用time.sleep(0)来完成）</li>
+</ol>
+</li>
+<li>把线程设置回睡眠状态（切换出线程）</li>
+<li>解锁GIL</li>
+<li>重复上述步骤</li>
+</ol>
+<p><strong>可查看Python/ceval.c文件</strong></p>
+
+<h4 id="退出线程" class="header-anchor-wrapper">退出线程
+  <a href="#%e9%80%80%e5%87%ba%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>当一个线程完成函数的执行时，它就会退出。另外，还可以通过调用诸如thread.exit()之类的退出函数，或者sys.exit()之类的退出Python进程的标准方法，变或者抛出SystemExit异常，来使线程退出。
+<strong>不过你不能直接“终止”一个线程。</strong>
+主线程应该做一个好的管理者，负责了解每个单独的线程需要执行什么，每个派生的线程需要哪些数据或参数，这些线程执行守后会提供什么结果。这样，主线程就可以收集每个线程的相关介绍，然后汇兑成一个有意义的最终的结果。</p>
+
+<h4 id="在python中使用线程" class="header-anchor-wrapper">在Python中使用线程
+  <a href="#%e5%9c%a8python%e4%b8%ad%e4%bd%bf%e7%94%a8%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>Python虽然支持多线程编程，但是还需要取决于它所运行的操作系统。</p>
+
+<h4 id="不使用线程的情况" class="header-anchor-wrapper">不使用线程的情况
+  <a href="#%e4%b8%8d%e4%bd%bf%e7%94%a8%e7%ba%bf%e7%a8%8b%e7%9a%84%e6%83%85%e5%86%b5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>？？？</p>
+
+<h4 id="python的threading模块" class="header-anchor-wrapper">Python的threading模块
+  <a href="#python%e7%9a%84threading%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p><strong>避免使用thread</strong></p>
+<ul>
+<li>theading模块更加先进，有更好的线程支持</li>
+<li>并且thead模块中的一些属性会和threading模块有冲突。</li>
+<li>低级别的thread模块拥有的同步原语很少（实际上只有一个），而threading模块有很多。</li>
+<li>thread对于进程何时退出没有控制。当主线程结束时，所有其他线程也都强制结束，不会发出警告或者进行适当的清理。</li>
+<li>thread不支持守护线程。</li>
+</ul>
+
+<h3 id="thread模块" class="header-anchor-wrapper">thread模块
+  <a href="#thread%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>thread模块除了提供派生线程外，还提供了基本的同步数据结构，称为锁对象（lock
+object, 也叫原语锁、简单锁、互斥锁、互斥和二进制信号量）核心函数： <strong>start_new_thread()</strong>
+它的参数包括函数（对象）、函数的参数以及可选的关键参数。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+import thread
+from time import sleep, ctime
+def loop0():
+    print('start loop 0 at : ', ctime())
+    sleep(4)
+    print('loop 0 done at: ', ctime())
+
+def loop1()：
+    print('start loop 1 at: ', ctime())
+    sleep(2)
+    print('loop 1 end at : ', ctime())
+
+def main():
+    print('starting at: ', ctime())
+    thread.start_new_thread(loop0, ())
+    thread.start_new_thread(loop1, ())
+    sleep(6)
+    print('all DONE at: ', ctime())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p><strong>start_new_thread()必须包含开始的两个参数， 即使要执行的函数不需要参数，也需要传递一个空元组。</strong>
+sleep(6)的作用是防止主线程执行完成后导致两个子线程异常终止。可是这样肯定不是最好的办法，我们不能确定子函数需要多长时间执行。所以需要引入锁。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#！/usr/bin/env python3
+# coding: utf-8
+import thread
+from time import sleep, ctime
+loops = [4, 2]
+def loop(nloop, nsec, lock):
+    print('start loop', nloop, ' at: ', ctime())
+    sleep(nsec)
+    print('loop ', nloop, 'done at: ', ctime())
+    lock.release()
+
+def main():
+    print('start at: ', ctime())
+    locks = []
+    nloops = range(len(loops))
+
+    for i in nloops:
+        lock = thread.allocate_lock()
+        lock.acquire()
+        locks.append(lock)
+
+    for i in nloops:
+        thread.start_new_thread(loop, (i, loops[i], locks[i]))
+
+    for i in nloops:
+        while locks[i].locked():pass
+
+    print 'all DONE at: ', citme()
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+
+<h3 id="theading-模块" class="header-anchor-wrapper">theading 模块
+  <a href="#theading-%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>threading模块中所有可用对象的列表</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>对象</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Thread</td>
+          <td>表示一个执行线程的对象</td>
+      </tr>
+      <tr>
+          <td>Lock</td>
+          <td>锁原语对旬（和thread模块中的锁一样)</td>
+      </tr>
+      <tr>
+          <td>RLock</td>
+          <td>可重入锁对象，使单一线程可以（再次）获得已持有的锁（递归锁）</td>
+      </tr>
+      <tr>
+          <td>Condition</td>
+          <td>条件变量对象，使得一个线程等待另一个线程满足特定的“条件”，比如改变状态或某个数据值</td>
+      </tr>
+      <tr>
+          <td>Event</td>
+          <td>条件变量的通用版本，任意数量的线程等待某个事件的发生，在该事件发生后所有线程将被激活</td>
+      </tr>
+      <tr>
+          <td>Semaphore</td>
+          <td>为线程间共享的有限资源提供了一个“计数器”，如果没有可用资源时会被阻塞</td>
+      </tr>
+      <tr>
+          <td>BoundedSemaphore</td>
+          <td>与Semaphore相似，不过它不允许超过初始值</td>
+      </tr>
+      <tr>
+          <td>Timer</td>
+          <td>与Thread相似，不过它要在运行前等待一段时间</td>
+      </tr>
+      <tr>
+          <td>Barrier</td>
+          <td>创建一个“障碍”，必须达到指定数量的线程后才可以继续</td>
+      </tr>
+  </tbody>
+</table>
+<!--list-separator-->
+<ul>
+<li>
+<p>守护线程</p>
+<p>避免使用thread模块的另一个原因是该模块不支持守护线程。
+threading模块支持守护线程，其工作方式是：守护线程一般是一个等待客户端请求服务的服务器，如果没有客户端请求，守护线程就是空闲的。如果把一个线程设置成守护线程，就表示这个线程是不重要的，进程退出时不需要等待这个线程执行完成。要将一个线程设置为守护 线程，需要 在启动线程之前执行如下赋值语句：</p>
+<blockquote>
+<p>thread.daemon = True</p>
+</blockquote>
+<p>同样，要检查线程的守护状态，也只需要检查这个值即可。</p>
+</li>
+</ul>
+
+<h4 id="thread类" class="header-anchor-wrapper">Thread类
+  <a href="#thread%e7%b1%bb" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>Thread对象的属性</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>线程名</td>
+      </tr>
+      <tr>
+          <td>ident</td>
+          <td>线程的标识符</td>
+      </tr>
+      <tr>
+          <td>daemon</td>
+          <td>布尔标志，表示这个线程是否是守护线程</td>
+      </tr>
+  </tbody>
+</table>
+<p>Thread对象的方法</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>*init*(group=None, target=None, name=None, args=(), kwargs={}, verbose=None, daemon=None)</td>
+          <td>实例化一个线程对象，需要有一个可调用的target，以及其参数args或kwargs.还可以传递name或group参数，不过后者还未实现。此外，verbose标志也是可以接受的。而daemon的值将会设定thread.daemon属性标志。</td>
+      </tr>
+      <tr>
+          <td>start()</td>
+          <td>开始执行该线程</td>
+      </tr>
+      <tr>
+          <td>run()</td>
+          <td>定义线程功能的方法（通常在子类中被应用开发者重写）</td>
+      </tr>
+      <tr>
+          <td>join(timeout=None)</td>
+          <td>直至启动的线程终止之前一直挂起；除非给出了timeout(秒),否则会一直阻塞</td>
+      </tr>
+      <tr>
+          <td>is_alive()</td>
+          <td>布尔标志，表示这个线程是否还存活</td>
+      </tr>
+  </tbody>
+</table>
+<!--list-separator-->
+<ul>
+<li>
+<p>创建线程的方法</p>
+<ul>
+<li>创建 Thread的实例 ，传给它一个函数</li>
+<li>创建Thread的实例，传给它一个可调用的类实例</li>
+<li>派生Thread的子类，并创建子类的实例</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p><strong>创建Thread的实例，传给它一个函数</strong></p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+import threading
+from time import sleep, ctime
+loops = [4, 2]
+def loop(nloop, nsec):
+    print('start loop', nloop, ' at:', ctime())
+    sleep(nsec)
+    print('loop ', nloop, 'done at:', ctime())
+
+def main():
+    print('start at；', ctime())
+    threads = []
+    nloops = range(len(loops))
+
+    for i in nloops:
+        t = threading.Thread(target=loop, args=(i, loops[i]))
+        threads.append(t)
+
+    for i in nloops:
+        threads[i].start()
+
+    for i in nloops:
+        threads[i].join()
+
+    print('all DONE at:', ctime())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建Thread的实例，传给它一个可调用的类实例</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+import threading
+from time import sleep, ctime
+loops = [4, 2]
+class ThreadFunc():
+    def __init__(self, func, args, name=''):
+        self.name = name
+        self.func = func
+        self.args = args
+
+    def __call__(self):
+        self.func(*self.args)
+def loop(nloop, nsec):
+    print('start loop', nloop, ' at:', ctime())
+    sleep(nsec)
+    print('loop ', nloop, 'done at:', ctime())
+
+def main():
+    print('start at；', ctime())
+    threads = []
+    nloops = range(len(loops))
+
+    for i in nloops:
+        t = threading.Thread(target=ThreadFunc(loop, (i, loops[i]), loop.__name__))
+        threads.append(t)
+
+    for i in nloops:
+        threads[i].start()
+
+    for i in nloops:
+        threads[i].join()
+
+    print('all DONE at:', ctime())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>派生Thread的子类，并创建子类的实例</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+import threading
+from time import sleep, ctime
+loops = [4, 2]
+class MyThread(threading.Thread):
+    def __init__(self, func, args, name=''):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.func = func
+        self.args = args
+
+    def run(self):
+        self.func(*self.args)
+def loop(nloop, nsec):
+    print('start loop', nloop, ' at:', ctime())
+    sleep(nsec)
+    print('loop ', nloop, 'done at:', ctime())
+
+def main():
+    print('start at；', ctime())
+    threads = []
+    nloops = range(len(loops))
+
+    for i in nloops:
+        t = MyThread(loop, (i, loops[i]), loop.__name__)
+        threads.append(t)
+
+    for i in nloops:
+        threads[i].start()
+
+    for i in nloops:
+        threads[i].join()
+
+    print('all DONE at:', ctime())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="threading-模块的其他函数" class="header-anchor-wrapper">threading 模块的其他函数
+  <a href="#threading-%e6%a8%a1%e5%9d%97%e7%9a%84%e5%85%b6%e4%bb%96%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>active_acount()</td>
+          <td>当前活动的Thread对象的个数</td>
+      </tr>
+      <tr>
+          <td>current_thread()</td>
+          <td>返回当前的Thread对象</td>
+      </tr>
+      <tr>
+          <td>enumerate()</td>
+          <td>返回当前活动的Thread对象列表</td>
+      </tr>
+      <tr>
+          <td>settrace(func)</td>
+          <td>为所有线程设置一个trace函数</td>
+      </tr>
+      <tr>
+          <td>setprofile(func)</td>
+          <td>为所有线程设置一个profile函数</td>
+      </tr>
+      <tr>
+          <td>stack_size(size=0)</td>
+          <td>返回新创建线程的栈大小；或为后续创建的线程设定栈的大小为size</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 id="单线程和多线程执行对比" class="header-anchor-wrapper">单线程和多线程执行对比
+  <a href="#%e5%8d%95%e7%ba%bf%e7%a8%8b%e5%92%8c%e5%a4%9a%e7%ba%bf%e7%a8%8b%e6%89%a7%e8%a1%8c%e5%af%b9%e6%af%94" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="多线程实践" class="header-anchor-wrapper">多线程实践
+  <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e5%ae%9e%e8%b7%b5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="引入线程" class="header-anchor-wrapper">引入线程
+  <a href="#%e5%bc%95%e5%85%a5%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="同步原语" class="header-anchor-wrapper">同步原语
+  <a href="#%e5%90%8c%e6%ad%a5%e5%8e%9f%e8%af%ad" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>锁/互斥信号量</p>
+
+<h4 id="锁示例" class="header-anchor-wrapper">锁示例
+  <a href="#%e9%94%81%e7%a4%ba%e4%be%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>锁有两种状态：</p>
+<ul>
+<li>锁定</li>
+<li>未锁定</li>
+</ul>
+<p>两个函数：</p>
+<ul>
+<li>获得锁: lock.acquire()</li>
+<li>释放锁: lock.release()</li>
+</ul>
+<p><strong>使用上下文管理</strong>
+2.5以后可以使用with语句，而不再调用锁的acquire()和release()而进一步简化代码。</p>
+
+<h4 id="信号量" class="header-anchor-wrapper">信号量
+  <a href="#%e4%bf%a1%e5%8f%b7%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>信号量是一个计数器，当资源消耗时递减，当资源释放时递增。你可以认为信号量代表它们的资源可用或不可用。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+# coding: utf-8
+from atexit import register
+from random import randrange
+from threading import BoundedSemaphore, Lock, Thread
+from time import sleep, ctime
+lock = Lock()
+MAX = 5
+candytray = BoundedSemaphore(MAX)
+def refill():
+    lock.acquire()
+    print('Refilling candy...',)
+    try:
+        candytray.release()
+    expect ValueError:
+        print('full, skipping')
+    else:
+        print('OK')
+    lock.release()
+
+def by():
+    lock.acquire()
+    print('Buying candy...')
+    if candytray.acquire(False):
+        print('OK')
+    else:
+        print('empty, skipping')
+    lock.release()
+
+def producer(loops):
+    for i in xrange(loops):
+        refill()
+        sleep(randrange(3))
+
+def consumer(loops):
+    for i in xrange(loops):
+        buy()
+        sleep(randrange(3))
+
+def _main():
+    print('starting at: ', ctime())
+    nloops = randrange(2, 6)
+    print('The Candy Machine (full with %d bars)!' % MAX)
+    Thread(target=consumer, args=(randrange(
+        nloops, nlops+MAX+2),)).start()
+    Thread(target=producer, args=(nloops,)).start()
+
+@register
+def _atexit():
+    print('all DONE at:', ctime())
+
+if __name__ == '__main__':
+    _main()
+</code></pre>
+
+<h3 id="生产者-消费者问题和queuequeue模块" class="header-anchor-wrapper">生产者-消费者问题和Queue/queue模块
+  <a href="#%e7%94%9f%e4%ba%a7%e8%80%85-%e6%b6%88%e8%b4%b9%e8%80%85%e9%97%ae%e9%a2%98%e5%92%8cqueuequeue%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>常用属性</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>queue(amxsize=0)</td>
+          <td>创建一个先入先出队列。如果给定最大值，则在队列没有空间时阻塞，否则为无限队列</td>
+      </tr>
+      <tr>
+          <td>lifoQueue(maxsize=0)</td>
+          <td>创建一个后入先出队列。如果给定最大值，则在队列没有空间时阻塞，否则为无限队列</td>
+      </tr>
+      <tr>
+          <td>priorityQueue(maxsize=0)</td>
+          <td>创建一个优先级队列。如果给定最大值，则在队列没有空间时阻塞，否则为无限队列</td>
+      </tr>
+  </tbody>
+</table>
+<p>常用异常</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Empty</td>
+          <td>当对空队列调用get*()方法时抛出异常</td>
+      </tr>
+      <tr>
+          <td>Full</td>
+          <td>当对已满的队列调用put*()方法时抛出异常</td>
+      </tr>
+  </tbody>
+</table>
+<p>常用方法</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>qsize()</td>
+          <td>返回队列的大小（由于返回时队列的大小可能被其他线程修改，所以返回的是近似值）</td>
+      </tr>
+      <tr>
+          <td>empty()</td>
+          <td>如果队列为空则返回True</td>
+      </tr>
+      <tr>
+          <td>full()</td>
+          <td>如果队列已满则返回True</td>
+      </tr>
+      <tr>
+          <td>put(item, block=True, timeout=None)</td>
+          <td>将item放入队列，如果block为True且timeout为None，则在有可用空间之前阻塞；如果timeout为正值，则最多阻塞timeout秒；如果block为False，则抛出Full异常</td>
+      </tr>
+      <tr>
+          <td>put_nowait(item)</td>
+          <td>和put(item, False)相同</td>
+      </tr>
+      <tr>
+          <td>get(block=True, timeout=None)</td>
+          <td>从队列中取得元素。如果给定了lock(非0)，则一直阻塞到有可用的元素为止</td>
+      </tr>
+      <tr>
+          <td>get_nowait()</td>
+          <td>和get(False)相同</td>
+      </tr>
+      <tr>
+          <td>task_done()</td>
+          <td>用于表示队列中的某个元素已执行完成，该方法会被正面的join()使用</td>
+      </tr>
+      <tr>
+          <td>join()</td>
+          <td>在队列中所有元素执行完毕并调用上面的task_done()信号之前，保持阻塞。</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 id="线程的替代方案" class="header-anchor-wrapper">线程的替代方案
+  <a href="#%e7%ba%bf%e7%a8%8b%e7%9a%84%e6%9b%bf%e4%bb%a3%e6%96%b9%e6%a1%88" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="subprocess-模块" class="header-anchor-wrapper">subprocess 模块
+  <a href="#subprocess-%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>这是派生进程的主要替代方案，可以单纯地执行任务，或者通过标准文件（stdin,
+stdout, stderr)进行进程间通信。</p>
+
+<h4 id="multiprocessing模块" class="header-anchor-wrapper">multiprocessing模块
+  <a href="#multiprocessing%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>2.6引入，允许为多核或多CPU派生进程，其接口与threading模块相似。该模块同样也包括在共享任务的进程间传输数据的多种方式。</p>
+
+<h4 id="concurrent.futures模块" class="header-anchor-wrapper">concurrent.futures模块
+  <a href="#concurrent.futures%e6%a8%a1%e5%9d%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">concurrent.futures import ThreadPoolExecutor
+def __main():
+    print('At ', ctime(), ' on Amazon...')
+    with ThreadPoolExecutor(3) as executor:
+        for isbn in ISBs:
+            executor.submit(_showRanking, isbn)
+    print('all DONE at:', ctime())
+</code></pre>
+<p>e.g. 高级任务管理</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
+from concurrent.futures improt ThreadPoolExecutor
+from re import compile
+from time improt ctime
+from urllib.request import urlopen as uopen
+REGEX = compile(b'#([\d,]+) in Books ')
+AMZN = 'http://amazon.com/dp/'
+ISBNs = {
+    '0135648956': 'Core Python Programming',
+    '0135648956': 'Core Python Programming',
+    '0135648956': 'Core Python Programming',
+}
+def getRanking(isbn):
+    with uopen('{0}{1}' .format(AMZN, isbn)) as page:
+        return str(REGEX.findall(page.read())[0], 'utf-8')
+
+def _main():
+    print('At', ctime(), ' on Amazon...')
+    with ThreadPoolExecutor(3) as executor:
+        for isbn, ranking in zip(
+                ISBNs, executor.map(getRanking, ISBNs)):
+            print('- %r ranked &amp;s' % (ISBNs[isbn], ranking))
+        print('all DONE at: ', ctime())
+
+        )
+</code></pre>
+
+<h2 id="gui编程" class="header-anchor-wrapper">GUI编程
+  <a href="#gui%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h2 id="数据库编程" class="header-anchor-wrapper">数据库编程
+  <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="简介" class="header-anchor-wrapper">简介
+  <a href="#%e7%ae%80%e4%bb%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="持久化存储" class="header-anchor-wrapper">持久化存储
+  <a href="#%e6%8c%81%e4%b9%85%e5%8c%96%e5%ad%98%e5%82%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>存储机制：文件，数据库系统，混合类型。</p>
+
+<h4 id="数据库基本操作和sql" class="header-anchor-wrapper">数据库基本操作和SQL
+  <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c%e5%92%8csql" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>底层存储数据库通常使用文件系统作为基本的持久化存储。</li>
+<li>用户接口
+SQL</li>
+<li>数据库一个关系 数据库管理系统通常可以管理多个数据库</li>
+<li>组件数据库存储可以抽象为一张表</li>
+<li>SQL
+数据库命令和查询操作是通过SQL语句提交给数据库的。</li>
+</ul>
+
+<h4 id="数据库和python" class="header-anchor-wrapper">数据库和Python
+  <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%92%8cpython" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h3 id="python的db-api" class="header-anchor-wrapper">Python的DB-API
+  <a href="#python%e7%9a%84db-api" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="模块属性" class="header-anchor-wrapper">模块属性
+  <a href="#%e6%a8%a1%e5%9d%97%e5%b1%9e%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>DB-API标准要求必须提供下文列出的功能和属性</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>apilevel</td>
+          <td>需要适配器兼容的DB-API版本，默认为‘1.0'</td>
+      </tr>
+      <tr>
+          <td>threadsafety</td>
+          <td>本模块的线程安全级别。0：不支持线程安全，1：最小化线程安全支持，2：适度的线程安全支持，3：完整的线程安全支持</td>
+      </tr>
+      <tr>
+          <td>paramstyle</td>
+          <td>本模块的SQL语句参数风格</td>
+      </tr>
+      <tr>
+          <td>connect()</td>
+          <td>Connect()函数</td>
+      </tr>
+      <tr>
+          <td>（多种异常）</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>数据库参数风格：
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>参数风格</th>
+          <th>描述</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>numeric</td>
+          <td>数值位置风格</td>
+          <td>where name = :1</td>
+      </tr>
+      <tr>
+          <td>named</td>
+          <td>命名风格</td>
+          <td>where name = :name</td>
+      </tr>
+      <tr>
+          <td>pyformat</td>
+          <td>Python字典printf()格式转换</td>
+          <td>where name = %(name)s</td>
+      </tr>
+      <tr>
+          <td>qmark</td>
+          <td>问号风格</td>
+          <td>where name = ?</td>
+      </tr>
+      <tr>
+          <td>format</td>
+          <td>ANSIC的printf()格式转换</td>
+          <td>where name = %s</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>connect()
+connect()函数通过Connection对象访问数据库。兼容模块必须实现
+connect()函数，该函数创建并返回一个Connection对象。
+connect()函数属性：
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>参数</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>user</td>
+          <td>用户名</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>密码</td>
+      </tr>
+      <tr>
+          <td>host</td>
+          <td>主机名</td>
+      </tr>
+      <tr>
+          <td>database</td>
+          <td>数据库名</td>
+      </tr>
+      <tr>
+          <td>dsn</td>
+          <td>数据源名</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+
+<h4 id="connection对象" class="header-anchor-wrapper">Connection对象
+  <a href="#connection%e5%af%b9%e8%b1%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>Connection对象方法：</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>方法名</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>close()</td>
+          <td>关闭数据库连接</td>
+      </tr>
+      <tr>
+          <td>commit()</td>
+          <td>提交当前事务</td>
+      </tr>
+      <tr>
+          <td>rollback()</td>
+          <td>取消当前事务</td>
+      </tr>
+      <tr>
+          <td>cursor()</td>
+          <td>使用该 连接创建（并返回）一个游标或类游标的对象</td>
+      </tr>
+      <tr>
+          <td>errorhandler(cxn, cur, errcls, errval)</td>
+          <td>作为给定连接的游标处理程序</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 id="cursor对象" class="header-anchor-wrapper">Cursor对象
+  <a href="#cursor%e5%af%b9%e8%b1%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>游标可以让用户提交数据库命令，并获得查询的结果行。
+Cursor对象属性</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>对象属性</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>arraysize</td>
+          <td>使用fetchmany方法时，一次取出的结果行数，默认为1</td>
+      </tr>
+      <tr>
+          <td>connection</td>
+          <td>创建此游标的连接（可选）</td>
+      </tr>
+      <tr>
+          <td>description</td>
+          <td>返回游标活动状态（7项无组）：(name, type_code, display_size, internal_size, precision, scale, null_ok)，只有name和type_code是必需的</td>
+      </tr>
+      <tr>
+          <td>lastrowid</td>
+          <td>上次修改行的行ID</td>
+      </tr>
+      <tr>
+          <td>callproc(func [, args])</td>
+          <td>调用存储过程</td>
+      </tr>
+      <tr>
+          <td>close()</td>
+          <td>关闭游标</td>
+      </tr>
+      <tr>
+          <td>execute(op [, args])</td>
+          <td>执行数据库查询命令</td>
+      </tr>
+      <tr>
+          <td>executemany(op, args)</td>
+          <td>类似execute()和map()的结合 ，为给定的所有参数准备并执行数据库查询或命令</td>
+      </tr>
+      <tr>
+          <td>fetchone()</td>
+          <td>获取查询结果的下一行</td>
+      </tr>
+      <tr>
+          <td>fetchmany([size=cursor, arraysize])</td>
+          <td>获取查询结果的下面size行</td>
+      </tr>
+      <tr>
+          <td>fetchall()</td>
+          <td>获取查询结果的所有行</td>
+      </tr>
+      <tr>
+          <td>*iter*()</td>
+          <td>为游标创建迭代器对象</td>
+      </tr>
+      <tr>
+          <td>messages</td>
+          <td>游标执行后从数据库中获得的消息列表（元组集合，可选）</td>
+      </tr>
+      <tr>
+          <td>next()</td>
+          <td>被迭代器用于获取查询结果的下一行</td>
+      </tr>
+      <tr>
+          <td>nextset()</td>
+          <td>移动到下一个结果集</td>
+      </tr>
+      <tr>
+          <td>rownumber</td>
+          <td>当前结果集中游标 的索引</td>
+      </tr>
+      <tr>
+          <td>setinputsize(size)</td>
+          <td>设置允许的最大输入 大小</td>
+      </tr>
+      <tr>
+          <td>setoutputsize(size )</td>
+          <td>设置大列获取的最大缓冲区大小</td>
+      </tr>
+      <tr>
+          <td>rowcount</td>
+          <td>上次execute*()方法处理或影响的行数</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 id="orm" class="header-anchor-wrapper">ORM
+  <a href="#orm" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>考虑对象而不是SQL
+目前最知名的Python ORM是SQLAlchemy和SQLObject。</p>
+
+<h4 id="sqlalchemy常用方法" class="header-anchor-wrapper">SQLAlchemy常用方法：
+  <a href="#sqlalchemy%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>filter_by():将指定列的什作为关键字参数以获取查询结果。</li>
+<li>filter()：与fliter_by()类似，不过更加灵活，还可以使用表达式。比如：query.filter_by(userid=1)与query.filter(User.userid
+==1)相同</li>
+<li>order_by()</li>
+<li>limit()</li>
+<li>offset()</li>
+<li>all()</li>
+<li>one()</li>
+<li>first()</li>
+<li>join()</li>
+<li>update()</li>
+<li>delete()</li>
+</ul>
+
+<h3 id="非关系数据库" class="header-anchor-wrapper">非关系数据库
+  <a href="#%e9%9d%9e%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e5%ba%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h2 id="web客户端和服务器" class="header-anchor-wrapper">Web客户端和服务器
+  <a href="#web%e5%ae%a2%e6%88%b7%e7%ab%af%e5%92%8c%e6%9c%8d%e5%8a%a1%e5%99%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="python-web客户端工具" class="header-anchor-wrapper">Python Web客户端工具
+  <a href="#python-web%e5%ae%a2%e6%88%b7%e7%ab%af%e5%b7%a5%e5%85%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="urllib模块包" class="header-anchor-wrapper">urllib模块/包
+  <a href="#urllib%e6%a8%a1%e5%9d%97%e5%8c%85" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>
+<p>urllib.request.urlopen()
+打开一个给定的URL字符串表示的Web连接</p>
+<blockquote>
+<p>urlopen (urlstr, postQueryData=None)</p>
+</blockquote>
+<p>一旦连接成功，urlopen将会返回一个文件类型对象。
+urlopen()文件类型对象的方法：</p>
+</li>
+</ul>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>f.read([bytes])</td>
+          <td>从f中读出所有或bytes个字节</td>
+      </tr>
+      <tr>
+          <td>f.readline()</td>
+          <td>从f中读取一行</td>
+      </tr>
+      <tr>
+          <td>f.readlines()</td>
+          <td>从f中读出所有行，作为列表返回</td>
+      </tr>
+      <tr>
+          <td>f.close()</td>
+          <td>关闭f的URL连接</td>
+      </tr>
+      <tr>
+          <td>f.fileno()</td>
+          <td>返回f的文件句柄</td>
+      </tr>
+      <tr>
+          <td>f.info()</td>
+          <td>获得f的MIME头文件</td>
+      </tr>
+      <tr>
+          <td>f.geturl()</td>
+          <td>返回f的真正</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>
+<p>urllib.request.urlretrieve()
+用于下载完整的HTML，或对象文件。</p>
+<blockquote>
+<p>urlretrieve(url, filename=None, reporthook=None, data=None)</p>
+</blockquote>
+</li>
+<li>
+<p>quote()</p>
+</li>
+<li>
+<p>unquote()</p>
+</li>
+<li>
+<p>urlencode()</p>
+</li>
+<li>
+<p>&hellip;</p>
+</li>
+</ul>
+
+<h2 id="web编程cgi和wsgi" class="header-anchor-wrapper">Web编程：CGI和WSGI
+  <a href="#web%e7%bc%96%e7%a8%8bcgi%e5%92%8cwsgi" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+<p>CGI：Common Gateway Interface 通用网关掊
+WSGI：Web Server Gateway Interface Web服务器网关接口</p>
+
+<h2 id="web框架django" class="header-anchor-wrapper">Web框架：Django
+  <a href="#web%e6%a1%86%e6%9e%b6django" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+<ul>
+<li>
+<p>安装</p>
+<blockquote>
+<p>pip install django</p>
+</blockquote>
+</li>
+<li>
+<p>创建项目</p>
+<blockquote>
+<p>django-admin.exe startproject project_name</p>
+</blockquote>
+</li>
+<li>
+<p>创建应用</p>
+<blockquote>
+<p>python ./manage.py startapp app_name</p>
+</blockquote>
+</li>
+<li>
+<p>创建POJO对象</p>
+</li>
+<li>
+<p>创建表</p>
+<blockquote>
+<p>python ./manage.py migrate</p>
+</blockquote>
+</li>
+</ul>
+
+<h3 id="python-应用shell" class="header-anchor-wrapper">python 应用shell
+  <a href="#python-%e5%ba%94%e7%94%a8shell" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="在django中使用python-shell" class="header-anchor-wrapper">在Django中使用Python shell
+  <a href="#%e5%9c%a8django%e4%b8%ad%e4%bd%bf%e7%94%a8python-shell" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<blockquote>
+<p>python ./manage.py shell</p>
+</blockquote>
+
+<h4 id="安装应用" class="header-anchor-wrapper">安装应用
+  <a href="#%e5%ae%89%e8%a3%85%e5%ba%94%e7%94%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>在settings.py的INSTALLED_APPS中添加app_name</p>
+
+<h2 id="python2与python3的区别" class="header-anchor-wrapper">Python2与Python3的区别
+  <a href="#python2%e4%b8%8epython3%e7%9a%84%e5%8c%ba%e5%88%ab" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+<ul>
+<li>print
+<ul>
+<li>在python2中它是一条语句 print &hellip;</li>
+<li>在python3中它成为了一个内置函数：print(&rsquo;&hellip;')</li>
+</ul>
+</li>
+<li>input
+<ul>
+<li>python2中使用raw_input()</li>
+<li>python3中使用input()</li>
+</ul>
+</li>
+<li>exception
+<ul>
+<li>python2:except Exception, instance</li>
+<li>python3:except Exception as instance</li>
+</ul>
+</li>
+</ul>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

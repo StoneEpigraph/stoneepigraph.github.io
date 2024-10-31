@@ -1,0 +1,924 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oracle一些简单查询 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Whatspeng!!!" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Oracle一些简单查询">
+  <meta property="og:description" content="Oracle一些基本查询 字符集相关 查询数据库字符集 select userenv(&#39;language&#39;) from dual; 实例相关 查询实例名 select instance_name from v$instance; 锁相关 查看被锁的表 select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time; 杀死锁进程 alter system kill session &#39;id,serial*&#39;; 查询表之前的状态 select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL &#39;50&#39; MINUTE) 用户 查询当前用户的缺省表空间 select username,default_tablespace from user_users; 查询当前用户的角色 select * from user_role_privs; 查看当前用户的系统权限和表级权限 select * from user_sys_privs; select * from user_tab_privs; 查询用户下的所有的表 select * from user_tables; 表 查看用户下所有的表 select * from user_tables; 查看名称包含log字符的表 select object_name,object_id from user_objects where instr(object_name,&#39;LOG&#39;)&gt;0; 查询表的创建时间 select object_name,created from user_objects where object_name=upper(&#39;&amp;table_name&#39;); 查询表的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;table_name&#39;); 查看放在Oracle的内存区里的表 select table_name,cache from user_tables where instr(cache,&#39;Y&#39;)&gt;0; 查询表的DDL语句 select dbms_metadata.get_ddl(&#39;TABLE&#39;,upper(&#39;tr_rpt_repair_record&#39;),upper(&#39;bjvmmis&#39;)) from dual; 索引 查看索引个数和类别 select index_name,index_type,table_name from user_indexes order by table_name; 查看索引被索引的字段 select * from user_ind_columns where index_name=upper(&#39;&amp;index_name&#39;); 查看索引的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;index_name&#39;); 序列号 查看序列号，last_number是当前值">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Oracle一些简单查询">
+  <meta name="twitter:description" content="Oracle一些基本查询 字符集相关 查询数据库字符集 select userenv(&#39;language&#39;) from dual; 实例相关 查询实例名 select instance_name from v$instance; 锁相关 查看被锁的表 select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time; 杀死锁进程 alter system kill session &#39;id,serial*&#39;; 查询表之前的状态 select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL &#39;50&#39; MINUTE) 用户 查询当前用户的缺省表空间 select username,default_tablespace from user_users; 查询当前用户的角色 select * from user_role_privs; 查看当前用户的系统权限和表级权限 select * from user_sys_privs; select * from user_tab_privs; 查询用户下的所有的表 select * from user_tables; 表 查看用户下所有的表 select * from user_tables; 查看名称包含log字符的表 select object_name,object_id from user_objects where instr(object_name,&#39;LOG&#39;)&gt;0; 查询表的创建时间 select object_name,created from user_objects where object_name=upper(&#39;&amp;table_name&#39;); 查询表的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;table_name&#39;); 查看放在Oracle的内存区里的表 select table_name,cache from user_tables where instr(cache,&#39;Y&#39;)&gt;0; 查询表的DDL语句 select dbms_metadata.get_ddl(&#39;TABLE&#39;,upper(&#39;tr_rpt_repair_record&#39;),upper(&#39;bjvmmis&#39;)) from dual; 索引 查看索引个数和类别 select index_name,index_type,table_name from user_indexes order by table_name; 查看索引被索引的字段 select * from user_ind_columns where index_name=upper(&#39;&amp;index_name&#39;); 查看索引的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;index_name&#39;); 序列号 查看序列号，last_number是当前值">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#oracle一些基本查询">Oracle一些基本查询</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#oracle的一些数据字典">Oracle的一些数据字典</a>
+      <ul>
+        <li><a href="#常用数据字典">常用数据字典</a></li>
+        <li><a href="#基本数据字典">基本数据字典</a></li>
+        <li><a href="#与数据库组件相关的数据字典">与数据库组件相关的数据字典</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="oracle一些基本查询" class="header-anchor-wrapper">Oracle一些基本查询
+  <a href="#oracle%e4%b8%80%e4%ba%9b%e5%9f%ba%e6%9c%ac%e6%9f%a5%e8%af%a2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h4 id="字符集相关" class="header-anchor-wrapper">字符集相关
+  <a href="#%e5%ad%97%e7%ac%a6%e9%9b%86%e7%9b%b8%e5%85%b3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>查询数据库字符集
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select userenv('language') from dual;
+</code></pre>
+</li>
+</ul>
+
+<h4 id="实例相关" class="header-anchor-wrapper">实例相关
+  <a href="#%e5%ae%9e%e4%be%8b%e7%9b%b8%e5%85%b3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>查询实例名
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select instance_name from v$instance;
+</code></pre>
+</li>
+</ul>
+
+<h4 id="锁相关" class="header-anchor-wrapper">锁相关
+  <a href="#%e9%94%81%e7%9b%b8%e5%85%b3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>查看被锁的表
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time;
+</code></pre>
+</li>
+<li>杀死锁进程
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter system kill session 'id,serial*';
+</code></pre>
+</li>
+</ul>
+
+<h4 id="查询表之前的状态" class="header-anchor-wrapper">查询表之前的状态
+  <a href="#%e6%9f%a5%e8%af%a2%e8%a1%a8%e4%b9%8b%e5%89%8d%e7%9a%84%e7%8a%b6%e6%80%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL '50' MINUTE)
+</code></pre>
+
+<h4 id="用户" class="header-anchor-wrapper">用户
+  <a href="#%e7%94%a8%e6%88%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>查询当前用户的缺省表空间
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select username,default_tablespace from user_users;
+</code></pre>
+</li>
+<li>查询当前用户的角色
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_role_privs;
+</code></pre>
+</li>
+<li>查看当前用户的系统权限和表级权限
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_sys_privs;
+select * from user_tab_privs;
+</code></pre>
+</li>
+<li>查询用户下的所有的表
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_tables;
+</code></pre>
+</li>
+</ol>
+
+<h4 id="表" class="header-anchor-wrapper">表
+  <a href="#%e8%a1%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>查看用户下所有的表
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_tables;
+</code></pre>
+</li>
+<li>查看名称包含log字符的表
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select object_name,object_id from user_objects where instr(object_name,'LOG')&gt;0;
+</code></pre>
+</li>
+<li>查询表的创建时间
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select object_name,created from user_objects where object_name=upper('&amp;table_name');
+</code></pre>
+</li>
+<li>查询表的大小
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select sum(bytes)/(1024*1024) as &quot;size(M)&quot; from user_segments where segment_name=upper('&amp;table_name');
+</code></pre>
+</li>
+<li>查看放在Oracle的内存区里的表
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select table_name,cache from user_tables where instr(cache,'Y')&gt;0;
+</code></pre>
+</li>
+<li>查询表的DDL语句
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select dbms_metadata.get_ddl('TABLE',upper('tr_rpt_repair_record'),upper('bjvmmis')) from dual;
+</code></pre>
+</li>
+</ol>
+
+<h4 id="索引" class="header-anchor-wrapper">索引
+  <a href="#%e7%b4%a2%e5%bc%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>查看索引个数和类别
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select index_name,index_type,table_name from user_indexes order by table_name;
+</code></pre>
+</li>
+<li>查看索引被索引的字段
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_ind_columns where index_name=upper('&amp;index_name');
+</code></pre>
+</li>
+<li>查看索引的大小
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select sum(bytes)/(1024*1024) as &quot;size(M)&quot; from user_segments
+where segment_name=upper('&amp;index_name');
+</code></pre>
+</li>
+</ol>
+
+<h4 id="序列号" class="header-anchor-wrapper">序列号
+  <a href="#%e5%ba%8f%e5%88%97%e5%8f%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>查看序列号，last_number是当前值</p>
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_sequences;
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>修改序列的值</p>
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter sequence STM_AUTH_USER increment by 50 nocache;
+select stm_auth_user.nextval from dual;
+alter sequence STM_AUTH_USER increment by 1 cache 20;
+select stm_auth_user.nextval from dual;
+</code></pre>
+</li>
+</ul>
+
+<h4 id="视图" class="header-anchor-wrapper">视图
+  <a href="#%e8%a7%86%e5%9b%be" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>查看视图的名称
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select view_name from user_views;
+</code></pre>
+</li>
+<li>查看创建视图的select语句
+<pre  class="mc-prism hide language-text" ><code class="language-sql">set long 2000;
+select text from user_views where view_name=upper('&amp;view_name');
+</code></pre>
+</li>
+</ol>
+
+<h4 id="同义词" class="header-anchor-wrapper">同义词
+  <a href="#%e5%90%8c%e4%b9%89%e8%af%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>查看同义词的名称
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select * from user_synonyms;
+</code></pre>
+</li>
+</ol>
+
+<h4 id="约束条件" class="header-anchor-wrapper">约束条件
+  <a href="#%e7%ba%a6%e6%9d%9f%e6%9d%a1%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>
+<p>查看某表的约束条件
+#+BEGIN_SRC sql
+select constraint_name, constraint_type,search_condition, r_constraint_name
+from user_constraints where table_name = upper(&rsquo;&amp;table_name&rsquo;);</p>
+<p>select c.constraint_name,c.constraint_type,cc.column_name
+from user_constraints c,user_cons_columns cc　　where c.owner =
+upper(&rsquo;&amp;table_owner&rsquo;) and c.table_name = upper(&rsquo;&amp;table_name&rsquo;)
+　and c.owner = cc.owner and c.constraint_name =
+cc.constraint_name　　order by cc.position; #+END_SRC</p>
+</li>
+</ol>
+
+<h4 id="存储过程和函数" class="header-anchor-wrapper">存储过程和函数
+  <a href="#%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8b%e5%92%8c%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ol>
+<li>查看函数和过程的状态
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select object_name,status from user_objects where object_type='FUNCTION';
+select object_name,status from user_objects where object_type='PROCEDURE';
+</code></pre>
+</li>
+<li>查看函数和过程 的源代码
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select text from all_source where owner=user and name=upper('&amp;plsql_name');
+</code></pre>
+</li>
+<li>违反完整性约束,已找到子纪录解决办法
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select a.constraint_name, a.table_name, b.constraint_name
+  from user_constraints a, user_constraints b
+  where a.constraint_type = 'R'
+    and b.constraint_type = 'P'
+    and a.r_constraint_name = b.constraint_name
+    and a.constraint_name = 'reference_key_name';
+</code></pre>
+</li>
+</ol>
+
+<h2 id="oracle的一些数据字典" class="header-anchor-wrapper">Oracle的一些数据字典
+  <a href="#oracle%e7%9a%84%e4%b8%80%e4%ba%9b%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="常用数据字典" class="header-anchor-wrapper">常用数据字典
+  <a href="#%e5%b8%b8%e7%94%a8%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ol>
+<li>USER_
+记录用户对象的信息，如user_tables包含用户创建的所有表； user_views,user_constraints等;</li>
+<li>ALL_
+记录用户对象的信息及被授权访问的对象信息；</li>
+<li>DBA_
+记录数据库实例的所有对象的信息，如DBA_USERS包含数据库实例中
+所有用户的信息，DBA的信息包含user和all的信息；</li>
+<li>V$
+当前实例的动态视图，包含系统管理和优化使用的视图；</li>
+<li>GV_
+分布环境下所有实例的动态视图，包含系统管理和优化使用的视图， 这里的GV表示 Global v$的意思；</li>
+</ol>
+
+<h3 id="基本数据字典" class="header-anchor-wrapper">基本数据字典
+  <a href="#%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>DBA_TABLES 所有用户的所有表的信息；
+DBA_TAB_COLUMNS 所有用户的表的列(字段)信息；
+DBA_VIEWS 所有用户的所有视图信息；
+DBA_SYNONYMS 所有用户同义词信息；
+DBA_SEQUENCES 所有用户序列信息；
+DBA_CONSTRAINTS 所有用户的表约束信息；
+DBA_INDEXES 所有用户索引的简要信息；
+DBA_IND_COLUMNS 所有用户索引的列信息；
+DBA_TRIGGERS 所有用户触发器信息 ；
+DBA_SOURCE所有用户存储过程源代码信息；
+DBA_PROCEDUS 所有用户存储过程；
+DBA_SEGMENTS 所有用户段（表，索引，Cluster）使用空间信息；
+DBA_EXTENTS 所有用户段的扩展段信息；
+DBA_OBJECTS 所有用户对象的基本信息（包括素引，表，视图，序列等）；
+CAT 当前用户可以访问的所有的基表 ；
+TAB 当前用户创建的所有基表，视图，同义词等；
+DICT 构成数据字典的所有表的信息；</p>
+
+<h3 id="与数据库组件相关的数据字典" class="header-anchor-wrapper">与数据库组件相关的数据字典
+  <a href="#%e4%b8%8e%e6%95%b0%e6%8d%ae%e5%ba%93%e7%bb%84%e4%bb%b6%e7%9b%b8%e5%85%b3%e7%9a%84%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ol>
+<li>数据库
+&lt;![CDATA[ V$DATABASE 同义词 V_$DATABASE,记录系统的运行情况；]]&gt;</li>
+<li>表空间
+DBA_TABLESPACES 记录系统表空间的基本信息；
+DBA_DATA_FILES 记录系统数据文件及表空间的基本信息；
+DBA_FREE_SPACE 记录系统表空间的剩余空间的信息；</li>
+<li>控制文件
+&lt;![CDATA[V$CONTROLFILE 记录系统控制文件的路径信息；]]&gt;
+&lt;![CDATA[V$PARAMETER 记录系统各参数的基本信息；]]&gt;
+&lt;![CDATA[v$CONTROLFILE_RECORD_SECTION 记录系统控制运行的基本信息；]]&gt;</li>
+<li>数据文件：
+DBA_DATA_FILES 记录系统数据文件及表空间的基本信息；
+&lt;![CDATA[v$DATAFILE 记录来自控制文件的数据文件信息；]]&gt;
+&lt;![CDATA[v$FILESTAT 记录数据文件读写的基本信息 ；]]&gt;</li>
+<li>vga
+show sga;
+&lt;![CDATA[SELECT * FROM V$SGASTAT;]]&gt;
+<ol>
+<li>动态性能视图</li>
+<li>系统统计信息
+&lt;![CDATA[ select * from sysstat]]&gt;\</li>
+<li>用户会话信息
+V$sesstat</li>
+<li>显示内存使用统计信息
+V$pgastat</li>
+<li>SQL游标所用工作区的信息
+V$sql_workarea</li>
+<li>当前系统工作区的信息
+V$ sql_workarea_active</li>
+<li>查询到每个Oracle进程的PGA分配的内存和已使用的内存情况
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select pid,pga_used_mem,pga_alloc_mem,pga_max_mem from v$process;
+-- 其中PGA_used_mem表示已使用的，pag_alloc_mem表示已分配的，pga_max_men表示PGA的最大值。
+</code></pre>
+</li>
+<li>查看后台进程：
+<pre  class="mc-prism hide language-text" ><code class="language-sql">SELECT * FROM v$bgprocess WHERE paddr &lt;&gt; '00';
+</code></pre>
+</li>
+<li>查看 所有的表空间
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select tablespace_name from dba_data_files order by tablespace_name;
+</code></pre>
+</li>
+<li>查看表空间的名字及大小:
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select t.tablespace_name, round(sum(bytes/(1024*1024)),0) ts_size  from dba_tablespaces t, dba_data_files d where t.tablespace_name = d.tablespace_name group by t.tablespace_name;
+</code></pre>
+</li>
+<li>创建表空间
+<pre  class="mc-prism hide language-text" ><code class="language-sql">CREATE TABLESPACE tablespacename
+DATAFILE 'filename' [SIZE integer [K|M]]
+[AUTOEXTEND [OFF|ON]];
+</code></pre>
+</li>
+<li>创建有多个数据文件的表空间
+<pre  class="mc-prism hide language-text" ><code class="language-sql">create tablespace SALES
+datafile 'd:/sales/SALES_DATA01.dbf' size 10m autoextend on next 10m maxsize 100m,
+'d:/sales/SALES_DATA02.dbf' size 10m autoextend on next 10m maxsize
+unlimited,'d:/sales/SALES_DATA03.dbf' size 10m;
+</code></pre>
+</li>
+<li>查看表空间大小
+<pre  class="mc-prism hide language-text" ><code class="language-sql">SELECT TABLESPACE_NAME,SUM(BYTES)/1024/1024 MB FROM DBA_FREE_SPACE GROUP BY TABLESPACE_NAME;
+</code></pre>
+</li>
+<li>查看表空间中数据文件存放的路径：
+<pre  class="mc-prism hide language-text" ><code class="language-sql">SELECT TABLESPACE_NAME, BYTES/1024/1024 FILE_SIZE_MB, FILE_NAME FROM DBA_DATA_FILES;
+</code></pre>
+</li>
+<li>删除表空间
+<pre  class="mc-prism hide language-text" ><code class="language-sql">drop tablespace worktbs including contents;
+</code></pre>
+</li>
+<li>为表空间增加数据文件
+<pre  class="mc-prism hide language-text" ><code class="language-sql"> alter tablespace sales add datafile 'd:/oracle/oradata/test/testtablespace/
+sales_data04.dbf' size 10m autoextend on next 10m maxsize 100m,
+'c:/oracle/oradata/test/testtablespace/sales_data05.dbf' size 10m autoextend on next 10m maxsize unlimited, 'c:/oracle/oradata/test/testtablespace/sales_data06.dbf' size 10m;
+</code></pre>
+</li>
+<li>修改数据文件的大小
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter database datafile 'c:/oracle/oradata/test/testtablespace/SALES_DATA04.dbf' resize 30m;
+</code></pre>
+</li>
+<li>关闭数据文件的自动扩展属性
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter database
+datafile 'c:/SALES_DATA04.dbf' ,
+'c:/SALES_DATA05.dbf',
+'c:/SALES_DATA06.dbf'
+autoextend off;
+</code></pre>
+</li>
+<li>打开表空间数据文件的自动扩展属性
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter database
+ datafile 'c:/SALES_DATA04.dbf' ,
+ 'c:/SALES_DATA05.dbf',
+ 'c:/SALES_DATA06.dbf'
+ autoextend on;
+</code></pre>
+</li>
+<li>修改表空间属性(离线)
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter tablespace sales offline;
+</code></pre>
+</li>
+<li>修改表空间属性（在线）
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter tablespace sales online;
+</code></pre>
+</li>
+<li>修改表空间属性(只读)
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter tablespace sales read only;
+-- 如下系统表空间不得设置为 offline 或者 read only
+-- system ， temp，undo ，undotbs
+</code></pre>
+</li>
+<li>修改表空间属性（读写）
+<pre  class="mc-prism hide language-text" ><code class="language-sql">alter tablepsace sales read write;
+</code></pre>
+</li>
+<li>创建用户，指定默认表空间，磁盘配额
+<pre  class="mc-prism hide language-text" ><code class="language-sql">create user rose identified by rose default
+o tablespace sales quota 10m on sales;
+</code></pre>
+</li>
+<li>给用户授权
+<pre  class="mc-prism hide language-text" ><code class="language-sql">grant connect,resource,dba to rose;
+</code></pre>
+</li>
+<li>删除表空间同时删除文件
+<pre  class="mc-prism hide language-text" ><code class="language-sql">drop tablespace sales including contents and datafiles;
+</code></pre>
+</li>
+<li>查看当前用户每个表空间占有的空间大小
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select segment_name,sum(bytes)/1024/1024 from user_extents group by segment_name
+</code></pre>
+</li>
+<li>查看每个表空间占有用空间的大小
+<pre  class="mc-prism hide language-text" ><code class="language-sql">select tablespace_name,sum(bytes)/1024/1024 from dba_segments group by tablespace_name
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

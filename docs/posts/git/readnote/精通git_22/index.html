@@ -1,0 +1,1060 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>精通Git(2) - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/git/readnote/%E7%B2%BE%E9%80%9Agit_22/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="精通Git(2)">
+  <meta property="og:description" content="精通Git Git基础 获取Git仓库 $ git init 记录每次更新到仓库 git add . git commit -m &#39;commit mesg&#39; 查询提交历史 #&#43;END_SRC git log #&#43;END_SRC">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-11-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-25T00:00:00+00:00">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="精通Git(2)">
+  <meta name="twitter:description" content="精通Git Git基础 获取Git仓库 $ git init 记录每次更新到仓库 git add . git commit -m &#39;commit mesg&#39; 查询提交历史 #&#43;END_SRC git log #&#43;END_SRC">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#精通git">精通Git</a>
+      <ul>
+        <li><a href="#git基础">Git基础</a></li>
+        <li><a href="#git分支">Git分支</a></li>
+        <li><a href="#服务器上的git">服务器上的Git</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="精通git" class="header-anchor-wrapper">精通Git
+  <a href="#%e7%b2%be%e9%80%9agit" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="git基础" class="header-anchor-wrapper">Git基础
+  <a href="#git%e5%9f%ba%e7%a1%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="获取git仓库" class="header-anchor-wrapper">获取Git仓库
+  <a href="#%e8%8e%b7%e5%8f%96git%e4%bb%93%e5%ba%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-shell">$ git init
+</code></pre>
+
+<h4 id="记录每次更新到仓库" class="header-anchor-wrapper">记录每次更新到仓库
+  <a href="#%e8%ae%b0%e5%bd%95%e6%af%8f%e6%ac%a1%e6%9b%b4%e6%96%b0%e5%88%b0%e4%bb%93%e5%ba%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git add .
+git commit -m 'commit mesg'
+</code></pre>
+
+<h4 id="查询提交历史" class="header-anchor-wrapper">查询提交历史
+  <a href="#%e6%9f%a5%e8%af%a2%e6%8f%90%e4%ba%a4%e5%8e%86%e5%8f%b2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>#+END_SRC
+git log
+#+END_SRC</p>
+
+<h4 id="撤消操作" class="header-anchor-wrapper">撤消操作
+  <a href="#%e6%92%a4%e6%b6%88%e6%93%8d%e4%bd%9c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git commit --amend
+</code></pre>
+<p>这个命令会将暂存区中的文件提交，如果自上次提交以来你还未做任何修改，那么快照会保持不变，而你所修改的只是提交信息。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git commit -m 'initial commit'
+git add ofrgotten_file
+git commit --amend
+</code></pre>
+<p>最终你只会有一个提交 - 第二冷饮提交将代替第一次提交的结果。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>取消暂存的文件</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git reset HEAD
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>撤消对文件的修改</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout xxx.file
+</code></pre>
+</li>
+</ul>
+
+<h4 id="远程仓库的使用" class="header-anchor-wrapper">远程仓库的使用
+  <a href="#%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e7%9a%84%e4%bd%bf%e7%94%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>查看远程仓库</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">get remote -v
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>添加远程仓库</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git remote add &lt;shortname&gt; &lt;url&gt;
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>从远程仓库中抓取与拉取</p>
+<p>#+END_SRC
+git fetch [remote-name]
+#+END_SRC</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>推送到远程仓库</p>
+<p>#+END_SRC
+git push origin master
+#+END_SRC</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>查看远程仓库</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git remote show origin
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>远程仓库的重命名</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git remote rename oldname newname
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>远程仓库的移除</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git remote rm remotename
+</code></pre>
+</li>
+</ul>
+
+<h4 id="标签" class="header-anchor-wrapper">标签
+  <a href="#%e6%a0%87%e7%ad%be" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>列出标签</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git tag
+</code></pre>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git tag -l 'XXXX*'
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>创建标签</p>
+<ul>
+<li>附注标签 -a选项</li>
+</ul>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git tag -a v1.4 -m 'version 1.4'
+</code></pre>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git show v1.4
+</code></pre>
+<ul>
+<li>轻量标签</li>
+</ul>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git tag v1.4-lw
+</code></pre>
+<ul>
+<li>后期打标签</li>
+</ul>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git tag -a v1.2 commitId
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>共享标签</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git push origin tagname
+</code></pre>
+<p>如果想一次性推送很多标签可以使用带有&ndash;tags</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git push origin --tags
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>检出标签</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout -b [branchname] [tagname]
+</code></pre>
+</li>
+</ul>
+
+<h4 id="git别名" class="header-anchor-wrapper">Git别名
+  <a href="#git%e5%88%ab%e5%90%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+</code></pre>
+
+<h3 id="git分支" class="header-anchor-wrapper">Git分支
+  <a href="#git%e5%88%86%e6%94%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="分支简介" class="header-anchor-wrapper">分支简介
+  <a href="#%e5%88%86%e6%94%af%e7%ae%80%e4%bb%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>分支创建</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch branchname
+</code></pre>
+<p>Git通过一个名为HEAD的特殊指针区分当前是在拿一个分支上。可以将HEAD想像成当前分支的别名。可以使用git log命令查看各个分支当前所指的对象。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git log --oneline --decorate
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>分支切换</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout branchname
+</code></pre>
+<p>切换后HEAD就会指向新的branchname
+可以使用git log 查看分叉历史</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git log --oneline --decorate --graph --all
+</code></pre>
+</li>
+</ul>
+
+<h4 id="分支的新建与合并" class="header-anchor-wrapper">分支的新建与合并
+  <a href="#%e5%88%86%e6%94%af%e7%9a%84%e6%96%b0%e5%bb%ba%e4%b8%8e%e5%90%88%e5%b9%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout -b branchname
+</code></pre>
+<p>这条命令相当于</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch branchname
+git checkout branchname
+</code></pre>
+<!--list-separator-->
+<ul>
+<li>
+<p>将新分支合并到主分支上</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout master   *切换回主分支
+git merge branchname   * merge分支到主分支
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>删除无用分支</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch -d branchname
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>遇到冲突时的分支合并</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git mergetool
+</code></pre>
+<p>该命令会为你启动一个合适的可视化合并工具然后</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git add .
+git commit -m 'xxxxx'
+</code></pre>
+</li>
+</ul>
+
+<h4 id="分支管理" class="header-anchor-wrapper">分支管理
+  <a href="#%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>查看分支</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch
+</code></pre>
+<p>会列出所有的分支，带*字符的表示当前检出的分支如果想查看每个分支的最后一次提交可以</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch -v
+</code></pre>
+<p>&ndash;merged与&ndash;no-merged这两个选项可以过滤这个列表中或沿示合并到当前分支 的分支。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch --merged
+</code></pre>
+<p>这个列表中不带*号的分支表示已经合并到当前分支了，可以安全删除还可以查看尚未合并到当前分支的分支</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch --no-merged
+</code></pre>
+<p>这里显示的分支使用git branch -d删除会失败。因为会丢失信息。不过可以使用git branch -D强制删除</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch -D branchname * 强制删除分支
+</code></pre>
+</li>
+</ul>
+
+<h4 id="分支开发工作流" class="header-anchor-wrapper">分支开发工作流
+  <a href="#%e5%88%86%e6%94%af%e5%bc%80%e5%8f%91%e5%b7%a5%e4%bd%9c%e6%b5%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+
+<h4 id="远程分支" class="header-anchor-wrapper">远程分支
+  <a href="#%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>显示获得远程引用的完整列表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git ls-remote
+</code></pre>
+<!--list-separator-->
+<ul>
+<li>
+<p>推送</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git push (remote) (branchname)
+</code></pre>
+<p>将branchname推送到remote服务器或</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git push (remote) localbranchname: originbranchname
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>拉取</p>
+<p>将远程指定分支合并到当前所在分支</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git merge origin/branchname
+</code></pre>
+<p>或建立本地分支跟踪远程分支</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout -b localbranchname origin/remotebranchname
+</code></pre>
+<p>或</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout --track origin/remotebranchname
+</code></pre>
+<p>设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改正在跟踪的上游分支，你可以在任意时间使用-u或者&ndash;set-upstream-to 选项运行git branch来显示设置</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch -u origin/originbranchname
+</code></pre>
+<p>如果想要查看设置的所有跟踪分支，可以使用git branch的-vv选项。这会将所有的本地分支列出来并且包含更多的信息，如每一个分支正在跟踪哪个远程分支与本地分支是否领先、落后或是都有。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git branch -vv
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>git pull</p>
+<p>git pull = git fetch + get merge</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>删除远程分支</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git push origin --delete originbranchname
+</code></pre>
+</li>
+</ul>
+
+<h4 id="变基" class="header-anchor-wrapper">变基
+  <a href="#%e5%8f%98%e5%9f%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>在Git中整合来自不同分支的修改主要 有两种方式：merge和rebase</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>rebase</p>
+<p>e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git checkout experiment
+git rebase master
+</code></pre>
+<p>它的原理是首先找到这两个分支（即当前分支experiment,变基操作的目标基底分支master)的最近共同祖先，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底，最后以此将之前另存为临时文件的修改依序应用。现在回到master分支，进行一次快进合并
+#+END_SRC
+git checkout master
+git merge experimet
+#+END_SRC
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git rebase --onto master server client
+</code></pre>
+<p>将client中的修改合并到主分支并发布，但暂时不合并server中的修改</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git rebase master server
+git checkout master
+git merge server
+</code></pre>
+<p>将server中的修改变基到master上，server中的代码被“续”到了master后面。</p>
+</li>
+</ul>
+
+<h3 id="服务器上的git" class="header-anchor-wrapper">服务器上的Git
+  <a href="#%e6%9c%8d%e5%8a%a1%e5%99%a8%e4%b8%8a%e7%9a%84git" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="协议" class="header-anchor-wrapper">协议
+  <a href="#%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>本地协议，HTTP协议，SSH协议以及Git协议。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>本地协议</p>
+<p>本地协议中，无程版本库就是硬盘内的另一个目录，常见于团队每个成员都对一个共享的文件系统拥有访问权。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git clone /opt/git/project.git
+</code></pre>
+<p>或</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git clone file:///opt/git/project.git
+</code></pre>
+<p>增加一个本地版本库到现有的Git项目</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git remote add local_proj /opt/git/project.git
+</code></pre>
+<ul>
+<li>优点
+<ul>
+<li>简单</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>共享文件系统比较难配置，并且比起基本的网络连接访问，不方便从多个位置访问。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>HTTP协议</p>
+ <!--list-separator-->
+<ul>
+<li>智能（Smart）HTTP协议</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>哑（Dumb）HTTP协议</p>
+<ul>
+<li>优点
+<ul>
+<li>不同的访问方式只需要一个URL以及服务器只需要授权时提示输入授权信息</li>
+<li>HTTP/S协议被广泛使用，一般企业防火墙都会允许这些端口的数据通过。</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>在一些服务顺上，架设HTTP/S协议的服务端会比SSH协议的棘手一些。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>SSH协议</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git clone ssh://user@server/project.git
+</code></pre>
+<p>或 scp式写法
+#+END_SRCsell
+git clone user@server:project.git
+#+END_SRC</p>
+<ul>
+<li>优点
+<ul>
+<li>SSH架设相对简单</li>
+<li>SSH访问是安全的</li>
+<li>与HTTP/S协议、Git协议及本地协议一样，SSH协议很高效，在传输前也会尽量压缩数据。</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>你不能通过他实现匿名访问。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Git协议</p>
+<p>这是包含在Git里的一个特殊的守护进程；它监听在一个特定的端口（9418），类似于SSH服务，但是访问无需任何授权。</p>
+</li>
+</ul>
+
+<h4 id="在服务器上搭建git" class="header-anchor-wrapper">在服务器上搭建Git
+  <a href="#%e5%9c%a8%e6%9c%8d%e5%8a%a1%e5%99%a8%e4%b8%8a%e6%90%ad%e5%bb%bagit" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>将现有的仓库导出为裸仓库&ndash;即一个不包含当前工作目录的仓库</li>
+</ul>
+<!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git clone --bare my_project my_project.git
+</code></pre>
+<p>现在，你的my_project.git目录中应该有Git目录的副本了。整体上效果大致相当于</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">cp -Rf my_project/.git my_project.git
+</code></pre>
+<ul>
+<li>把裸仓库放到服务器上</li>
+</ul>
+<p>假设服务器git.example.com的服务器已经架设好 ，并可以通过SSH连接，你想把所有的Git仓库放在/opt/git目录下，你可以通过以下命令复制你的裸仓库来创建一个新仓库：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">scp -r my_project.git user@git.example.com:/opt/git
+</code></pre>
+<p>此时，其他通过SSH连接这台服务器并对/opt/git目录拥有可读权限的使用者，通过运行以下命令就可以克隆你的仓库。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-shell">git clone user@git.example.com:/opt/git/my_project.git
+</code></pre>
+
+<h4 id="gitlab" class="header-anchor-wrapper">GitLab
+  <a href="#gitlab" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>可以在<a href="http://bitnami.com/stack/gitlab%E4%B8%8A%E8%8E%B7%E5%8F%96%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85">http://bitnami.com/stack/gitlab%E4%B8%8A%E8%8E%B7%E5%8F%96%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85</a>， 同时调整配置使之符合你的特定的环境。</p>
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

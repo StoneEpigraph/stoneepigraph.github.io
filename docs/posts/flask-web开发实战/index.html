@@ -1,0 +1,3644 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flask Web开发实战 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Flask Web开发实战">
+  <meta property="og:description" content="Flask Web开发实战 基础 初识 开发环境
+pipenv工作流
+pip install pipenv
+pipenv install # 创建虚拟环境
+pipenv shell # 进入虚拟环境 pipenv run command #使用虚拟环境执行命令
+pipenv graph # 查看当前环境的依赖
+Hello，Flask
+创建程序实例
+新建app.py(可以是除flask.py之外任意名字)
+from flask import Flask app = Flask(name)
+注册路由
+概括：
+用户在浏览器输入URL访问某个资源 Flask接收用户请求并分析请求的URL 为这个URL找到对应的处理函数 执行函数并生成响应，浏览器 浏览器接收并解析响应，将信息显示在页面中。 ?? (????)(’/’) def index(): ​return &#39;
+&lt;h1&gt;
+hello, world
+&lt;/h1&gt;
+&#39;
+可以为视图绑定多个URL
+?? ()(‘hi’) ?? ()(’/hello’) def say_hello(): ​return &#39;
+&lt;h1&gt;
+Hello, Flask!">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-04T00:00:00+00:00">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flask Web开发实战">
+  <meta name="twitter:description" content="Flask Web开发实战 基础 初识 开发环境
+pipenv工作流
+pip install pipenv
+pipenv install # 创建虚拟环境
+pipenv shell # 进入虚拟环境 pipenv run command #使用虚拟环境执行命令
+pipenv graph # 查看当前环境的依赖
+Hello，Flask
+创建程序实例
+新建app.py(可以是除flask.py之外任意名字)
+from flask import Flask app = Flask(name)
+注册路由
+概括：
+用户在浏览器输入URL访问某个资源 Flask接收用户请求并分析请求的URL 为这个URL找到对应的处理函数 执行函数并生成响应，浏览器 浏览器接收并解析响应，将信息显示在页面中。 ?? (????)(’/’) def index(): ​return &#39;
+&lt;h1&gt;
+hello, world
+&lt;/h1&gt;
+&#39;
+可以为视图绑定多个URL
+?? ()(‘hi’) ?? ()(’/hello’) def say_hello(): ​return &#39;
+&lt;h1&gt;
+Hello, Flask!">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#flask-web开发实战">Flask Web开发实战</a>
+      <ul>
+        <li><a href="#基础">基础</a></li>
+        <li><a href="#实战">实战</a></li>
+        <li><a href="#进阶">进阶</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2>Flask Web开发实战</h2>
+
+
+<h3>基础</h3>
+
+
+<h4>初识</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>开发环境</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>pipenv工作流</p>
+<blockquote>
+<p>pip install pipenv</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>pipenv install # 创建虚拟环境</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>pipenv shell # 进入虚拟环境
+pipenv run command #使用虚拟环境执行命令</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>pipenv graph # 查看当前环境的依赖</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Hello，Flask</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建程序实例</p>
+<p>新建app.py(可以是除flask.py之外任意名字)</p>
+<blockquote>
+<p>from flask import Flask
+app = Flask(<span class="underline"><span class="underline"><span class="underline"><span class="underline">name</span></span></span></span>)</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>注册路由</p>
+<p>概括：</p>
+<ol>
+<li>用户在浏览器输入URL访问某个资源</li>
+<li>Flask接收用户请求并分析请求的URL</li>
+<li>为这个URL找到对应的处理函数</li>
+<li>执行函数并生成响应，浏览器</li>
+<li>浏览器接收并解析响应，将信息显示在页面中。</li>
+</ol>
+<blockquote>
+<p>?? (????)(&rsquo;/&rsquo;)
+def index():
+​return '</p>
+<div class="html">
+<p>&lt;h1&gt;</p>
+</div>
+<p>hello, world</p>
+<div class="html">
+<p>&lt;/h1&gt;</p>
+</div>
+<p>'</p>
+</blockquote>
+<p>可以为视图绑定多个URL</p>
+<blockquote>
+<p>?? ()(&lsquo;hi&rsquo;)
+?? ()(&rsquo;/hello&rsquo;)
+def say_hello():
+​return '</p>
+<div class="html">
+<p>&lt;h1&gt;</p>
+</div>
+<p>Hello, Flask!</p>
+<div class="html">
+<p>&lt;/h1&gt;</p>
+</div>
+<p>'</p>
+</blockquote>
+<p>动态URL</p>
+<blockquote>
+<p>?? ()(&rsquo;<em>greet&rsquo;, defaults={&rsquo;name&rsquo;: &lsquo;Programmer&rsquo;}) #
+给name默认值
+?? ()(&rsquo;/greet</em>&rsquo;)
+def greet(name = &lsquo;Programmer&rsquo;):
+​return '</p>
+<div class="html">
+<p>&lt;h1&gt;</p>
+</div>
+<p>Hello, $s!</p>
+<div class="html">
+<p>&lt;/h1&gt;</p>
+</div>
+<p>&rsquo; % name</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>启动开发器</p>
+<blockquote>
+<p>$ flask run
+$ flask run &ndash;host=127.0.0.1 &ndash;port=8888</p>
+</blockquote>
+<p>会从当前目录寻找app.py和wsgi.py,并从中寻找名为app或application的程序实例从环境变量FLASK_APP对应的值寻找名为app或application的程序实例</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>管理环境变量</p>
+<p>python-dotenv
+安装python-dotenv后，使用 flask
+run会自动从.flaskenv文件和.env文件中加载环境变量</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Python shell</p>
+<p>$ flask shell
+进入Python shell</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Flask扩展</p>
+<blockquote>
+<p>e.g.
+from flask import Flask
+from flask_foo import Foo
+app = Flask(<span class="underline"><span class="underline"><span class="underline"><span class="underline">name</span></span></span></span>)
+foo = Foo(app)</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>项目配置</p>
+<p>配置方式</p>
+<ol>
+<li>像字典一样添加</li>
+</ol>
+<blockquote>
+<p>app.config[&lsquo;ADMIN_NAME&rsquo;] = &lsquo;Peter&rsquo;</p>
+</blockquote>
+<ol start="2">
+<li>使用update()方法则可以一次加载多个值</li>
+</ol>
+<blockquote>
+<p>app.config.update(
+​TESTING=True,
+​SECRET_KEY=&lsquo;ASDFXCVAEQWER&rsquo;
+)</p>
+</blockquote>
+<p>读取值</p>
+<blockquote>
+<p>value = app.config[&lsquo;ADMIN_NAME&rsquo;]</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>URL与端点</p>
+<blockquote>
+<p>url_for(&rsquo;endpoint&rsquo;)</p>
+</blockquote>
+<p>默认会生成相对于项目的URL
+如果将_external参数设置为True，将会生成完整的URL</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Flask命令</p>
+<ul>
+<li>自定义命令</li>
+</ul>
+<blockquote>
+<p>?? (a)(&lsquo;hello&rsquo;)
+def hello():
+​click.echo(&lsquo;Hello, Human!&rsquo;)
+$ flask hello
+#+begin_quote
+Hello, Human!</p>
+</blockquote>
+<p>#+end_quote</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>模板与静态文件</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>Flask与MVC架构</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="flask-与-http" class="header-anchor-wrapper">Flask 与 HTTP
+  <a href="#flask-%e4%b8%8e-http" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>Http请求</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Request对象</p>
+<blockquote>
+<p>from flask import Flask request</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在Flask中处理请求</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>路由匹配</p>
+<blockquote>
+<p>flask routes # 显示所有可匹配路由</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>设置监听的HTTP方法</p>
+<blockquote>
+<p>?? ()(&rsquo;/hello&rsquo;, methods=[&lsquo;GET&rsquo;, &lsquo;POST&rsquo;])
+def hello():
+​return &lsquo;Hello, World!!!&rsquo;</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>URL处理</p>
+<p>内置的URL变量转换器</p>
+<ul>
+<li>string</li>
+<li>int</li>
+<li>float</li>
+<li>path</li>
+<li>any</li>
+<li>uuid</li>
+</ul>
+<blockquote>
+<p>e.g.
+?? ()(&lsquo;goback/&lt;&gt;&rsquo;)
+def go_back(year):
+​return &lsquo;Welcome to %d&rsquo; % (2018 - year)</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>e.g.
+?? ()(&rsquo;/colors/&lt;any(blue, white, red):color&rsquo;) #
+只接收blue, white red
+def three_colors(color):
+​return &lsquo;Love is patient and kind, Love is not jealous or boastful or
+proud or rude.&rsquo;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>请求钩子</p>
+<p>默认的请求钩子</p>
+<ul>
+<li>before_first_request: 在处理第一个请求前运行</li>
+<li>before_request: 在处理每个请求前运行</li>
+<li>after_request: 如果没有未处理的异常，会在每个请求结束后运行</li>
+<li>teardown_request:
+即使有异常抛出，也会在每个请求结束后运行。如果发生异常，会传入异常对象作为参数到注册的函数中</li>
+<li>after_this_request: 会在这个请求结束后运行</li>
+</ul>
+<blockquote>
+<p>e.g.
+?? (a)
+def do_something_before_request():
+​pass #这个函数会在每个请求之前执行</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>HTTP响应</p>
+ <!--list-separator-->
+<ul>
+<li>响应报文</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在Flask中生成响应</p>
+<p>普通的响应可以只包含主体内容，默认状态码为200，如有需要可以修改</p>
+<blockquote>
+<p>e.g.
+?? ()(&rsquo;/hello&rsquo;)
+def hello():
+​&hellip;
+​return &lsquo;返回体&rsquo;, 201 # 返回体, 返回码</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>e.g.
+?? ()(&rsquo;/hello&rsquo;)
+def hello():
+​&hellip;
+​return &lsquo;&rsquo;, 302, {&lsquo;Location&rsquo;, &lsquo;Http://www.baidu.com&rsquo;}</p>
+</blockquote>
+ <!--list-separator-->
+<ul>
+<li>
+<p>重定向</p>
+<blockquote>
+<p>e.g.
+from flask import Flask, redirect
+?? ()(&rsquo;/hello&rsquo;)
+def hello():
+​return redirect(&lsquo;<a href="http://www.baidu.com">http://www.baidu.com</a>&rsquo;)</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>from flask import Flask, redirect, url_for
+?? ()(&rsquo;/hi&rsquo;)
+def hi():
+​return redirect(url_for(&lsquo;hello&rsquo;))
+?? ()(&rsquo;/hello&rsquo;):
+​return &ldquo;Hello&rdquo;</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>错误响应</p>
+<p>Flask提供abort()函数</p>
+<blockquote>
+<p>e.g.
+from flask import Flask, abort
+?? ()(&rsquo;/404&rsquo;)
+def not_found():
+​abort(404)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>响应格式</p>
+<p>默认的响应格式为HTML
+修改返回格式</p>
+<blockquote>
+<p>e.g.
+from flask import make_response
+?? ()(&rsquo;/foo&rsquo;)
+def foo():
+​response = make_response(&lsquo;Hello, World&rsquo;)
+​response.mimetype = &rsquo;text/plain&rsquo;
+​return response</p>
+</blockquote>
+<ul>
+<li>格式例子
+<ul>
+<li>text/plain</li>
+<li>text/html</li>
+<li>application/xml</li>
+<li>application/json</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Cookie</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>设置Cookie</p>
+<blockquote>
+<p>response.set_cookie(&rsquo;name&rsquo;, name)</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取Cookie</p>
+<blockquote>
+<p>request.cookies.get(&rsquo;name&rsquo;, &lsquo;Human&rsquo;)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>session： 安全的cookie</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>设置程序密钥</p>
+<blockquote>
+<p>app.secret_key = &lsquo;secret string&rsquo;</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>app.secret_key = os.getenv(&lsquo;SECRET_KEY&rsquo;, &lsquo;secret string&rsquo;)</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>e.g.
+from flask import redirect, session, url_for
+?? ()(&rsquo;/login&rsquo;)
+def login():
+​session[&rsquo;logged_in&rsquo;] = True # 写入session
+​return redirect（url_for(&lsquo;hello&rsquo;))</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>删除session</p>
+<blockquote>
+<p>e.g.
+from flask import session
+?? ()(&rsquo;/logout&rsquo;)
+def logout():
+​if &rsquo;logged_in&rsquo; in session:
+​session.pop(&rsquo;logged_in&rsquo;)
+​return redirect(url_for(&lsquo;hello&rsquo;))</p>
+</blockquote>
+<p>默认情况下，session
+cookie会在用户关闭浏览器时删除，通过将session.permanent属性设为True可以将session的有效期延长为Flask.permanent_session_lifetime属性值对应的datetime.timedelta对象，也可以通过PERMEANENT_SESSION_LIFETIME设置，默认为31天。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Flask上下文</p>
+<p>分为程序上下文和请求上下文</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>上下文全局变量</p>
+<p>Flask提供了四个上下文全局变量</p>
+<ul>
+<li>current_app： 请求上下文，指向处理请求的当前程序实例</li>
+<li>g:
+程序上下文，替代Python的全局变量用法，确保仅在当前请求中可用。用于存储全局数据，每次请求都会重设</li>
+<li>request: 请求上下文，封装客户端发出的请求报文数据</li>
+<li>session: 请求上下文，用于记住请求之间的数据，通过签名的Cookie实现</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>激活上下文</p>
+<ul>
+<li>当我们使用flask run 命令启动程序时</li>
+<li>使用旧的app.run()方法启动程序时</li>
+<li>执行使用@app.cli.command()装饰器注册的flask命令时</li>
+<li>使用flask shell命令启动Python shell时</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>上下文钩子</p>
+<p>teardown_appcontext钩子，它注册的函数会在程序上下文和请求上下文被销毁时调用</p>
+<blockquote>
+<p>e.g.
+?? (a)
+def deardown_db(exception):
+​&hellip;
+​db.close()</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>HTTP进阶实战</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>重定向回上一个页面</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>获取上一个页面的URL</p>
+<p>有两种方式可以获取</p>
+<ol>
+<li>HTTP referer</li>
+</ol>
+<blockquote>
+<p>return redirect(request.referrer)</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>return redirect(request.referrer or url_for(&lsquo;hello&rsquo;))</p>
+</blockquote>
+<ol start="2">
+<li>查询参数</li>
+</ol>
+<blockquote>
+<p>&lsquo;do something&rsquo; % url_for(&lsquo;do_something&rsquo;, next=request.full_path)</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>return redirect(request.args.get(&rsquo;next&rsquo;))</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>e.g.
+def redirect_bak(default=&lsquo;dello&rsquo;, **kwargs):
+​for target in request.args.get(&rsquo;next&rsquo;), request.referrer:
+​if target:
+​return redirect(target)
+​return redirect(url_for(default, **kwargs))</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>对URL进行安全验证</p>
+<blockquote>
+<p>from urllib import urlparse, urljoin
+from flask import Flask
+def is_safe_url(target):
+​ref_url = urlparse(request.host_url)
+​test_url=urlparse(urljoin(request.host_url, target))
+​return test_url.scheme in (&lsquo;http&rsquo;, &lsquo;https&rsquo;) and ref_url.netloc ==
+test_url.netloc</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用AJAx技术发送异步请求</p>
+<p>返回“局部数据”</p>
+<ol>
+<li>纯文本或都HTML</li>
+</ol>
+<blockquote>
+<p>e.g.
+?? ()(&ldquo;comments/&lt;int: post_id&gt;&rdquo;)
+def get_comments(post_id):
+​return render_template(&lsquo;comments.html&rsquo;)</p>
+</blockquote>
+<ol start="2">
+<li>返回JSON数据</li>
+</ol>
+<blockquote>
+<p>?? ()(&lsquo;profile/&lt;int: user_id&gt;&rsquo;)
+def get_profile(user_id):
+​return jsonify(username=username, bio=bio)</p>
+</blockquote>
+<ol start="3">
+<li>空值</li>
+</ol>
+<blockquote>
+<p>?? ()(&rsquo;/post/delete/&lt;int: post_id&gt;&rsquo;, methods=[&lsquo;delete&rsquo;])
+def delete_post(post_id):
+​return &lsquo;&rsquo;, 204</p>
+</blockquote>
+<ol start="4">
+<li>异步加载长文章</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>HTTP 服务器端推送</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>常用的推送技术</p>
+<ul>
+<li>传统轮询</li>
+<li>长轮询</li>
+<li>Server-Sent Events(SSE): 通过HTML5中的EventSource
+API实现。SSE会在客户端和服务器建立 一个单向的通道。客户端监听来自服务器端的数据。</li>
+<li>WebSocket</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Web安全规范</p>
+<ul>
+<li>
+<p>注入攻击</p>
+</li>
+<li>
+<p>XSS攻击防范：</p>
+<ol>
+<li>HTML转义</li>
+</ol>
+<blockquote>
+<p>response = '</p>
+<div class="html">
+<p>&lt;h1&gt;</p>
+</div>
+<p>Hello, %s</p>
+<div class="html">
+<p>&lt;/h1&gt;</p>
+</div>
+<p>&rsquo; % escape(name)</p>
+</blockquote>
+<ol start="2">
+<li>验证用户输入</li>
+</ol>
+</li>
+<li>
+<p>CSRF攻击</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="模板" class="header-anchor-wrapper">模板
+  <a href="#%e6%a8%a1%e6%9d%bf" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>模板基本用法</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建模板</p>
+<p>在templates目录下创建HTML文件</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>JinJa2常见的有三种定界符</p>
+<ul>
+<li>语句</li>
+</ul>
+<p>比如if判断、for循环等：</p>
+<blockquote>
+<p>{%&hellip;%}</p>
+</blockquote>
+<ul>
+<li>表达式</li>
+</ul>
+<p>比如字符串、变量、函数调用等</p>
+<blockquote>
+<p>{{&hellip;}}</p>
+</blockquote>
+<ul>
+<li>注释</li>
+</ul>
+<blockquote>
+<p>{#&hellip;#}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>模板语法</p>
+<ul>
+<li>for</li>
+</ul>
+<blockquote>
+<p>{% for movie in moveies%}</p>
+<div class="html">
+<p>&lt;li&gt;</p>
+</div>
+<p>{{ movie.name}} - {{ movie.year }}</p>
+<div class="html">
+<p>&lt;/li&gt;</p>
+</div>
+<p>{% endfor %}</p>
+</blockquote>
+<p>for循环的完整变量列表： <a href="http://jinja.pcoo.org/docs/2.10/templates/#for">http://jinja.pcoo.org/docs/2.10/templates/#for</a></p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>渲染模板</p>
+<blockquote>
+<p>e.g.
+from flask import Flask, render_template
+?? ()(&rsquo;/watchlist&rsquo;)
+def watchlist():
+​return render_template(&lsquo;watchlist.html&rsquo;, user=user, movies=movies)</p>
+</blockquote>
+<p>Flask会在程序要目录下的templates文件夹里寻找模板文件。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>模板辅助工具</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>上下文</p>
+<p>可以模板中定义变量，使用set标签</p>
+<blockquote>
+<p>e.g.
+{% set navigation = [(&rsquo;/&rsquo;, &lsquo;Home&rsquo;), (&rsquo;/about&rsquo;, &lsquo;About&rsquo;)]%}</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>e.g.
+{% set navigation%}</p>
+<div class="html">
+<p>&lt;li&gt;</p>
+</div>
+<p>Home</p>
+<div class="html">
+<p>&lt;/li&gt;</p>
+</div>
+<div class="html">
+<p>&lt;li&gt;</p>
+</div>
+<p>About</p>
+<div class="html">
+<p>&lt;/li&gt;</p>
+</div>
+<p>{% endset %}</p>
+</blockquote>
+<ul>
+<li>
+<p>内置上下文变量</p>
+<ul>
+<li>config: 当前的配置对象</li>
+<li>request: 当前的请求对象，在已激活的请求环境下可用</li>
+<li>session: 当前的会话对象，在已激活的请求环境下可用</li>
+<li>g: 与请求绑定的全局变量，在已激活的请求环境下可用</li>
+</ul>
+</li>
+<li>
+<p>自定义上下文</p>
+<ul>
+<li>模板全局变量</li>
+</ul>
+<p>Flask提供了一个app.context_processor装饰器，可以用来注册模板上下文处理函数</p>
+<blockquote>
+<p>?? (a)
+def inject_foo():
+​ foo = &ldquo;I am foo.&rdquo;
+​ return dict(foo = foo) # 等同于return {&lsquo;foo&rsquo;: foo}</p>
+</blockquote>
+<!--quoteend-->
+<blockquote>
+<p>def inject_foo():
+​ foo = &ldquo;I am foo.&rdquo;
+​ return dict(foo = foo)
+app.context_processor(inject_foo)</p>
+</blockquote>
+<!--quoteend-->
+<blockquote>
+<p>app.context_processor(lambda: dict(foo = &lsquo;I am foo.&rsquo;))</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>全局对象</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>内置全局函数</p>
+<ul>
+<li>
+<p>Jinjia2内置模板全局函数</p>
+<ul>
+<li>range([start, ] stop [, step]): 和Python中range()的用法相同</li>
+<li>lipsum(n=5, html=True, min=20, max=100)： 生成随机的文本（ lorem
+ipsum）,
+可以在测试时用来填充页面。默认生成5段HTML文本，每段包含20-100个单词。</li>
+<li>dict(**items): 和Python中的dict()用法相同</li>
+</ul>
+<p>完整的访问：
+<a href="http://jinja.pocoo.org/docs/2.10/templates/#list-of-global-functinos">http://jinja.pocoo.org/docs/2.10/templates/#list-of-global-functinos</a></p>
+</li>
+<li>
+<p>Flask内置模板全局函数</p>
+<ul>
+<li>url_for(): 用于生成URL的函数</li>
+<li>get_finished_messages(): 用于获取flash消息的函数</li>
+</ul>
+<blockquote>
+<p>e.g.  ← Return</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>自定义全局函数</p>
+<p>使用app.template_global装饰器直接将函数注册为模板全局函数</p>
+<blockquote>
+<p>?? (a)()
+def bar():
+​return &ldquo;I am bar.&rdquo;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>过滤器</p>
+<blockquote>
+<p>{{ obj | filterFunc }}</p>
+</blockquote>
+ <!--list-separator-->
+<ul>
+<li>
+<p>内置过滤器</p>
+<ul>
+<li>default(value, default_value=&rsquo;&rsquo;, boolean=False): 设置默认值，默认值做为参数传入，别名为d</li>
+<li>escape(s): 转义HTML文本，别名为e</li>
+<li>first(seq): 返回序列的第一个元素</li>
+<li>last(seq)：返回序列的最后一个元素</li>
+<li>length(object): 返回变量的长度</li>
+<li>random(seq): 返回序列中的随机元素</li>
+<li>safe(value): 将变量值标记为安全，避免转义</li>
+<li>trim(value): 清除变量值前后的空格</li>
+<li>max(value, case_sensitive=False, attribute=None): 返回序列中的最大值</li>
+<li>min(value, case_sensitive=False, attribute=None): 返回序列中的最小值</li>
+<li>unique(value,
+case_sensitive=False,attribute=None):返回序列中的不重复的值</li>
+<li>striptags(value): 清除变量值内的HTML标签</li>
+<li>urlize(value, trim_url_limit=None, nofollow=False, target=None,
+rel=None): 将URL文本转换为可单击的HTML链接</li>
+<li>wordcount(s): 计算单词数量</li>
+<li>tojson(value, indent=None): 将变量值转换为JSON格式</li>
+<li>truncate(s, length=255, killwords=False, end=&rsquo;&hellip;&rsquo;, leeway=None):
+截断字符串，常用于显示文章摘要，length参数设置截断长度，killwords参数设置是否截断单词，end参数设置结尾的符号</li>
+</ul>
+<p>完整列表： <a href="http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters">http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters</a></p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>自定义过滤器</p>
+<p>app.template_filter()装饰器</p>
+<blockquote>
+<p>from flask import Markup
+?? (a)()
+def musical(s):
+​return s + Markup(&rsquo;♫&rsquo;)</p>
+</blockquote>
+<p>或</p>
+<blockquote>
+<p>app.add_template_filter(you_filter_function)</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>{{ name | musical }}</p>
+</blockquote>
+<p>#####　测试器</p>
+<blockquote>
+<p>{% if age is number %}
+{% else%}
+{% endif %}</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>常用内置测试器</p>
+<ul>
+<li>callable(object): 判断对象是否可被调用</li>
+<li>defined(value): 判断变量是否已定义</li>
+<li>undefined(value)：判断变量是否未定义</li>
+<li>none(value): 断送变量是否为None</li>
+<li>number(value): 判断变量是否为数字</li>
+<li>string(value): 判断变量是否是字符串</li>
+<li>sequence(value): 判断变量是否是序列，比如字符串，列表，无组</li>
+<li>iterable(value): 判断变量是否要迭代</li>
+<li>mapping(value): 判断变量是否是匹配对象，比如字典</li>
+<li>sames(value, other): 判断变量与other是否指向相同内存地址</li>
+</ul>
+<p>完整列表：
+<a href="http://jinja.pocoo.org/docs/2.10/templates/#list-of-builtin-tests">http://jinja.pocoo.org/docs/2.10/templates/#list-of-builtin-tests</a></p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>自定义过滤器</p>
+<p>app.template_test()</p>
+<blockquote>
+<p>?? (a)()
+def baz(n):
+​if n == &lsquo;baz&rsquo;:
+​return True
+​return False</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>模板环境对象</p>
+<p>在jinja2中，渲染行为由jinja2.Enviroment类控制，所有的配置选项、上下文变量、全局函数、过滤器和测试器都存储在Environment实例上。而与Flask结合后，使用Flask创建的Environment，它存储在app.jinja_env属性上</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>添加自定义全局对象</p>
+<blockquote>
+<p>def bar():
+​return &ldquo;I am bar.&rdquo;
+foo = &ldquo;I am foo&rdquo;
+app.jinia_env.globals[&lsquo;bar&rsquo;] = bar
+app.jinja_env.globals[&lsquo;foo&rsquo;] = foo</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>添加自定义过滤器</p>
+<blockquote>
+<p>def smiling(s):
+​return s + &rsquo; :)&rsquo;
+app.jinja_env.filters[&lsquo;smiling&rsquo;] = smiling</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>添加自定义过滤器</p>
+<blockquote>
+<p>def baz(n):
+​if n == &lsquo;baz&rsquo;:
+​return True
+​return False
+app.jinja_env.tests[&lsquo;baz&rsquo;] = baz</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>模板结构组织</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>局部模板</p>
+<p>使用include可以把局部模板插入标签位置, 使用当前文件的上下文</p>
+<blockquote>
+<p>{% include &lsquo;_banner.html&rsquo; %}</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>宏</p>
+<p>可以把一部分代码封装到宏里，使用传递的参数来构建内容，最后返回构建后的内容。这个文件通常命名为macros.html或_macros.html.
+创建时使用macro和endmacro标签声明宏的开始和结束。</p>
+<blockquote>
+<p>e.g.
+#声明
+{% macro qux(amount = 1) %}
+​{% if amount == 1 %}
+​I am qux
+​{% elif amoutn &gt; 1 %}
+​We are quxs.
+​{% endif %}
+{% endmacro %}</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>e.g.
+#使用
+{% from &lsquo;macros.html&rsquo; import qux %}
+或
+{% from &lsquo;macros.html&rsquo; import qux with context %}
+&hellip;
+{{ qux(amount = 5) }}</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>模板继承</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>编写基本模板</p>
+<p>通过在基模板上添加页头和页脚当子模板继承基模板后，子模板会自动 包含基模板 的内容的结构。为了能够让子模板方便地覆盖基模板或插入内容到基模板中，我们需要在基模板中定义块（block）,
+在子模板中可以通过定义同名的块来执行继承操作。
+e.g.
+我们可以创建六个块： head, title, styles, content, footer, scripts</p>
+<blockquote>
+<p>{% block body %}
+{% endblock body %}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>编写子模板</p>
+<blockquote>
+<p>e.g.
+{% extends &lsquo;base.html&rsquo;%}
+{% from &lsquo;macros.html&rsquo; import qux %}
+{% block content %}
+​内容
+{% endblock content %}</p>
+</blockquote>
+<p>注意： <strong>extends必须是子模板的第一个标签</strong>
+我们在子模板中可以对你模板中的块执行两种操作：</p>
+<ul>
+<li>覆盖内容</li>
+</ul>
+<p>创建同名的块时，会使用子块的内容覆盖父块的内容</p>
+<ul>
+<li>追加内容</li>
+</ul>
+<p>需要使用super()进行声明</p>
+<blockquote>
+<p>e.g.
+{% block styles %}
+{{ super() }}
+&hellip;
+{% endblock styles %}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>模板进阶实践</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>空白控制</p>
+<p>空白行是为了增加可读必，可以在定界符内侧添加减号移除空白</p>
+<blockquote>
+<p>e.g.
+{%- endfor %}</p>
+</blockquote>
+<p>也可以使用模板环境的属性删除窄</p>
+<blockquote>
+<p>app.jinja_env.trim_blocks = True: 删除jinja2语句后的第一个窄
+app.jinja_env.lstrip_blocks = True:
+删除Jinja2语句所在行之前的空格和制表符</p>
+</blockquote>
+<p>注意宏内的空白不受trim_blocks 和 lstrip_blocks控制</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>加载静态文件</p>
+<p>静态文件默认存放在static文件夹中。</p>
+<blockquote>
+<p>e.g.
+url_for(&lsquo;static&rsquo;, filename=&lsquo;fileanme.jpg&rsquo;)
+#filename为static文件夹下的路径</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>消息闪现</p>
+<blockquote>
+<p>e.g.
+?? ()(&rsquo;/flash&rsquo;)
+def just_flash():
+​flash(&lsquo;闪现消息&rsquo;)
+​return redirector(url_for(&lsquo;index&rsquo;))
+#渲染flash消息</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">{% for message in get_flashed_messages() %}
+&lt;div class=&quot;alert&quot;&gt;
+    {{message}}
+&lt;/div&gt;
+{% endfor %}
+{% block content %}
+{% endblock %}
+</code></pre>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>自定义错误页面</p>
+<blockquote>
+<p>e.g. 404.html
+{% extends &lsquo;base.html&rsquo; %}
+{% block title %} 404 - Page Not Found {% endblock%}
+{% block content %}
+​Page Not Found
+{% endblock %}
+#错误处理函数
+?? (a)(404)
+def page_not_found(e):
+​return render_template(&rsquo;errors/404.html&rsquo;), 404</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>JavaScript 和 CSS 中的jinja2</p>
+<ul>
+<li>使用行内、嵌入式Javascript和CSS</li>
+<li>定义为JavaScript、CSS变量</li>
+</ul>
+<blockquote>
+<p>e.g.
+{{ user.username}}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="表单" class="header-anchor-wrapper">表单
+  <a href="#%e8%a1%a8%e5%8d%95" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>HTML表单</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-WTF处理表单</p>
+<p>Flask-WTF默认会认为每个表彰启用CSRF保护，它会为我们生成和验证CSRF令牌，默认Flask-WTF使用程序的密钥来对CSRF令牌进行签名，所以我们需要为程序设置密钥：</p>
+<blockquote>
+<p>app.secret_key = &lsquo;secret string xxxx&rsquo;</p>
+</blockquote>
+ <!--list-separator-->
+<ul>
+<li>
+<p>定义WTForms表单类</p>
+<blockquote>
+<p>e.g.
+from wtforms import Form, StringField, PasswordField, BooleanField,
+SubmitField
+from wtforms.validators import dataRequired,Length
+class LoginForm(Form):
+​username = StringField(&lsquo;username&rsquo;, validators=[DataRequired()])
+​password = PasswordField(&lsquo;Password&rsquo;, validators=[DataRequired(),
+Length(8, 128)])
+​remember = BooleanField(&lsquo;Remember Me&rsquo;)
+​submit = SubmitField(&lsquo;Login&rsquo;)</p>
+</blockquote>
+ <!--list-separator-->
+<ul>
+<li>
+<p>实例化常用参数</p>
+<ul>
+<li>label: 字段标签的值，也是渲染后显示在输入字段前的文字</li>
+<li>render_kw: 一个字典，用来应的HTML标签的属性，比如传入{&lsquo;placeholder&rsquo;:
+&lsquo;Your name&rsquo;}, 渲染后的HTML代码会将标签的placeholder属性设置为Your name</li>
+<li>validators:
+一个列表，包含一系列验证器，会在表单提交后逐一调用验证表彰数据</li>
+<li>default: 字符串或可调用 对象，用来为表单字段设置默认值</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>验证器</p>
+<p>验证器（validator）是一系列用于验证字段数据的类，从wtforms.validators模板导入常用的验证器</p>
+<ul>
+<li>DataRequired(message=None): 验证数据是否有效</li>
+<li>Email(message=None)</li>
+<li>EqualTo(fieldname, message=None): 验证两个字段是否相同</li>
+<li>InputRequired(message=None): 验证是否有数据</li>
+<li>Length(min=-1, max=-1, message=None): 验证输入值否在给定范围内</li>
+<li>NumberRange(min=None, max=None, message=None):
+验证输入数字是否在给定范围内</li>
+<li>Optional(strip_whitespace=True): 允许输入值为空，并路过其他验证</li>
+<li>Regexp(regex, flags=0, message=None): 使用正则表达式验证输入值</li>
+<li>URL(require_tld=True, message=None)：验证URL</li>
+<li>AnyOf(values, message=None, values_formatter=None):确保输入值在可选值列表中</li>
+<li>NoneOf(values, message=None, values_formatter=None): 确保输入值不在可选值列表中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>输出HTML代码</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在模板中渲染表单</p>
+<blockquote>
+<p>e.g.
+from forms import LoginForm
+?? ()(&rsquo;/basic&rsquo;)
+def basic():
+​form = LoginForm()
+​return render_template(&rsquo;login.html&rsquo;, form=form)</p>
+</blockquote>
+<p>在模板中只需要调用表单类的属性即可获取字段HTML代码，如果需要传入参数，也可以添加括号</p>
+<blockquote>
+<p>e.g.</p>
+<div class="html">
+<p>&lt;form method=&ldquo;post&rdquo;&gt;</p>
+</div>
+<p>{{ form.csrf_token }} #渲染CSRF令牌隐藏字段 {{ form.username.label }}{{
+form.username }} {{ form.password.label }}{{ form.password }} {{
+form.remember }}{{ form.remember.label}} {{ form.submit }}</p>
+<div class="html">
+<p>&lt;/form&gt;</p>
+</div>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>处理表单数据</p>
+ <!--list-separator-->
+<ul>
+<li>提交表单</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>验证表单数据</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>客户端验证和服务端验证</p>
+<ul>
+<li>客户端验证</li>
+<li>服务端验证</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>WTForms验证机制</p>
+<blockquote>
+<p>form = XXXForm()
+form.validate()
+False/True</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在视图函数中验证表单</p>
+<blockquote>
+<p>?? ()(&rsquo;/basic&rsquo;, methods=[&lsquo;GET&rsquo;, &lsquo;POST&rsquo;])
+def basic():
+​form = LoginForm()
+​form.validate_on_submit():
+#返回True，表示用户提交了表单，且表单通过了验证​&hellip;
+​return render_template(&lsquo;basic.html&rsquo;, form=form)</p>
+</blockquote>
+<ul>
+<li>获取表单字段</li>
+</ul>
+<blockquote>
+<p>form.字段名.data</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>在模板中渲染错误消息</p>
+<p>如果form.validate_on_submit()返回False，就说明验证没有通过。对于未验证通过的字段，WTForms会把错误消息添加到表单类的errors属性中，我们一般会通过字段名来获取对应字段的错误消息列表，即：</p>
+<blockquote>
+<p>form.字段名.errors</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>表单进阶实践</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>设置错误消息语言</p>
+<blockquote>
+<p>e.g. 设置错误消息语言为中文
+from flask_wtf import FlaskForm
+app = Flask(<strong>name</strong>)
+app.config[&lsquo;WTF_I18N_ENABLED&rsquo;] = False
+class MyBaseForm(FlaskForm):
+​class Meta:
+​locales = [&lsquo;zh&rsquo;]
+class HelloForm(MyBaseForm):
+​pass</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用宏渲染表单</p>
+<p>在模板中渲染表单时，我们需要做：</p>
+<ul>
+<li>调用字段属性，获取定义</li>
+<li>调用对应的label属性，获取定义</li>
+<li>渲染错误消息。</li>
+</ul>
+<p>我们可以创建一个宏来渲染表单字段。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-jinja2">{% macro form_field(field) %}
+    {{ field.label  }}&lt;br&gt;
+    {{ field(**kwargs) }}&lt;br&gt;
+    {% if field.errors %}
+        {% for error in field.errors %}
+            &lt;small class=&quot;error&quot;&gt;{{ error }}&lt;/small&gt;&lt;br&gt;
+        {% endfor %}
+     {% endif %}
+ {% endmacro %}
+</code></pre>
+<p>使用</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">{% form 'macros.html' import form_field %}
+...
+&lt;form methods=&quot;post&quot;&gt;
+    {{ form.csrf_token }}
+    {{ form_field(form.username) }}&lt;br&gt;
+    {{ form_field(form.password) }}&lt;br&gt;
+    ...
+&lt;/form&gt;
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>自定义验证器</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>行内验证器</p>
+<blockquote>
+<p>e.g.
+from wtforms import IntegerField, SubmitField
+from wtforms.validators import ValidationError
+class FortyTwoForm(FlaskForm):
+​answer = IntegerField(&lsquo;The Number&rsquo;)
+​submit = SubmitField()
+def validate_answer(form, field):
+​if field.data != 42:
+​raise ValidationError(&lsquo;Must be 42.&rsquo;)</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>全局验证器</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from wtforms.validators import ValidationError
+def is_42(form, field):
+    if field.data != 42:
+        raise ValidationError('Must be 42)
+
+class FortyTwoForm(FlaskForm):
+    answer = IntegerField('Thie Number', validators=[is_42])
+    submit = SubmitField()
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>文件上传</p>
+<p>我们需要</p>
+<ul>
+<li>验证文件类型</li>
+<li>验证文件大小</li>
+<li>过滤文件名</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>定义上传表单</p>
+<p>创建上传表单</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask wtf.file import FileField, FileRequired, FileAllowed
+class UploadForm(FlaskForm):
+    photo = FileField('Upload Image', validators=[FileRequired(), FileAllowed(['jpg', 'jpeg', 'png', 'gif'])])
+    submit = SubmitField()
+</code></pre>
+<p>限制文件上传大小</p>
+<blockquote>
+<p>app.config[&lsquo;MAX_CONTENT_LENGTH&rsquo;] = 3* 1024 * 1024</p>
+</blockquote>
+<p>超过这个限制会返回413错误</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>渲染上传表单</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.route('/upload), methods=['GET‘， ’POST‘]）
+def upload():
+    form = UploadForm()
+    ...
+    return render_template('upload.html', form=form)
+</code></pre>
+<pre  class="mc-prism hide language-text" ><code class="language-html">&lt;form method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    {{ form.csrf_token }}
+    {{ form_field(form.photo) }}
+    {{ form.submit }}
+&lt;/form&gt;
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>处理上传文件</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">import os
+app.config['UPLOAD_PATH'] = os.path.join(app.root_path, 'uploads')
+@app.route('/upload', methods=['GET'， 'POST'])
+def upload():
+    form = UploadForm()
+    if form.validate_on_submit():
+        f = form.photo.data
+        filename = random_filename(f.filename)
+        f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+        flash('Upload success')
+        session['filenames'] = [filename]
+        return redirect(url_for('show_images'))
+return render_template('upload.html', form=form)
+</code></pre>
+<p>文件名处理定义上传路径</p>
+<blockquote>
+<p>app.config[&lsquo;UPLOAD_PATH&rsquo;] = os.path.join(app.root_path, &lsquo;uploads&rsquo;)</p>
+</blockquote>
+<p>os.root_path相当于os.path.abspath(os.path.dirname(<strong>file</strong>)),
+为了保存文件，你需要手动创建这个文件夹对FileStorage对象调用save()方法即可保存，传入包含目标文件夹绝对路径和文件名在内的完整保存路径</p>
+<blockquote>
+<p>f.save(os.path.join(app.config[&lsquo;UPLOAD_PATH&rsquo;], filename))</p>
+</blockquote>
+<p>文件保存后，如果希望能够显示上传后的图片，我们需要创建一个视图来返回上传后的文件</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.route('/uploads/&lt;path:filename&gt;')
+def get_file(filename):
+    return send_from_directory(app.config['UPLOAD_PATH], filename)
+</code></pre>
+<pre  class="mc-prism hide language-text" ><code class="language-text">&lt;img src=&quot;{{ url_for('get_file', filename=filename) }}&quot;
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>多文件上传</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-CKEditor集成富文本编辑器</p>
+<blockquote>
+<p>$ pipenv install flask-ckeditor</p>
+</blockquote>
+ <!--quoteend-->
+<blockquote>
+<p>from flask-ckeditor import CKEditor
+ckeditor = CKEditor(app)</p>
+</blockquote>
+ <!--list-separator-->
+<ul>
+<li>
+<p>配置富文本编辑器</p>
+<p>查看完整配置：
+<a href="https://flask-ckeditor.readthedocs.io/en/latest/configuration.html">https://flask-ckeditor.readthedocs.io/en/latest/configuration.html</a></p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>渲染富文本编辑器</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DatRequired, Length
+from flask_ckeditor import CKEditorField
+class RichTextForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired(), Length(1, 50)])
+    body = CKEditorField(&quot;Body&quot;, validators=[DataRequired()])
+    submit = SubmitField('Publish')
+</code></pre>
+<p>html渲染包含CKEditor编辑器的表单需要使用{{ ckeditor.load()
+}}方法加载资源（相应的js,css）,默认会从CDN加载，可以修改CKEDITOR_SERVE_LOCAL设置为True，会使用扩展内置的本地资源。如果你使用配置变量设置了编辑器的调试，宽度和语言或是其他插件配置，需要使用ckeditor.config()方法加载配置，传入对应表彰字段的name属性值，即对应表单类属性名。这个方法需要在加载CKEditor资源后调用：</p>
+<blockquote>
+<p>{{ ckeditor.config(name=&lsquo;body&rsquo;) }}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>单个表单多个提交按钮</p>
+<p>e.g. form/forms.py</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">class NewPostForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired(), Length(1, 50)])
+    body = TextAreaField('Body', validators=[DataRequired()])
+    save = SubmitField('Save')
+    publish = SubmitField('Publish')
+</code></pre>
+<p>WTForms会对数据做进一眇处理。对于提交字段的值，它会将其转换成布尔值：被单击的提交字段的值将是True，未被单击的值则是False
+e.g. form/app.py</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.route('two-submits', methods=['GET', 'POST'])
+def two_submits():
+    form = NewPostForm()
+    if form.validate_on_submit():
+        if form.save.data:
+            # save it...
+            flash('you click the &quot;Save&quot; button.')
+        elif form.publish.data:
+            # publish it...
+            flash('you click the &quot;Publish&quot; button')
+        return redirect(url_for('index'))
+    return render_template('2submit.html', form=form)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>单页面多个表单</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>单视图处理</p>
+<p>通过为两个表单的提交字段设置不同的名称，通过提交字段的值来区分被提交的表单</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>多视图处理</p>
+<p>e.g. 渲染视图</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.route('/multi-form-multi-view')
+def multi_form_multi_view():
+    signin_form = SignForm2()
+    register_form = RegisterForm2()
+    return render_template('2form2view.html', signin_form = signin_form, register_form = register_form)
+</code></pre>
+<p>e.g. 处理表单提交</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.route('/handle-signin', methods=['POST'])
+def handle_signin():
+    signin_form = SigninForm2()
+    register_form = RegisterForm2()
+    if signin_form.validate_on_submit():
+        username = signin_form.username.data
+        flash('%s, you just submit the Signin Form.' % username)
+        return redirect(url_for('index'))
+    return render_template('2form2view.html', signin_form=signin_form, register_form=register_form)
+@app.route('/handle-register', methods=['POST'])
+def handle_register():
+    signin_form = SigninForm2()
+    register_form = RegisterForm2()
+
+    if register_form.validate_on_submit():
+        username = register_form.username.data
+        flash('%s, you just submit the Register form.' % username)
+        return redirect(url_for('index'))
+    return render_template('2form2view.html', signin_form = signin_form, register_form = register_form)
+</code></pre>
+<p>e.g. 表单页面</p>
+<pre  class="mc-prism hide language-text" ><code class="language-html">...
+&lt;h2&gt;
+    Login Form
+&lt;/h2&gt;
+&lt;form method=&quot;post&quot; action=&quot;{{ url_for('handle_signin) }}&quot;&gt;
+    ...
+&lt;/form&gt;
+&lt;h2&gt;
+    Register Form
+&lt;/h2&gt;
+&lt;form method=&quot;post&quot; action=&quot;{{ url_for('handle_register) }}&quot;&gt;
+    ...
+&lt;/form&gt;
+...
+</code></pre>
+<p>这样处理可以正常工作，但是有一个显著缺点。如果验证未通过，你需要将错误消息的form.errors字典传入模板中。解决方法是通过其他方式传递错误消息，然后统一定向到渲染表单页面的视图。比如：使用flash()函数迭代form.errors字典发送错误消息，然后重定向到用来渲染表单的multi_form_multi_view视图。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">def flash_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash('ERROR in the %s field = %s)% (
+                getattr(form, field).label.text,
+                error
+            )
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="数据库" class="header-anchor-wrapper">数据库
+  <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>数据库分类</p>
+ <!--list-separator-->
+<ul>
+<li>SQL</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>NoSQL</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>文档存储</p>
+<p>e.g.
+​MongoDB
+​CouchDB</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>键值对存储</p>
+<p>e.g.
+​Redis
+​Riak</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>ORM魔法</p>
+<p>优点：</p>
+<ul>
+<li>灵活性好</li>
+<li>提升效率</li>
+<li>可移植性好</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-SQLAlchemy管理数据库</p>
+<blockquote>
+<p>$ pipenv install flask-sqlalchemy</p>
+</blockquote>
+<p>完成扩展初始化</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+app = Flask(___name___)
+db = SQLAlchemy(app)
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>连接数据库服务器</p>
+<p>常用 的DBMS及其数据库URI格式</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>DBMS</th>
+          <th>URI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PostgreSQL</td>
+          <td>postgresql://username:password@host/databasename</td>
+      </tr>
+      <tr>
+          <td>MySQL</td>
+          <td>mysql://username:password@host/databasename</td>
+      </tr>
+      <tr>
+          <td>Oracle</td>
+          <td>oracle://username:password@host:port/sidname</td>
+      </tr>
+      <tr>
+          <td>SQLite(UNIX)</td>
+          <td>sqlite:////absolute/path/to/foo.db</td>
+      </tr>
+      <tr>
+          <td>SQLite(Windows)</td>
+          <td>sqlite:///absolute\path→\foo.db</td>
+      </tr>
+      <tr>
+          <td>SQLite(内存型)</td>
+          <td>sqlite:///或sqlite:///:memory:</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>app.py:配置数据库URI</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">import os
+...
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///' + os.path.join(app.root_path, 'data.db))
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>定义数据库模型</p>
+<p>一个数据库模型类对应数据库中的一个表。定义模型即使用Python类定义表模式，并声明映射关系。所有的模型类都需要继承Flask-SQLAlchemy提供的db.Model类。
+e.g. Note类</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">class Note(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>SQLAlchemy常用的字段类型</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>字段</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Integer</td>
+          <td>整数</td>
+      </tr>
+      <tr>
+          <td>String</td>
+          <td>字符串，可选参数Length可以用来设置最大长度</td>
+      </tr>
+      <tr>
+          <td>Text</td>
+          <td>较长的Unicode文本</td>
+      </tr>
+      <tr>
+          <td>Date</td>
+          <td>日期，存储Python的datetime.date对象</td>
+      </tr>
+      <tr>
+          <td>Time</td>
+          <td>时间，存储Python的datetime.time对象</td>
+      </tr>
+      <tr>
+          <td>DateTime</td>
+          <td>时间和日期，存储Python的datetime对象</td>
+      </tr>
+      <tr>
+          <td>Interval</td>
+          <td>时间间隔，存储Python的datetime.timedelta对象</td>
+      </tr>
+      <tr>
+          <td>Float</td>
+          <td>浮点数</td>
+      </tr>
+      <tr>
+          <td>Boolean</td>
+          <td>布尔值</td>
+      </tr>
+      <tr>
+          <td>pickleType</td>
+          <td>存储Pickle列化的Python对象</td>
+      </tr>
+      <tr>
+          <td>LargeBinary</td>
+          <td>存储任意二进制数据</td>
+      </tr>
+  </tbody>
+</table>
+<p>默认Flask-SQLAlchemy会根据模型类名生成一个表名称;
+​Message &ndash;&gt; message
+​FooBar &ndash;&gt; foo_bar
+如果想自己指定，可以通过定义_*/tablename/*_属性.
+字段名默认为类属性名，你可以通过构造方法的第一个参数指定，或使用关键字name。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>实例化字段类常用的字段参数
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>参数名</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>primary_key</td>
+          <td>如果设置为True，该字段为主键</td>
+      </tr>
+      <tr>
+          <td>unique</td>
+          <td>如果设置为True, 该字段不允许出现重复值</td>
+      </tr>
+      <tr>
+          <td>index</td>
+          <td>如果设为True，为该字段创建索引，以提高查询效率</td>
+      </tr>
+      <tr>
+          <td>nullable</td>
+          <td>确定字段值可否为空，值为True或False, 默认为True</td>
+      </tr>
+      <tr>
+          <td>default</td>
+          <td>为字段设置默认值</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建数据库和表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">$ flask shell
+&gt;&gt;&gt; from app import db
+&gt;&gt;&gt; db.create_all()
+</code></pre>
+<p>如果是将模型类定义在单独的模块中，那么必须在调用db.create_all()方法前导入相应模块，以便让SQLAlchemy获取模型类被创建时生成的表信息，进而正确生成数据表。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>查看模型对应的SQL模式</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">&gt;&gt;&gt; from sqlalchemy.schema import CreateTable
+&gt;&gt;&gt; print(CreateTable(Note.__table__))
+</code></pre>
+<p>创建表后再对模型做的修改不会自动映射到数据库，最简单的方式是调用db.drop_all()删除数据库和表，再次调用db.create_all()重新生成。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数据库操作</p>
+<p>SQLAlchemy使用数据库会话来管理数据库操作，这里的数据库会话也称为事务（Transaction）。Flask-SQLAlchemy自动帮我们创建会话，可以通过db.session属性获取。只有执行了commit()方法时，改动才被提交到数据库，执行rollback()方法会撤消操作。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>CRUD</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Create</p>
+<p>步骤</p>
+<ol>
+<li>创建Python对象（实例化模型类）作为一条记录。</li>
+<li>添加新创建的记录到数据库会话。</li>
+<li>提交数据库会话。</li>
+</ol>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-python">from app import db, Note
+note = Note(body='Body')
+db.session.add(note)
+db.session.commit()
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Read</p>
+<p><strong><em>常用的SQLALchemy查询方法</em></strong></p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>查询方法</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>all()</td>
+          <td>返回包含所有查询记录的列表</td>
+      </tr>
+      <tr>
+          <td>first()</td>
+          <td>返回查询的第一条记录，如果未找到，则返回None</td>
+      </tr>
+      <tr>
+          <td>one()</td>
+          <td>返回第一条记录，且仅允许有一条记录。如果记录大于1或小于1，抛出异常</td>
+      </tr>
+      <tr>
+          <td>get(ident)</td>
+          <td>传入键值作为参数，返回指定主键值的记录，如果未找到，则返回None</td>
+      </tr>
+      <tr>
+          <td>count()</td>
+          <td>返回查询结果的数量</td>
+      </tr>
+      <tr>
+          <td>one_or_none()</td>
+          <td>类似one(), 如果结果数量不为1，返回None</td>
+      </tr>
+      <tr>
+          <td>first_or_404()</td>
+          <td>返回查询的第一条记录，如果未找到，则返回404响应错误</td>
+      </tr>
+      <tr>
+          <td>get_or_404(ident)</td>
+          <td>传入主键值作为参数，返回指定主键值的记录，如果未找到，则返回404错误响应</td>
+      </tr>
+      <tr>
+          <td>paginate()</td>
+          <td>返回一个Pagination对象，可以对记录进行分页处理</td>
+      </tr>
+      <tr>
+          <td>with_parent(instance)</td>
+          <td>传入模型类实例作为参数，返回和这个实例相关联的对象</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>常用的过滤方法</strong></p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>查询过滤器名称</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>filter()</td>
+          <td>使用指定的规则过滤记录，返回新产生的查询对象</td>
+      </tr>
+      <tr>
+          <td>filter_by()</td>
+          <td>使用指定规则过滤记录（以关键字表达式的形式），返回新产生的查询对象</td>
+      </tr>
+      <tr>
+          <td>order_by()</td>
+          <td>根据指定条件对记录进行排序，返回新产生的查询对象</td>
+      </tr>
+      <tr>
+          <td>limit(limit)</td>
+          <td>使用指定的值限制原查询返回的记录数量，返回新产生的查询对象</td>
+      </tr>
+      <tr>
+          <td>group_by()</td>
+          <td>根据指定条件对记录进行分组，返回新产生的查询对象</td>
+      </tr>
+      <tr>
+          <td>offset(offset)</td>
+          <td>使用指定的值偏移原查询的结果，返回新产生的查询对象</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>打印查询对象对应的SQL</strong></p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">print(Model.query.filter_by(column='columnValue'))
+</code></pre>
+<p>filter()方法的详解</p>
+<ul>
+<li>Like</li>
+</ul>
+<blockquote>
+<p>filter(Model.column.like(&rsquo;%Content%&rsquo;))</p>
+</blockquote>
+<ul>
+<li>In</li>
+</ul>
+<blockquote>
+<p>filter(Model.column.in_([&lsquo;content&rsquo;, &lsquo;content2&rsquo;]))</p>
+</blockquote>
+<ul>
+<li>Not In</li>
+</ul>
+<blockquote>
+<p>filter(~Model.column.in_([&lsquo;content&rsquo;, &lsquo;content2&rsquo;]))</p>
+</blockquote>
+<ul>
+<li>
+<p>And</p>
+<ol>
+<li>使用and_()</li>
+</ol>
+<blockquote>
+<p>filter(and_(Model.column1 <code>= 'content', Model.column2 =</code> &lsquo;content2&rsquo;))</p>
+</blockquote>
+<ol start="2">
+<li>在filter中加入多个表达式，用逗号分隔</li>
+</ol>
+<blockquote>
+<p>filter(Model.column <code>= 'content', Model.column2 =</code> &lsquo;content2&rsquo;)</p>
+</blockquote>
+<ol start="3">
+<li>叠加调用多个filter或filter_by方法</li>
+</ol>
+<blockquote>
+<p>filter(Model.column <code>= 'content').filter(Model.column2 =</code> &lsquo;content2&rsquo;)</p>
+</blockquote>
+</li>
+<li>
+<p>Or</p>
+</li>
+</ul>
+<blockquote>
+<p>from sqlalchemy import or_
+filter(or_(Model.column <code>= 'content', Model.column2 =</code> &lsquo;content2&rsquo;))</p>
+</blockquote>
+<p>filter_by()
+在filter_by()中，可以使用关键字表达式来指定过滤规则。更方便的是，你可以在这个过滤器中直接使用字段名称。</p>
+<blockquote>
+<p>Model.query.filter_by(column = &lsquo;content&rsquo;).all()</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Update</p>
+<p>更新一条记录只需要赋值给模型类的字段属性就可以改变字段值，然后调用
+commit()方法提交会话即可。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">model = Model.query.get(idValue)
+model.column = 'new Content'
+db.session.commit()
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Delete</p>
+<p>delete()</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">model = Model.query.get()
+db.session.delete(model)
+db.session.commit()
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>在视图函数里操作数据库</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>定义关系</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>配置Python Shell上下文</p>
+<p>使用app.shell_context_processor装饰器注册一个shell上下文处理器</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db)
+</code></pre>
+<p>当再次使用flask shell命令启动Python
+Shell时，所有使用app.shell_context_processor装饰器注册的shell上下文处理函数都会自动被执行。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>一对多</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>定义外键</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">e.g.
+class Article(db.Model):
+    ...
+    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))  # 表名.字段名
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>定义关系属性</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">class Author(db.Model):
+    ...
+    articles = db.relationship('Article')  # 为关系另一侧的模型名称
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>建立关系</p>
+<p>建立关系有两种方式第一种是*为外键字段赋值*</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">e.g.
+spam.author_id = 1
+db.session.commit()
+</code></pre>
+<p>另一种是通过*操作关系属性*</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">foo.articles.append(spam)
+foo.articles.append(ham)
+db.session.commit()
+</code></pre>
+<p>和append方法相对，可以使用remove()方法解除关系
+<strong>常用的SQLAlchemy关系函数参数</strong></p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>参数名</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>back_populates</td>
+          <td>定义反向引用，用于建立双向关系，在关系的另一侧也必须显示定义关系属性</td>
+      </tr>
+      <tr>
+          <td>backref</td>
+          <td>添加反向引用，自动在另一侧建立关系属性，是back_populates的简化版</td>
+      </tr>
+      <tr>
+          <td>lazy</td>
+          <td>指定如何加载相关记录，具体见下表</td>
+      </tr>
+      <tr>
+          <td>uselist</td>
+          <td>指定是否使用列表的形式加载记录，设为False则使用标量</td>
+      </tr>
+      <tr>
+          <td>cascade</td>
+          <td>设置级联操作</td>
+      </tr>
+      <tr>
+          <td>order_by</td>
+          <td>指定加载相关记录时的排序方式</td>
+      </tr>
+      <tr>
+          <td>secondary</td>
+          <td>在多对多关系中指定关联表</td>
+      </tr>
+      <tr>
+          <td>primaryjoin</td>
+          <td>指定多对多关系中的一级联结条件</td>
+      </tr>
+      <tr>
+          <td>secondaryjoin</td>
+          <td>指定多对多关系中的二级联结条件</td>
+      </tr>
+  </tbody>
+</table>
+<p>**常用的SQLAlchemy关系记录加载方式（lazy参数可选值）</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>关系加载方式</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>select</td>
+          <td>在必要时一次性加载记录，返回包含记录的列表（默认值）， 等同于lazy = True</td>
+      </tr>
+      <tr>
+          <td>joined</td>
+          <td>和父查询一样加载记录，但使用联结，等同于lazy = False</td>
+      </tr>
+      <tr>
+          <td>immediate</td>
+          <td>一旦父查询加载就加载</td>
+      </tr>
+      <tr>
+          <td>subquery</td>
+          <td>类似于joined, 不过将使用子查询</td>
+      </tr>
+      <tr>
+          <td>dynamic</td>
+          <td>不直接加载记录，而是返回一个包含相关记录的query对象，发便再继续附加查询函数对结果进行过滤</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>建立双向关系</p>
+<p>关系双方都使用relationship()函数建立关系。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">e.g.
+class Writer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    books = db.relationship('Book', back_populates='writer')
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50), index=True)
+    writer_id = db.Column(db.Integer, db.ForeignKey('writer.id'))
+    writer = db.relationship('Writer', back_populates='books')
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用backref简化关系定义</p>
+<p>backref可以简化双向关系的定义。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>多对一</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">class Citizen(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
+    city = db.relationship('City')
+class City(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>一对一</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">class Country(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    capital = db.relationship('Capital', uselist=False)
+class Capital(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    country_id = db.Column(db.Integer, db.Foreign('country.id'))
+    country = db.relationship('Country')
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>多对多</p>
+<p>使用关联表</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">association_table = db.Table('association',
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
+    db.Column('teacher_id', db.Integer, db.ForeignKey('teacher.id')))
+
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    grade = db.Column(db.String(20))
+    teachers = db.relationship('Teacher',
+        secondary=association_table,
+        back_populates='students')
+
+class Teacher(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    offic = db.Column(db.String(20))
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>更新数据库表</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-Migrate迁移数据库</p>
+<p>安装Flask-Migrate</p>
+<blockquote>
+<p>pipenv install flask-migrate</p>
+</blockquote>
+<p>实例化</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+app = Flask(____name____)
+...
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)   # 在db对象创建后调用
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>创建迁移环境</p>
+<p>在开始迁移数据之前，需要先使用正面的命令创建一个迁移环境：</p>
+<blockquote>
+<p>$ flask db init</p>
+</blockquote>
+<p>迁移环境只需要创建一次。这会在你的项目根目录下创建一个migrations文件夹，其中包含了自动生成的配置文件和迁移版本文件夹。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>生成迁移脚本</p>
+<p>使用migrate子命令可以自动生成迁移脚本
+e.g.
+​向表note新添加一个timestamp列，并且相应生成一个迁移脚本xxxx_add_note_timestamp.py</p>
+<blockquote>
+<p>$ flask db migrate -m &ldquo;add note timestamp&rdquo;</p>
+</blockquote>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>更新数据库</p>
+<p>e.g.
+如果还没有创建数据库和表，这个命令会自动创建，如果已经创建，则会在不损坏数据的前提下执行更新。</p>
+<blockquote>
+<p>$ flask db upgrade</p>
+</blockquote>
+<p>如果想回滚迁移，那么可以使用downgrade命令降级，它会撤消最后一次迁移在数据库中的改动。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>开发时是否需要迁移？</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>数据库进阶实践</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>级联操作</p>
+<blockquote>
+<p>comments = relationship(&lsquo;Comment&rsquo;, cascade=&lsquo;save-update, merge, delete&rsquo;)</p>
+</blockquote>
+<p>常用的配置组合：</p>
+<ul>
+<li>save-update, merge(默认值)</li>
+<li>save-update, merge, delete</li>
+<li>all</li>
+<li>all, delete-orphan</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>save-update</p>
+<p>是默认的级联行为，当cascade参数设置为save-update时，如果使用db.session.add()方法将Post对象添加到数据库会话时，那么与Post相关联的Comment对象也将被添加到数据库会话。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>delete</p>
+<p>如果Post类的关系函数中cascade参数设为delete时，这些相关的Comment会在关联的Post对象删除时被一并删除。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>delete-orphan</p>
+<p>这个模式是基于delete级联的，必须和delete级联一起使用，通常会设为all,
+delete-orphan,因为all包含delete.</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>事件监听</p>
+<p>Flask提供了多个装饰器注册请求的回调函数，它们会在特定的请求处理环节被执行。类似的SQLAlchemy也提供了一个listen_for()装饰器，可以用来注册事件回调函数。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">class Draft(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+    edit_time = db.Column(db.Integer, default=0)
+
+    # 通过注册事件监听函数，我们可以实现在body列被修改时，自动叠加表示被修改次数的edit_time字段。
+    @db.event.listens_for(Draft.body, 'set')
+    def increment_edit_time(target, value, oldvalue, initiator):
+        if target.edit_time is not None:
+            target.edit_time += 1
+    # 或者
+    @db.event.listens_for(Draft.body, 'set', named=True)
+    def increment_edit_time(**kwargs):
+        if kwargs['target'].edit_time is not None:
+            kwargs['target'].edit_time += 1
+</code></pre>
+<p>SQLAlchemy作为SQL工具集本身包含两大主要组件： SQLAlchemy ORM
+和SQLAlchemy
+Core。前者提供了我们前面介绍的ORM功能，后者实现了数据库核心功能，这两类组件都提供了大量的监听事件，几科覆盖整个SQLAlchemy使用的生命周期。
+Core事件： <a href="http://docs.sqlalchemy.org/en/latest/core/events.html">http://docs.sqlalchemy.org/en/latest/core/events.html</a>
+ORM事件：<a href="http://docs.sqlalchemy.org/en/latest/orm/events.html">http://docs.sqlalchemy.org/en/latest/orm/events.html</a>
+SQLAlchemy tutorial:
+<a href="http://docs.sqlalchemy.org/en/latest/orm/tutorial.html">http://docs.sqlalchemy.org/en/latest/orm/tutorial.html</a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="电子邮件" class="header-anchor-wrapper">电子邮件
+  <a href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-Mail发送电子邮件</p>
+<p>安装</p>
+<blockquote>
+<p>pipenv install flask-mail</p>
+</blockquote>
+<p>实例化</p>
+<blockquote>
+<p>from flask_mail import Mail
+app = Flask(<span class="underline"><span class="underline"><span class="underline"><span class="underline">name</span></span></span></span>)
+&hellip;
+mail = Mail(app)</p>
+</blockquote>
+ <!--list-separator-->
+<ul>
+<li>
+<p>配置Flask-Mail</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>常用配置</p>
+<table class="mc-table">
+  <thead>
+      <tr>
+          <th>配置键</th>
+          <th>说明</th>
+          <th>默认值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MAIL_SERVER</td>
+          <td>用于发送邮件的SMTP服务器</td>
+          <td>localhost</td>
+      </tr>
+      <tr>
+          <td>MAIL_PORT</td>
+          <td>发信端口</td>
+          <td>25</td>
+      </tr>
+      <tr>
+          <td>MAIL_USE_TLS</td>
+          <td>是否使用STARTTLS</td>
+          <td>False</td>
+      </tr>
+      <tr>
+          <td>MAIL_USE_SSL</td>
+          <td>是否使用SSL/TLS</td>
+          <td>False</td>
+      </tr>
+      <tr>
+          <td>MAIL_USERNAME</td>
+          <td>发信服务器的用户名</td>
+          <td>None</td>
+      </tr>
+      <tr>
+          <td>MAIL_PASSWORD</td>
+          <td>发信服务器的密码</td>
+          <td>None</td>
+      </tr>
+      <tr>
+          <td>MAIL_DEFAULT_SENDER</td>
+          <td>默认的发信人</td>
+          <td>None</td>
+      </tr>
+  </tbody>
+</table>
+<p>e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">import os
+from flask import Flask
+from flask_mail import Mail
+app = Flask(__name__)
+app.config.update(
+    ...
+    MAIL_SERVER = os.getenv('MAIL_SERVER')
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWD')
+    MAIL_DEFAULT_SENDER = ('Stone X', os.getenv('MAIL_USERNAME'))
+)
+mail = Mail(app)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>构建邮件数据</p>
+<p>e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask_mail import Message
+from app import mail
+...
+message = Message(subject=&quot;Hello, world!!!&quot;,
+                 recipients=['Zorn &lt;zorn@example.com&gt;'],
+                 body='Across the Great Wall we can reach every corner in the world.')
+mail.send(message)
+</code></pre>
+<p>e.g. 通用方法</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask_mail import Mail, Message
+...
+# 配置Flash-Mail配置，省略
+# 实例化
+mail = Mail(app)
+...
+def send_mail(subject, to, body, html='')
+message = Message(subject, recipients=[to], body=body, html=html)
+# 使用jinja2渲染内容模板
+message.body = render_template('emails/subscribe.txt', **kwargs)
+message.html = render_template('emails/subscribe.html', **kwargs)
+mail.send(message)
+</code></pre>
+<p>e.g. 异步发送邮件</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from threading import Thread
+...
+def _send_async_mail(app, message):
+    with app.app_context():
+        mail.send(message)
+
+def send_mail(subject, to, body, html=''):
+    message = Message(subject, recipients=[to], body=body, html=html)
+    thr = Thread(target=_send_async_mail, args=[app, message])
+    thr.start()
+    return thr
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="实战" class="header-anchor-wrapper">实战
+  <a href="#%e5%ae%9e%e6%88%98" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h4 id="留言版" class="header-anchor-wrapper">留言版
+  <a href="#%e7%95%99%e8%a8%80%e7%89%88" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>使用包组织代码</p>
+<p>每一个包含_*/init/*_.py文件的文件夹都被视作包，包可以让你使用文件夹来组织模块。程序组织结构
+sayhello</p>
+<ul>
+<li><span class="underline"><span class="underline"><span class="underline"><span class="underline">init</span></span></span></span>.py # 构造文件，包含程序实例</li>
+<li>templates # 模板文件夹</li>
+<li>static # 静态文件，其中又包含js和css文件夹</li>
+<li>vies.py # 视图</li>
+<li>forms.py 表单</li>
+<li>errors.py #错误处理</li>
+<li>models.py 数据库模型</li>
+<li>commands.py 自定义Flask命令</li>
+<li>settings.py 配置文件</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>配置文件</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#！/usr/bin/env python
+# coding: utf-8
+import os
+from sayhello import app
+dev_db = 'mysql://sayhello:Admin!123@39.104.124.226:11306/sayhello'
+SECREY_KEY = os.getenv('SECREY_KEY', 'secret this ')
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI', dev_db)
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p><span class="underline"><span class="underline"><span class="underline"><span class="underline">init</span></span></span></span>.py</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python3
+# coding: utf-8
+from flask import Flask
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from flask_sqlalchemy import SQLAlchemy
+app = Flask('sayhello')
+app.config.from_pyfile('settings.py')
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_block = True
+db=  SQLAlchemy(app)
+bootstrap = Bootstrap(app)
+moment = Moment(app)
+# 避免循环依赖，在文件结尾导入
+from sayhello import views, errors, commands
+</code></pre>
+<p>.flaskenv</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">FLASK_APP=sayhello
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Web程序开发流程</p>
+<p>*开发流程 *</p>
+<ol>
+<li>分析需求，列出功能清单或写需求说明书。</li>
+<li>设计程序功能，写功能规格书和技术规格书。</li>
+<li>进入开发与测试的迭代</li>
+<li>调试和性能等专项测试</li>
+<li>部署上线</li>
+<li>运行维修与营销等。</li>
+</ol>
+<p><strong>前端主要流程</strong></p>
+<ol>
+<li>根据功能规格书画页面草图(sketching)</li>
+<li>根据草图做交互式原型图(prototyping)</li>
+<li>根据原型图开发前端页面（HTML, CSS, JS）</li>
+</ol>
+<p><strong>后端主要流程</strong></p>
+<ol>
+<li>数据库建模</li>
+<li>编写表单类</li>
+<li>编写视图函数和相关的处理函数</li>
+<li>在页面中使用Jinja2替换虚拟数据。</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Bootstrap-Flask简化页面编写</p>
+<p>安装</p>
+<blockquote>
+<p>pipenv install bootstrap-flask</p>
+</blockquote>
+<p>实例化</p>
+<blockquote>
+<p>from flask import Flask
+from flask_bootstrap import Bootstrap
+app = Flask(<span class="underline"><span class="underline"><span class="underline"><span class="underline">name</span></span></span></span>)
+bootstrap = Bootstrap(app)</p>
+</blockquote>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-Moment本地化日期和时间</p>
+<p>安装及实例化相似。想要本地化日期，必须使源日期为不包含时区信息的纯正时间。例UTC时间。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用Flask-Moment集成Moment.js</p>
+<p>Flask-Moment在模板中提供了moment对象，这个对象提供两个方法来加载资源：moment.include_moment()方法用来加载Moment.js的Javascript资源。moment.include_jquery()用来加载jQuery.这两个方法默认从CDN加载资源。传入local_js参数可以指定本地资源URL。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">...
+{{ moment.include_moment(local_js=url_for('static), filename='js/moment-with-locales.min.js') }}
+</code></pre>
+<p>Flask-Moment默认以英文显示时间，我们可以传入区域字符串“zh-cn”设置为中文。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">...
+{{ moment.locale('zh-cn') }}
+</code></pre>
+<p>也可以根据用户浏览器或计算机的语言来设置语言。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">...
+{{ moment.locale(auto_detect=True) }}
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>渲染时间日期</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">{{ moment(timestamp).format('格式字符串) }}
+</code></pre>
+<p>Moment.js还支持相对时间，比如三分钟前，一个月前，等</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">{{ moment(message.timestamp).fromNow(refresh=True) }}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Faker生成虚拟数据</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.cli.command()
+@click.option('--count', default=20, help='Quantity of messages, default is 20.')
+def forge(count):
+    '''Generate fake messages.'''
+    from faker import Faker
+    db.drop_all()
+    db.create_all()
+    fake = Faker()
+    click.echo('Working....')
+    for i in range(count):
+        message = Message(
+            name=fake.name(),
+            body=fake.sentence(),
+            timestamp=fake.date_time_this_year()
+        )
+        db.session.add(message)
+    db.session.commit()
+    click.echo('Created %d fake messages.' % count)
+</code></pre>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>使用Flask-DebugToolbar调试程序</li>
+</ul>
+
+<h4 id="个人博客" class="header-anchor-wrapper">个人博客
+  <a href="#%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<!--list-separator-->
+<ul>
+<li>
+<p>大型项目结构</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">blueblog/
+    blueprints/
+        __init__.py
+        blog.py
+        auth.py
+        admin.py
+    templates/
+        admin/
+        auth/
+        blog/
+        base.html
+        macros.html
+    static/
+    forms.py
+    models.py
+    emails.py
+    utils.py
+    fakes.py
+    extensions.py
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用蓝本模块化程序</p>
+<p>实例化Flask提供的Blueprint类就创建 一个蓝本实例。就像程序 实例 一样，我们可以为蓝本实例注册路由、错误处理函数、上下文处理函数，请求处理函数，甚至是单独的静态文件文件夹和模板文件夹。在使用上，它和程序实例也很相似。比如，蓝本实例同样拥有一个route()装饰器，可以用来注册路由，但实际上蓝本对象和程序对象却有很大的不同.
+###### 创建蓝本使用蓝本不仅仅是对视图函数分类，而是将程序某一部分的所有操作组织在一起。这个蓝本实例以及一系列注册在蓝本实例上的操作的集合被称为一个蓝本。你可以把蓝本想像成模子，它描述了程序某一部分的细节，定义了相应的路由、错误处理器、上下文处理器、请求处理器等一系列操作。但是它本身却不能发挥作用，因为它只是一个模子。只有当你把它注册到程序上时，它才会把物体相应的部分印刻出来&ndash;把蓝本中的操作附加到程序上。
+e.g.</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">from flask import Blueprint
+auth_bp = Blueprint('auth', __name__)
+</code></pre>
+ <!--list-separator-->
+<ul>
+<li>
+<p>装配蓝本</p>
+<p><strong>视图函数</strong>
+蓝本中的视图函数通过蓝本实例提供的route()装饰器注册，即auth_bp.route()。我们把和认证相关的视图函数移动到这个模块，然后注册到auth蓝本上。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python3
+# coding: utf-8
+from flask import Blueprint
+auth_bp = Blueprint('auth', __name__)
+@auth_bp.route('/login')
+def login():
+    pass
+@auth_bp.route('/logout')
+def logout():
+    pass
+</code></pre>
+<p><strong>错误处理</strong>
+使用蓝本实例的errorhandler()装饰器可以把错误处理吕注册到蓝本上，这些错误处理器只会捕捉蓝本中的路由发生的错误；使用蓝本实例的app_errorhandler()装饰器则可以注册一个全局的错误处理器。
+<strong>请求处理函数</strong>
+在蓝本中，使用before_request, after_request,
+teardown_request等装饰器注册的请求处理函数是蓝本独有的。也可以使用before_app_request,
+after_app_reuest, teardown_app_request, before_app_first_request方法，这些方法是全局的。
+<strong>模板上下文处理函数</strong>
+和请求钩子类似，蓝本实例可以使用context_processor装饰器注册蓝本特有的模板上下文处理吕在，使用app_context_processor则会注册全局的模板的上下文处理器。另外蓝本对象 也可以使用app_template_global(),
+app_template_filter()和app_template_test()装饰器，分别用来注册全局的模板全局函数，模板过滤器和模板测试器。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>注册蓝本</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">#! /usr/bin/env python3
+# coding: utf-8
+from flask import Flask
+from blog.blueprints.auth import auth_bp
+app = Flask(&quot;StoneBlog&quot;)
+app.register_blueprint(auth_bp)
+</code></pre>
+<p>我们使用url_prefix参数为auth蓝本下的所有视图URL附加一个URL前缀</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">app.register_blueprint(auth_bp, url_prefix='/auth')
+</code></pre>
+<p>使用subdomain参数可以为蓝本下的路由设置子域名。</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">app.register_blueprint(auth_bp, subdomain='auth)
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>蓝本的路由端点</p>
+<p>两种方式</p>
+<ol>
+<li>使用app.route()装饰器将视图函数注册为路由</li>
+</ol>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-python">@app.route('/hello')
+def hello():
+    return 'hello'
+</code></pre>
+<ol start="2">
+<li>使用app.add_url_rule()方法注册路由</li>
+</ol>
+ <!--listend-->
+<pre  class="mc-prism hide language-text" ><code class="language-python">app.add_url_rule('/hello', 'say_hello', say_hello)
+</code></pre>
+<p>格式</p>
+<blockquote>
+<p>app.add_url_rule(rule, endpoint, view_func)</p>
+</blockquote>
+<p>可以使用flask routes 命令查看当前程序注册的所有路由。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>蓝本资源</p>
+<p>如果程序的不同蓝本的页面需要截然不同的样式，可以为蓝本定义独有的静态文件和模板。这时我们需要把蓝本模块升级为包，在构造文件中创建蓝本实例，并在蓝本包中创建静态文件夹static和模板文件夹templates，和程序实例一样，实例化时传入的_*/name/*_变量会被用来判断蓝本的根目录，并以此作为基础寻找模板文件文件夹。要使用蓝本独有的静态文件，你需要在定义蓝本时使用static_folder关键字指定蓝本的静态文件文件夹的路径</p>
+<blockquote>
+<p>auth_bp = Blueprint(&lsquo;auth&rsquo;, <strong>name</strong>, static_folder=&lsquo;static&rsquo;,
+static_url_path=&lsquo;auth/static&rsquo;)</p>
+</blockquote>
+<p>如果你在注册蓝本时为蓝本定义了URL前缀，即设置了url_prefix参数，那么最终的蓝本静态文件路径会自动设为“/蓝本前缀/static”，这时可以省略static_url_path的定义。在生成用来获取蓝本静态文件的URL时需要写出包含蓝本名称的完整端点，即“蓝本名称.static”</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">url_for('admin.static', filename='style.css)
+</code></pre>
+<p>当蓝本包含独有的模板文件夹时，我们可以在实例化蓝本类时使用template_folder关键字指定模板文件夹的位置</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">admin = Blueprint('admin', __name__, template_folder='templates')
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用类组织配置</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python3
+# coding: utf-8
+import os
+import sys
+basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+WIN = sys.platform.startswith('win')
+if WIN:
+    prefix = 'sqlite:///'
+else:
+    prefix = 'sqlite:////'
+class BaseConfig(object):
+    SECRET_KEY = os.getenv('SECRET_KEY', 'DEV KEY')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MAIL_SERVER = os.getenv('MAIL_SERVER')
+    MAIL_PORT = 465
+    MAILUSER_SSL = True
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSORD = os.getenv('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.getenv('StoneBlog Admin', MAIL_USERNAME)
+    BLOG_EMAIL = os.getenv('BLOG_EMAIL')
+    BLOG_POST_PER_PAGE = 10
+    BLOG_MANAGE_POST_PER_PAGE = 15
+    BLOG_COMMIT_PER_PAGE = 15
+class DevelopmentConfig(BaseConfig):
+    SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
+class TestingConfig(BaseConfig):
+    TESTING = True
+    WTF_CSRF_ENABLE = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+class ProductionConfig(BaseConfig):
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', prefix + os.path.join(basedir, 'data.db'))
+config = {
+    &quot;development&quot;: DevelopmentConfig,
+    'testing': TestingConfig,
+    'production': ProductionConfig
+}
+</code></pre>
+<p>现在我们在创建程序实例后使用app.config.from_object()方法加载配置，传入配置类：</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python3
+# coding: utf-8
+import os
+import click
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+from flask_ckeditor import CKEditor
+from flask_mail import Mail
+from flask_moment import Moment
+from flask_sqlalchemy import SQLAlchemy
+from blog.blueprints.auth import auth_bp
+from blog.blueprints.admin import admin_bp
+from blog.blueprints.blog import blog_bp
+from blog.settings import config
+app = Flask(&quot;StoneBlog&quot;)
+config_name = os.getenv('FLASK_CONFIG', 'development')
+app.config.form_object(config[config_name])
+bootstrap = Bootstrap(app)
+db = SQLAlchemy(app)
+ckeditor = CKEditor(app)
+mail = Mail(app)
+moment = Moment(app)
+app.register_blueprint(auth_bp, url_prefix='/auth')
+app.register_blueprint(admin_bp, url_prefix='/admin')
+app.register_blueprint(blog_bp)
+@app.shell_context_processor
+def make_shell_context():
+    return dir(db=db)
+@app.errorhandler(400)
+def bad_request(e):
+    return render_template('errors/400.html'), 400
+@app.errorhandler
+def page_not_found(e):
+    return render_template('errors/404.html'), 404
+@app.errorhandler
+def internal_server_error(e):
+    return render_template('errors/500.html'), 500
+@app.cli.command()
+@click.option('--drop', is_flag=True, help='Create after drop.')
+def initdb(drop):
+    '''Initialize the database.'''
+    if drop:
+        click.confirm('This operation will delete the database, do you want to continue?', abort=True)
+        db.drop_all()
+        click.echo('Drop database.')
+    db.create_all()
+    click.echo('Initialized database.')
+
+</code></pre>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>使用工厂函数创建程序实例</p>
+<pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python3
+# coding: utf-8
+import os
+import click
+from flask import Flask, render_template
+from blog.extensions import db, mail, ckeditor, moment, bootstrap
+from blog.blueprints.auth import auth_bp
+from blog.blueprints.admin import admin_bp
+from blog.blueprints.blog import blog_bp
+from blog.settings import config
+app = Flask(&quot;StoneBlog&quot;)
+config_name = os.getenv('FLASK_CONFIG', 'development')
+app.config.form_object(config[config_name])
+def create_app(config_name=None):
+    if config_name is None:
+        config_name = os.getenv('FLASK_CONFIG', 'development')
+    app = Flask('blog')
+    app.config.from_object(config[config_name])
+    register_logging(app)
+    register_extensions(app)
+    register_blueprints(app)
+    register_shell_context(app)
+    register_template_context(app)
+    register_commands(app)
+    register_erros(app)
+    return app
+def register_logging(app):
+    pass
+def register_extensions(app):
+    bootstrap.init_app(app)
+    db.init_app(app)
+    ckeditor.init_app(app)
+    mail.init_app(app)
+    moment.init_app(app)
+def register_blueprints(app):
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(admin_bp, url_prefix='/admin')
+    app.register_blueprint(blog_bp)
+def register_shell_context(app):
+    @app.shell_context_processor
+    def make_shell_context():
+        return dict(db=db)
+def register_template_context(app):
+    pass
+def register_erros(app)
+    @app.errorhandler(400)
+    def bad_request(e):
+        return render_template('errors/400.html'), 400
+    @app.errorhandler
+    def page_not_found(e):
+        return render_template('errors/404.html'), 404
+    @app.errorhandler
+    def internal_server_error(e):
+        return render_template('errors/500.html'), 500
+def register_commands(app):
+    @app.cli.command()
+    @click.option('--drop', is_flag=True, help='Create after drop.')
+    def initdb(drop):
+        '''Initialize the database.'''
+        if drop:
+            click.confirm('This operation will delete the database, do you want to continue?', abort=True)
+            db.drop_all()
+            click.echo('Drop database.')
+        db.create_all()
+        click.echo('Initialized database.')
+</code></pre>
+<p>extensions.py</p>
+<pre  class="mc-prism hide language-text" ><code class="language-text">#! /usr/bin/env python3
+# coding: utf-8
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from flask_ckeditor import CKEditor
+from flask_mail import Mail
+from flask_moment import Moment
+bootstrap = Bootstrap()
+db = SQLAlchemy()
+ckeditor = CKEditor()
+mail = Mail()
+moment = Moment()
+</code></pre>
+<ol>
+<li>加载配置</li>
+</ol>
+<p>工厂函数接收配置名称作为参数，这们在程序的不同位置传入不同的配置来创建程序实例。</p>
+<ol start="2">
+<li>初始化配置</li>
+</ol>
+<p>将扩展类实例化的工作转移到extensions.py脚本中。当我们需要在程序中使用扩展对象时，直接从这个extensions模块导入即可。在工厂函数中，我们导入所有的扩展对象，并对其调用init_app()方法</p>
+<ol start="3">
+<li>组织工厂函数</li>
+</ol>
+<p>除了扩展初始化操作，还有许多处理函数需要注册到程序上，比如错误处理函数，上下文处理函数等。</p>
+<ol start="4">
+<li>启动程序</li>
+</ol>
+<blockquote>
+<p>$ flask run</p>
+</blockquote>
+<ol start="5">
+<li>current_app对象</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数据库</p>
+<ol>
+<li>创建数据库模型</li>
+<li>邻接列表关系</li>
+<li>生成虚拟数据</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>模板</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="进阶" class="header-anchor-wrapper">进阶
+  <a href="#%e8%bf%9b%e9%98%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

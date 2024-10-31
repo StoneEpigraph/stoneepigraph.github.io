@@ -1,0 +1,798 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emacs-shortcutKeys - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="[WhatsUpeng!!!]" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="Emacs-shortcutKeys">
+  <meta property="og:description" content="Emacs shortcutKeys 基本快捷键（Basic） C-x C-f 查找文件，即在缓冲区打开/新建一个文件 C-x C-s 保存文件 C-x C-w 使用其他文件名另存为文件 C-x C-v 关闭当前缓冲区文件并打开新文件 C-x i 在当前光标处插入文件 C-x b 新建/切换缓冲区 C-x C-b 显示缓冲区列表 C-x k 关闭当前缓冲区 C-z 挂起Emacs C-x C-c 关闭Emacs 光标移动基本快捷键（Basic Movement） C-f 后一个字符 C-b 前一个字符 C-p 上一行 C-n 下一行 M-f 后一个单词 M-b 前一个单词 C-a 行首 C-e 行尾 C-v 向下翻一页 M-v 向上翻一页 M-&lt; 到文件开头 M-&gt; 到文件末尾 编辑（Editint） M-n 重复执行最后一个命令N次 C-u 重复执行后一个命令4次 C-u 重复执行后一个命令N次 C-d 删除后一个字符 Del 删除前一个字符 M-Del 删除前一个单词 C-k 移除到行尾 C-Space 设置开头标记 C-@ 设置开头标记，用于C-Space被操作系统拦截的情况 C-w 移除标记区域的内容 M-w 复制标记区域的内容 C-y 粘贴复制或移除的区域/行 M-y 粘贴更早的内容 C-x C-x 交换光标和标记 C-t 交换两个字符的位置 C-x C-t 交换两行的位置 M-t 交换两个单词的位置 M-u 使从光标位置到单词结尾处的字母变成大写 M-l 使从光标位置到单词结尾处的字母变成小写 M-c 使光标位置开始的单词的首字母变成大写 C-x r l 命名剪切板列表 C-x r s name 插入命令剪切板 重要快捷键 C-g 停止当前运行/输入的命令 C-x u 撤消前一个命令 M-x revert-buffer RET 撤消上次存盘后所有改动 M-x recover-file RET 从自动存盘文件恢复 M-x recover-session RET 如果编辑了几个文件，用这个恢复 C-c C-e 导出 在线帮助（Online-help） C-h c 显示快捷键绑定的命令 C-h k 显示快捷键绑定的命令和它的作用 C-h l 显示最后100个键入的内容 C-h w 显示命令被绑定到哪些快捷键上 C-h f 显示函数的功能 C-h v 显示变量的含义和值 C-h b 显示当前缓冲区所有可用的快捷键 C-h t 打开Emacs教程 C-h i 打开info阅读器 C-h C-f 显示emacs FAQ C-h p 显示本机Elisp包的信息 搜索/替换（Search/Replace） C-s 向后搜索 C-r 向前搜索 C-g 回到搜索开始前的位置（如果你仍然在搜索模式中） M-% 询问并替换（query replace） Space或y 替换当前匹配 Del或n 不要替换当前匹配 . 仅仅替换当前匹配并退出替换 , 替换并暂停（按Space或y继续） ! 替换以下所有匹配 ^ 回到上一个匹配位置 RET或q 退出替换 M-x query-replace-regexp 使用下则表达式搜索并替换 窗口命令（Window Commands） C-x 2 水平分割窗口 C-x 3 垂直分割窗口 C-x o 切换至其他窗口 C-x 0 关闭窗口 C-x 1 关闭除了光标所在窗口外的所有窗口 C-x ^ 扩大窗口 M-x shrink-window 缩小窗口 M C-v 滚动其他窗口内容 C-x 4 f 在其他窗口中打开文件 C-x 4 0 关闭当前缓冲区和窗口 C-x 5 2 新建窗口 C-x 5 f 在新窗口中打开文件 C-x 5 o 切换至其他窗口 C-x 5 0 关闭当前窗口 书签命令（Bookmark commands） C-x r m 在光标当前位置创建书签 C-x r b 转到书签 M-x bookmark-rename 重命名书签 M-x bookmark-delete 删除书签 M-x bookmark-save 保存书签 C-x r l 列出书签清单 d 标记等待删除 Del 取消删除标记 x 删除被标记的书签 r 重命名书签 s 保存列表内所有书签 f 转到当前书签指向的位置 m 标记在多窗口中打开 v 显示被标记的书签（或者光标当前位置的书签） t 切换是否显示路径列表 w 显示当前文件路径 q 退出书签列表 M-x bookmark-write 将所有书签导出至指定文件 M-x bookmark-load 从指定文件导入书签 Shell M-x shell 打开shell模式 C-c C-c 类似Unix里的C-c C-d 删除光标后一个字符 C-c C-d 发送EOF C-c C-z 挂起程序 M-p 显示前一条命令 M-n 显示后一条命令 C-u M-! shell Command 插入shell命令结果到当前窗口 Directory Editor(dired) C-x d 打开dired C（大写c）复制 d 标记等待删除 D 立即删除 e或f 打开文件或目录 g 刷新当前目录 G改变文件所属组（chgrp） k 从屏幕上的列表里删除一行（不是真的删除） m 用*标记 n 光标移动到下一行 o 在另一个空格打开文件并移动光标 C-o 在另一个窗口打开文件但不移动光标 P 打印文件 q 退出dired Q 在标记的文件中替换 R 重命名文件 u 移除标记 v 显示文件内容 x 删除有D标记的文件 ^ 返回上一级目录 Z 压缩/解压缩文件 M-Del 移除标记（默认为所有类型的标记） ~ 标记备份文件（文件名有~的文件）等待删除 # 标记自动保存文件（文件名形如#name#）等待删除 */ 用*标记所有文件夹（用C-u */n移除标记） = 将当前文件和标记文件（使用C-@标记而不是dired的m标记）比较 M-= 将当前文件和它的备份比较 ! 对当前文件应用shell命令 M-} 移动光标至下一个用*或D标记的文件 M-{ 移动光标至上一个用*或D标记的文件 % d 使用正则表达式标记文件等待删除 % m 使用正帽表达式标记文件为* 新建文件夹 &gt; 移动光标至后一个文件夹 &lt; 移动光标至前一个文件夹 s 切换排序模式（按文件名/日期） M-x speedbar 打开一个独立的窗口显示目录 Telnet M-x telnet 打开telnet模式 C-d 删除后一个字符或发送EOF C-c C-c 停止正在运行的程序 C-c C-d 发送EOF C-c C-o 清除最后一个命令的输出 C-c C-z 挂起正在运行的命令 C-c C-u 移除前一行 M-p 显示前一条命令 Text 如下命令只能在Text模式里使用">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="others">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emacs-shortcutKeys">
+  <meta name="twitter:description" content="Emacs shortcutKeys 基本快捷键（Basic） C-x C-f 查找文件，即在缓冲区打开/新建一个文件 C-x C-s 保存文件 C-x C-w 使用其他文件名另存为文件 C-x C-v 关闭当前缓冲区文件并打开新文件 C-x i 在当前光标处插入文件 C-x b 新建/切换缓冲区 C-x C-b 显示缓冲区列表 C-x k 关闭当前缓冲区 C-z 挂起Emacs C-x C-c 关闭Emacs 光标移动基本快捷键（Basic Movement） C-f 后一个字符 C-b 前一个字符 C-p 上一行 C-n 下一行 M-f 后一个单词 M-b 前一个单词 C-a 行首 C-e 行尾 C-v 向下翻一页 M-v 向上翻一页 M-&lt; 到文件开头 M-&gt; 到文件末尾 编辑（Editint） M-n 重复执行最后一个命令N次 C-u 重复执行后一个命令4次 C-u 重复执行后一个命令N次 C-d 删除后一个字符 Del 删除前一个字符 M-Del 删除前一个单词 C-k 移除到行尾 C-Space 设置开头标记 C-@ 设置开头标记，用于C-Space被操作系统拦截的情况 C-w 移除标记区域的内容 M-w 复制标记区域的内容 C-y 粘贴复制或移除的区域/行 M-y 粘贴更早的内容 C-x C-x 交换光标和标记 C-t 交换两个字符的位置 C-x C-t 交换两行的位置 M-t 交换两个单词的位置 M-u 使从光标位置到单词结尾处的字母变成大写 M-l 使从光标位置到单词结尾处的字母变成小写 M-c 使光标位置开始的单词的首字母变成大写 C-x r l 命名剪切板列表 C-x r s name 插入命令剪切板 重要快捷键 C-g 停止当前运行/输入的命令 C-x u 撤消前一个命令 M-x revert-buffer RET 撤消上次存盘后所有改动 M-x recover-file RET 从自动存盘文件恢复 M-x recover-session RET 如果编辑了几个文件，用这个恢复 C-c C-e 导出 在线帮助（Online-help） C-h c 显示快捷键绑定的命令 C-h k 显示快捷键绑定的命令和它的作用 C-h l 显示最后100个键入的内容 C-h w 显示命令被绑定到哪些快捷键上 C-h f 显示函数的功能 C-h v 显示变量的含义和值 C-h b 显示当前缓冲区所有可用的快捷键 C-h t 打开Emacs教程 C-h i 打开info阅读器 C-h C-f 显示emacs FAQ C-h p 显示本机Elisp包的信息 搜索/替换（Search/Replace） C-s 向后搜索 C-r 向前搜索 C-g 回到搜索开始前的位置（如果你仍然在搜索模式中） M-% 询问并替换（query replace） Space或y 替换当前匹配 Del或n 不要替换当前匹配 . 仅仅替换当前匹配并退出替换 , 替换并暂停（按Space或y继续） ! 替换以下所有匹配 ^ 回到上一个匹配位置 RET或q 退出替换 M-x query-replace-regexp 使用下则表达式搜索并替换 窗口命令（Window Commands） C-x 2 水平分割窗口 C-x 3 垂直分割窗口 C-x o 切换至其他窗口 C-x 0 关闭窗口 C-x 1 关闭除了光标所在窗口外的所有窗口 C-x ^ 扩大窗口 M-x shrink-window 缩小窗口 M C-v 滚动其他窗口内容 C-x 4 f 在其他窗口中打开文件 C-x 4 0 关闭当前缓冲区和窗口 C-x 5 2 新建窗口 C-x 5 f 在新窗口中打开文件 C-x 5 o 切换至其他窗口 C-x 5 0 关闭当前窗口 书签命令（Bookmark commands） C-x r m 在光标当前位置创建书签 C-x r b 转到书签 M-x bookmark-rename 重命名书签 M-x bookmark-delete 删除书签 M-x bookmark-save 保存书签 C-x r l 列出书签清单 d 标记等待删除 Del 取消删除标记 x 删除被标记的书签 r 重命名书签 s 保存列表内所有书签 f 转到当前书签指向的位置 m 标记在多窗口中打开 v 显示被标记的书签（或者光标当前位置的书签） t 切换是否显示路径列表 w 显示当前文件路径 q 退出书签列表 M-x bookmark-write 将所有书签导出至指定文件 M-x bookmark-load 从指定文件导入书签 Shell M-x shell 打开shell模式 C-c C-c 类似Unix里的C-c C-d 删除光标后一个字符 C-c C-d 发送EOF C-c C-z 挂起程序 M-p 显示前一条命令 M-n 显示后一条命令 C-u M-! shell Command 插入shell命令结果到当前窗口 Directory Editor(dired) C-x d 打开dired C（大写c）复制 d 标记等待删除 D 立即删除 e或f 打开文件或目录 g 刷新当前目录 G改变文件所属组（chgrp） k 从屏幕上的列表里删除一行（不是真的删除） m 用*标记 n 光标移动到下一行 o 在另一个空格打开文件并移动光标 C-o 在另一个窗口打开文件但不移动光标 P 打印文件 q 退出dired Q 在标记的文件中替换 R 重命名文件 u 移除标记 v 显示文件内容 x 删除有D标记的文件 ^ 返回上一级目录 Z 压缩/解压缩文件 M-Del 移除标记（默认为所有类型的标记） ~ 标记备份文件（文件名有~的文件）等待删除 # 标记自动保存文件（文件名形如#name#）等待删除 */ 用*标记所有文件夹（用C-u */n移除标记） = 将当前文件和标记文件（使用C-@标记而不是dired的m标记）比较 M-= 将当前文件和它的备份比较 ! 对当前文件应用shell命令 M-} 移动光标至下一个用*或D标记的文件 M-{ 移动光标至上一个用*或D标记的文件 % d 使用正则表达式标记文件等待删除 % m 使用正帽表达式标记文件为* 新建文件夹 &gt; 移动光标至后一个文件夹 &lt; 移动光标至前一个文件夹 s 切换排序模式（按文件名/日期） M-x speedbar 打开一个独立的窗口显示目录 Telnet M-x telnet 打开telnet模式 C-d 删除后一个字符或发送EOF C-c C-c 停止正在运行的程序 C-c C-d 发送EOF C-c C-o 清除最后一个命令的输出 C-c C-z 挂起正在运行的命令 C-c C-u 移除前一行 M-p 显示前一条命令 Text 如下命令只能在Text模式里使用">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#emacs-shortcutkeys">Emacs shortcutKeys</a>
+      <ul>
+        <li><a href="#基本快捷键-basic">基本快捷键（Basic）</a></li>
+        <li><a href="#光标移动基本快捷键-basic-movement">光标移动基本快捷键（Basic Movement）</a></li>
+        <li><a href="#编辑-editint">编辑（Editint）</a></li>
+        <li><a href="#重要快捷键">重要快捷键</a></li>
+        <li><a href="#在线帮助-online-help">在线帮助（Online-help）</a></li>
+        <li><a href="#搜索-替换-search-replace">搜索/替换（Search/Replace）</a></li>
+        <li><a href="#窗口命令-window-commands">窗口命令（Window Commands）</a></li>
+        <li><a href="#书签命令-bookmark-commands">书签命令（Bookmark commands）</a></li>
+        <li><a href="#shell">Shell</a></li>
+        <li><a href="#directory-editor--dired">Directory Editor(dired)</a></li>
+        <li><a href="#telnet">Telnet</a></li>
+        <li><a href="#text">Text</a></li>
+        <li><a href="#宏命令-macro-commands">宏命令（Macro-commands）</a></li>
+        <li><a href="#编程-programming">编程（programming）</a></li>
+        <li><a href="#org-mode">Org-mode</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="emacs-shortcutkeys" class="header-anchor-wrapper">Emacs shortcutKeys
+  <a href="#emacs-shortcutkeys" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="基本快捷键-basic" class="header-anchor-wrapper">基本快捷键（Basic）
+  <a href="#%e5%9f%ba%e6%9c%ac%e5%bf%ab%e6%8d%b7%e9%94%ae-basic" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-x C-f 查找文件，即在缓冲区打开/新建一个文件</li>
+<li>C-x C-s 保存文件</li>
+<li>C-x C-w 使用其他文件名另存为文件</li>
+<li>C-x C-v 关闭当前缓冲区文件并打开新文件</li>
+<li>C-x i 在当前光标处插入文件</li>
+<li>C-x b 新建/切换缓冲区</li>
+<li>C-x C-b 显示缓冲区列表</li>
+<li>C-x k 关闭当前缓冲区</li>
+<li>C-z 挂起Emacs</li>
+<li>C-x C-c 关闭Emacs</li>
+</ul>
+
+<h3 id="光标移动基本快捷键-basic-movement" class="header-anchor-wrapper">光标移动基本快捷键（Basic Movement）
+  <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8%e5%9f%ba%e6%9c%ac%e5%bf%ab%e6%8d%b7%e9%94%ae-basic-movement" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-f 后一个字符</li>
+<li>C-b 前一个字符</li>
+<li>C-p 上一行</li>
+<li>C-n 下一行</li>
+<li>M-f 后一个单词</li>
+<li>M-b 前一个单词</li>
+<li>C-a 行首</li>
+<li>C-e 行尾</li>
+<li>C-v 向下翻一页</li>
+<li>M-v 向上翻一页</li>
+<li>M-&lt; 到文件开头</li>
+<li>M-&gt; 到文件末尾</li>
+</ul>
+
+<h3 id="编辑-editint" class="header-anchor-wrapper">编辑（Editint）
+  <a href="#%e7%bc%96%e8%be%91-editint" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>M-n 重复执行最后一个命令N次</li>
+<li>C-u 重复执行后一个命令4次</li>
+<li>C-u 重复执行后一个命令N次</li>
+<li>C-d 删除后一个字符</li>
+<li>Del 删除前一个字符</li>
+<li>M-Del 删除前一个单词</li>
+<li>C-k 移除到行尾</li>
+<li>C-Space 设置开头标记</li>
+<li>C-@ 设置开头标记，用于C-Space被操作系统拦截的情况</li>
+<li>C-w 移除标记区域的内容</li>
+<li>M-w 复制标记区域的内容</li>
+<li>C-y 粘贴复制或移除的区域/行</li>
+<li>M-y 粘贴更早的内容</li>
+<li>C-x C-x 交换光标和标记</li>
+<li>C-t 交换两个字符的位置</li>
+<li>C-x C-t 交换两行的位置</li>
+<li>M-t 交换两个单词的位置</li>
+<li>M-u 使从光标位置到单词结尾处的字母变成大写</li>
+<li>M-l 使从光标位置到单词结尾处的字母变成小写</li>
+<li>M-c 使光标位置开始的单词的首字母变成大写</li>
+<li>C-x r l 命名剪切板列表</li>
+<li>C-x r s name 插入命令剪切板</li>
+</ul>
+
+<h3 id="重要快捷键" class="header-anchor-wrapper">重要快捷键
+  <a href="#%e9%87%8d%e8%a6%81%e5%bf%ab%e6%8d%b7%e9%94%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-g 停止当前运行/输入的命令</li>
+<li>C-x u 撤消前一个命令</li>
+<li>M-x revert-buffer RET 撤消上次存盘后所有改动</li>
+<li>M-x recover-file RET 从自动存盘文件恢复</li>
+<li>M-x recover-session RET 如果编辑了几个文件，用这个恢复</li>
+<li>C-c C-e 导出</li>
+</ul>
+
+<h3 id="在线帮助-online-help" class="header-anchor-wrapper">在线帮助（Online-help）
+  <a href="#%e5%9c%a8%e7%ba%bf%e5%b8%ae%e5%8a%a9-online-help" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-h c 显示快捷键绑定的命令</li>
+<li>C-h k 显示快捷键绑定的命令和它的作用</li>
+<li>C-h l 显示最后100个键入的内容</li>
+<li>C-h w 显示命令被绑定到哪些快捷键上</li>
+<li>C-h f 显示函数的功能</li>
+<li>C-h v 显示变量的含义和值</li>
+<li>C-h b 显示当前缓冲区所有可用的快捷键</li>
+<li>C-h t 打开Emacs教程</li>
+<li>C-h i 打开info阅读器</li>
+<li>C-h C-f 显示emacs FAQ</li>
+<li>C-h p 显示本机Elisp包的信息</li>
+</ul>
+
+<h3 id="搜索-替换-search-replace" class="header-anchor-wrapper">搜索/替换（Search/Replace）
+  <a href="#%e6%90%9c%e7%b4%a2-%e6%9b%bf%e6%8d%a2-search-replace" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-s 向后搜索</li>
+<li>C-r 向前搜索</li>
+<li>C-g 回到搜索开始前的位置（如果你仍然在搜索模式中）</li>
+<li>M-% 询问并替换（query replace）
+<ul>
+<li>Space或y 替换当前匹配</li>
+<li>Del或n 不要替换当前匹配</li>
+<li>. 仅仅替换当前匹配并退出替换</li>
+<li>, 替换并暂停（按Space或y继续）</li>
+<li>! 替换以下所有匹配</li>
+<li>^ 回到上一个匹配位置</li>
+<li>RET或q 退出替换</li>
+</ul>
+</li>
+<li>M-x query-replace-regexp 使用下则表达式搜索并替换</li>
+</ul>
+
+<h3 id="窗口命令-window-commands" class="header-anchor-wrapper">窗口命令（Window Commands）
+  <a href="#%e7%aa%97%e5%8f%a3%e5%91%bd%e4%bb%a4-window-commands" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-x 2 水平分割窗口</li>
+<li>C-x 3 垂直分割窗口</li>
+<li>C-x o 切换至其他窗口</li>
+<li>C-x 0 关闭窗口</li>
+<li>C-x 1 关闭除了光标所在窗口外的所有窗口</li>
+<li>C-x ^ 扩大窗口</li>
+<li>M-x shrink-window 缩小窗口</li>
+<li>M C-v 滚动其他窗口内容</li>
+<li>C-x 4 f 在其他窗口中打开文件</li>
+<li>C-x 4 0 关闭当前缓冲区和窗口</li>
+<li>C-x 5 2 新建窗口</li>
+<li>C-x 5 f 在新窗口中打开文件</li>
+<li>C-x 5 o 切换至其他窗口</li>
+<li>C-x 5 0 关闭当前窗口</li>
+</ul>
+
+<h3 id="书签命令-bookmark-commands" class="header-anchor-wrapper">书签命令（Bookmark commands）
+  <a href="#%e4%b9%a6%e7%ad%be%e5%91%bd%e4%bb%a4-bookmark-commands" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-x r m 在光标当前位置创建书签</li>
+<li>C-x r b 转到书签</li>
+<li>M-x bookmark-rename 重命名书签</li>
+<li>M-x bookmark-delete 删除书签</li>
+<li>M-x bookmark-save 保存书签</li>
+<li>C-x r l 列出书签清单
+<ul>
+<li>d 标记等待删除</li>
+<li>Del 取消删除标记</li>
+<li>x 删除被标记的书签</li>
+<li>r 重命名书签</li>
+<li>s 保存列表内所有书签</li>
+<li>f 转到当前书签指向的位置</li>
+<li>m 标记在多窗口中打开</li>
+<li>v 显示被标记的书签（或者光标当前位置的书签）</li>
+<li>t 切换是否显示路径列表</li>
+<li>w 显示当前文件路径</li>
+<li>q 退出书签列表</li>
+<li>M-x bookmark-write 将所有书签导出至指定文件</li>
+<li>M-x bookmark-load 从指定文件导入书签</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="shell" class="header-anchor-wrapper">Shell
+  <a href="#shell" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>M-x shell 打开shell模式</li>
+<li>C-c C-c 类似Unix里的C-c</li>
+<li>C-d 删除光标后一个字符</li>
+<li>C-c C-d 发送EOF</li>
+<li>C-c C-z 挂起程序</li>
+<li>M-p 显示前一条命令</li>
+<li>M-n 显示后一条命令</li>
+<li>C-u M-! shell Command 插入shell命令结果到当前窗口</li>
+</ul>
+
+<h3 id="directory-editor--dired" class="header-anchor-wrapper">Directory Editor(dired)
+  <a href="#directory-editor--dired" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-x d 打开dired</li>
+<li>C（大写c）复制</li>
+<li>d 标记等待删除</li>
+<li>D 立即删除</li>
+<li>e或f 打开文件或目录</li>
+<li>g 刷新当前目录</li>
+<li>G改变文件所属组（chgrp）</li>
+<li>k 从屏幕上的列表里删除一行（不是真的删除）</li>
+<li>m 用*标记</li>
+<li>n 光标移动到下一行</li>
+<li>o 在另一个空格打开文件并移动光标</li>
+<li>C-o 在另一个窗口打开文件但不移动光标</li>
+<li>P 打印文件</li>
+<li>q 退出dired</li>
+<li>Q 在标记的文件中替换</li>
+<li>R 重命名文件</li>
+<li>u 移除标记</li>
+<li>v 显示文件内容</li>
+<li>x 删除有D标记的文件</li>
+<li>^ 返回上一级目录</li>
+<li>Z 压缩/解压缩文件</li>
+<li>M-Del 移除标记（默认为所有类型的标记）</li>
+<li>~ 标记备份文件（文件名有~的文件）等待删除</li>
+<li># 标记自动保存文件（文件名形如#name#）等待删除</li>
+<li>*/ 用*标记所有文件夹（用C-u */n移除标记）</li>
+<li>= 将当前文件和标记文件（使用C-@标记而不是dired的m标记）比较</li>
+<li>M-= 将当前文件和它的备份比较</li>
+<li>! 对当前文件应用shell命令</li>
+<li>M-} 移动光标至下一个用*或D标记的文件</li>
+<li>M-{ 移动光标至上一个用*或D标记的文件</li>
+<li>% d 使用正则表达式标记文件等待删除</li>
+<li>% m 使用正帽表达式标记文件为*</li>
+<li>
+<ul>
+<li>新建文件夹</li>
+</ul>
+</li>
+<li>&gt; 移动光标至后一个文件夹</li>
+<li>&lt; 移动光标至前一个文件夹</li>
+<li>s 切换排序模式（按文件名/日期）</li>
+<li>M-x speedbar 打开一个独立的窗口显示目录</li>
+</ul>
+
+<h3 id="telnet" class="header-anchor-wrapper">Telnet
+  <a href="#telnet" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>M-x telnet 打开telnet模式</li>
+<li>C-d 删除后一个字符或发送EOF</li>
+<li>C-c C-c 停止正在运行的程序</li>
+<li>C-c C-d 发送EOF</li>
+<li>C-c C-o 清除最后一个命令的输出</li>
+<li>C-c C-z 挂起正在运行的命令</li>
+<li>C-c C-u 移除前一行</li>
+<li>M-p 显示前一条命令</li>
+</ul>
+
+<h3 id="text" class="header-anchor-wrapper">Text
+  <a href="#text" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<p>如下命令只能在Text模式里使用</p>
+<ul>
+<li>M-s 使当前行居中</li>
+<li>M-S 使当前段落居中</li>
+<li>M-x center-region 使被选中的区域居中</li>
+</ul>
+
+<h3 id="宏命令-macro-commands" class="header-anchor-wrapper">宏命令（Macro-commands）
+  <a href="#%e5%ae%8f%e5%91%bd%e4%bb%a4-macro-commands" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>C-x ( 开始定义宏</li>
+<li>C-x ) 结束定义宏</li>
+<li>C-x e 运行最近定义的宏</li>
+<li>M-n C-x e 运行最近定义的宏N次</li>
+<li>M-x name-last-kbd-macro 给最近定义的宏命名（用来保存）</li>
+<li>M-x insert-kbd-macro 将已命名的宏保存到文件</li>
+<li>M-x load-file 载入宏</li>
+</ul>
+
+<h3 id="编程-programming" class="header-anchor-wrapper">编程（programming）
+  <a href="#%e7%bc%96%e7%a8%8b-programming" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>M C-/ 自动缩进光标和标记间的区域</li>
+<li>M-m 移动光标到行首第一个（非空格）字符</li>
+<li>M-^ 将当前行接到上一行末尾处</li>
+<li>M-; 添加缩进并格式化的注释</li>
+<li>C, C++和Java模式
+<ul>
+<li>M-a 移动光标到声明的开始处</li>
+<li>M-e 移动光标到声明的结尾处</li>
+<li>M C-a 移动光标到函数的开始处</li>
+<li>M C-e 移动光标到函数的结尾处</li>
+<li>C-c RET 将光标移动到函数的开始处并标记到结尾处</li>
+<li>C-c C-q 根据缩进风格缩进整个函数</li>
+<li>C-c C-a 切换自动换行功能</li>
+<li>C-c C-d 一次性删除光标后的一串空格(greedy delete)</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="org-mode" class="header-anchor-wrapper">Org-mode
+  <a href="#org-mode" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>

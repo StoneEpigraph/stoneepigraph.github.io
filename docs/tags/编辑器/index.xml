@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编辑器 on 石记</title>
+    <link>https://stoneepigraph.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+    <description>Recent content in 编辑器 on 石记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VIM</title>
+      <link>https://stoneepigraph.github.io/posts/vim/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/vim/</guid>
+      <description>&lt;h2 id=&#34;移动光标&#34; class=&#34;header-anchor-wrapper&#34;&gt;移动光标
+  &lt;a href=&#34;#%e7%a7%bb%e5%8a%a8%e5%85%89%e6%a0%87&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;h j k l&lt;/li&gt;
+&lt;li&gt;{ 移动到上一段&lt;/li&gt;
+&lt;li&gt;}: 移动到下一段&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;搜索&#34; class=&#34;header-anchor-wrapper&#34;&gt;搜索
+  &lt;a href=&#34;#%e6%90%9c%e7%b4%a2&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;f加上你想在本行光标往后搜索的字母&lt;/li&gt;
+&lt;li&gt;在想要搜索的word上按*&lt;/li&gt;
+&lt;li&gt;/&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;移动页面&#34; class=&#34;header-anchor-wrapper&#34;&gt;移动页面
+  &lt;a href=&#34;#%e7%a7%bb%e5%8a%a8%e9%a1%b5%e9%9d%a2&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;zz将光标所在行移动到屏幕中间&lt;/li&gt;
+&lt;li&gt;zt： 将光标所在行移动到行首&lt;/li&gt;
+&lt;li&gt;ab: 将光标所在行移动到行尾&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;选择&#34; class=&#34;header-anchor-wrapper&#34;&gt;选择
+  &lt;a href=&#34;#%e9%80%89%e6%8b%a9&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;v: 进入visual 模式&lt;/li&gt;
+&lt;li&gt;V: 进入visual line模式&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;操作&#34; class=&#34;header-anchor-wrapper&#34;&gt;操作
+  &lt;a href=&#34;#%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;y: 复制选中的内容&lt;/li&gt;
+&lt;li&gt;yy: 复制一整行&lt;/li&gt;
+&lt;li&gt;p： 在光标后边粘贴&lt;/li&gt;
+&lt;li&gt;P: 在光标前边粘贴&lt;/li&gt;
+&lt;li&gt;u: 撤消上一步操作&lt;/li&gt;
+&lt;li&gt;U：撤消光标落在此行后的所有修改&lt;/li&gt;
+&lt;li&gt;.：重做上一步，&lt;/li&gt;
+&lt;li&gt;c - r : 重作上一步, 重做上一步撤消的内容&lt;/li&gt;
+&lt;li&gt;n. 重做N次上一步&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;ay: 将内容放到a暂存区&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;ap: 将a暂存区的内容粘贴到当前&lt;/li&gt;
+&lt;li&gt;d： 删除选中的内容&lt;/li&gt;
+&lt;li&gt;D：删除光标到行尾的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;11.dd: 删除当前行内容&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

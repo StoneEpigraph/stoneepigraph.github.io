@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on 石记</title>
+    <link>https://stoneepigraph.github.io/abouts/</link>
+    <description>Recent content in Abouts on 石记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/abouts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://stoneepigraph.github.io/abouts/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/abouts/about/</guid>
+      <description>&lt;p&gt;I won&amp;rsquo;t be a loser!!!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://stoneepigraph.github.io/abouts/contact/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/abouts/contact/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 石记</title>
+    <link>https://stoneepigraph.github.io/categories/python/</link>
+    <description>Recent content in Python on 石记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flask Web开发实战</title>
+      <link>https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
+      <description>&lt;h2&gt;Flask Web开发实战&lt;/h2&gt;
+
+
+&lt;h3&gt;基础&lt;/h3&gt;
+
+
+&lt;h4&gt;初识&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;开发环境&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;pipenv工作流&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pip install pipenv&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;!--quoteend--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pipenv install # 创建虚拟环境&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;!--quoteend--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pipenv shell # 进入虚拟环境
+pipenv run command #使用虚拟环境执行命令&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;!--quoteend--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pipenv graph # 查看当前环境的依赖&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Hello，Flask&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建程序实例&lt;/p&gt;
+&lt;p&gt;新建app.py(可以是除flask.py之外任意名字)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;from flask import Flask
+app = Flask(&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;name&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;注册路由&lt;/p&gt;
+&lt;p&gt;概括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户在浏览器输入URL访问某个资源&lt;/li&gt;
+&lt;li&gt;Flask接收用户请求并分析请求的URL&lt;/li&gt;
+&lt;li&gt;为这个URL找到对应的处理函数&lt;/li&gt;
+&lt;li&gt;执行函数并生成响应，浏览器&lt;/li&gt;
+&lt;li&gt;浏览器接收并解析响应，将信息显示在页面中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;?? (????)(&amp;rsquo;/&amp;rsquo;)
+def index():
+​return &#39;&lt;/p&gt;
+&lt;div class=&#34;html&#34;&gt;
+&lt;p&gt;&amp;lt;h1&amp;gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;hello, world&lt;/p&gt;
+&lt;div class=&#34;html&#34;&gt;
+&lt;p&gt;&amp;lt;/h1&amp;gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&#39;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以为视图绑定多个URL&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;?? ()(&amp;lsquo;hi&amp;rsquo;)
+?? ()(&amp;rsquo;/hello&amp;rsquo;)
+def say_hello():
+​return &#39;&lt;/p&gt;
+&lt;div class=&#34;html&#34;&gt;
+&lt;p&gt;&amp;lt;h1&amp;gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hello, Flask!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python CookBook</title>
+      <link>https://stoneepigraph.github.io/posts/python-cookbook/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/python-cookbook/</guid>
+      <description>&lt;h2 id=&#34;数据结构与算法&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据结构与算法
+  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;解压序列赋值给多个变量&#34; class=&#34;header-anchor-wrapper&#34;&gt;解压序列赋值给多个变量
+  &lt;a href=&#34;#%e8%a7%a3%e5%8e%8b%e5%ba%8f%e5%88%97%e8%b5%8b%e5%80%bc%e7%bb%99%e5%a4%9a%e4%b8%aa%e5%8f%98%e9%87%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;注意_, /, /_, 级别的使用&lt;/p&gt;
+
+&lt;h3 id=&#34;保留最后n个元素&#34; class=&#34;header-anchor-wrapper&#34;&gt;保留最后N个元素
+  &lt;a href=&#34;#%e4%bf%9d%e7%95%99%e6%9c%80%e5%90%8en%e4%b8%aa%e5%85%83%e7%b4%a0&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;collections deque&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python核心编程（3）</title>
+      <link>https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/</guid>
+      <description>&lt;h2 id=&#34;正则表达式&#34; class=&#34;header-anchor-wrapper&#34;&gt;正则表达式
+  &lt;a href=&#34;#%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h2 id=&#34;网络编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;网络编程
+  &lt;a href=&#34;#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h2 id=&#34;因特网客户端编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;因特网客户端编程
+  &lt;a href=&#34;#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;因特网客户端简介&#34; class=&#34;header-anchor-wrapper&#34;&gt;因特网客户端简介
+  &lt;a href=&#34;#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%ae%80%e4%bb%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h3 id=&#34;文件传输&#34; class=&#34;header-anchor-wrapper&#34;&gt;文件传输
+  &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;文件传输因特协议&#34; class=&#34;header-anchor-wrapper&#34;&gt;文件传输因特协议
+  &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93%e5%9b%a0%e7%89%b9%e5%8d%8f%e8%ae%ae&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;p&gt;在当下，HTTP,FTP,scp/rsync的应用仍然广泛。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

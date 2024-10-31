@@ -1,0 +1,643 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreeMarker入门 - 石记</title>
+
+    
+
+    
+
+    
+    <meta name="author" content="Whatspeng!!!" />
+    
+
+    
+        <meta property="og:url" content="https://stoneepigraph.github.io/posts/freemarker/">
+  <meta property="og:site_name" content="石记">
+  <meta property="og:title" content="FreeMarker入门">
+  <meta property="og:description" content="入门 模板 &#43; 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-11-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-25T00:00:00+00:00">
+
+    
+
+    
+        
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FreeMarker入门">
+  <meta name="twitter:description" content="入门 模板 &#43; 数据模型 = 输出 数据模型 数据模型的基本结构是树状的. 标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值 哈希表是一种存储变量及其相关且有唯一标识名称的容器 序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始. 值域 start..end: 包含结尾的值域 start..&lt;end或者start..!end: 不包含结尾的值域 start..*length: 限定长度的值域. start..: 无右边界值域. 注意">
+
+    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+
+
+
+    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+
+
+
+    
+    <script>
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'dark';
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+
+
+
+    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+
+
+
+
+
+
+
+    
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+    
+
+
+
+    
+    
+    
+    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+
+
+
+
+
+
+    
+</head>
+<body><header>
+    <div id="header_left">
+        <div id="sidebar_btn">
+            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+            <label id="sidebar_btn_label" for="sidebar_btn_input">
+                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+
+</svg>
+            </label>
+            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                <div id="sidebar_canvas_overlay"></div>
+            </label>
+            <div id="sidebar">
+                <ul><li>
+                            <a href="/posts/">posts</a></li><li>
+                            <a href="/categories">Categories</a></li><li>
+                            <a href="/tags">Tags</a></li><li>
+                            <a href="/others/">Others</a></li><li>
+                            <a href="/abouts">Abouts</a>
+    <ul>
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/about">About</a>
+                    
+                </li>
+            
+        
+
+            
+                <li>
+                    
+                        <a href="/abouts/contact">Contact</a>
+                    
+                </li>
+            
+        
+    </ul>
+</li></ul>
+            </div>
+        </div>
+    
+        <div class="brand">
+            <div>
+                <a href="/">石记</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox">
+        <div id="theme_tool">
+            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</svg>
+            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</svg>
+        </div>
+
+        
+            <div id="search_tool">
+                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</svg><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+                <svg width="18px" height="18px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</svg>
+            </div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
+</div>
+        
+
+        
+    </div>
+</header>
+<nav id="navbar" class="pure-menu">
+    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+                    
+                        <a href="/posts/" class="pure-menu-link">posts</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/categories" class="pure-menu-link">Categories</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/tags" class="pure-menu-link">Tags</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
+                        <a href="/others/" class="pure-menu-link">Others</a>
+                    
+                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                    
+                        <a href="/abouts" class="pure-menu-link">Abouts</a>
+                    
+                    <ul class="pure-menu-children">
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/about" class="pure-menu-link">About</a>
+            
+        </li>
+    
+
+
+    
+        <li class="pure-menu-item">
+            
+                <a href="/abouts/contact" class="pure-menu-link">Contact</a>
+            
+        </li>
+    
+
+</ul>
+                </li></ul>
+</nav>
+<main>
+            <div id="content" class="content-margin">
+                
+    
+    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#入门">入门</a>
+      <ul>
+        <li><a href="#模板-plus-数据模型-输出">模板 + 数据模型 = 输出</a></li>
+        <li><a href="#数据模型">数据模型</a></li>
+        <li><a href="#模板">模板</a></li>
+      </ul>
+    </li>
+    <li><a href="#其它">其它</a>
+      <ul>
+        <li><a href="#自定义指令">自定义指令</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+    </div></div>
+
+
+
+    <div class="content-margin">
+
+
+
+<article class="line-numbers">
+    
+    
+        
+        
+    
+    
+<h2 id="入门" class="header-anchor-wrapper">入门
+  <a href="#%e5%85%a5%e9%97%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="模板-plus-数据模型-输出" class="header-anchor-wrapper">模板 + 数据模型 = 输出
+  <a href="#%e6%a8%a1%e6%9d%bf-plus-%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b-%e8%be%93%e5%87%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+<h3 id="数据模型" class="header-anchor-wrapper">数据模型
+  <a href="#%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>数据模型的基本结构是树状的.</li>
+<li>标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值</li>
+<li>哈希表是一种存储变量及其相关且有唯一标识名称的容器</li>
+<li>序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始.</li>
+</ul>
+
+<h4 id="值域" class="header-anchor-wrapper">值域
+  <a href="#%e5%80%bc%e5%9f%9f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>start..end: 包含结尾的值域</li>
+<li>start..&lt;end或者start..!end: 不包含结尾的值域</li>
+<li>start..*length: 限定长度的值域.</li>
+<li>start..: 无右边界值域.</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>注意</p>
+<ol>
+<li>值域表达式本身没有方括号</li>
+<li>可以在..的两侧编写自述表达式而不需要圆括号</li>
+<li>.., ..&lt;, ..!, ..*是去处符,所以它们中间不能有空格.</li>
+<li>无右边界值域的定义大小是2147483647</li>
+<li>值域并不存储它们包含的数字.</li>
+</ol>
+</li>
+</ul>
+
+<h4 id="哈希表" class="header-anchor-wrapper">哈希表
+  <a href="#%e5%93%88%e5%b8%8c%e8%a1%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先.</li>
+</ul>
+
+<h3 id="模板" class="header-anchor-wrapper">模板
+  <a href="#%e6%a8%a1%e6%9d%bf" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+<ul>
+<li>插值: ${paramsName}</li>
+<li>FTL标签
+FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#.</li>
+<li>注释注释使用&lt;#&ndash; and &ndash;&gt; 来标识</li>
+<li>其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来.</li>
+</ul>
+
+<h4 id="基本指令" class="header-anchor-wrapper">基本指令
+  <a href="#%e5%9f%ba%e6%9c%ac%e6%8c%87%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>IF指令
+<pre  class="mc-prism hide language-text" ><code class="language-FreeMarker">&lt;#if condition&gt; &lt;/#if&gt;
+&lt;#if condition&gt;
+  if statement
+&lt;#elseif condition&gt;
+  elseif statement
+&lt;#else&gt;
+  else statement
+&lt;/#if&gt;
+</code></pre>
+</li>
+<li>list指令展示列表内容
+<ol>
+<li>基本
+<pre  class="mc-prism hide language-text" ><code class="language-FreeMarker">&lt;ul&gt;
+&lt;#list listObj as obj&gt;
+&lt;li&gt;${ojb}
+&lt;/#list&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+<li>如果列表为空的话,整个列表都不展示
+<pre  class="mc-prism hide language-text" ><code class="language-freeMarker">&lt;#list listObj&gt;
+  &lt;ul&gt;
+    &lt;#items as obj&gt;
+      &lt;li&gt;${obj}
+  &lt;/ul&gt;
+&lt;/#list&gt;
+</code></pre>
+</li>
+<li>如果列表为空的话展示一些其它信息
+<pre  class="mc-prism hide language-text" ><code class="language-freeMarker">&lt;#list listObj&gt;
+  &lt;p&gt; ListDesc:
+  &lt;ul&gt;
+    &lt;#items as obj&gt;
+      &lt;li&gt;${obj}&lt;#sep&gt;septarator&lt;/#sep&gt;
+    &lt;/#items&gt;
+  &lt;/ul&gt;
+&lt;#else&gt;
+  &lt;p&gt; list is empty.
+&lt;/#list&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>include指令使用include指令, 我们可以在模板中插入其他文件的内容. 比如: 版权信息.
+<pre  class="mc-prism hide language-text" ><code class="language-freemarker">&lt;#include &quot;filePath&quot;&gt;
+</code></pre>
+</li>
+</ul>
+
+<h4 id="联合使用指令" class="header-anchor-wrapper">联合使用指令
+  <a href="#%e8%81%94%e5%90%88%e4%bd%bf%e7%94%a8%e6%8c%87%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>在页面中,指令间可以很容易地相互嵌套.</p>
+
+<h4 id="内建函数" class="header-anchor-wrapper">内建函数
+  <a href="#%e5%86%85%e5%bb%ba%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<p>内建函数可以链式操作.</p>
+<ul>
+<li>user?html 给出user的HTML转义版本</li>
+<li>user?upper_case: 给出user值的大写版本</li>
+<li>user?cap_first: 给出user的首字母大写版本</li>
+<li>user?length: 给出user值中字符的数量</li>
+<li>user?size: 给出user序列中项目的企业</li>
+<li>如果在&lt;#list animals as animal&gt;和对应的&lt;/#list&gt;标签中
+<ul>
+<li>animal?index: 给出了在animals中基于0开始的animal的索引值</li>
+<li>animal?counter: 也像index, 但是给出的是基于1的索引值</li>
+<li>animal?item_parity: 基于当前计数的奇偶性,给出字符串&quot;odd&quot;或&quot;even&quot;</li>
+</ul>
+</li>
+<li>一些内奸函数需要参数来指定行为
+<ul>
+<li>animal.protected?string(&ldquo;Y&rdquo;, &ldquo;N&rdquo;): 基于animal.protected的布尔值来返回字符串&quot;Y&quot;或者&quot;N&quot;</li>
+<li>animal?item_cycle(&rsquo;lightRow&rsquo;, &lsquo;darkRow&rsquo;): 是之前item_parity更为常用的变形形式</li>
+<li>animals.join(&quot;, &ldquo;): 通过连接所有项, 将列表转换为字符串,在每个项目之间插入参数分隔符.</li>
+<li>user?starts_with(&ldquo;J&rdquo;): 根据user的首字母是否是&quot;J&quot;返回布尔值true或false</li>
+</ul>
+</li>
+</ul>
+
+<h4 id="处理不存在的变量" class="header-anchor-wrapper">处理不存在的变量
+  <a href="#%e5%a4%84%e7%90%86%e4%b8%8d%e5%ad%98%e5%9c%a8%e7%9a%84%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
+
+<ul>
+<li>通过在变量名后面跟着一个叹号和默认值, 例
+<pre  class="mc-prism hide language-text" ><code class="language-nil">&lt;h1&gt; Welcome ${user!&quot;visitor&quot;}&lt;h1&gt;
+</code></pre>
+</li>
+<li>通过在变量名后面放置??来询问一个变量是否存在.将它和if指定合并,那么如果user变量不存在的话将会忽略整个问题语句, 例:
+<pre  class="mc-prism hide language-text" ><code class="language-freemarker">&lt;#if user??&gt;&lt;h1&gt;Welcome ${user}&lt;/h1&gt;&lt;/#if&gt;
+</code></pre>
+</li>
+</ul>
+
+<h2 id="其它" class="header-anchor-wrapper">其它
+  <a href="#%e5%85%b6%e5%ae%83" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
+
+
+<h3 id="自定义指令" class="header-anchor-wrapper">自定义指令
+  <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8c%87%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
+
+
+</article>
+</div>
+
+
+                
+                    
+                
+            </div>
+        </main>
+<footer>
+    <article>Copyright © 2021-2023 by Whatspeng!!!</article>
+</footer>
+
+</body>
+</html>
