@@ -13,10 +13,36 @@
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/posts/awk/</guid>
-      <description>&lt;h2&gt;AWK语言&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;awk语言&#34; class=&#34;header-anchor-wrapper&#34;&gt;AWK语言
+  &lt;a href=&#34;#awk%e8%af%ad%e8%a8%80&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
 
 
-&lt;h2&gt;变量&lt;/h2&gt;
+&lt;h2 id=&#34;变量&#34; class=&#34;header-anchor-wrapper&#34;&gt;变量
+  &lt;a href=&#34;#%e5%8f%98%e9%87%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;
@@ -46,27 +72,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;模式&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;BEGIN
-在第一个输入文件的第一行之前被匹配&lt;/li&gt;
-&lt;li&gt;END
-在最后一个输入文件的最后一行被处理之后匹配例：
-awk -F &amp;lsquo;:&amp;rsquo; &amp;lsquo;BEGIN {print &amp;ldquo;id    name    shell&amp;rdquo;; print &amp;ldquo;&amp;rdquo;}
-{emp = emp + 1; print NF, $1, $NF}
-END {print &amp;ldquo;total rows: &amp;ldquo;, emp}&amp;rsquo; /etc/passwd&lt;/li&gt;
-&lt;li&gt;expression { statements}
-每碰到一个使expression为真的输入行，statements就执行， expression为真指的是其值非零或非空&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;regular expression&lt;/em&gt; {statements}
-当碰到这样一个输入行时， statements就执行： 输入行含有一段字符串，而该字符串可以被regular expression匹配&lt;/li&gt;
-&lt;li&gt;compound parttern {statements}
-一个复合模式将表达式用 &amp;amp;&amp;amp;(AND), ||(OR), !(NOT), 以及括号组合起来；当compound parttern为真时， statements执行。&lt;/li&gt;
-&lt;li&gt;pattern1, pattern2 { statemtnts }
-一个范围模式匹配多个输入行，这些输入行从匹配pattern1的行开始，到匹配pattern2的行结束（包括这两行）， 对这其中的每一行执行statements.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;流程控制&lt;/p&gt;</description>
+&lt;p&gt;模式&lt;/p&gt;</description>
     </item>
     
     <item>

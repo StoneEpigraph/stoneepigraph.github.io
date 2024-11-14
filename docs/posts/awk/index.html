@@ -41,8 +41,7 @@ $1: 第一个字段
 $N: 第N个字段
 #: 注释
 逻辑
-&amp;&amp; || ! 模式
-BEGIN 在第一个输入文件的第一行之前被匹配 END 在最后一个输入文件的最后一行被处理之后匹配例： awk -F ‘:’ ‘BEGIN {print “id name shell”; print “”} {emp = emp &#43; 1; print NF, $1, $NF} END {print “total rows: “, emp}’ /etc/passwd expression { statements} 每碰到一个使expression为真的输入行，statements就执行， expression为真指的是其值非零或非空 regular expression {statements} 当碰到这样一个输入行时， statements就执行： 输入行含有一段字符串，而该字符串可以被regular expression匹配 compound parttern {statements} 一个复合模式将表达式用 &amp;&amp;(AND), ||(OR), !(NOT), 以及括号组合起来；当compound parttern为真时， statements执行。 pattern1, pattern2 { statemtnts } 一个范围模式匹配多个输入行，这些输入行从匹配pattern1的行开始，到匹配pattern2的行结束（包括这两行）， 对这其中的每一行执行statements. 流程控制">
+&amp;&amp; || ! 模式">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -62,8 +61,7 @@ $1: 第一个字段
 $N: 第N个字段
 #: 注释
 逻辑
-&amp;&amp; || ! 模式
-BEGIN 在第一个输入文件的第一行之前被匹配 END 在最后一个输入文件的最后一行被处理之后匹配例： awk -F ‘:’ ‘BEGIN {print “id name shell”; print “”} {emp = emp &#43; 1; print NF, $1, $NF} END {print “total rows: “, emp}’ /etc/passwd expression { statements} 每碰到一个使expression为真的输入行，statements就执行， expression为真指的是其值非零或非空 regular expression {statements} 当碰到这样一个输入行时， statements就执行： 输入行含有一段字符串，而该字符串可以被regular expression匹配 compound parttern {statements} 一个复合模式将表达式用 &amp;&amp;(AND), ||(OR), !(NOT), 以及括号组合起来；当compound parttern为真时， statements执行。 pattern1, pattern2 { statemtnts } 一个范围模式匹配多个输入行，这些输入行从匹配pattern1的行开始，到匹配pattern2的行结束（包括这两行）， 对这其中的每一行执行statements. 流程控制">
+&amp;&amp; || ! 模式">
 
     <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
 
@@ -303,10 +301,36 @@ BEGIN 在第一个输入文件的第一行之前被匹配 END 在最后一个输
         
     
     
-<h2>AWK语言</h2>
+<h2 id="awk语言" class="header-anchor-wrapper">AWK语言
+  <a href="#awk%e8%af%ad%e8%a8%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 
-<h2>变量</h2>
+<h2 id="变量" class="header-anchor-wrapper">变量
+  <a href="#%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 <ol>
 <li>
@@ -378,7 +402,20 @@ statement
 </li>
 </ol>
 
-<h2>函数</h2>
+<h2 id="函数" class="header-anchor-wrapper">函数
+  <a href="#%e5%87%bd%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 <ol>
 <li>print

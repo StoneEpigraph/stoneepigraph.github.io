@@ -34,27 +34,7 @@
         <meta property="og:url" content="https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="Flask Web开发实战">
-  <meta property="og:description" content="Flask Web开发实战 基础 初识 开发环境
-pipenv工作流
-pip install pipenv
-pipenv install # 创建虚拟环境
-pipenv shell # 进入虚拟环境 pipenv run command #使用虚拟环境执行命令
-pipenv graph # 查看当前环境的依赖
-Hello，Flask
-创建程序实例
-新建app.py(可以是除flask.py之外任意名字)
-from flask import Flask app = Flask(name)
-注册路由
-概括：
-用户在浏览器输入URL访问某个资源 Flask接收用户请求并分析请求的URL 为这个URL找到对应的处理函数 执行函数并生成响应，浏览器 浏览器接收并解析响应，将信息显示在页面中。 ?? (????)(’/’) def index(): ​return &#39;
-&lt;h1&gt;
-hello, world
-&lt;/h1&gt;
-&#39;
-可以为视图绑定多个URL
-?? ()(‘hi’) ?? ()(’/hello’) def say_hello(): ​return &#39;
-&lt;h1&gt;
-Hello, Flask!">
+  <meta property="og:description" content="Flask Web开发实战 基础 初识 开发环境">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -67,27 +47,7 @@ Hello, Flask!">
         
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Flask Web开发实战">
-  <meta name="twitter:description" content="Flask Web开发实战 基础 初识 开发环境
-pipenv工作流
-pip install pipenv
-pipenv install # 创建虚拟环境
-pipenv shell # 进入虚拟环境 pipenv run command #使用虚拟环境执行命令
-pipenv graph # 查看当前环境的依赖
-Hello，Flask
-创建程序实例
-新建app.py(可以是除flask.py之外任意名字)
-from flask import Flask app = Flask(name)
-注册路由
-概括：
-用户在浏览器输入URL访问某个资源 Flask接收用户请求并分析请求的URL 为这个URL找到对应的处理函数 执行函数并生成响应，浏览器 浏览器接收并解析响应，将信息显示在页面中。 ?? (????)(’/’) def index(): ​return &#39;
-&lt;h1&gt;
-hello, world
-&lt;/h1&gt;
-&#39;
-可以为视图绑定多个URL
-?? ()(‘hi’) ?? ()(’/hello’) def say_hello(): ​return &#39;
-&lt;h1&gt;
-Hello, Flask!">
+  <meta name="twitter:description" content="Flask Web开发实战 基础 初识 开发环境">
 
     <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
 
@@ -349,13 +309,52 @@ Hello, Flask!">
         
     
     
-<h2>Flask Web开发实战</h2>
+<h2 id="flask-web开发实战" class="header-anchor-wrapper">Flask Web开发实战
+  <a href="#flask-web%e5%bc%80%e5%8f%91%e5%ae%9e%e6%88%98" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 
-<h3>基础</h3>
+<h3 id="基础" class="header-anchor-wrapper">基础
+  <a href="#%e5%9f%ba%e7%a1%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>初识</h4>
+<h4 id="初识" class="header-anchor-wrapper">初识
+  <a href="#%e5%88%9d%e8%af%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
