@@ -4,56 +4,16 @@
     <title>SVN on 石记</title>
     <link>https://stoneepigraph.github.io/categories/svn/</link>
     <description>Recent content in SVN on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/svn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/categories/svn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SVN常用命令</title>
       <link>https://stoneepigraph.github.io/posts/svn/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/svn/</guid>
-      <description>&lt;h2 id=&#34;常用svn命令&#34; class=&#34;header-anchor-wrapper&#34;&gt;常用SVN命令
-  &lt;a href=&#34;#%e5%b8%b8%e7%94%a8svn%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;svn checkout 签出,创建新的工作拷贝.&lt;/li&gt;
-&lt;li&gt;svn info 搞清楚工作拷贝从哪里来的.&lt;/li&gt;
-&lt;li&gt;svn update 从项目仓库中更新目录中的所有文件&lt;/li&gt;
-&lt;li&gt;svn add 添加文件的目录到项目仓库中&lt;/li&gt;
-&lt;li&gt;svn propset 设置文件的属性&lt;/li&gt;
-&lt;li&gt;svn add 添加文件&lt;/li&gt;
-&lt;li&gt;svn delete 删除文件&lt;/li&gt;
-&lt;li&gt;svn move src.file dist.file 移动文件&lt;/li&gt;
-&lt;li&gt;svn commit -m &amp;lsquo;提交信息&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;svn log filename 查看指定文件的历史&lt;/li&gt;
-&lt;li&gt;svn diff 展示文件版本之间的差异.
-&lt;ol&gt;
-&lt;li&gt;在版本之间找差异
-svn diff -r19:21 filename
-使用-r选项来指定一个版本范围&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;svn revert 删掉本地改动并使用项目仓库中的文件版本&lt;/li&gt;
-&lt;li&gt;svn resolved 修正冲突后执行&lt;/li&gt;
-&lt;li&gt;svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人&lt;/li&gt;
-&lt;li&gt;svn update 获取最新的代码&lt;/li&gt;
-&lt;li&gt;svn merge -r 27:26 filename 移除file中版本27的改动&lt;/li&gt;
-&lt;li&gt;svn lock filename 给文件加锁&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <description>&lt;h2 id=&#34;常用svn命令&#34;&gt;常用SVN命令&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;svn checkout 签出,创建新的工作拷贝.&lt;/li&gt;&#xA;&lt;li&gt;svn info 搞清楚工作拷贝从哪里来的.&lt;/li&gt;&#xA;&lt;li&gt;svn update 从项目仓库中更新目录中的所有文件&lt;/li&gt;&#xA;&lt;li&gt;svn add 添加文件的目录到项目仓库中&lt;/li&gt;&#xA;&lt;li&gt;svn propset 设置文件的属性&lt;/li&gt;&#xA;&lt;li&gt;svn add 添加文件&lt;/li&gt;&#xA;&lt;li&gt;svn delete 删除文件&lt;/li&gt;&#xA;&lt;li&gt;svn move src.file dist.file 移动文件&lt;/li&gt;&#xA;&lt;li&gt;svn commit -m &amp;lsquo;提交信息&amp;rsquo;&lt;/li&gt;&#xA;&lt;li&gt;svn log filename 查看指定文件的历史&lt;/li&gt;&#xA;&lt;li&gt;svn diff 展示文件版本之间的差异.&#xA;&lt;ol&gt;&#xA;&lt;li&gt;在版本之间找差异&#xA;svn diff -r19:21 filename&#xA;使用-r选项来指定一个版本范围&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;svn revert 删掉本地改动并使用项目仓库中的文件版本&lt;/li&gt;&#xA;&lt;li&gt;svn resolved 修正冲突后执行&lt;/li&gt;&#xA;&lt;li&gt;svn blame 显示每个文件的每一行最后的版本, 以及做出这个改动的人&lt;/li&gt;&#xA;&lt;li&gt;svn update 获取最新的代码&lt;/li&gt;&#xA;&lt;li&gt;svn merge -r 27:26 filename 移除file中版本27的改动&lt;/li&gt;&#xA;&lt;li&gt;svn lock filename 给文件加锁&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,139 +4,16 @@
     <title>JVM on 石记</title>
     <link>https://stoneepigraph.github.io/categories/jvm/</link>
     <description>Recent content in JVM on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/categories/jvm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JVM简述</title>
       <link>https://stoneepigraph.github.io/posts/jvm/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/jvm/</guid>
-      <description>&lt;h2 id=&#34;类的加载-连接与初始化&#34; class=&#34;header-anchor-wrapper&#34;&gt;类的加载,连接与初始化
-  &lt;a href=&#34;#%e7%b1%bb%e7%9a%84%e5%8a%a0%e8%bd%bd-%e8%bf%9e%e6%8e%a5%e4%b8%8e%e5%88%9d%e5%a7%8b%e5%8c%96&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;加载&#34; class=&#34;header-anchor-wrapper&#34;&gt;加载
-  &lt;a href=&#34;#%e5%8a%a0%e8%bd%bd&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-&lt;p&gt;指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.&lt;/p&gt;
-
-&lt;h4 id=&#34;类的加载方式&#34; class=&#34;header-anchor-wrapper&#34;&gt;类的加载方式
-  &lt;a href=&#34;#%e7%b1%bb%e7%9a%84%e5%8a%a0%e8%bd%bd%e6%96%b9%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;从本地系统中直接加载&lt;/li&gt;
-&lt;li&gt;从网络下载.class&lt;/li&gt;
-&lt;li&gt;从zip, jar等归档中加载.class文件&lt;/li&gt;
-&lt;li&gt;从专有数据库中提取.class文件&lt;/li&gt;
-&lt;li&gt;将Java源文件动态的编译为.class文件&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;连接&#34; class=&#34;header-anchor-wrapper&#34;&gt;连接
-  &lt;a href=&#34;#%e8%bf%9e%e6%8e%a5&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;验证确保被加载的类的正确性&lt;/li&gt;
-&lt;li&gt;准备为类的静态变量分配内存,并将其初始化为默认值&lt;/li&gt;
-&lt;li&gt;解析把类中的符号引用转换为直接引用&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;类的使用&#34; class=&#34;header-anchor-wrapper&#34;&gt;类的使用
-  &lt;a href=&#34;#%e7%b1%bb%e7%9a%84%e4%bd%bf%e7%94%a8&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;主动使用
-&lt;ul&gt;
-&lt;li&gt;创建类的实例&lt;/li&gt;
-&lt;li&gt;访问某个类或接口的静态变量或对静态变量赋值&lt;/li&gt;
-&lt;li&gt;访问类的静态方法&lt;/li&gt;
-&lt;li&gt;反射&lt;/li&gt;
-&lt;li&gt;初始化一个类的子类&lt;/li&gt;
-&lt;li&gt;Java虚拟机启动时被标明为启动类的类&lt;/li&gt;
-&lt;li&gt;JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandler实例的解析结果REF_getStatic, REF_PUTsTATIC, REF_invokeStatic句柄对应的类没有初始化，则初始化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;被动使用&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;初始化&#34; class=&#34;header-anchor-wrapper&#34;&gt;初始化
-  &lt;a href=&#34;#%e5%88%9d%e5%a7%8b%e5%8c%96&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-&lt;p&gt;所有的Java虚拟机实现必须在每个类或接口被Java程序&amp;quot;首次主动使用&amp;quot;时才进行初始化.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;类的加载-连接与初始化&#34;&gt;类的加载,连接与初始化&lt;/h2&gt;&#xA;&lt;h3 id=&#34;加载&#34;&gt;加载&lt;/h3&gt;&#xA;&lt;p&gt;指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.&lt;/p&gt;&#xA;&lt;h4 id=&#34;类的加载方式&#34;&gt;类的加载方式&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;从本地系统中直接加载&lt;/li&gt;&#xA;&lt;li&gt;从网络下载.class&lt;/li&gt;&#xA;&lt;li&gt;从zip, jar等归档中加载.class文件&lt;/li&gt;&#xA;&lt;li&gt;从专有数据库中提取.class文件&lt;/li&gt;&#xA;&lt;li&gt;将Java源文件动态的编译为.class文件&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;连接&#34;&gt;连接&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;验证确保被加载的类的正确性&lt;/li&gt;&#xA;&lt;li&gt;准备为类的静态变量分配内存,并将其初始化为默认值&lt;/li&gt;&#xA;&lt;li&gt;解析把类中的符号引用转换为直接引用&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;类的使用&#34;&gt;类的使用&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;主动使用&#xA;&lt;ul&gt;&#xA;&lt;li&gt;创建类的实例&lt;/li&gt;&#xA;&lt;li&gt;访问某个类或接口的静态变量或对静态变量赋值&lt;/li&gt;&#xA;&lt;li&gt;访问类的静态方法&lt;/li&gt;&#xA;&lt;li&gt;反射&lt;/li&gt;&#xA;&lt;li&gt;初始化一个类的子类&lt;/li&gt;&#xA;&lt;li&gt;Java虚拟机启动时被标明为启动类的类&lt;/li&gt;&#xA;&lt;li&gt;JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandler实例的解析结果REF_getStatic, REF_PUTsTATIC, REF_invokeStatic句柄对应的类没有初始化，则初始化。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;被动使用&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;初始化&#34;&gt;初始化&lt;/h3&gt;&#xA;&lt;p&gt;所有的Java虚拟机实现必须在每个类或接口被Java程序&amp;quot;首次主动使用&amp;quot;时才进行初始化.&lt;/p&gt;&#xA;&lt;h4 id=&#34;注意&#34;&gt;注意&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;当一个常量的值并非编译期间可以确定的,那么其值就不会被放到调用类的常量池中,这时在程序运行时,会导致主动使用这个常量所在的类,显然会导致这个类被初始化.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;主动使用的方式&#34;&gt;主动使用的方式&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;创建类的实例&lt;/li&gt;&#xA;&lt;li&gt;访问某个类或接口的静态变量,或者对该静态变量赋值&lt;/li&gt;&#xA;&lt;li&gt;调用类的静态方法&lt;/li&gt;&#xA;&lt;li&gt;反射如Class.forName(&amp;ldquo;com.path.ClassName&amp;rdquo;)&lt;/li&gt;&#xA;&lt;li&gt;初始化一个类的子类&lt;/li&gt;&#xA;&lt;li&gt;Java虚拟机启动时被标明为启动类的类&lt;/li&gt;&#xA;&lt;li&gt;JDK1.7开始提供的动态语言支持.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;虚拟机参数&#34;&gt;虚拟机参数&lt;/h2&gt;&#xA;&lt;h3 id=&#34;tips&#34;&gt;Tips&lt;/h3&gt;&#xA;&lt;h3 id=&#34;说明&#34;&gt;说明&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;-XX:+&amp;lt;option&amp;gt;, 表示开启option选项&lt;/li&gt;&#xA;&lt;li&gt;-XX:-&amp;lt;option&amp;gt;, 表示关闭option选项&lt;/li&gt;&#xA;&lt;li&gt;-XX:&amp;lt;option&amp;gt;=&amp;lt;value&amp;gt;, 表示将option选项的值设置为value&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;参数&#34;&gt;参数&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&amp;ndash;XX:+TraceClassLoading: 用于追踪类的加载信息并打印出来.&lt;/li&gt;&#xA;&lt;li&gt;-Xss1M: 设置最大调用深度，防止栈举出。StackOverflowError。&lt;/li&gt;&#xA;&lt;li&gt;-XX:MaxTenuringThreshold: 指定新征伐对象经过多少次回收后进入老年代，默认为15次。&lt;/li&gt;&#xA;&lt;li&gt;-XX:PretenureSizeThreshold: 指定对象的大小超过在指定的大小之后，直接晋升老年代。&lt;/li&gt;&#xA;&lt;li&gt;TLAB&#xA;&lt;ol&gt;&#xA;&lt;li&gt;-XX:+UseTLBA: 使用TLAB, 默认开启。&lt;/li&gt;&#xA;&lt;li&gt;-XX:+TLABSize: 设置TLAB大小&lt;/li&gt;&#xA;&lt;li&gt;-XX:TLABRefillWasteFraction：设置维护进入TLAB空间的单个对象大小，他是一个比例值，默认为64,即如果对象大于整个空间的1/64,则在堆创建对象。&lt;/li&gt;&#xA;&lt;li&gt;-XX:+printTLAB：查看TLAB。&lt;/li&gt;&#xA;&lt;li&gt;-XX:ResizeTLAB: 自调整TLABRefillWasteFraction阀值。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;垃圾收集器&#xA;&lt;ol&gt;&#xA;&lt;li&gt;-XX：UseSerialGC： 使用串行垃圾回收器。&lt;/li&gt;&#xA;&lt;li&gt;-XX:+useParNewGC: 新生代使用ParNew回收器。老年代使用串行回收器。&#xA;&lt;ol&gt;&#xA;&lt;li&gt;-XX:parallelGCThreads： 指定Parnew收集器的线程数。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;ParallelGC&#xA;&lt;ol&gt;&#xA;&lt;li&gt;-XX:MaxGCPauseMills: 设置最大垃圾收集停顿时间。&lt;/li&gt;&#xA;&lt;li&gt;-XX：GCTimeRatio： 设置吞量大小，它是一个0到100之间的整数，默认为100。&lt;/li&gt;&#xA;&lt;li&gt;-XX:UseAdaptiveSizePolicy: 打开自适应模式。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;CMS&#xA;&lt;ol&gt;&#xA;&lt;li&gt;-XX:+UseConcMarkSweepGC&lt;/li&gt;&#xA;&lt;li&gt;-XX:ConcGCThreads:设置并发线程数量。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;虚拟机调优策略&#34;&gt;虚拟机调优策略&lt;/h3&gt;&#xA;&lt;p&gt;JVM参数调优主要设置堆内存，主要让GC不要去频繁回收垃圾，减少对老年代的回收。配置时让-Xms与-Xmx一致。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
