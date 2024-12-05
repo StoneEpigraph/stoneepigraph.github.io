@@ -6,12 +6,21 @@
     <description>Recent content in Categories on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+<<<<<<< HEAD
     <lastBuildDate>Thu, 14 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Book</title>
       <link>https://stoneepigraph.github.io/categories/book/</link>
       <pubDate>Thu, 14 Nov 2024 00:00:00 +0000</pubDate>
       
+=======
+    <lastBuildDate>Wed, 04 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Book</title>
+      <link>https://stoneepigraph.github.io/categories/book/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+>>>>>>> 16735d2 (csapp end)
       <guid>https://stoneepigraph.github.io/categories/book/</guid>
       <description></description>
     </item>
@@ -34,6 +43,20 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Cs</title>
+      <link>https://stoneepigraph.github.io/categories/cs/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://stoneepigraph.github.io/categories/cs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>计算机基础</title>
+      <link>https://stoneepigraph.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://stoneepigraph.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</guid>
+      <description></description>
+    </item>
     <item>
       <title>架构</title>
       <link>https://stoneepigraph.github.io/categories/%E6%9E%B6%E6%9E%84/</link>
@@ -123,7 +146,10 @@
       <guid>https://stoneepigraph.github.io/categories/%E5%9F%BA%E7%A1%80/</guid>
       <description></description>
     </item>
+<<<<<<< HEAD
     
+=======
+>>>>>>> 16735d2 (csapp end)
     <item>
       <title>日常</title>
       <link>https://stoneepigraph.github.io/categories/%E6%97%A5%E5%B8%B8/</link>
