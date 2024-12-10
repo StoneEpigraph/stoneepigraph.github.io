@@ -53,11 +53,11 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
   <meta name="twitter:description" content="入门 什么是Docker docker是一个容器技术。
 Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行封装隔离，容器与容器之间互不影响，更高效的利用系统资源。 通过镜像复制多个环境一致的容器。 Docker与虚拟机的对比 Docker占用磁盘少 Docker的引擎比虚拟机系统占用CPU资源低 Docker启动速度快 Docker安装管理方便 Docker从第二次部署开始轻松简捷 Docker可以每个应用使用一个服务，服务隔离 Docker推荐使用Linux，不推荐使用Windows 安装及配置 下载安装 配置 启动Docker sudo systemctl enable docker sudo systemctl start docker 创建Docker用户组 sudo groupadd docker 将当前用户添加到docker组 sudo usermod -aG docker $USER 测试Docker是否安装正确 重启Docker sudo systemctl restart docker Docker核心概念 整体架构图 仓库 Repository 定义： 用来存储Docker中的镜像。 分类： 远程仓库 本地仓库： 当前自己机器中下载镜像存储位置。 镜像 Image 定义： 一个镜像代表一个软件安装包。 特点： 只读 容器 Container 定义： 基于某个镜像启动的实例，称之为一个服务。 特定： 可读可写 常用命令 引擎， 以及镜像相关的操作 docker info docker –help || docker 查看docker所有帮助命令 docker version docker 执行命令格式： docker [options] command 操作镜像images的相关命令 查看本地的镜像 docker images 下载新的镜像 docker pull dockerImageName:dockerVersion docker pull dockerImageName:@digest(摘要) 搜索镜像 docker search dockerImageName 删除镜像 docker image rm dockerImageName:dockerVersion docker image rm dockerImageId docker rmi … 容器相关 Container 运行容器 docker run dockerImageName:tag | 镜像ID 映射端口 docker run -p 宿主机端口:容器内服务端口 dockerImageName 后台运行 -d 给容器命名，唯一 –name containerName -it 导入容器 docker load -i dockerTag.tar 查看当前运行的容器 docker ps 查看所有的容器，包括已停止的 docker ps -a 返回正在运行的容器ID docker ps -q 重启，停止容器 docker start dockerContainerId | dockerName docker restart dockerContainerid | dockerName docker stop dockerCOntainerid | dockerName 删除容器 docker rm dockerContainerId | dockerName 强制删除， 包括正在运行的容器 docker rm -f dockerContainerid | dockerName 查看容器内运行日志 docker log dockerContainerid | dockerName 实时查看日志 -f 加入时间戳实时展示日志 -t 显示指定行数的日志 –tail Number 查看容器内的进程 docker top dockerContainerid | dockerName 与容器内部进行交互 docker exec -it dockerCOntainerid | dockerName Command [args] 宿主与容器的传输文件 从容器到操作系统 docker cp dockerContainerid | dockerName :/path/file ./file 从宿主到容器 docker cp 文件 | 目录 dockerContainerid | dockerName: 容器内目录 查看容器内部细节 docker inspect dockerContainerid | dockerName 数据卷 Volume 使用： 实现襥机系统与容器之间的文件共享 特点： 数据卷可以在容器之间共享和重用。 对数据卷的修改会立即影响到对应容器。 对数据卷的更新修改，不会影响镜像。 数据卷默认会一直存在， 即使容器被删除。 使用 自定义数据卷 docker run -v 宿主机目录:容器目录:ro dockerImageId 自动创建数据卷 docker run -v 卷名:容器内路径 dockerImageId 查看卷 docker volume inspect volumeName docker volume ls 将正在运行的容器打包成镜像 docker commit -m ’’ -a ’’ dockerContainerid dockerImageName:dockerTag 将镜像备份 docker save 镜像名称:tag -o dockerBak-tag.tar 网络配置 docker容器与操作系统通信机制默认使用网桥">
 
-    <link rel="stylesheet" href="/style.min.d21d7ec2a4c5fdd1949f0c9ae34f92464a631f1e3f810acc268d854c8a7153dc798b0871ffbd2939035e2635fb78392227dcd96345321daffcbe0b3bffb9f612.css" integrity="sha512-0h1&#43;wqTF/dGUnwya40&#43;SRkpjHx4/gQrMJo2FTIpxU9x5iwhx/70pOQNeJjX7eDkiJ9zZY0UyHa/8vgs7/7n2Eg==">
+    <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
 
 
 
-    <link rel="stylesheet" href="/lib/css/prism.min.6226f06f992e0d6166b0e26724efd050dcc381202a752892ba523b1b865de2ea5e427f8f7d10de682fc35d6e7444018247d1f25db5e1e3bab17068ce191c5886.css" integrity="sha512-Yibwb5kuDWFmsOJnJO/QUNzDgSAqdSiSulI7G4Zd4upeQn&#43;PfRDeaC/DXW50RAGCR9HyXbXh47qxcGjOGRxYhg==">
+    <link rel="stylesheet" href="/lib/css/prism.min.f1bc264bb9f5436d93667fa922aad9df70071445181e118a1fa02663a3ffe5e1.css" integrity="sha256-8bwmS7n1Q22TZn&#43;pIqrZ33AHFEUYHhGKH6AmY6P/5eE=">
 
 
 
@@ -73,11 +73,11 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
             document.documentElement.setAttribute("data-theme", "light");
         }
     </script>
-<script defer src="/js/header.64a5d751579791aca02cca13ec10c056a8bb0de07cc69a70f0ef401bb0f470f2360e07f1f6f4398e0681f9abd2c64b3cb9d167ee471fa2a07bb1943e06e0c02b.js" integrity="sha512-ZKXXUVeXkaygLMoT7BDAVqi7DeB8xppw8O9AG7D0cPI2Dgfx9vQ5jgaB&#43;avSxks8udFn7kcfoqB7sZQ&#43;BuDAKw=="></script>
+<script defer src="/js/header.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
 
 
 
-    <script defer src="/js/zooming.684b5d075bf94d0adfa21a7e7eb9acec1ddfb2e7b47d6657981617f0db0cf50949f1172801595afa3051f51b28d67f6a2d0c41be677b59b564307d9dbe4a4fd2.js" integrity="sha512-aEtdB1v5TQrfohp&#43;frms7B3fsue0fWZXmBYX8NsM9QlJ8RcoAVla&#43;jBR9Rso1n9qLQxBvmd7WbVkMH2dvkpP0g=="></script>
+    <script defer src="/js/zooming.3bda780b3d5a676b6068e5ad5fd77a313c4371117131529f7e7480e7d4b64d96.js" integrity="sha256-O9p4Cz1aZ2tgaOWtX9d6MTxDcRFxMVKffnSA59S2TZY="></script>
 
 
 
@@ -98,7 +98,7 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
             
         
 
-        <script defer src="/js/prism.bb99f69e9faa359f4337207a2aad8173e372376524468ed57aeab435f019eaaeced93189c044ca3906d06a0223239e0b62c6cd6ec88eb1489b5d688a2afb2ecd.js" integrity="sha512-u5n2np&#43;qNZ9DNyB6Kq2Bc&#43;NyN2UkRo7Veuq0NfAZ6q7O2TGJwETKOQbQagIjI54LYsbNbsiOsUibXWiKKvsuzQ==" data-manual></script>
+        <script defer src="/js/prism.751ae679172b3c3e8a40b35f7871078a0220fdad152826765a3aa28ae639e1ae.js" integrity="sha256-dRrmeRcrPD6KQLNfeHEHigIg/a0VKCZ2WjqiiuY54a4=" data-manual></script>
     
 
 
@@ -106,7 +106,7 @@ Docker的优势 一致的运行环境， 更轻松的迁移。 对进程进行�
     
     
     
-    <script defer src="/js/search-en.0692b0cd56bdac7dd78b31e67c743db9e60288010c985f73f5f81ebbf225ce153c55216b43eb1482e61f084f40bc40d4d7f6a909c530a867c54d6d70be1b89ee.js" integrity="sha512-BpKwzVa9rH3XizHmfHQ9ueYCiAEMmF9z9fgeu/IlzhU8VSFrQ&#43;sUguYfCE9AvEDU1/apCcUwqGfFTW1wvhuJ7g=="></script>
+    <script defer src="/js/search-en.91707080d0df9ea5816bfeaebfabc734ade25d3ee62e2bc6eecfb499c5c3dd95.js" integrity="sha256-kXBwgNDfnqWBa/6uv6vHNK3iXT7mLivG7s&#43;0mcXD3ZU="></script>
 
 
 
@@ -1472,6 +1472,8 @@ docker-compose start 服务ID</p>
 
                 
                     
+                
+
                 
             </div>
         </main>

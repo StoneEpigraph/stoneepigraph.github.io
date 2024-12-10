@@ -4,16 +4,64 @@
     <title>Cs on 石记</title>
     <link>https://stoneepigraph.github.io/categories/cs/</link>
     <description>Recent content in Cs on 石记</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://stoneepigraph.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>csapp</title>
       <link>https://stoneepigraph.github.io/posts/csapp/</link>
       <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/csapp/</guid>
-      <description>&lt;h2 id=&#34;计算机系统漫游&#34;&gt;计算机系统漫游&lt;/h2&gt;&#xA;&lt;h3 id=&#34;信息就是位-plus-上下文&#34;&gt;信息就是位+上下文&lt;/h3&gt;&#xA;&lt;h3 id=&#34;程序被其他程序翻译成不同的格式&#34;&gt;程序被其他程序翻译成不同的格式&lt;/h3&gt;&#xA;&lt;p&gt;hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。&lt;/p&gt;&#xA;&lt;h3 id=&#34;了解编译系统如何工作是大有益处的&#34;&gt;了解编译系统如何工作是大有益处的&lt;/h3&gt;&#xA;&lt;h4 id=&#34;优化程序性能&#34;&gt;优化程序性能&lt;/h4&gt;&#xA;&lt;h4 id=&#34;理解链接时出现的错误&#34;&gt;理解链接时出现的错误&lt;/h4&gt;&#xA;&lt;h4 id=&#34;避免安全漏洞&#34;&gt;避免安全漏洞&lt;/h4&gt;&#xA;&lt;h3 id=&#34;处理器读并解释储存在中的指令&#34;&gt;处理器读并解释储存在中的指令&lt;/h3&gt;&#xA;&lt;h4 id=&#34;系统的硬件组成&#34;&gt;系统的硬件组成&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;总线&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I/O设备&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;主存&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;处理器&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;加载&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;存储&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;操作&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;跳转&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;高速缓存至关重要&#34;&gt;高速缓存至关重要&lt;/h3&gt;&#xA;&lt;h3 id=&#34;存储设备形成层次结构&#34;&gt;存储设备形成层次结构&lt;/h3&gt;&#xA;&lt;p&gt;在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。&lt;/p&gt;&#xA;&lt;h3 id=&#34;操作系统管理硬件&#34;&gt;操作系统管理硬件&lt;/h3&gt;&#xA;&lt;p&gt;所有应用程序对硬件的操作深度都必须通过操作系统。&lt;/p&gt;&#xA;&lt;h4 id=&#34;操作系统有两个基本功能&#34;&gt;操作系统有两个基本功能&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;防止硬件被失控的应用程序滥用&lt;/li&gt;&#xA;&lt;li&gt;向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;操作系统通过几个基本的抽象概念来实现这两个功能&#34;&gt;操作系统通过几个基本的抽象概念来实现这两个功能&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;进程进程则是对处理器、主存和I/O设备的抽象表示。&lt;/li&gt;&#xA;&lt;li&gt;虚拟内存虚拟内存是对主存和磁盘I/O设备的抽象表示&lt;/li&gt;&#xA;&lt;li&gt;文件文件是对I/O设备的抽象表示&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;进程&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;线程&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;虚拟内存&lt;/p&gt;&#xA;&lt;p&gt;虚拟内存是一个抽象概念，它为每个进程提供了一个假象，即每个进程都在独占地使用主存。每个进程看到的内存都是一致的，称为虚拟地址空间。在Linux中，地址空间最上面的区域是保留给操作系统中的代码和数据的，这对所有进程来说都是一样。地址空间的底部区域存放用户进程定义的代码和数据。注意，地址是从下往上增大的。从下往上依次是：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;程序代码和数据。&lt;/li&gt;&#xA;&lt;li&gt;堆&lt;/li&gt;&#xA;&lt;li&gt;共享库&lt;/li&gt;&#xA;&lt;li&gt;栈&lt;/li&gt;&#xA;&lt;li&gt;内核虚拟内存&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;文件&lt;/p&gt;&#xA;&lt;p&gt;文件就是字节序列，每个I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成是文件。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;系统之间利用网络通信&#34;&gt;系统之间利用网络通信&lt;/h3&gt;&#xA;&lt;h2 id=&#34;程序结构和执行&#34;&gt;程序结构和执行&lt;/h2&gt;&#xA;&lt;h3 id=&#34;信息的表示和处理&#34;&gt;信息的表示和处理&lt;/h3&gt;&#xA;&lt;h4 id=&#34;信息存储&#34;&gt;信息存储&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;十六进制表示法&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;字数据大小&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;寻址和字节顺序&lt;/p&gt;&#xA;&lt;p&gt;大端法小端法&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;表示字符串&lt;/p&gt;&#xA;&lt;p&gt;C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数组。每个字符都同某个标准编码来表示，最常见的是ASCII字符码。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;表示代码&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;布尔代数简介&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;计算机系统漫游&#34; class=&#34;header-anchor-wrapper&#34;&gt;计算机系统漫游
+  &lt;a href=&#34;#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%b3%bb%e7%bb%9f%e6%bc%ab%e6%b8%b8&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;信息就是位-plus-上下文&#34; class=&#34;header-anchor-wrapper&#34;&gt;信息就是位+上下文
+  &lt;a href=&#34;#%e4%bf%a1%e6%81%af%e5%b0%b1%e6%98%af%e4%bd%8d-plus-%e4%b8%8a%e4%b8%8b%e6%96%87&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h3 id=&#34;程序被其他程序翻译成不同的格式&#34; class=&#34;header-anchor-wrapper&#34;&gt;程序被其他程序翻译成不同的格式
+  &lt;a href=&#34;#%e7%a8%8b%e5%ba%8f%e8%a2%ab%e5%85%b6%e4%bb%96%e7%a8%8b%e5%ba%8f%e7%bf%bb%e8%af%91%e6%88%90%e4%b8%8d%e5%90%8c%e7%9a%84%e6%a0%bc%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

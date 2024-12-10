@@ -4,16 +4,220 @@
     <title>Stream on 石记</title>
     <link>https://stoneepigraph.github.io/tags/stream/</link>
     <description>Recent content in Stream on 石记</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://stoneepigraph.github.io/tags/stream/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/stream/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java Stream简单了解</title>
       <link>https://stoneepigraph.github.io/posts/language/java/stream/</link>
       <pubDate>Tue, 03 Sep 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/language/java/stream/</guid>
-      <description>&lt;h2 id=&#34;stream&#34;&gt;Stream&lt;/h2&gt;&#xA;&lt;h3 id=&#34;stream的创建方式&#34;&gt;Stream的创建方式&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;通过Collection系列集合提供&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();&#xA;Stream&amp;lt;String&amp;gt; stream1 = list.stream();&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;通过Arrays中的静态方法获取数组流&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String[] emps = new String[10];&#xA;Stream&amp;lt;String&amp;gt; stream2 = Arrays.stream(emps);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;通过Stream类中的静态方法of()&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream&amp;lt;String&amp;gt; stream3 = Stream.of(&amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;, &amp;quot;cc&amp;quot;);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;创建无限流&#xA;&lt;ol&gt;&#xA;&lt;li&gt;迭代&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream&amp;lt;Integer&amp;gt; stream4 = Stream.iterate(0, x -&amp;gt; x + 2);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;生成&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream.generate(() -&amp;gt; Math.random())&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;中间操作&#34;&gt;中间操作&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;筛选与切片&#xA;&lt;ol&gt;&#xA;&lt;li&gt;filter&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.filter(Predicate)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;limit&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.filter(long)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;skip&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.skip(long)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;distinct&#xA;通过hashcode(),equals()进行去重&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.distinct()&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;映射&#xA;&lt;ol&gt;&#xA;&lt;li&gt;map&#xA;将元素转换成其他形式或提取信息。map中的Function本身也会返回一个流。&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;map(Function)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;flatMap&#xA;会整合Function本身返回的流。&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;flatMap(Function)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;排序&#xA;&lt;ol&gt;&#xA;&lt;li&gt;sorted()&#xA;自然排序&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.sorted()&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;sorted(Comparator)&#xA;定制排序，指定Comparator&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.sorted(Comparator)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;终止操作&#34;&gt;终止操作&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;查找与匹配&lt;/li&gt;&#xA;&lt;li&gt;allMatch&#xA;检查是否匹配所有元素&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;!--listend--&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.allMatch()&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;anyMatch&#xA;检查是否至少匹配一个元素&lt;/li&gt;&#xA;&lt;li&gt;nonMatch&#xA;检查是否没有匹配所有元素&lt;/li&gt;&#xA;&lt;li&gt;findFisrt()&#xA;返回第一个元素&lt;/li&gt;&#xA;&lt;li&gt;findAny&#xA;返回当前流中的任意元素&lt;/li&gt;&#xA;&lt;li&gt;count&#xA;返回流中的元素的个数&lt;/li&gt;&#xA;&lt;li&gt;max(Comparator)&#xA;返回流中的最大值&lt;/li&gt;&#xA;&lt;li&gt;min(Comparator)&#xA;返回流中的最小值&lt;/li&gt;&#xA;&lt;li&gt;归约&#xA;&lt;ul&gt;&#xA;&lt;li&gt;reduce(T, BinaryOperator)&#xA;将流中的元素反复结合起来，得到一个新值。&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream.of(1,2,3,4,5).reduce(0, (x, y) -&amp;gt; x + y)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;收集&#xA;&lt;ul&gt;&#xA;&lt;li&gt;collect(Collector)&#xA;将流转换为其他形式,包括转换，分组，分区等&#xA;&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream.of(&amp;quot;11&amp;quot;, &amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;).collect(Collectors.toSet());&#xA;Stream.of(&amp;quot;11&amp;quot;, &amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;).collect(Collectors.coutning());&#xA;...&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;并行流与串行流&#34;&gt;并行流与串行流&lt;/h3&gt;&#xA;&lt;p&gt;了解使用Fork/Join框架&#xA;Stream可以使用parallel()与sequential()切换并行流与顺序流。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;stream&#34; class=&#34;header-anchor-wrapper&#34;&gt;Stream
+  &lt;a href=&#34;#stream&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;stream的创建方式&#34; class=&#34;header-anchor-wrapper&#34;&gt;Stream的创建方式
+  &lt;a href=&#34;#stream%e7%9a%84%e5%88%9b%e5%bb%ba%e6%96%b9%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;通过Collection系列集合提供
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();
+Stream&amp;lt;String&amp;gt; stream1 = list.stream();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;通过Arrays中的静态方法获取数组流
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String[] emps = new String[10];
+Stream&amp;lt;String&amp;gt; stream2 = Arrays.stream(emps);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;通过Stream类中的静态方法of()
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream&amp;lt;String&amp;gt; stream3 = Stream.of(&amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;, &amp;quot;cc&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;创建无限流
+&lt;ol&gt;
+&lt;li&gt;迭代
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream&amp;lt;Integer&amp;gt; stream4 = Stream.iterate(0, x -&amp;gt; x + 2);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;生成
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream.generate(() -&amp;gt; Math.random())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;中间操作&#34; class=&#34;header-anchor-wrapper&#34;&gt;中间操作
+  &lt;a href=&#34;#%e4%b8%ad%e9%97%b4%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;筛选与切片
+&lt;ol&gt;
+&lt;li&gt;filter
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.filter(Predicate)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;limit
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.filter(long)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;skip
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.skip(long)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;distinct
+通过hashcode(),equals()进行去重
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.distinct()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;映射
+&lt;ol&gt;
+&lt;li&gt;map
+将元素转换成其他形式或提取信息。map中的Function本身也会返回一个流。
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;map(Function)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;flatMap
+会整合Function本身返回的流。
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;flatMap(Function)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;排序
+&lt;ol&gt;
+&lt;li&gt;sorted()
+自然排序
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.sorted()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;sorted(Comparator)
+定制排序，指定Comparator
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.sorted(Comparator)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;终止操作&#34; class=&#34;header-anchor-wrapper&#34;&gt;终止操作
+  &lt;a href=&#34;#%e7%bb%88%e6%ad%a2%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;查找与匹配&lt;/li&gt;
+&lt;li&gt;allMatch
+检查是否匹配所有元素&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!--listend--&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;stream.allMatch()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;anyMatch
+检查是否至少匹配一个元素&lt;/li&gt;
+&lt;li&gt;nonMatch
+检查是否没有匹配所有元素&lt;/li&gt;
+&lt;li&gt;findFisrt()
+返回第一个元素&lt;/li&gt;
+&lt;li&gt;findAny
+返回当前流中的任意元素&lt;/li&gt;
+&lt;li&gt;count
+返回流中的元素的个数&lt;/li&gt;
+&lt;li&gt;max(Comparator)
+返回流中的最大值&lt;/li&gt;
+&lt;li&gt;min(Comparator)
+返回流中的最小值&lt;/li&gt;
+&lt;li&gt;归约
+&lt;ul&gt;
+&lt;li&gt;reduce(T, BinaryOperator)
+将流中的元素反复结合起来，得到一个新值。
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream.of(1,2,3,4,5).reduce(0, (x, y) -&amp;gt; x + y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;收集
+&lt;ul&gt;
+&lt;li&gt;collect(Collector)
+将流转换为其他形式,包括转换，分组，分区等
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Stream.of(&amp;quot;11&amp;quot;, &amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;).collect(Collectors.toSet());
+Stream.of(&amp;quot;11&amp;quot;, &amp;quot;aa&amp;quot;, &amp;quot;bb&amp;quot;).collect(Collectors.coutning());
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;并行流与串行流&#34; class=&#34;header-anchor-wrapper&#34;&gt;并行流与串行流
+  &lt;a href=&#34;#%e5%b9%b6%e8%a1%8c%e6%b5%81%e4%b8%8e%e4%b8%b2%e8%a1%8c%e6%b5%81&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;了解使用Fork/Join框架
+Stream可以使用parallel()与sequential()切换并行流与顺序流。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

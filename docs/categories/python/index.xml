@@ -4,30 +4,228 @@
     <title>Python on 石记</title>
     <link>https://stoneepigraph.github.io/categories/python/</link>
     <description>Recent content in Python on 石记</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://stoneepigraph.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flask Web开发实战</title>
       <link>https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/flask-web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
-      <description>&lt;h2 id=&#34;flask-web开发实战&#34;&gt;Flask Web开发实战&lt;/h2&gt;&#xA;&lt;h3 id=&#34;基础&#34;&gt;基础&lt;/h3&gt;&#xA;&lt;h4 id=&#34;初识&#34;&gt;初识&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;开发环境&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;pipenv工作流&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;pip install pipenv&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA; &lt;!--quoteend--&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;pipenv install # 创建虚拟环境&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA; &lt;!--quoteend--&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;pipenv shell # 进入虚拟环境&#xA;pipenv run command #使用虚拟环境执行命令&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA; &lt;!--quoteend--&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;pipenv graph # 查看当前环境的依赖&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Hello，Flask&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;创建程序实例&lt;/p&gt;&#xA;&lt;p&gt;新建app.py(可以是除flask.py之外任意名字)&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;from flask import Flask&#xA;app = Flask(&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;name&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;注册路由&lt;/p&gt;&#xA;&lt;p&gt;概括：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;用户在浏览器输入URL访问某个资源&lt;/li&gt;&#xA;&lt;li&gt;Flask接收用户请求并分析请求的URL&lt;/li&gt;&#xA;&lt;li&gt;为这个URL找到对应的处理函数&lt;/li&gt;&#xA;&lt;li&gt;执行函数并生成响应，浏览器&lt;/li&gt;&#xA;&lt;li&gt;浏览器接收并解析响应，将信息显示在页面中。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;?? (????)(&amp;rsquo;/&amp;rsquo;)&#xA;def index():&#xA;​return &#39;&lt;/p&gt;&#xA;&lt;div class=&#34;html&#34;&gt;&#xA;&lt;p&gt;&amp;lt;h1&amp;gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;hello, world&lt;/p&gt;&#xA;&lt;div class=&#34;html&#34;&gt;&#xA;&lt;p&gt;&amp;lt;/h1&amp;gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&#39;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;可以为视图绑定多个URL&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;?? ()(&amp;lsquo;hi&amp;rsquo;)&#xA;?? ()(&amp;rsquo;/hello&amp;rsquo;)&#xA;def say_hello():&#xA;​return &#39;&lt;/p&gt;&#xA;&lt;div class=&#34;html&#34;&gt;&#xA;&lt;p&gt;&amp;lt;h1&amp;gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Hello, Flask!&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;flask-web开发实战&#34; class=&#34;header-anchor-wrapper&#34;&gt;Flask Web开发实战
+  &lt;a href=&#34;#flask-web%e5%bc%80%e5%8f%91%e5%ae%9e%e6%88%98&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;基础&#34; class=&#34;header-anchor-wrapper&#34;&gt;基础
+  &lt;a href=&#34;#%e5%9f%ba%e7%a1%80&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;初识&#34; class=&#34;header-anchor-wrapper&#34;&gt;初识
+  &lt;a href=&#34;#%e5%88%9d%e8%af%86&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;开发环境&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Python CookBook</title>
       <link>https://stoneepigraph.github.io/posts/python-cookbook/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/python-cookbook/</guid>
-      <description>&lt;h2 id=&#34;数据结构与算法&#34;&gt;数据结构与算法&lt;/h2&gt;&#xA;&lt;h3 id=&#34;解压序列赋值给多个变量&#34;&gt;解压序列赋值给多个变量&lt;/h3&gt;&#xA;&lt;p&gt;注意_, /, /_, 级别的使用&lt;/p&gt;&#xA;&lt;h3 id=&#34;保留最后n个元素&#34;&gt;保留最后N个元素&lt;/h3&gt;&#xA;&lt;p&gt;collections deque&lt;/p&gt;&#xA;&lt;h3 id=&#34;查找最大或最小的n个元素&#34;&gt;查找最大或最小的N个元素&lt;/h3&gt;&#xA;&lt;p&gt;heapq.nlargest(count, list)&#xA;heapq.nsmallest(count, list)&lt;/p&gt;&#xA;&lt;h3 id=&#34;实现一个优先级队列&#34;&gt;实现一个优先级队列&lt;/h3&gt;&#xA;&lt;p&gt;heapq.heappush()&#xA;heapq.heappop()&lt;/p&gt;&#xA;&lt;h3 id=&#34;字典中的键映射多个值&#34;&gt;字典中的键映射多个值&lt;/h3&gt;&#xA;&lt;p&gt;可以将多个值放到另外的容器中。也可以全用collections模块中的defaultdict来构造这样的字典&lt;/p&gt;&#xA;&lt;h3 id=&#34;字典排序&#34;&gt;字典排序&lt;/h3&gt;&#xA;&lt;p&gt;可以使用collections模块中的OrderedDict类，它会保持元素被插入时的顺序。&lt;/p&gt;&#xA;&lt;h3 id=&#34;字典的运算&#34;&gt;字典的运算&lt;/h3&gt;&#xA;&lt;p&gt;对字典运算，通常需要使用zip()函数先将键值反转过来。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;zip(dict.values(), dict.keys())&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;可以使用sorted()对反转后的字典进行排序。因为你在一个字典上执行普通的数字运算，它们仅仅作用于键，而不是值 。&lt;/p&gt;&#xA;&lt;h3 id=&#34;查找两个字典的相同点&#34;&gt;查找两个字典的相同点&lt;/h3&gt;&#xA;&lt;p&gt;可以简单的在两字典的keys()或者items()方法返回结果上执行集合操作。&lt;/p&gt;&#xA;&lt;h3 id=&#34;删除序列相同元素并保持顺序&#34;&gt;删除序列相同元素并保持顺序&lt;/h3&gt;&#xA;&lt;p&gt;如果序列上的值都是hashable类型，那么可以简单的利用集合或者生成器来解决问题。&lt;/p&gt;&#xA;&lt;h3 id=&#34;命令切片&#34;&gt;命令切片&lt;/h3&gt;&#xA;&lt;p&gt;使用s = slice(start, stop, step)避免大量无法理解 的硬编码下标。你还可以使用s.start, s.stop, s.step获取它的属性。&lt;/p&gt;&#xA;&lt;h3 id=&#34;序列中出现次数最多的元素&#34;&gt;序列中出现次数最多的元素&lt;/h3&gt;&#xA;&lt;p&gt;collections.Counter类&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;words = [&amp;hellip;]&#xA;from collections import Counter&#xA;word_counts = Counter(words)&#xA;#出现频率最高的3个单词&#xA;top_three = word_counts.most_common(3)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Counter实例还可以很容易的跟数学运算操作相结合。&lt;/p&gt;&#xA;&lt;h3 id=&#34;通过一个关键字排序一个字典列表&#34;&gt;通过一个关键字排序一个字典列表&lt;/h3&gt;&#xA;&lt;p&gt;通过全用operator模块的itemgetter函数。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;rows = [&#xA;{&#39;fname&#39;: &#39;Brian&#39;, &#39;lname&#39;: &#39;Jones&#39;, &#39;uid&#39;: 1003},&#xA;{&#39;fname&#39;: &#39;David&#39;, &#39;lname&#39;: &#39;Beazley&#39;, &#39;uid&#39;: 1002},&#xA;{&#39;fname&#39;: &#39;John&#39;, &#39;lname&#39;: &#39;Cleese&#39;, &#39;uid&#39;: 1001},&#xA;{&#39;fname&#39;: &#39;Big&#39;, &#39;lname&#39;: &#39;Jones&#39;, &#39;uid&#39;: 1004}&#xA;]&#xA;from operator import itemgetter&#xA;rows_by_fname = sorted(rows, key=itemgetter(&#39;fname&#39;))&#xA;rows_by_uid = sorted(rows, key=itemgetter(&#39;uid&#39;))&#xA;rows_by_lfname = sorted(rows, key=itemgetter(&#39;lname&#39;, &#39;fname&#39;))&#xA;# itemgetter也可以使用lambda表达式代替&#xA;rows_by_fname_lambda = sorted(rows, key=lambda r: r[&#39;fname&#39;])&#xA;rows_by_lfname_lambda = sorted(rows, key=lambda r: (r[&#39;lname&#39;], r[&#39;fname&#39;]))&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;排序不支持原生比较的对象&#34;&gt;排序不支持原生比较的对象&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class User:&#xA;def __init__(self, user_id):&#xA;self.user_id = user_id&#xA;def __repr__(self):&#xA;return &#39;User({})&#39;.format(self.user_id)&#xA;def sort_notcompare():&#xA;users = [User(23), User(3), User(99)]&#xA;print(users)&#xA;print(sorted(users, key=lambda u: u.user_id))&#xA;# 或者使用operator&#xA;from operator import attrgetter&#xA;sorted(users, key=attrgetter(&#39;user_id&#39;))&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;通过某个字段将记录分组&#34;&gt;通过某个字段将记录分组&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;rows = [&#xA;{&#39;address&#39;: &#39;5412 N CLARK&#39;, &#39;date&#39;: &#39;07/01/2012&#39;},&#xA;{&#39;address&#39;: &#39;5148 N CLARK&#39;, &#39;date&#39;: &#39;07/04/2012&#39;},&#xA;{&#39;address&#39;: &#39;5800 E 58TH&#39;, &#39;date&#39;: &#39;07/02/2012&#39;},&#xA;{&#39;address&#39;: &#39;2122 N CLARK&#39;, &#39;date&#39;: &#39;07/03/2012&#39;},&#xA;{&#39;address&#39;: &#39;5645 N RAVENSWOOD&#39;, &#39;date&#39;: &#39;07/02/2012&#39;},&#xA;{&#39;address&#39;: &#39;1060 W ADDISON&#39;, &#39;date&#39;: &#39;07/02/2012&#39;},&#xA;{&#39;address&#39;: &#39;4801 N BROADWAY&#39;, &#39;date&#39;: &#39;07/01/2012&#39;},&#xA;{&#39;address&#39;: &#39;1039 W GRANVILLE&#39;, &#39;date&#39;: &#39;07/04/2012&#39;},&#xA;]&#xA;from operator import itemgetter&#xA;from itertools import groupby&#xA;# Sorted by the desired field first, because groupby only check continuous elements.&#xA;rows.sort(key=itemgetter(&#39;date&#39;))&#xA;# Iterate in groups&#xA;for date, items in groupby(rows, key=itemgetter(&#39;date&#39;)):&#xA;    print(date)&#xA;    for in in items:&#xA;        print(&#39; &#39;, i)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;过滤序列元素&#34;&gt;过滤序列元素&lt;/h3&gt;&#xA;&lt;p&gt;最简单的过滤序列元素的方法就是使用列表推导。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;数据结构与算法&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据结构与算法
+  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;解压序列赋值给多个变量&#34; class=&#34;header-anchor-wrapper&#34;&gt;解压序列赋值给多个变量
+  &lt;a href=&#34;#%e8%a7%a3%e5%8e%8b%e5%ba%8f%e5%88%97%e8%b5%8b%e5%80%bc%e7%bb%99%e5%a4%9a%e4%b8%aa%e5%8f%98%e9%87%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;注意_, /, /_, 级别的使用&lt;/p&gt;
+
+&lt;h3 id=&#34;保留最后n个元素&#34; class=&#34;header-anchor-wrapper&#34;&gt;保留最后N个元素
+  &lt;a href=&#34;#%e4%bf%9d%e7%95%99%e6%9c%80%e5%90%8en%e4%b8%aa%e5%85%83%e7%b4%a0&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;collections deque&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Python核心编程（3）</title>
       <link>https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/</guid>
-      <description>&lt;h2 id=&#34;正则表达式&#34;&gt;正则表达式&lt;/h2&gt;&#xA;&lt;h2 id=&#34;网络编程&#34;&gt;网络编程&lt;/h2&gt;&#xA;&lt;h2 id=&#34;因特网客户端编程&#34;&gt;因特网客户端编程&lt;/h2&gt;&#xA;&lt;h3 id=&#34;因特网客户端简介&#34;&gt;因特网客户端简介&lt;/h3&gt;&#xA;&lt;h3 id=&#34;文件传输&#34;&gt;文件传输&lt;/h3&gt;&#xA;&lt;h4 id=&#34;文件传输因特协议&#34;&gt;文件传输因特协议&lt;/h4&gt;&#xA;&lt;p&gt;在当下，HTTP,FTP,scp/rsync的应用仍然广泛。&lt;/p&gt;&#xA;&lt;h4 id=&#34;python和ftp&#34;&gt;Python和FTP&lt;/h4&gt;&#xA;&lt;h4 id=&#34;ftplib.ftp类&#34;&gt;ftplib.FTP类&lt;/h4&gt;&#xA;&lt;h4 id=&#34;客户端ftp程序实例&#34;&gt;客户端FTP程序实例&lt;/h4&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#! /usr/bin/env python&#xA;# coding: utf-8&#xA;import ftplib&#xA;import os&#xA;import socket&#xA;HOST = &#39;ftp.mozilla.org&#39;&#xA;DIRN = &#39;pub/mozilla.org/webtools&#39;&#xA;FILE = &#39;bugzilla-LATEST.tar.gz&#39;&#xA;def main():&#xA;    try:&#xA;        f = ftplib.FTP(HOST)&#xA;    except (socket.error, socket.gaierror) as e:&#xA;        print(&amp;quot;ERROR: can&#39;t reach &#39;%s&#39; &amp;quot; % HOST)&#xA;        return&#xA;    print(&amp;quot;*** Connected to host &#39;%s&#39;&amp;quot; % HOST)&#xA;    try:&#xA;        f.login()&#xA;    except ftplib.error_perm:&#xA;        print(&amp;quot;ERROR: can&#39;t login anonymously&amp;quot;)&#xA;        f.quit()&#xA;        return&#xA;    print(&amp;quot;*** Logged in as &#39;anonymous&amp;quot;)&#xA;    try:&#xA;        f.cwd(DIRN)&#xA;    except ftplib.error_perm:&#xA;        print(&amp;quot;ERROR: can&#39;t CD to &#39;%s&amp;quot; % DIRN)&#xA;        f.quit()&#xA;        return&#xA;    print(&amp;quot;*** Change to &#39;%s&#39; folder&amp;quot; % DIRN )&#xA;    try:&#xA;        f.retrbinary(&amp;quot;RETR %s&amp;quot; % FILE, open(FILE, &#39;wb&#39;).write())&#xA;    except ftplib.error_perm:&#xA;        print(&amp;quot;ERROR: can&#39;t read file &#39;%s&#39;&amp;quot; % FILE)&#xA;        os.unlink(FILE)&#xA;    else:&#xA;        print(&amp;quot;*** Download &#39;%s&#39; to CWD&amp;quot; % FILE)&#xA;        f.quit()&#xA;if __name__ == &#39;__main__&#39;:&#xA;    main()&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h4 id=&#34;ftp的其他内容&#34;&gt;Ftp的其他内容&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;命令行客户端程序&lt;/li&gt;&#xA;&lt;li&gt;GUI客户端程序&lt;/li&gt;&#xA;&lt;li&gt;Web浏览器&lt;/li&gt;&#xA;&lt;li&gt;自定义应用程序&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;网络新闻&#34;&gt;网络新闻&lt;/h3&gt;&#xA;&lt;h4 id=&#34;usenet与新闻组&#34;&gt;Usenet与新闻组&lt;/h4&gt;&#xA;&lt;h4 id=&#34;网络新闻传输协议&#34;&gt;网络新闻传输协议&lt;/h4&gt;&#xA;&lt;p&gt;NNTP&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;正则表达式&#34; class=&#34;header-anchor-wrapper&#34;&gt;正则表达式
+  &lt;a href=&#34;#%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h2 id=&#34;网络编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;网络编程
+  &lt;a href=&#34;#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h2 id=&#34;因特网客户端编程&#34; class=&#34;header-anchor-wrapper&#34;&gt;因特网客户端编程
+  &lt;a href=&#34;#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%bc%96%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;因特网客户端简介&#34; class=&#34;header-anchor-wrapper&#34;&gt;因特网客户端简介
+  &lt;a href=&#34;#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%ae%80%e4%bb%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h3 id=&#34;文件传输&#34; class=&#34;header-anchor-wrapper&#34;&gt;文件传输
+  &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;文件传输因特协议&#34; class=&#34;header-anchor-wrapper&#34;&gt;文件传输因特协议
+  &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93%e5%9b%a0%e7%89%b9%e5%8d%8f%e8%ae%ae&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;p&gt;在当下，HTTP,FTP,scp/rsync的应用仍然广泛。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

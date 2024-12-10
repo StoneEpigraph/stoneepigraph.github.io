@@ -4,16 +4,107 @@
     <title>基础 on 石记</title>
     <link>https://stoneepigraph.github.io/categories/%E5%9F%BA%E7%A1%80/</link>
     <description>Recent content in 基础 on 石记</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://stoneepigraph.github.io/categories/%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SICP</title>
       <link>https://stoneepigraph.github.io/posts/sicp/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/sicp/</guid>
-      <description>&lt;h2 id=&#34;构造过程抽象&#34;&gt;构造过程抽象&lt;/h2&gt;&#xA;&lt;h3 id=&#34;程序设计的基本元素&#34;&gt;程序设计的基本元素&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;基本表达式用于表示语言所关心的最简单的个体&lt;/li&gt;&#xA;&lt;li&gt;组合的方法通过它们可以从较简单的东西出发构造出复合的元素&lt;/li&gt;&#xA;&lt;li&gt;抽象的方法通过它们可以为复合对象命名，并将它们当作单元去操作。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;命名环境&#34;&gt;命名环境&lt;/h4&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(define variable value)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h4 id=&#34;组合式的求值&#34;&gt;组合式的求值&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;求值该组合式的各个子表达式。&lt;/li&gt;&#xA;&lt;li&gt;将作为最左子表达式的值 的那个过程应用于相应的实际参数。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;复合过程&#34;&gt;复合过程&lt;/h4&gt;&#xA;&lt;p&gt;包括：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;数和算术运算是基本的数据和过程&#xA;&lt;ol&gt;&#xA;&lt;li&gt;组合式的嵌套提供了一种组织起多个操作的方法&lt;/li&gt;&#xA;&lt;li&gt;定义是一种受限的抽象手段，它为名字关联相应的值。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;抽象过程的定义&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(define (funcName params) body)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h4 id=&#34;过程应用的代换模型&#34;&gt;过程应用的代换模型&lt;/h4&gt;&#xA;&lt;p&gt;为了求值一个组合式，解释器将对组合式的各个元素求值，而后将得到的那个过程应用于那些实际参数。&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;应用序求值先求值参数而后应用&lt;/li&gt;&#xA;&lt;li&gt;正则序求值指“完全展开而后紧约”的求值模型&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;条件表达式和谓词&#34;&gt;条件表达式和谓词&lt;/h4&gt;&#xA;&lt;p&gt;条件表达式的一般形式&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(cond (p1 e1)&#xA;      (p2 e2)&#xA;      .&#xA;      .&#xA;      (pn en))&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;受限形式&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(if predicate consequent alternative)&#xA;(define (abs x)&#xA;(if (&amp;lt; x 0)&#xA;(- x)&#xA;x))&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;谓词&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-nil&#34;&gt;(and e1 e2)&#xA;(or e1 e2)&#xA;(not e)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h4 id=&#34;过程作为黑箱的抽象&#34;&gt;过程作为黑箱的抽象&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;局部名过程的意义应该不依赖于其作者为其形式参数所选用的名字&lt;/li&gt;&#xA;&lt;li&gt;内部定义和块结构我们要允许一个过程里带有一些内部定义，使它们是局部于这一过程的。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;!--listend--&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(define (sqrt x)&#xA;    (define (good-enough? guess x)&#xA;        (&amp;lt; (abs (- (square guess) x)) 0.0001))&#xA;    (define (improve guess x)&#xA;        (average guess (/ x guess)))&#xA;    (define (sqrt-iter guess x)&#xA;        (if (good-enough? guess x)&#xA;            guess&#xA;            (sqrt-iter (improve guess x) x)))&#xA;    (define (square x)&#xA;        (* x x))&#xA;    (define (average x y)&#xA;        (/ (+ x y) 2))&#xA;    (sqrt-iter 1.0 x))&#xA;&#xA;(define (square x)&#xA;    (* x x))&#xA;&#xA;(display (sqrt 8))&#xA;(newline)&#xA;(display (square (sqrt 8)))&#xA;(exit)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;过程与它们所产生的计算&#34;&gt;过程与它们所产生的计算&lt;/h3&gt;&#xA;&lt;h4 id=&#34;增长的阶&#34;&gt;增长的阶&lt;/h4&gt;&#xA;&lt;p&gt;描述不同计算过程在消耗计算资源的速率上可能存在 的差异。一般来说，定义一个不变量，要求它在状态之间保持不变，这一技术是思考迭代算法设计问题时的一种非常强有力的方法。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;构造过程抽象&#34; class=&#34;header-anchor-wrapper&#34;&gt;构造过程抽象
+  &lt;a href=&#34;#%e6%9e%84%e9%80%a0%e8%bf%87%e7%a8%8b%e6%8a%bd%e8%b1%a1&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;程序设计的基本元素&#34; class=&#34;header-anchor-wrapper&#34;&gt;程序设计的基本元素
+  &lt;a href=&#34;#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%85%83%e7%b4%a0&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;基本表达式用于表示语言所关心的最简单的个体&lt;/li&gt;
+&lt;li&gt;组合的方法通过它们可以从较简单的东西出发构造出复合的元素&lt;/li&gt;
+&lt;li&gt;抽象的方法通过它们可以为复合对象命名，并将它们当作单元去操作。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;命名环境&#34; class=&#34;header-anchor-wrapper&#34;&gt;命名环境
+  &lt;a href=&#34;#%e5%91%bd%e5%90%8d%e7%8e%af%e5%a2%83&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scheme&#34;&gt;(define variable value)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;组合式的求值&#34; class=&#34;header-anchor-wrapper&#34;&gt;组合式的求值
+  &lt;a href=&#34;#%e7%bb%84%e5%90%88%e5%bc%8f%e7%9a%84%e6%b1%82%e5%80%bc&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;求值该组合式的各个子表达式。&lt;/li&gt;
+&lt;li&gt;将作为最左子表达式的值 的那个过程应用于相应的实际参数。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;复合过程&#34; class=&#34;header-anchor-wrapper&#34;&gt;复合过程
+  &lt;a href=&#34;#%e5%a4%8d%e5%90%88%e8%bf%87%e7%a8%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+&lt;p&gt;包括：&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>
