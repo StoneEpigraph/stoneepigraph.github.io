@@ -13,54 +13,164 @@
       <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/posts/csapp/</guid>
-      <description>&lt;h2 id=&#34;计算机系统漫游&#34; class=&#34;header-anchor-wrapper&#34;&gt;计算机系统漫游
-  &lt;a href=&#34;#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%b3%bb%e7%bb%9f%e6%bc%ab%e6%b8%b8&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
+      <description>&lt;h2&gt;计算机系统漫游&lt;/h2&gt;
 
 
-&lt;h3 id=&#34;信息就是位-plus-上下文&#34; class=&#34;header-anchor-wrapper&#34;&gt;信息就是位+上下文
-  &lt;a href=&#34;#%e4%bf%a1%e6%81%af%e5%b0%b1%e6%98%af%e4%bd%8d-plus-%e4%b8%8a%e4%b8%8b%e6%96%87&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
+&lt;h3&gt;信息就是位+上下文&lt;/h3&gt;
 
 
-&lt;h3 id=&#34;程序被其他程序翻译成不同的格式&#34; class=&#34;header-anchor-wrapper&#34;&gt;程序被其他程序翻译成不同的格式
-  &lt;a href=&#34;#%e7%a8%8b%e5%ba%8f%e8%a2%ab%e5%85%b6%e4%bb%96%e7%a8%8b%e5%ba%8f%e7%bf%bb%e8%af%91%e6%88%90%e4%b8%8d%e5%90%8c%e7%9a%84%e6%a0%bc%e5%bc%8f&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
+&lt;h3&gt;程序被其他程序翻译成不同的格式&lt;/h3&gt;
 
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
+&lt;p&gt;hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。&lt;/p&gt;
 
-&lt;p&gt;hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。&lt;/p&gt;</description>
+&lt;h3&gt;了解编译系统如何工作是大有益处的&lt;/h3&gt;
+
+
+&lt;h4&gt;优化程序性能&lt;/h4&gt;
+
+
+&lt;h4&gt;理解链接时出现的错误&lt;/h4&gt;
+
+
+&lt;h4&gt;避免安全漏洞&lt;/h4&gt;
+
+
+&lt;h3&gt;处理器读并解释储存在中的指令&lt;/h3&gt;
+
+
+&lt;h4&gt;系统的硬件组成&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;总线&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;I/O设备&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;主存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;处理器&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;加载&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;存储&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;操作&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;跳转&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;高速缓存至关重要&lt;/h3&gt;
+
+
+&lt;h3&gt;存储设备形成层次结构&lt;/h3&gt;
+
+&lt;p&gt;在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。&lt;/p&gt;
+
+&lt;h3&gt;操作系统管理硬件&lt;/h3&gt;
+
+&lt;p&gt;所有应用程序对硬件的操作深度都必须通过操作系统。&lt;/p&gt;
+
+&lt;h4&gt;操作系统有两个基本功能&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;防止硬件被失控的应用程序滥用&lt;/li&gt;
+&lt;li&gt;向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;操作系统通过几个基本的抽象概念来实现这两个功能&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;进程进程则是对处理器、主存和I/O设备的抽象表示。&lt;/li&gt;
+&lt;li&gt;虚拟内存虚拟内存是对主存和磁盘I/O设备的抽象表示&lt;/li&gt;
+&lt;li&gt;文件文件是对I/O设备的抽象表示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;进程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;虚拟内存&lt;/p&gt;
+&lt;p&gt;虚拟内存是一个抽象概念，它为每个进程提供了一个假象，即每个进程都在独占地使用主存。每个进程看到的内存都是一致的，称为虚拟地址空间。在Linux中，地址空间最上面的区域是保留给操作系统中的代码和数据的，这对所有进程来说都是一样。地址空间的底部区域存放用户进程定义的代码和数据。注意，地址是从下往上增大的。从下往上依次是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;程序代码和数据。&lt;/li&gt;
+&lt;li&gt;堆&lt;/li&gt;
+&lt;li&gt;共享库&lt;/li&gt;
+&lt;li&gt;栈&lt;/li&gt;
+&lt;li&gt;内核虚拟内存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;文件&lt;/p&gt;
+&lt;p&gt;文件就是字节序列，每个I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成是文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;系统之间利用网络通信&lt;/h3&gt;
+
+
+&lt;h2&gt;程序结构和执行&lt;/h2&gt;
+
+
+&lt;h3&gt;信息的表示和处理&lt;/h3&gt;
+
+
+&lt;h4&gt;信息存储&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;十六进制表示法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;字数据大小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;寻址和字节顺序&lt;/p&gt;
+&lt;p&gt;大端法小端法&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;表示字符串&lt;/p&gt;
+&lt;p&gt;C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数组。每个字符都同某个标准编码来表示，最常见的是ASCII字符码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;表示代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;布尔代数简介&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -69,57 +179,145 @@
       <pubDate>Wed, 04 Sep 2024 16:35:00 +0800</pubDate>
       
       <guid>https://stoneepigraph.github.io/posts/book/common/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F/</guid>
-      <description>&lt;h2 id=&#34;如何设计程序&#34; class=&#34;header-anchor-wrapper&#34;&gt;如何设计程序
-  &lt;a href=&#34;#%e5%a6%82%e4%bd%95%e8%ae%be%e8%ae%a1%e7%a8%8b%e5%ba%8f&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
+      <description>&lt;h2&gt;如何设计程序&lt;/h2&gt;
 
 
-&lt;h3 id=&#34;base&#34; class=&#34;header-anchor-wrapper&#34;&gt;Base
-  &lt;a href=&#34;#base&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
+&lt;h3&gt;Base&lt;/h3&gt;
 
 
-&lt;h4 id=&#34;基本程序设计步骤&#34; class=&#34;header-anchor-wrapper&#34;&gt;基本程序设计步骤
-  &lt;a href=&#34;#%e5%9f%ba%e6%9c%ac%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e6%ad%a5%e9%aa%a4&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
+&lt;h4&gt;基本程序设计步骤&lt;/h4&gt;
 
 &lt;!--list-separator--&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;六个基本的程序设计步骤&lt;/p&gt;</description>
+&lt;p&gt;六个基本的程序设计步骤&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问题分析和数据定义&lt;/li&gt;
+&lt;li&gt;合约,用途说明与结果的描述,函数头部&lt;/li&gt;
+&lt;li&gt;例子&lt;/li&gt;
+&lt;li&gt;函数模板&lt;/li&gt;
+&lt;li&gt;函数定义&lt;/li&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;六个步骤产生定义明确的中间结果&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问题数据类型描述&lt;/li&gt;
+&lt;li&gt;程序行为的非形式描述&lt;/li&gt;
+&lt;li&gt;说明程序行为的例子&lt;/li&gt;
+&lt;li&gt;开发程序的模板或视图&lt;/li&gt;
+&lt;li&gt;把模板转换成完整的定义&lt;/li&gt;
+&lt;li&gt;通过测试发现错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;要正确的设计程序需要做到&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分析通常使用文字表述的问题&lt;/li&gt;
+&lt;li&gt;在抽象表达问题实质的同时使用例子进行说明&lt;/li&gt;
+&lt;li&gt;用精确的语言阐明所表述的语句和注释&lt;/li&gt;
+&lt;li&gt;通过检查,测试对上述活动进行评价和修改&lt;/li&gt;
+&lt;li&gt;关注细节&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;简单数据的处理&lt;/h3&gt;
+
+
+&lt;h4&gt;学生,教师和计算机&lt;/h4&gt;
+
+&lt;p&gt;程序只是计算速度非常快的学生,不过程序并不能理解自然语言,所以我们需要学会一门计算机语言将自然语言翻译给计算机.但程序设计需要耐心和专心,保能关注每个微小的细节,并严格规划和对规划忠诚,才能避免错误.&lt;/p&gt;
+
+&lt;h4&gt;数,表达式和简单程序&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;数和算术运算&lt;/p&gt;
+&lt;p&gt;讲述了数和Scheme的一些基本知识&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;变量和程序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;字处理问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;设计程序&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;设计程序至少需要如下4个步骤&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;理解程序的目的程序设计的目标是创建一个接收输入并产生结果的机制.因此在开发程序时应该给每一个程序一个有意义的名字,并且说明输入数据和所产生的数据的类型,这称为程序的合约.&lt;/li&gt;
+&lt;li&gt;构造并标注例子构造一个例子,并将其写入注释&lt;/li&gt;
+&lt;li&gt;程序体写出程序&lt;/li&gt;
+&lt;li&gt;测试检查程序计算所得的结果与预期数值是否相符.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设计诀窍并不能解决程序设计过程中所遇到的所有问题,它提供的是完成程序设计过程中不可避免的步骤的指导.&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;领域知识&lt;/p&gt;
+&lt;p&gt;阐明程序体通常需要与问题相关的知识,这种形式的知识称为领域知识.它可能来自简单或复杂的数学,或来自非数学学科.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;程序就是函数加上变量定义&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;函数的复合&lt;/p&gt;
+&lt;p&gt;辅助函数原则: 对问题表述中所提到的或在进行实例计算中所发现的每种依赖关系都使用一个辅助函数进行明确表达.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;变量定义&lt;/p&gt;
+&lt;p&gt;如果一个数值在程序中多次出现,应该使用变量定义给它一个名字.变量定义将一个名字与一个值相关联.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;条件表达式和函数&lt;/h4&gt;
+
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;布尔类型和关系&lt;/p&gt;
+&lt;p&gt;复合条件: and or not&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;函数和测试条件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;条件和条件函数&lt;/p&gt;</description>
     </item>
     
     <item>
