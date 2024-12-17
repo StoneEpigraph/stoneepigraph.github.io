@@ -34,19 +34,7 @@
         <meta property="og:url" content="https://stoneepigraph.github.io/posts/csapp/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="csapp">
-  <meta property="og:description" content="计算机系统漫游 信息就是位&#43;上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。
-了解编译系统如何工作是大有益处的 优化程序性能 理解链接时出现的错误 避免安全漏洞 处理器读并解释储存在中的指令 系统的硬件组成 总线 I/O设备 主存 处理器
-加载 存储 操作 跳转 高速缓存至关重要 存储设备形成层次结构 在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。
-操作系统管理硬件 所有应用程序对硬件的操作深度都必须通过操作系统。
-操作系统有两个基本功能 防止硬件被失控的应用程序滥用 向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。 操作系统通过几个基本的抽象概念来实现这两个功能 进程进程则是对处理器、主存和I/O设备的抽象表示。 虚拟内存虚拟内存是对主存和磁盘I/O设备的抽象表示 文件文件是对I/O设备的抽象表示 进程 线程 虚拟内存
-虚拟内存是一个抽象概念，它为每个进程提供了一个假象，即每个进程都在独占地使用主存。每个进程看到的内存都是一致的，称为虚拟地址空间。在Linux中，地址空间最上面的区域是保留给操作系统中的代码和数据的，这对所有进程来说都是一样。地址空间的底部区域存放用户进程定义的代码和数据。注意，地址是从下往上增大的。从下往上依次是：
-程序代码和数据。 堆 共享库 栈 内核虚拟内存 文件
-文件就是字节序列，每个I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成是文件。
-系统之间利用网络通信 程序结构和执行 信息的表示和处理 信息存储 十六进制表示法 字数据大小 寻址和字节顺序
-大端法小端法
-表示字符串
-C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数组。每个字符都同某个标准编码来表示，最常见的是ASCII字符码。
-表示代码 布尔代数简介">
+  <meta property="og:description" content="计算机系统漫游 信息就是位&#43;上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -62,19 +50,7 @@ C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数
         
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="csapp">
-  <meta name="twitter:description" content="计算机系统漫游 信息就是位&#43;上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。
-了解编译系统如何工作是大有益处的 优化程序性能 理解链接时出现的错误 避免安全漏洞 处理器读并解释储存在中的指令 系统的硬件组成 总线 I/O设备 主存 处理器
-加载 存储 操作 跳转 高速缓存至关重要 存储设备形成层次结构 在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。
-操作系统管理硬件 所有应用程序对硬件的操作深度都必须通过操作系统。
-操作系统有两个基本功能 防止硬件被失控的应用程序滥用 向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。 操作系统通过几个基本的抽象概念来实现这两个功能 进程进程则是对处理器、主存和I/O设备的抽象表示。 虚拟内存虚拟内存是对主存和磁盘I/O设备的抽象表示 文件文件是对I/O设备的抽象表示 进程 线程 虚拟内存
-虚拟内存是一个抽象概念，它为每个进程提供了一个假象，即每个进程都在独占地使用主存。每个进程看到的内存都是一致的，称为虚拟地址空间。在Linux中，地址空间最上面的区域是保留给操作系统中的代码和数据的，这对所有进程来说都是一样。地址空间的底部区域存放用户进程定义的代码和数据。注意，地址是从下往上增大的。从下往上依次是：
-程序代码和数据。 堆 共享库 栈 内核虚拟内存 文件
-文件就是字节序列，每个I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成是文件。
-系统之间利用网络通信 程序结构和执行 信息的表示和处理 信息存储 十六进制表示法 字数据大小 寻址和字节顺序
-大端法小端法
-表示字符串
-C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数组。每个字符都同某个标准编码来表示，最常见的是ASCII字符码。
-表示代码 布尔代数简介">
+  <meta name="twitter:description" content="计算机系统漫游 信息就是位&#43;上下文 程序被其他程序翻译成不同的格式 hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。">
 
     <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
 
@@ -364,32 +340,149 @@ C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数
         
     
     
-<h2>计算机系统漫游</h2>
+<h2 id="计算机系统漫游" class="header-anchor-wrapper">计算机系统漫游
+  <a href="#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%b3%bb%e7%bb%9f%e6%bc%ab%e6%b8%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 
-<h3>信息就是位+上下文</h3>
+<h3 id="信息就是位-plus-上下文" class="header-anchor-wrapper">信息就是位+上下文
+  <a href="#%e4%bf%a1%e6%81%af%e5%b0%b1%e6%98%af%e4%bd%8d-plus-%e4%b8%8a%e4%b8%8b%e6%96%87" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h3>程序被其他程序翻译成不同的格式</h3>
+<h3 id="程序被其他程序翻译成不同的格式" class="header-anchor-wrapper">程序被其他程序翻译成不同的格式
+  <a href="#%e7%a8%8b%e5%ba%8f%e8%a2%ab%e5%85%b6%e4%bb%96%e7%a8%8b%e5%ba%8f%e7%bf%bb%e8%af%91%e6%88%90%e4%b8%8d%e5%90%8c%e7%9a%84%e6%a0%bc%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>hello程序的生命周期是从一个高级C语言开始的，因为这种形式能够被人读懂。然而，为了在系统上运行hello.c程序，每条C诗句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为可执行目标程序的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。</p>
 
-<h3>了解编译系统如何工作是大有益处的</h3>
+<h3 id="了解编译系统如何工作是大有益处的" class="header-anchor-wrapper">了解编译系统如何工作是大有益处的
+  <a href="#%e4%ba%86%e8%a7%a3%e7%bc%96%e8%af%91%e7%b3%bb%e7%bb%9f%e5%a6%82%e4%bd%95%e5%b7%a5%e4%bd%9c%e6%98%af%e5%a4%a7%e6%9c%89%e7%9b%8a%e5%a4%84%e7%9a%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>优化程序性能</h4>
+<h4 id="优化程序性能" class="header-anchor-wrapper">优化程序性能
+  <a href="#%e4%bc%98%e5%8c%96%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>理解链接时出现的错误</h4>
+<h4 id="理解链接时出现的错误" class="header-anchor-wrapper">理解链接时出现的错误
+  <a href="#%e7%90%86%e8%a7%a3%e9%93%be%e6%8e%a5%e6%97%b6%e5%87%ba%e7%8e%b0%e7%9a%84%e9%94%99%e8%af%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>避免安全漏洞</h4>
+<h4 id="避免安全漏洞" class="header-anchor-wrapper">避免安全漏洞
+  <a href="#%e9%81%bf%e5%85%8d%e5%ae%89%e5%85%a8%e6%bc%8f%e6%b4%9e" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h3>处理器读并解释储存在中的指令</h3>
+<h3 id="处理器读并解释储存在中的指令" class="header-anchor-wrapper">处理器读并解释储存在中的指令
+  <a href="#%e5%a4%84%e7%90%86%e5%99%a8%e8%af%bb%e5%b9%b6%e8%a7%a3%e9%87%8a%e5%82%a8%e5%ad%98%e5%9c%a8%e4%b8%ad%e7%9a%84%e6%8c%87%e4%bb%a4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>系统的硬件组成</h4>
+<h4 id="系统的硬件组成" class="header-anchor-wrapper">系统的硬件组成
+  <a href="#%e7%b3%bb%e7%bb%9f%e7%9a%84%e7%a1%ac%e4%bb%b6%e7%bb%84%e6%88%90" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -426,25 +519,90 @@ C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数
 </li>
 </ul>
 
-<h3>高速缓存至关重要</h3>
+<h3 id="高速缓存至关重要" class="header-anchor-wrapper">高速缓存至关重要
+  <a href="#%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e8%87%b3%e5%85%b3%e9%87%8d%e8%a6%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h3>存储设备形成层次结构</h3>
+<h3 id="存储设备形成层次结构" class="header-anchor-wrapper">存储设备形成层次结构
+  <a href="#%e5%ad%98%e5%82%a8%e8%ae%be%e5%a4%87%e5%bd%a2%e6%88%90%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速红艳艳）的想法已经成为一个普通的观念。实际上，每个计算机系统中的存储设备都被组织成了一个存储器层次结构，在这个层次结构中， 从上至下，设备的访问速度起来越慢，容量越来越大，并且每字节的造价也越来越便宜。</p>
 
-<h3>操作系统管理硬件</h3>
+<h3 id="操作系统管理硬件" class="header-anchor-wrapper">操作系统管理硬件
+  <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e7%ae%a1%e7%90%86%e7%a1%ac%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>所有应用程序对硬件的操作深度都必须通过操作系统。</p>
 
-<h4>操作系统有两个基本功能</h4>
+<h4 id="操作系统有两个基本功能" class="header-anchor-wrapper">操作系统有两个基本功能
+  <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%9c%89%e4%b8%a4%e4%b8%aa%e5%9f%ba%e6%9c%ac%e5%8a%9f%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <ol>
 <li>防止硬件被失控的应用程序滥用</li>
 <li>向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。</li>
 </ol>
 
-<h4>操作系统通过几个基本的抽象概念来实现这两个功能</h4>
+<h4 id="操作系统通过几个基本的抽象概念来实现这两个功能" class="header-anchor-wrapper">操作系统通过几个基本的抽象概念来实现这两个功能
+  <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e9%80%9a%e8%bf%87%e5%87%a0%e4%b8%aa%e5%9f%ba%e6%9c%ac%e7%9a%84%e6%8a%bd%e8%b1%a1%e6%a6%82%e5%bf%b5%e6%9d%a5%e5%ae%9e%e7%8e%b0%e8%bf%99%e4%b8%a4%e4%b8%aa%e5%8a%9f%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <ol>
 <li>进程进程则是对处理器、主存和I/O设备的抽象表示。</li>
@@ -481,16 +639,68 @@ C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数
 </li>
 </ul>
 
-<h3>系统之间利用网络通信</h3>
+<h3 id="系统之间利用网络通信" class="header-anchor-wrapper">系统之间利用网络通信
+  <a href="#%e7%b3%bb%e7%bb%9f%e4%b9%8b%e9%97%b4%e5%88%a9%e7%94%a8%e7%bd%91%e7%bb%9c%e9%80%9a%e4%bf%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h2>程序结构和执行</h2>
+<h2 id="程序结构和执行" class="header-anchor-wrapper">程序结构和执行
+  <a href="#%e7%a8%8b%e5%ba%8f%e7%bb%93%e6%9e%84%e5%92%8c%e6%89%a7%e8%a1%8c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 
-<h3>信息的表示和处理</h3>
+<h3 id="信息的表示和处理" class="header-anchor-wrapper">信息的表示和处理
+  <a href="#%e4%bf%a1%e6%81%af%e7%9a%84%e8%a1%a8%e7%a4%ba%e5%92%8c%e5%a4%84%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>信息存储</h4>
+<h4 id="信息存储" class="header-anchor-wrapper">信息存储
+  <a href="#%e4%bf%a1%e6%81%af%e5%ad%98%e5%82%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -581,7 +791,20 @@ C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数
 </li>
 </ul>
 
-<h4>整数表示</h4>
+<h4 id="整数表示" class="header-anchor-wrapper">整数表示
+  <a href="#%e6%95%b4%e6%95%b0%e8%a1%a8%e7%a4%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -723,7 +946,20 @@ C语言允许无符号数和有符号数之间的转换。虽然C标准没有精
 <li>关于有符号数与无符号数的建议</li>
 </ul>
 
-<h4>整数运算</h4>
+<h4 id="整数运算" class="header-anchor-wrapper">整数运算
+  <a href="#%e6%95%b4%e6%95%b0%e8%bf%90%e7%ae%97" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -773,7 +1009,20 @@ C语言允许无符号数和有符号数之间的转换。虽然C标准没有精
 <li>关于整数运算的最后思考</li>
 </ul>
 
-<h4>浮点数</h4>
+<h4 id="浮点数" class="header-anchor-wrapper">浮点数
+  <a href="#%e6%b5%ae%e7%82%b9%e6%95%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>浮点数表示对形如V=x*2^y的有理数进行编码。它对执行涉及非常大的数字、非常接近于0的数字，以及更普遍地作为实数运算的近似值的计算，是很有用的。</p>
 <!--list-separator-->
@@ -844,10 +1093,36 @@ C语言允许无符号数和有符号数之间的转换。虽然C标准没有精
 </li>
 </ul>
 
-<h3>程序的机器级表示</h3>
+<h3 id="程序的机器级表示" class="header-anchor-wrapper">程序的机器级表示
+  <a href="#%e7%a8%8b%e5%ba%8f%e7%9a%84%e6%9c%ba%e5%99%a8%e7%ba%a7%e8%a1%a8%e7%a4%ba" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>程序编码</h4>
+<h4 id="程序编码" class="header-anchor-wrapper">程序编码
+  <a href="#%e7%a8%8b%e5%ba%8f%e7%bc%96%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -888,7 +1163,20 @@ C语言允许无符号数和有符号数之间的转换。虽然C标准没有精
 </li>
 </ul>
 
-<h4>数据格式</h4>
+<h4 id="数据格式" class="header-anchor-wrapper">数据格式
+  <a href="#%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>由于是从16位体系结构扩展成32位的，Intel用术语“字（word）”表示16位数据类型。因此，称32位数为“双字（double word）”， 64位数为“四字（quad word）”</p>
 <table class="mc-table">
@@ -947,7 +1235,20 @@ C语言允许无符号数和有符号数之间的转换。虽然C标准没有精
 </table>
 <p>大多数GCC生成的汇编代码指令都有一个字符的后缀，表明操作数的大小。例如：数据传送指令有四个变种：movb, movw, movl, movq</p>
 
-<h4>访问信息</h4>
+<h4 id="访问信息" class="header-anchor-wrapper">访问信息
+  <a href="#%e8%ae%bf%e9%97%ae%e4%bf%a1%e6%81%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>一个x86-64的CPU包含一组16个存储64位值的通用目的寄存器。这些寄存器用来存储整数数据和指针。整数寄存器。所有16个寄存器的低位部分都可以作为字节、字（16位）、双字（32位）和四字（64位）数字来访问。</p>
 <table class="mc-table">
@@ -1389,7 +1690,20 @@ Register - Memory, 8bytes</li>
 </li>
 </ul>
 
-<h4>算术和逻辑操作</h4>
+<h4 id="算术和逻辑操作" class="header-anchor-wrapper">算术和逻辑操作
+  <a href="#%e7%ae%97%e6%9c%af%e5%92%8c%e9%80%bb%e8%be%91%e6%93%8d%e4%bd%9c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>整数算术和逻辑操作，大多数操作都分成了指令类，这些指令类有各种带不同大小操作数的变种（只有lead没有其他大小的变种）。这些操作被分为四组：加载有效地址，一元操作，二元操作和移位。</p>
 <table class="mc-table">
@@ -1550,7 +1864,20 @@ Register - Memory, 8bytes</li>
 </li>
 </ul>
 
-<h4>控制</h4>
+<h4 id="控制" class="header-anchor-wrapper">控制
+  <a href="#%e6%8e%a7%e5%88%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -1933,7 +2260,20 @@ while (test-expr) {
 </li>
 </ul>
 
-<h4>过程</h4>
+<h4 id="过程" class="header-anchor-wrapper">过程
+  <a href="#%e8%bf%87%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>过程是软件中一种很重要的抽象。它提供了一种封闭代码的方式，用一组指定的参数和一个可选反返回值实现了某种功能。然后，可以在程序中不同的地方调用这个函数。要提供对过程的机器级支持，必须要处理许多不同的属性。为了讨论方便，假设过程P调用过程Q,Q执行后返回到P.这些动作包括下面一个或多个机制：</p>
 <ul>
@@ -2044,7 +2384,20 @@ x86-64中，可以通过寄存器最多传递6个整形（例如整数和指针�
 <li>递归过程</li>
 </ul>
 
-<h4>数组分配和访问</h4>
+<h4 id="数组分配和访问" class="header-anchor-wrapper">数组分配和访问
+  <a href="#%e6%95%b0%e7%bb%84%e5%88%86%e9%85%8d%e5%92%8c%e8%ae%bf%e9%97%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2081,7 +2434,20 @@ T A[N];
 </li>
 </ul>
 
-<h4>异质的数据结构</h4>
+<h4 id="异质的数据结构" class="header-anchor-wrapper">异质的数据结构
+  <a href="#%e5%bc%82%e8%b4%a8%e7%9a%84%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>C语言提供了两种将不同匠对象组合到一起创建数据类型的机制：结构(structure)，用关键字struct来声明，将多个对象集合一个单位中; 联合(union)， 用关键字union来声明，允许用几种不同的类型来引用一个对象。</p>
 <!--list-separator-->
@@ -2345,7 +2711,20 @@ T A[N];
 </li>
 </ul>
 
-<h4>浮点代码</h4>
+<h4 id="浮点代码" class="header-anchor-wrapper">浮点代码
+  <a href="#%e6%b5%ae%e7%82%b9%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>处理器的浮点体系结构包括多个方面，会影响对浮点数据操作的程序如何被映射到机器上，包括：</p>
 <ul>
@@ -2383,11 +2762,37 @@ T A[N];
 <li>对浮点代码的观察结论</li>
 </ul>
 
-<h3>处理器体系结构</h3>
+<h3 id="处理器体系结构" class="header-anchor-wrapper">处理器体系结构
+  <a href="#%e5%a4%84%e7%90%86%e5%99%a8%e4%bd%93%e7%b3%bb%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>一个处理器支持的指令和指令的字节级编码称为它的指令集体系结构（Instruction-Set Architecture, ISA）</p>
 
-<h4>Y86-64指令集体系结构</h4>
+<h4 id="y86-64指令集体系结构" class="header-anchor-wrapper">Y86-64指令集体系结构
+  <a href="#y86-64%e6%8c%87%e4%bb%a4%e9%9b%86%e4%bd%93%e7%b3%bb%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>定义一个指令集体系结构包括定义各种状态单元、指令集和它们的编码、一组编程规范和异常事件处理。</p>
 <!--list-separator-->
@@ -2455,7 +2860,20 @@ T A[N];
 </li>
 </ul>
 
-<h4>逻辑设计和硬件控制语言HCL</h4>
+<h4 id="逻辑设计和硬件控制语言hcl" class="header-anchor-wrapper">逻辑设计和硬件控制语言HCL
+  <a href="#%e9%80%bb%e8%be%91%e8%ae%be%e8%ae%a1%e5%92%8c%e7%a1%ac%e4%bb%b6%e6%8e%a7%e5%88%b6%e8%af%ad%e8%a8%80hcl" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>在硬件设计中，用电子电路来计算对位进行运算的函数，以及在各种存储器单元中存储位。大多数现代电路技术都是用信号线上的高电压和低电压来表示不同的位值。要实现一个数字系统需要三个主要的组成部分：计算对位进行操作的函数的组合逻辑、存储位的存储器单元，以及控制存储器单元更新的时钟信号。</p>
 <!--list-separator-->
@@ -2519,7 +2937,20 @@ T A[N];
 </li>
 </ul>
 
-<h4>Y86-64的顺序实现</h4>
+<h4 id="y86-64的顺序实现" class="header-anchor-wrapper">Y86-64的顺序实现
+  <a href="#y86-64%e7%9a%84%e9%a1%ba%e5%ba%8f%e5%ae%9e%e7%8e%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2549,7 +2980,20 @@ T A[N];
 <li>SEQ阶段的实现</li>
 </ul>
 
-<h4>流水线的通用原理</h4>
+<h4 id="流水线的通用原理" class="header-anchor-wrapper">流水线的通用原理
+  <a href="#%e6%b5%81%e6%b0%b4%e7%ba%bf%e7%9a%84%e9%80%9a%e7%94%a8%e5%8e%9f%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>流水线化的一个重要我就是提高了系统的吞量，也就是单位时间内服务的顾客总数，不过它也会轻微地增加延迟，就是服务一个用户所需要的时间。</p>
 <!--list-separator-->
@@ -2569,35 +3013,152 @@ T A[N];
 <li>带反馈的流水线系统</li>
 </ul>
 
-<h4>Y86-64的流水线实现</h4>
+<h4 id="y86-64的流水线实现" class="header-anchor-wrapper">Y86-64的流水线实现
+  <a href="#y86-64%e7%9a%84%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%ae%9e%e7%8e%b0" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>流水线冒险</h4>
+<h4 id="流水线冒险" class="header-anchor-wrapper">流水线冒险
+  <a href="#%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%86%92%e9%99%a9" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h3>优化程序性能</h3>
+<h3 id="优化程序性能" class="header-anchor-wrapper">优化程序性能
+  <a href="#%e4%bc%98%e5%8c%96%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>在程序开发和优化的过程中，我们必须考虑代码使用的方式，以及影响它的关键因素。通常程序员必须在实现和维护程序的简单性与它的运行速度之间做出权衡。研究程序的汇编代码表示是理解编译器以及产生的代码会如何运行的最有效手段之一。一个很有用的策略是只重写程序到编译器由此就能产生有效代码所需要的程度就好了。这样能尽量避免损害代码的可读性、模块性和可移植性，就好像我们使用的是具有最低能力的编译器。同样，通过测量值和检查生成的汇编代码，反复修改源代码和分析它的性能是很有帮助的。对于新手程序员来说，不断修改源代码，试图欺骗编译器产生有效的代码，看起来很奇怪，但这确实是编写很多高性能程序的方式。</p>
 
-<h4>优化编译器的能力和局限性</h4>
+<h4 id="优化编译器的能力和局限性" class="header-anchor-wrapper">优化编译器的能力和局限性
+  <a href="#%e4%bc%98%e5%8c%96%e7%bc%96%e8%af%91%e5%99%a8%e7%9a%84%e8%83%bd%e5%8a%9b%e5%92%8c%e5%b1%80%e9%99%90%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>现代编译器运用复杂精细的算法来确定一个程序中计算的是什么值，以及它们是被如何使用的。然后会利用一些机会来简化表达式，在几个不同的地方使用同一个计算，以及降低一个给定的计算必须被执行的次数。大多数编译器，包括GCC,向用户提供了一些对它们所使用的优化的控制。编译器必须很小心地对程序只使用安全的优化，也就是说对于程序可能遇到的所有可能的情况，在C语言标准提供的保证之下，优化后得到的程序和未优化的版本有一样的行为。限制编译器只进行安全的优化，消除了造成不希望的运行时行为的一些可能的原因，但是这也意味着程序员必须花费更大的力气写出编译器能够将之转换成有效机器代码的程序。</p>
 
-<h4>表示程序性能</h4>
+<h4 id="表示程序性能" class="header-anchor-wrapper">表示程序性能
+  <a href="#%e8%a1%a8%e7%a4%ba%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>我们引入试题标准每元素的周期数（Cycles Per Element, CPE），作为一种表示程序性能并指导我们改进代码的方法。CPE这种试题标准帮助我们在更细节的级别上理解迭代程序的循环性能。这样的试题标准对执行重复计算的程序来说是很适当的。处理器活动的顺序是由时钟控制的，时钟提供了某个频率的规律信号，通常用千兆赫兹（GHz），即十亿周期每秒来表示。每个时钟周期的时间是时钟频率的倒数。通常是以纳秒（nanosecond, 1纳秒等于10^-9秒）或皮秒（picosecond, 1皮秒等于10^-12秒）为单位。用时钟周期来表示，度量值表示的是执行了多少条指令，而不是时钟运行得有多快。</p>
 
-<h4>消除循环的低效率</h4>
+<h4 id="消除循环的低效率" class="header-anchor-wrapper">消除循环的低效率
+  <a href="#%e6%b6%88%e9%99%a4%e5%be%aa%e7%8e%af%e7%9a%84%e4%bd%8e%e6%95%88%e7%8e%87" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>将在循环中不改变的代码放到循环外边。</p>
 
-<h4>减少过程调用</h4>
+<h4 id="减少过程调用" class="header-anchor-wrapper">减少过程调用
+  <a href="#%e5%87%8f%e5%b0%91%e8%bf%87%e7%a8%8b%e8%b0%83%e7%94%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>消除不必要的内存引用</h4>
+<h4 id="消除不必要的内存引用" class="header-anchor-wrapper">消除不必要的内存引用
+  <a href="#%e6%b6%88%e9%99%a4%e4%b8%8d%e5%bf%85%e8%a6%81%e7%9a%84%e5%86%85%e5%ad%98%e5%bc%95%e7%94%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>理解现代处理器</h4>
+<h4 id="理解现代处理器" class="header-anchor-wrapper">理解现代处理器
+  <a href="#%e7%90%86%e8%a7%a3%e7%8e%b0%e4%bb%a3%e5%a4%84%e7%90%86%e5%99%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2622,11 +3183,37 @@ EU接收来自取指单元的操作。通常，每个时钟周期会接收多个
 </li>
 </ul>
 
-<h4>循环展开</h4>
+<h4 id="循环展开" class="header-anchor-wrapper">循环展开
+  <a href="#%e5%be%aa%e7%8e%af%e5%b1%95%e5%bc%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>循环展开是一种程序变换，通过增加每次迭代计算的元素的数量，减少循环的迭代次数。</p>
 
-<h4>提高并行性</h4>
+<h4 id="提高并行性" class="header-anchor-wrapper">提高并行性
+  <a href="#%e6%8f%90%e9%ab%98%e5%b9%b6%e8%a1%8c%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2643,7 +3230,20 @@ EU接收来自取指单元的操作。通常，每个时钟周期会接收多个
 </li>
 </ul>
 
-<h4>理解内存性能</h4>
+<h4 id="理解内存性能" class="header-anchor-wrapper">理解内存性能
+  <a href="#%e7%90%86%e8%a7%a3%e5%86%85%e5%ad%98%e6%80%a7%e8%83%bd" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2660,7 +3260,20 @@ EU接收来自取指单元的操作。通常，每个时钟周期会接收多个
 </li>
 </ul>
 
-<h4>应用：性能提高技术</h4>
+<h4 id="应用-性能提高技术" class="header-anchor-wrapper">应用：性能提高技术
+  <a href="#%e5%ba%94%e7%94%a8-%e6%80%a7%e8%83%bd%e6%8f%90%e9%ab%98%e6%8a%80%e6%9c%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2685,7 +3298,20 @@ EU接收来自取指单元的操作。通常，每个时钟周期会接收多个
 </li>
 </ul>
 
-<h4>确认和消除性能瓶颈</h4>
+<h4 id="确认和消除性能瓶颈" class="header-anchor-wrapper">确认和消除性能瓶颈
+  <a href="#%e7%a1%ae%e8%ae%a4%e5%92%8c%e6%b6%88%e9%99%a4%e6%80%a7%e8%83%bd%e7%93%b6%e9%a2%88" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2700,11 +3326,37 @@ Unix系统提供了一个剖析程序GPROF.</p>
 <li>使用剖析程序来指导优化</li>
 </ul>
 
-<h3>存储器层次结构</h3>
+<h3 id="存储器层次结构" class="header-anchor-wrapper">存储器层次结构
+  <a href="#%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>到目前为止，在对系统的研究中，我们依赖于一个简单的计算机系统模型，CPU执行指令，而存储器系统为CPU存放指令和数据。实际上，存储器系统是一个具有不同容量、成本和访问时间的存储设备的层次结构。CPU寄存器保存着最常用的数据。靠近CPU的小的、快速的调整缓存存储器作为一部分存储在相对慢速的主存储器中数据和指令的缓冲区域。主存缓存存储在容量较大的、慢速磁盘上的数据，而这些磁盘常常又作为存储在通过网络连接的其他机器的磁盘或磁带上的数据的缓冲区域。作为一个程序员，你需要理解存储器层次结构，因为它对应用程序的性能有着巨大的影响。如果你的程序需要的数据是存储在CPU寄存器中，那么在指令的执行期间，在0个周期内就能访问到它们。如果存储在调整缓存中，需要4-75个周期。如果存储在主存中，需要上百个周期。而如果存储在磁盘上，需要大约几千万个周期。这不是计算机系统中一个基本而持久的思想：如果你理解了系统是如何将数据在存储器层次结构中上上下下移动的，那么你就可以编写自己的应用程序，使得它们的数据项存储在层次结构中较高的地方，在那里CPU能更快地访问到它们。这个思想轻裘缓带着计算机程序的一个称为局部性的基本属性。具有良好局部性的程序倾向于一次又一次地访问相同的数据项集合，或是倾向于访问邻近的数据项集合。</p>
 
-<h4>存储技术</h4>
+<h4 id="存储技术" class="header-anchor-wrapper">存储技术
+  <a href="#%e5%ad%98%e5%82%a8%e6%8a%80%e6%9c%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2781,7 +3433,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>局部性</h4>
+<h4 id="局部性" class="header-anchor-wrapper">局部性
+  <a href="#%e5%b1%80%e9%83%a8%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>一个编写良好的计算机程序常常具有良好的局部性。局部性通常有两种不同的形式：时间局部性和空间局部性。</p>
 <!--list-separator-->
@@ -2807,7 +3472,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>存储器层次结构</h4>
+<h4 id="存储器层次结构" class="header-anchor-wrapper">存储器层次结构
+  <a href="#%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2834,7 +3512,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>高速缓存存储器</h4>
+<h4 id="高速缓存存储器" class="header-anchor-wrapper">高速缓存存储器
+  <a href="#%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e5%ad%98%e5%82%a8%e5%99%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2869,7 +3560,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>编写高速缓存友好的代码</h4>
+<h4 id="编写高速缓存友好的代码" class="header-anchor-wrapper">编写高速缓存友好的代码
+  <a href="#%e7%bc%96%e5%86%99%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e5%8f%8b%e5%a5%bd%e7%9a%84%e4%bb%a3%e7%a0%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -2885,13 +3589,52 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>高速缓存对程序性能的影响</h4>
+<h4 id="高速缓存对程序性能的影响" class="header-anchor-wrapper">高速缓存对程序性能的影响
+  <a href="#%e9%ab%98%e9%80%9f%e7%bc%93%e5%ad%98%e5%af%b9%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd%e7%9a%84%e5%bd%b1%e5%93%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h2>在系统上运行程序</h2>
+<h2 id="在系统上运行程序" class="header-anchor-wrapper">在系统上运行程序
+  <a href="#%e5%9c%a8%e7%b3%bb%e7%bb%9f%e4%b8%8a%e8%bf%90%e8%a1%8c%e7%a8%8b%e5%ba%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 
-<h3>链接</h3>
+<h3 id="链接" class="header-anchor-wrapper">链接
+  <a href="#%e9%93%be%e6%8e%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>链接(linking)是将各种代码和数据片段收集并组合成为一个单一文件的过程，这个文件可被加载（复制）到内存并执行。链接可以执行于编译时（compile time），也就是在源代码被翻译成机器代码时;也可以执行于加载时（load time），也就是在程序被加载器（loader)加载到内存并执行时;甚至执行于运行时（run time）,也就是由应用程序来执行。在现代系统中，链接是由叫做链接器（linker）的程序自动执行的。链接器在软件开发中扮演着一个关键的角色，因为它们使得健康编译成为可能。</p>
 <ul>
@@ -2906,7 +3649,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>编译器驱动程序</h4>
+<h4 id="编译器驱动程序" class="header-anchor-wrapper">编译器驱动程序
+  <a href="#%e7%bc%96%e8%af%91%e5%99%a8%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>一个例子： gcc -Og -o prog main.c sum.c</p>
 <ol>
@@ -2917,7 +3673,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 <li>ld(链接器)将main.o和sum.o以及一些必要的系统目标文件组合起来，创建一个可执行目标文件prog</li>
 </ol>
 
-<h4>静态链接</h4>
+<h4 id="静态链接" class="header-anchor-wrapper">静态链接
+  <a href="#%e9%9d%99%e6%80%81%e9%93%be%e6%8e%a5" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>像Linux LD程序这样的静态链接器以一组可重定位目标文件和命令行参数作为输入，生成一个完全链接的、可以加载和运行的可执行目标文件作为输出。为了构造可执行文件，链接器必须完成两个主要任务：</p>
 <ul>
@@ -2925,7 +3694,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 <li>重定位</li>
 </ul>
 
-<h4>目标文件</h4>
+<h4 id="目标文件" class="header-anchor-wrapper">目标文件
+  <a href="#%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>目标文件有三种形式：</p>
 <ul>
@@ -2934,7 +3716,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 <li>共享目标文件</li>
 </ul>
 
-<h4>可重定位目标文件</h4>
+<h4 id="可重定位目标文件" class="header-anchor-wrapper">可重定位目标文件
+  <a href="#%e5%8f%af%e9%87%8d%e5%ae%9a%e4%bd%8d%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>典型的ELF可重定位目标文件内容</p>
 <table class="mc-table">
@@ -2996,7 +3791,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
   </tbody>
 </table>
 
-<h4>符号和符号表</h4>
+<h4 id="符号和符号表" class="header-anchor-wrapper">符号和符号表
+  <a href="#%e7%ac%a6%e5%8f%b7%e5%92%8c%e7%ac%a6%e5%8f%b7%e8%a1%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>每个可重定位目标模块m都有一个符号表，它包含m定义和引用的符号的信息。在链接器的上下文中，有三种不同的符号：</p>
 <ul>
@@ -3005,7 +3813,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 <li>只被模块m定义和引用的局部符号。它们对应于带static属性的C函数和全局变量。这些符号在模块m中任何位置都可见，但是不能被其他模块引用。</li>
 </ul>
 
-<h4>符号解析</h4>
+<h4 id="符号解析" class="header-anchor-wrapper">符号解析
+  <a href="#%e7%ac%a6%e5%8f%b7%e8%a7%a3%e6%9e%90" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>链接器解析符号引用的方法是将每个引用与它输入的可重定位目标文件的符号表中的一个确定的符号定义关联起来。对那些和引用定义在相同模块中的局部符号的引用，符号解析是非常简单明了的。编译器只允许每个模块中每个局部符号有一个定义。静态局部变量也会有本地链接器符号，编译器还要确保它们拥有唯一的名字。不过，对全局符号的引用解析就棘手得多。当编译器遇到一个不是在当前模块中定义的符号(变量或函数名)时，会假设该符号是在其他某个模块中定义的，生成一个链接器符号表条目，并把它交给链接器处理。如果链接吕在它的任何输入模块中都找不到这个被引用符号的定义，就输出一条（通常很难阅读的）错误信息并终止。</p>
 <!--list-separator-->
@@ -3040,7 +3861,20 @@ Unix系统提供了一个剖析程序GPROF.</p>
 </li>
 </ul>
 
-<h4>重定位</h4>
+<h4 id="重定位" class="header-anchor-wrapper">重定位
+  <a href="#%e9%87%8d%e5%ae%9a%e4%bd%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>一旦链接器完成了符号解析这一步，就把代码中的每个符号引用和正好一个符号定义关联起来。此时，链接器就知道它的输入目标模块中的代码节和数据节的确切大小。现在就可以开始重定位步骤了，在这个步骤中，将合并输入模块，并为每个符号分配运行时地址。重定位由两步组成：</p>
 <ul>
@@ -3175,7 +4009,20 @@ ELF重定位条目.每个条目表示一个必须被重定位的引用，并指�
 </li>
 </ul>
 
-<h3>异常控制流</h3>
+<h3 id="异常控制流" class="header-anchor-wrapper">异常控制流
+  <a href="#%e5%bc%82%e5%b8%b8%e6%8e%a7%e5%88%b6%e6%b5%81" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>现代系统通过使控制流发生突变来对这些情况做出反应。一般而言，我们把这些突变称为异常控制流（Exceptional Control Flow, ECF）。</p>
 <!--list-separator-->
@@ -3192,7 +4039,20 @@ ELF重定位条目.每个条目表示一个必须被重定位的引用，并指�
 </li>
 </ul>
 
-<h4>异常</h4>
+<h4 id="异常" class="header-anchor-wrapper">异常
+  <a href="#%e5%bc%82%e5%b8%b8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>异常是异常控制流的一种形式，它一部分由硬件实现，一部分由操作系统实现。异常就是控制流中的突变，用来响应处理器状态中的某些变化。在任何情况下，当处理器检测到有事件发生时，它就会通过一张叫做异常表（exception tablee）的跳转表，进行一个间接过程调用（异常），到一个专门设计用来处理这类事件的操作系统子程序（异常处理程序（exception handler））。当异常处理程序完成处理后，根据引起异常的事件的类型，会发生以下3种情况中的一种：</p>
 <ol>
@@ -3408,7 +4268,20 @@ rsi、%rdx、%10、%r8和%r9包含最多6个参数。从系统调用返回时，
 </li>
 </ul>
 
-<h4>进程</h4>
+<h4 id="进程" class="header-anchor-wrapper">进程
+  <a href="#%e8%bf%9b%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>异常是允许操作系统内核提供进程（process）概念的基本构造块，进程是计算机科学中最深度、最成功的概念之一。在现代系统上运行一个程序时，我们会到一个假象，就好像我们的程序是系统中当前运行的唯一的程序一样。我们的程序好像是独占地使用处理器和内存。进程的经典定义就是一个执行中程序的实例。系统中的每个程序都运行在某个进程的上下文（context）中。上下文是由程序正确运行所需的状态组成的。它个状态包括存放在内存中的程序的代码和数据，它的栈、通用上的寄存器的内容、程序计数器、环境变量以及打开文件描述符的集合。我们将关注进程提供给应用程序的关键抽象：</p>
 <ul>
@@ -3458,11 +4331,37 @@ Linux提供了一种聪明的机制，叫做/proc文件系统，它允许用户�
 </li>
 </ul>
 
-<h4>系统调用错误处理</h4>
+<h4 id="系统调用错误处理" class="header-anchor-wrapper">系统调用错误处理
+  <a href="#%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>当Unix系统级函数遇到错误时，它们通常会返回-1,并设置全局整数变量errno来表示什么出错了。</p>
 
-<h4>进程控制</h4>
+<h4 id="进程控制" class="header-anchor-wrapper">进程控制
+  <a href="#%e8%bf%9b%e7%a8%8b%e6%8e%a7%e5%88%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -3571,7 +4470,20 @@ int execve(const char *filename, const char *argv[], const char *envp[]);
 <li>利用fork和execve运行程序</li>
 </ul>
 
-<h4>信号</h4>
+<h4 id="信号" class="header-anchor-wrapper">信号
+  <a href="#%e4%bf%a1%e5%8f%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>一个信号就是一条小消息，它通知进程系统中发生了一个某种类型的事件。每种信号类型都对应于某种系统事件。低层的硬件异常是由内核异常处理程序处理的，正常情况下，对用户进程而言是不可见的。信号提供了一种机制，通知用户进程发生了这些异常。</p>
 <div class="table-caption">
@@ -3917,15 +4829,54 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>非本地跳转</h4>
+<h4 id="非本地跳转" class="header-anchor-wrapper">非本地跳转
+  <a href="#%e9%9d%9e%e6%9c%ac%e5%9c%b0%e8%b7%b3%e8%bd%ac" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>C语言提供了一种用户级异常控制流形式，称为非本地跳转（nonlocal jump）,它将控制直接从一个函数转移到另一个当前正在执行的函数，而不需要经过正常的调用-返回序列。非本地跳转是通过setjmp和longjmp函数来提供的。</p>
 
-<h4>操作进程的工具</h4>
+<h4 id="操作进程的工具" class="header-anchor-wrapper">操作进程的工具
+  <a href="#%e6%93%8d%e4%bd%9c%e8%bf%9b%e7%a8%8b%e7%9a%84%e5%b7%a5%e5%85%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>Linux系统提供了大量的监控和操作进程的有用工具。</p>
 
-<h3>虚拟内存</h3>
+<h3 id="虚拟内存" class="header-anchor-wrapper">虚拟内存
+  <a href="#%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>一个系统中的进程是与其他进程共享CPU和主存资源的。为了更加有效地管理内存并且少出错，现代系统提供了一种对主存的抽象概念，叫做虚拟内存（VM）。虚拟内存是硬件异常、硬件地址翻译、主存、磁盘文件和内核软件的完美交互，它为每个进程提供了一个大小、一致的和私有的地址空间。通过一个很清晰的机制，虚拟内存提供了三个重要的能力：</p>
 <ul>
@@ -3940,15 +4891,54 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>虚拟内存是危险的</li>
 </ul>
 
-<h4>物理和虚拟寻址</h4>
+<h4 id="物理和虚拟寻址" class="header-anchor-wrapper">物理和虚拟寻址
+  <a href="#%e7%89%a9%e7%90%86%e5%92%8c%e8%99%9a%e6%8b%9f%e5%af%bb%e5%9d%80" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>计算机系统的主存被组织成一个由M个连续的字节大小的单元组成的数组，每个字节都有一个唯一的物理地址。给定这种简单的结构，CPU访问内存的最自然的方式就是使用物理地址。我们把这种方式称为物理寻址。早期的PC使用物理寻址，然而，现代处理器使用的是一种称为虚拟寻址的寻址形式。使用虚拟寻址，CPU通过生成一个虚拟地址来访问主存，这个虚拟地址在被送到内存之前先转换成适当的物理地址。将一个虚拟地址转换为物理地址的任务叫做地址翻译。CPU芯片上叫做内存管理单元（MMU）的专用硬件，利用存放在主存中的查询表来动态翻译虚拟地址，该表的内容由操作系统管理。</p>
 
-<h4>地址空间</h4>
+<h4 id="地址空间" class="header-anchor-wrapper">地址空间
+  <a href="#%e5%9c%b0%e5%9d%80%e7%a9%ba%e9%97%b4" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>地址空间是一个非负数地址的有序集合。一个地址空间的大小是由表示最大地址所需要的倍数来描述的。例如，一个包含N等于2的n次方的虚拟地址空间就叫做一个n位地址空间。现代系统通常支持32位或64位虚拟地址空间。一个系统还有一个物理地址空间，对应于系统中物理内存的M个字节。地址空间清楚地区分了数据对象（字节）和它们的属性（地址）。主存中的每字节都有一个选自虚拟地址空间的虚拟地址和一个选自物理地址空间的物理地址。</p>
 
-<h4>虚拟内存作为缓存的工具</h4>
+<h4 id="虚拟内存作为缓存的工具" class="header-anchor-wrapper">虚拟内存作为缓存的工具
+  <a href="#%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98%e4%bd%9c%e4%b8%ba%e7%bc%93%e5%ad%98%e7%9a%84%e5%b7%a5%e5%85%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>概念上，虚拟内存被组织为一个由存放在磁盘上的N个连续的字节大小的单元组成的数组.每字节都有一个唯一的虚拟地址，作为到数组的索引。硬盘上的数组的内容被缓存在主存中。物理内存被分割为物理面，大小为P字节（物理页也被称为页帧（page frame））。在任意时刻，虚拟页面的集合都分为三个不相交的子集：</p>
 <ul>
@@ -3993,7 +4983,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>虚拟内存作为内存管理的工具</h4>
+<h4 id="虚拟内存作为内存管理的工具" class="header-anchor-wrapper">虚拟内存作为内存管理的工具
+  <a href="#%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98%e4%bd%9c%e4%b8%ba%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%e7%9a%84%e5%b7%a5%e5%85%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>虚拟内存提供了一种机制，利用DRAM缓存来自通常更大的虚拟地址空间的页面。操作系统为每个进程提供了一个独立的页表，因而也就是一个独立的虚拟地址空间。按需页面调度和独立的虚拟地址空间的结合，对系统中内存的使用和管理造成了深远的影响。特别地，VM简化了链接和加载、代码和数据共享，以及应用程序的内存分配。</p>
 <ul>
@@ -4003,14 +5006,53 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>简化内存分配虚拟内存为向用户进程提供一个简单的分配额外内存的机制。</li>
 </ul>
 
-<h4>虚拟内存作为内存保护的工具</h4>
+<h4 id="虚拟内存作为内存保护的工具" class="header-anchor-wrapper">虚拟内存作为内存保护的工具
+  <a href="#%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98%e4%bd%9c%e4%b8%ba%e5%86%85%e5%ad%98%e4%bf%9d%e6%8a%a4%e7%9a%84%e5%b7%a5%e5%85%b7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>任何现代计算机系统必须为操作系统提供手段来控制对内存系统的访问。</p>
 
-<h4>地址翻译</h4>
+<h4 id="地址翻译" class="header-anchor-wrapper">地址翻译
+  <a href="#%e5%9c%b0%e5%9d%80%e7%bf%bb%e8%af%91" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>内存映射</h4>
+<h4 id="内存映射" class="header-anchor-wrapper">内存映射
+  <a href="#%e5%86%85%e5%ad%98%e6%98%a0%e5%b0%84" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>Linux通过将一个虚拟内存区域与磁盘上的对象关联起来，以初始化这个虚拟内存区域的内容，这个过程称为内存映射(memory mapping)。虚拟内存区域或以映射到两种类型的对象中的一种：</p>
 <ul>
@@ -4018,7 +5060,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>匿名文件</li>
 </ul>
 
-<h4>动态内存分配</h4>
+<h4 id="动态内存分配" class="header-anchor-wrapper">动态内存分配
+  <a href="#%e5%8a%a8%e6%80%81%e5%86%85%e5%ad%98%e5%88%86%e9%85%8d" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>动态内存分配器维护着一个进程的虚拟内存区，称为堆。分配器将堆视为一组不同大小的块（block）的集合来维护。每个块就是一个连续的虚拟内存处，要么是已分配的，要么是空闲白的，已分配的块显示地保留为供应用程序使用。空闲块可用来分配。分配器有两种基本风格。</p>
 <ul>
@@ -4160,7 +5215,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>垃圾收集</h4>
+<h4 id="垃圾收集" class="header-anchor-wrapper">垃圾收集
+  <a href="#%e5%9e%83%e5%9c%be%e6%94%b6%e9%9b%86" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>垃圾收集器(garbage collector)是一种动态内存分配器，它自动释放程序不再需要的已分配块。这些块被称为垃圾。自动回收堆存储的过程叫做垃圾收集。</p>
 <!--list-separator-->
@@ -4178,7 +5246,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>C程序中常见的与内存有关的错误</h4>
+<h4 id="c程序中常见的与内存有关的错误" class="header-anchor-wrapper">C程序中常见的与内存有关的错误
+  <a href="#c%e7%a8%8b%e5%ba%8f%e4%b8%ad%e5%b8%b8%e8%a7%81%e7%9a%84%e4%b8%8e%e5%86%85%e5%ad%98%e6%9c%89%e5%85%b3%e7%9a%84%e9%94%99%e8%af%af" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -4239,18 +5320,70 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>小结</h4>
+<h4 id="小结" class="header-anchor-wrapper">小结
+  <a href="#%e5%b0%8f%e7%bb%93" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>虚拟内存是对主存的一个抽象。支持虚拟内存的处理器通过使用一种叫做虚拟寻址的间接形式来引用主存。处理器产生一个虚拟地址，在被发送到主存之前，这个地址被翻译成一个物理地址。从虚拟地址空间到物理地址空间的地址翻译要求硬件和软件紧密合并。专门的硬件通过使用页表翻译虚拟地址，而页表的内容是由操作系统提供的。虚拟内存提供三个重要的功能，第一，它在主存中自动缓存最近使用的存放磁盘上的虚拟地址空间的内容。虚拟内存缓存中的块叫做页。对磁盘上页的引用会触发缺页，缺页将控制转移到操作系统中的一个缺页处理程序。缺页处理程序将页面从磁盘复制到主存缓存，如果必要，将写回被驱逐的页。第二，虚拟内存简化了内存管理，进而又简化了链接、在进程间共享数据、进程的内存分配以及程序加载。最后虚拟内存通过在每条页表条目中加入 保护位，从而简化了内存保护。地址翻译的过程必须和系统中的所有的硬件缓存的操作集成在一起，大多数页表条目位于L1高速缓存中，但是一个称为TLB的页表条目的片上高速缓存，通常会消除访问在L1上的页表条目的开销。现代系统通过将虚拟内存片和磁盘上的文件片关联起来，来初始化虚拟内存片，这个过程称为内存映射。内存映射为共享数据、创建新的进程以及加载程序提供了一种高效的机制。应用可以使用mmap函数来手动地创建和删除虚拟地址空间的区域。然而，大多数程序依赖于动态内存分配器，例如malloc，它管理虚拟地址空间区域内一个称为堆的区域。动态内存分配器是一个感觉像系统级程序的应用级程序，它直接操作内存，而无需要类型系统的很多帮助。分配器有两种类型。显示分配器要求应用显式地释放它们的内存块。隐匿分配器（垃圾收集器）自动释放任何未使用的和不可达的块。</p>
 
-<h2>程序间的交互和通信</h2>
+<h2 id="程序间的交互和通信" class="header-anchor-wrapper">程序间的交互和通信
+  <a href="#%e7%a8%8b%e5%ba%8f%e9%97%b4%e7%9a%84%e4%ba%a4%e4%ba%92%e5%92%8c%e9%80%9a%e4%bf%a1" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h2>
 
 
-<h3>系统级I/O</h3>
+<h3 id="系统级i-o" class="header-anchor-wrapper">系统级I/O
+  <a href="#%e7%b3%bb%e7%bb%9f%e7%ba%a7i-o" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 <p>I/O是在主存和外部设备（例如磁盘驱动器、终端和网络）之间复制数据的过程。输入操作是从IO设备复制数据到主丰，而输出操作是从主存复制数据到IO设备。</p>
 
-<h4>Unix I/O</h4>
+<h4 id="unix-i-o" class="header-anchor-wrapper">Unix I/O
+  <a href="#unix-i-o" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>所有的IO设备都被模型化为文件，而所有的输入和输出都被当作对相应文件的读和写来执行。这种将设备优雅地映射为文件的方式，允许Linux内核引出一个简单、低级的应用接口，称为UnixI/O，这使得所有的输入和输出都能以一种统一且一致的方式来执行：</p>
 <ul>
@@ -4261,7 +5394,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>关闭文件</li>
 </ul>
 
-<h4>文件</h4>
+<h4 id="文件" class="header-anchor-wrapper">文件
+  <a href="#%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>每个Linux文件都有一个类型来表明它在系统中的角色：</p>
 <ul>
@@ -4274,15 +5420,54 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>块设备</li>
 </ul>
 
-<h4>打开和关闭文件</h4>
+<h4 id="打开和关闭文件" class="header-anchor-wrapper">打开和关闭文件
+  <a href="#%e6%89%93%e5%bc%80%e5%92%8c%e5%85%b3%e9%97%ad%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>进程是通过调用open函数来打开一个已存在的文件或者创建一个新文件，open函数将文件转换为一个文件描述符，并且返回描述符数字。进程通过调用close函数关闭一个打开的文件。</p>
 
-<h4>读和写文件</h4>
+<h4 id="读和写文件" class="header-anchor-wrapper">读和写文件
+  <a href="#%e8%af%bb%e5%92%8c%e5%86%99%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>应用程序是通过分别调用read和write函数来执行输入和输出的。通过调用lseek函数，应用程序能够显示地修改当前文件的位置。</p>
 
-<h4>用RIO包健壮地读写</h4>
+<h4 id="用rio包健壮地读写" class="header-anchor-wrapper">用RIO包健壮地读写
+  <a href="#%e7%94%a8rio%e5%8c%85%e5%81%a5%e5%a3%ae%e5%9c%b0%e8%af%bb%e5%86%99" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>RIO提供了两类不同的函数</p>
 <!--list-separator-->
@@ -4297,15 +5482,54 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>带缓冲的输入函数</li>
 </ul>
 
-<h4>读取文件元数据</h4>
+<h4 id="读取文件元数据" class="header-anchor-wrapper">读取文件元数据
+  <a href="#%e8%af%bb%e5%8f%96%e6%96%87%e4%bb%b6%e5%85%83%e6%95%b0%e6%8d%ae" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>应用程序能够通过调用stat和fstat函数，检索到关于文件的信息（有时也称为文件的元数据（metadata））。</p>
 
-<h4>读取目录内容</h4>
+<h4 id="读取目录内容" class="header-anchor-wrapper">读取目录内容
+  <a href="#%e8%af%bb%e5%8f%96%e7%9b%ae%e5%bd%95%e5%86%85%e5%ae%b9" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>应用程序可以用readdir系统函数来读取目录的内容。函数closedir关闭流并释放其所有的资源。</p>
 
-<h4>共享文件</h4>
+<h4 id="共享文件" class="header-anchor-wrapper">共享文件
+  <a href="#%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>内核用三个相关的数据结构来表示打开的文件：</p>
 <ul>
@@ -4314,18 +5538,70 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>v-mode表同文件表一样，所有的进程共享这张v-node表。每个表项包含stat结构中的大多数信息，包括st_mode和st_size成员。</li>
 </ul>
 
-<h4>I/O重定向</h4>
+<h4 id="i-o重定向" class="header-anchor-wrapper">I/O重定向
+  <a href="#i-o%e9%87%8d%e5%ae%9a%e5%90%91" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>Linux shell提供了I/O重定向操作符，允许用户将磁盘文件和标准输入输出联系起来。</p>
 
-<h4>标准I/O</h4>
+<h4 id="标准i-o" class="header-anchor-wrapper">标准I/O
+  <a href="#%e6%a0%87%e5%87%86i-o" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>C语言定义了一组高级输入输出函数，称为标准I/O库，为程序员提供了UnixI/O的较高级别的替代。这个库（libc）提供了打开和关闭文件的函数（fopen和fclose）、读和写字节的函数（fread和fwrite）、读和写字符串的函数（fgets和fputs），以及复杂的格式化的IO函数（scanf和printf）。</p>
 
-<h3>网络编程</h3>
+<h3 id="网络编程" class="header-anchor-wrapper">网络编程
+  <a href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>客户端-服务器编程模型</h4>
+<h4 id="客户端-服务器编程模型" class="header-anchor-wrapper">客户端-服务器编程模型
+  <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af-%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%9e%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>每个应用都是基于客户端-服务器模型的。客户端-服务器模型中的基本操作是事务。一个客户端-服务器事务由以下四步组成：</p>
 <ol>
@@ -4335,7 +5611,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>客户端收到响应并处理它。</li>
 </ol>
 
-<h4>网络</h4>
+<h4 id="网络" class="header-anchor-wrapper">网络
+  <a href="#%e7%bd%91%e7%bb%9c" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>客户端和服务器通常运行在不同的主机上，并且通过计算机网络的硬件和软件资源来通信。对主机而言，网络只是又一种IO设备，是数据源和数据接收方。互联网至关重要的秀发是，它能由采用完全不同和不兼容技术的种种局域网和广域网组成。每台主机和其他每台主机都是物理相连的，但是如何能够让某台源主机跨过所有这些不兼容的同络发送数据位到另一台目的主机呢？解决办法是一层运行在每台主机和跌幅器上的协议软件，它消除了不同网络之间的差异。这个软件实现一种协议，这种协议控制主机和路由器如何协同工作来实现数据传输。这种协议必须提供两种基本能力：</p>
 <ul>
@@ -4343,7 +5632,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>传送机制</li>
 </ul>
 
-<h4>全球IP因特网</h4>
+<h4 id="全球ip因特网" class="header-anchor-wrapper">全球IP因特网
+  <a href="#%e5%85%a8%e7%90%83ip%e5%9b%a0%e7%89%b9%e7%bd%91" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -4354,7 +5656,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>因特网域名</li>
 </ul>
 
-<h4>套接字接口</h4>
+<h4 id="套接字接口" class="header-anchor-wrapper">套接字接口
+  <a href="#%e5%a5%97%e6%8e%a5%e5%ad%97%e6%8e%a5%e5%8f%a3" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>套接字接口（socket interface）是一组函数，它们和Unix IO函数结合起来，用以创建网络应用。</p>
 <!--list-separator-->
@@ -4395,13 +5710,52 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>主机和服务的转换</li>
 </ul>
 
-<h4>Web服务器</h4>
+<h4 id="web服务器" class="header-anchor-wrapper">Web服务器
+  <a href="#web%e6%9c%8d%e5%8a%a1%e5%99%a8" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h3>并发编程</h3>
+<h3 id="并发编程" class="header-anchor-wrapper">并发编程
+  <a href="#%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h3>
 
 
-<h4>基于进程的并发编程</h4>
+<h4 id="基于进程的并发编程" class="header-anchor-wrapper">基于进程的并发编程
+  <a href="#%e5%9f%ba%e4%ba%8e%e8%bf%9b%e7%a8%8b%e7%9a%84%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>构造并发程序最简单的方法就是用进程，使用那些大家都很熟悉的函数，像fork, exec, waitpid.</p>
 <!--list-separator-->
@@ -4424,7 +5778,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>基于IO多路利用的并发编程</h4>
+<h4 id="基于io多路利用的并发编程" class="header-anchor-wrapper">基于IO多路利用的并发编程
+  <a href="#%e5%9f%ba%e4%ba%8eio%e5%a4%9a%e8%b7%af%e5%88%a9%e7%94%a8%e7%9a%84%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>IO多路利用技术的基本思路就是使用seelct函数，要求内核挂起进程，只有在一个或多个IO事件发生后，才将控制返回给应用程序。</p>
 <!--list-separator-->
@@ -4460,7 +5827,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>基于线程的并发编程</h4>
+<h4 id="基于线程的并发编程" class="header-anchor-wrapper">基于线程的并发编程
+  <a href="#%e5%9f%ba%e4%ba%8e%e7%ba%bf%e7%a8%8b%e7%9a%84%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>线程就是运行在进程上下文中的逻辑流。线程由内核自动调度。每个线程都有它自己的线程上下文（thread context），包括一个唯一的整数线程ID、栈、栈指针、程序计数器、通用目的寄存器和条件码。所有的运行在一个进程里的线程共享该进程的整个虚拟地址空间。基于线程的逻辑流结合了基于进程和基于IO多路复用的流的我。同进程一样，线程由内核自动调度，并且内核通过一个整数ID来识别线程。同基于IO多路复用的流一样，多个线程运行在单一进程的上下文中，因此共享这个进程虚拟地址空间的所有内容，包括它的代码、数据、堆、共享库和打开的文件。</p>
 <!--list-separator-->
@@ -4520,7 +5900,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 <li>基于线程的并发服务器</li>
 </ul>
 
-<h4>多线程程序中的共享变量</h4>
+<h4 id="多线程程序中的共享变量" class="header-anchor-wrapper">多线程程序中的共享变量
+  <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e7%a8%8b%e5%ba%8f%e4%b8%ad%e7%9a%84%e5%85%b1%e4%ba%ab%e5%8f%98%e9%87%8f" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
@@ -4549,7 +5942,20 @@ Signal包装函数设置了一个信号处理程序，其信号处理语义如�
 </li>
 </ul>
 
-<h4>用信号量同步线程</h4>
+<h4 id="用信号量同步线程" class="header-anchor-wrapper">用信号量同步线程
+  <a href="#%e7%94%a8%e4%bf%a1%e5%8f%b7%e9%87%8f%e5%90%8c%e6%ad%a5%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <p>共享变量是十分方便，但是这们也引入了同步错误的可能性。</p>
 <!--list-separator-->
@@ -4592,10 +5998,36 @@ v操作将信号量加1.如果没有任何线程阻塞在P操作等待信号量�
 </li>
 </ul>
 
-<h4>使用线程提高并行性</h4>
+<h4 id="使用线程提高并行性" class="header-anchor-wrapper">使用线程提高并行性
+  <a href="#%e4%bd%bf%e7%94%a8%e7%ba%bf%e7%a8%8b%e6%8f%90%e9%ab%98%e5%b9%b6%e8%a1%8c%e6%80%a7" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 
-<h4>其他并发问题</h4>
+<h4 id="其他并发问题" class="header-anchor-wrapper">其他并发问题
+  <a href="#%e5%85%b6%e4%bb%96%e5%b9%b6%e5%8f%91%e9%97%ae%e9%a2%98" class="header-anchor-link">
+    <svg width="16px" height="16px" viewBox="0 0 24 24">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+</svg>
+
+</svg>
+  </a>
+</h4>
 
 <!--list-separator-->
 <ul>
