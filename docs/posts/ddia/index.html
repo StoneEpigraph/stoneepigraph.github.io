@@ -34,12 +34,31 @@
         <meta property="og:url" content="https://stoneepigraph.github.io/posts/ddia/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="DDIA">
-  <meta property="og:description" content="数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：">
+  <meta property="og:description" content="数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：
+数据库： 用以存储数据，这样之后应用可以再次访问 调整缓存：缓存那些复杂或操作代价昂贵的结果，以加快下一次访问。 索引：用户可以按安搜索数据并支持各种过滤。 流式处理：持续发送消息臻另一个进程，处理采用异步方式 批处理：定期处理大量的累积数据。 可靠性
+当出现意外情况，如硬件、软件故障、人为失误等，系统应可以继续正常运转：虽然性能可能有所降低，但确保功能正确。对于软件,典型的可靠性期望包括:
+应用程序执行用户据期望的功能. 可以容忍用户出现错误或者不正确的软件使用方法 性能可以应对典型场景, 合理负载原动力和数据量 系统可防止任何示经授权的访问和滥用 硬件故障 软件故障
+原因
+由于软件错误 一个应用进程使用了某些共享资源,但却不幸失控 系统统带于某些服务,但该服务突然或无响应 级联故障 人为失误
+如果假定人是不可靠的,那么该如何保证系统的可靠性?
+以最小出错的方式来设计系统. 想办法分离最容易出错的地方,容易引发故障的接口. 充分的测试 当出现人为失误时,提供快速的恢复机制以尽量减少故障影响 设置详细而清晰的监控子系统 推行管理流程并加以培训. 可靠性的重要性 可扩展性
+随着规模的增长，例如数据量、流量或复杂性，系统应以合理的方式来匹配这种增长。可扩展性是描述系统应对负载增加能力的术语。它并不是衡量一个系统的一维指标，谈论“x是可扩展的”或“y不扩展”没有太大意义。相反，讨论可扩展性通常要考虑这类问题：“如果系统以某种方式增长，我们应对增长的措施有哪些”，“我们该如何添加计算资源来处理额外的负载”。
+描述负载
+负载可以用称为负载参数的若干数字来描述，参数的最佳选择取决于系统的体系结构。如Web服务器的每秒请示处理次数，数据库中定稿的比例等。
+描述性能
+延迟和响应时间
+延迟和响应时间容易混淆使用，通常响应时间是客户端看到的：除了处理请示时间外还包括来回网络延迟和各种排除延迟。延迟是请示花费在处理上的时间。有时，即使所有请示都相同，也会由于其他变量因素而引入一些延迟拉动，这些因素包括上下文切换和进程调度、网络数据包丢失和TCP重传、垃圾回收暂停、缺页中断和磁盘IO,甚至服务器机架的机械振动等。我们经常考察的是服务请示的平均响应时间，然后如果想知道更典型的响应时间，平均值并不是合适的指标，因为它掩盖了一些信息，无法告诉有多少用户实际经历了多少延迟。因此最好使用百分位数(percentiles)。如果已经搜集到了响应时间信息，将其从最快到最慢排序，中位数(median)就是列表中间的响应时间。中位数指标非常适合描述多少用户需要等待多长时间，通常缩写为p50。为了弄清楚异常值有多糟糕，需要关注更大的百分位数，如觉的p95, p99和p999。采用较高的响应时间百分位数很重要，因为它们直接影响用户的总体服务体验。百分位数通常用于描述、定义服务质量目标（Service Level Objectives, SLO）和服务质量协议（Service Level Agreements, SLA），这些是规定服务预期质量和可用性的合同。排队延迟往往在高百分数响应时间中影响很大。由于服务器并行处理的请示有限，正在处理的少数请示可能会阻挡后续请示，这种情况有时被称为队头阻塞。即使后续请示可能处理很简单，但它阻塞在等待先前请示的完成，客户端会观察到极慢的响应时间。
+应对负载增加的方法
+把无状态服务分布然后扩展臻多台机器相对比较容易，而有状态服务从单个节点扩展到分布式多机环境的复杂性会大大增加。出于这个原因，址到最近通常的做法一直是，将数据库运行在一个节点上（采用垂直扩展策略），直到高扩展性或高可用性的要求近使不得不做水平扩展。超大规模的系统往往针对特定应用而高度定制，很验证有一种通用的架构。背后取舍因素包括数据读取量、写入量、待存储的数据量、的复杂程度、响应时间要求、访问模式等，或者更多的是上述所有因素的叠加，再加上其他更复杂的问题。对于特定应用来说，扩展能力好的架构通常会做出某些假设，然后有针对性地优化设计，如哪些操作是最频繁的，哪 些负载是少数情况。可扩展架构通常都是从通用模块逐步构建而来， 背后往往有规律可循。
+可维护性
+随着时间的失衡，许多新的人员参与到系统开发和运维，以维护现有功能或甜酸新场景等，可维护性包括维护与缺陷修复，监控系统来保持正常运行、故障排查、适配新平台、搭配新场景、技术担风险的完善以及增加新功能等。
+我们需要特别关注软件系统的三个设计原则
+可运维性">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-12-16T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-12-16T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-12-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-19T00:00:00+00:00">
     <meta property="article:tag" content="DDIA">
     <meta property="article:tag" content="数据密集型应用设计">
     <meta property="article:tag" content="设计">
@@ -51,7 +70,26 @@
         
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DDIA">
-  <meta name="twitter:description" content="数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：">
+  <meta name="twitter:description" content="数据密集型应用设计 数据系统基础 可靠、可扩展与可维护的应用系统 对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：
+数据库： 用以存储数据，这样之后应用可以再次访问 调整缓存：缓存那些复杂或操作代价昂贵的结果，以加快下一次访问。 索引：用户可以按安搜索数据并支持各种过滤。 流式处理：持续发送消息臻另一个进程，处理采用异步方式 批处理：定期处理大量的累积数据。 可靠性
+当出现意外情况，如硬件、软件故障、人为失误等，系统应可以继续正常运转：虽然性能可能有所降低，但确保功能正确。对于软件,典型的可靠性期望包括:
+应用程序执行用户据期望的功能. 可以容忍用户出现错误或者不正确的软件使用方法 性能可以应对典型场景, 合理负载原动力和数据量 系统可防止任何示经授权的访问和滥用 硬件故障 软件故障
+原因
+由于软件错误 一个应用进程使用了某些共享资源,但却不幸失控 系统统带于某些服务,但该服务突然或无响应 级联故障 人为失误
+如果假定人是不可靠的,那么该如何保证系统的可靠性?
+以最小出错的方式来设计系统. 想办法分离最容易出错的地方,容易引发故障的接口. 充分的测试 当出现人为失误时,提供快速的恢复机制以尽量减少故障影响 设置详细而清晰的监控子系统 推行管理流程并加以培训. 可靠性的重要性 可扩展性
+随着规模的增长，例如数据量、流量或复杂性，系统应以合理的方式来匹配这种增长。可扩展性是描述系统应对负载增加能力的术语。它并不是衡量一个系统的一维指标，谈论“x是可扩展的”或“y不扩展”没有太大意义。相反，讨论可扩展性通常要考虑这类问题：“如果系统以某种方式增长，我们应对增长的措施有哪些”，“我们该如何添加计算资源来处理额外的负载”。
+描述负载
+负载可以用称为负载参数的若干数字来描述，参数的最佳选择取决于系统的体系结构。如Web服务器的每秒请示处理次数，数据库中定稿的比例等。
+描述性能
+延迟和响应时间
+延迟和响应时间容易混淆使用，通常响应时间是客户端看到的：除了处理请示时间外还包括来回网络延迟和各种排除延迟。延迟是请示花费在处理上的时间。有时，即使所有请示都相同，也会由于其他变量因素而引入一些延迟拉动，这些因素包括上下文切换和进程调度、网络数据包丢失和TCP重传、垃圾回收暂停、缺页中断和磁盘IO,甚至服务器机架的机械振动等。我们经常考察的是服务请示的平均响应时间，然后如果想知道更典型的响应时间，平均值并不是合适的指标，因为它掩盖了一些信息，无法告诉有多少用户实际经历了多少延迟。因此最好使用百分位数(percentiles)。如果已经搜集到了响应时间信息，将其从最快到最慢排序，中位数(median)就是列表中间的响应时间。中位数指标非常适合描述多少用户需要等待多长时间，通常缩写为p50。为了弄清楚异常值有多糟糕，需要关注更大的百分位数，如觉的p95, p99和p999。采用较高的响应时间百分位数很重要，因为它们直接影响用户的总体服务体验。百分位数通常用于描述、定义服务质量目标（Service Level Objectives, SLO）和服务质量协议（Service Level Agreements, SLA），这些是规定服务预期质量和可用性的合同。排队延迟往往在高百分数响应时间中影响很大。由于服务器并行处理的请示有限，正在处理的少数请示可能会阻挡后续请示，这种情况有时被称为队头阻塞。即使后续请示可能处理很简单，但它阻塞在等待先前请示的完成，客户端会观察到极慢的响应时间。
+应对负载增加的方法
+把无状态服务分布然后扩展臻多台机器相对比较容易，而有状态服务从单个节点扩展到分布式多机环境的复杂性会大大增加。出于这个原因，址到最近通常的做法一直是，将数据库运行在一个节点上（采用垂直扩展策略），直到高扩展性或高可用性的要求近使不得不做水平扩展。超大规模的系统往往针对特定应用而高度定制，很验证有一种通用的架构。背后取舍因素包括数据读取量、写入量、待存储的数据量、的复杂程度、响应时间要求、访问模式等，或者更多的是上述所有因素的叠加，再加上其他更复杂的问题。对于特定应用来说，扩展能力好的架构通常会做出某些假设，然后有针对性地优化设计，如哪些操作是最频繁的，哪 些负载是少数情况。可扩展架构通常都是从通用模块逐步构建而来， 背后往往有规律可循。
+可维护性
+随着时间的失衡，许多新的人员参与到系统开发和运维，以维护现有功能或甜酸新场景等，可维护性包括维护与缺陷修复，监控系统来保持正常运行、故障排查、适配新平台、搭配新场景、技术担风险的完善以及增加新功能等。
+我们需要特别关注软件系统的三个设计原则
+可运维性">
 
     <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
 
@@ -292,6 +330,7 @@
       <ul>
         <li><a href="#数据系统基础">数据系统基础</a></li>
         <li><a href="#分布式数据系统">分布式数据系统</a></li>
+        <li><a href="#衍生数据">衍生数据</a></li>
       </ul>
     </li>
   </ul>
@@ -312,52 +351,13 @@
         
     
     
-<h2 id="数据密集型应用设计" class="header-anchor-wrapper">数据密集型应用设计
-  <a href="#%e6%95%b0%e6%8d%ae%e5%af%86%e9%9b%86%e5%9e%8b%e5%ba%94%e7%94%a8%e8%ae%be%e8%ae%a1" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h2>
+<h2>数据密集型应用设计</h2>
 
 
-<h3 id="数据系统基础" class="header-anchor-wrapper">数据系统基础
-  <a href="#%e6%95%b0%e6%8d%ae%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h3>
+<h3>数据系统基础</h3>
 
 
-<h4 id="可靠-可扩展与可维护的应用系统" class="header-anchor-wrapper">可靠、可扩展与可维护的应用系统
-  <a href="#%e5%8f%af%e9%9d%a0-%e5%8f%af%e6%89%a9%e5%b1%95%e4%b8%8e%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%e5%ba%94%e7%94%a8%e7%b3%bb%e7%bb%9f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>可靠、可扩展与可维护的应用系统</h4>
 
 <p>对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：</p>
 <ul>
@@ -528,20 +528,7 @@
 </li>
 </ul>
 
-<h4 id="数据模型与查询语言" class="header-anchor-wrapper">数据模型与查询语言
-  <a href="#%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b%e4%b8%8e%e6%9f%a5%e8%af%a2%e8%af%ad%e8%a8%80" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>数据模型与查询语言</h4>
 
 <!--list-separator-->
 <ul>
@@ -795,20 +782,7 @@ magrated(Name, BornIn, LivingIn) :- name(Person, name),
 </li>
 </ul>
 
-<h4 id="数据存储与检索" class="header-anchor-wrapper">数据存储与检索
-  <a href="#%e6%95%b0%e6%8d%ae%e5%ad%98%e5%82%a8%e4%b8%8e%e6%a3%80%e7%b4%a2" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>数据存储与检索</h4>
 
 <p>从最基本的层面看，数据库只需要做两件事情：向它插入数据时，它就保存数据；之后查询时，它应该返回那些数据。</p>
 <!--list-separator-->
@@ -1086,20 +1060,7 @@ B-tree中一个页所包含的子页引用数量称为分支因子。在实际�
 <li></li>
 </ul>
 
-<h4 id="数据编码与演化" class="header-anchor-wrapper">数据编码与演化
-  <a href="#%e6%95%b0%e6%8d%ae%e7%bc%96%e7%a0%81%e4%b8%8e%e6%bc%94%e5%8c%96" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>数据编码与演化</h4>
 
 <!--list-separator-->
 <ul>
@@ -1302,20 +1263,7 @@ Avro也使用模式来指定编码的数据结构。它有两种模式语言：�
 </li>
 </ul>
 
-<h3 id="分布式数据系统" class="header-anchor-wrapper">分布式数据系统
-  <a href="#%e5%88%86%e5%b8%83%e5%bc%8f%e6%95%b0%e6%8d%ae%e7%b3%bb%e7%bb%9f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h3>
+<h3>分布式数据系统</h3>
 
 <!--list-separator-->
 <ul>
@@ -1329,20 +1277,7 @@ Avro也使用模式来指定编码的数据结构。它有两种模式语言：�
 </li>
 </ul>
 
-<h4 id="数据复制" class="header-anchor-wrapper">数据复制
-  <a href="#%e6%95%b0%e6%8d%ae%e5%a4%8d%e5%88%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>数据复制</h4>
 
 <p>复制主要指通过互联网络在多台机器上保存相同数据的副本。</p>
 <!--list-separator-->
@@ -1712,20 +1647,7 @@ MySQL的二进制日志binlog（当配置为基于行的复制时）使用该方
 </li>
 </ul>
 
-<h4 id="数据分区" class="header-anchor-wrapper">数据分区
-  <a href="#%e6%95%b0%e6%8d%ae%e5%88%86%e5%8c%ba" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>数据分区</h4>
 
 <p>分区通常是这样定义的，即每一条数据（或者每条记录，每行或每个文档）只属于某个特定的分区。采用数据分区的主要目的是提高可扩展性。不同的分区可以放在一个无共享集群的不同节点上。这样一个大数据集可以分散在更锪磁盘上，查询负载也随之分布到时更多的处理器上。</p>
 <!--list-separator-->
@@ -1858,20 +1780,7 @@ MySQL的二进制日志binlog（当配置为基于行的复制时）使用该方
 <li>并行查询执行</li>
 </ul>
 
-<h4 id="事务" class="header-anchor-wrapper">事务
-  <a href="#%e4%ba%8b%e5%8a%a1" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>事务</h4>
 
 <p>事务是指将应用的多个读、写操作捆绑在一起成为一个逻辑操作单元。即事务中的所有读写是一个执行的整体，整个事务要么成功，要么失败。如果失败，应用程序可以安全地重试。</p>
 <!--list-separator-->
@@ -2228,20 +2137,7 @@ ACID原子性其实描述了客户端发起一个包含多个写操作的请求�
 </li>
 </ul>
 
-<h4 id="分布式系统的挑战" class="header-anchor-wrapper">分布式系统的挑战
-  <a href="#%e5%88%86%e5%b8%83%e5%bc%8f%e7%b3%bb%e7%bb%9f%e7%9a%84%e6%8c%91%e6%88%98" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>分布式系统的挑战</h4>
 
 <!--list-separator-->
 <ul>
@@ -2475,20 +2371,7 @@ ACID原子性其实描述了客户端发起一个包含多个写操作的请求�
 </li>
 </ul>
 
-<h4 id="一致性与共识" class="header-anchor-wrapper">一致性与共识
-  <a href="#%e4%b8%80%e8%87%b4%e6%80%a7%e4%b8%8e%e5%85%b1%e8%af%86" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
-</svg>
-
-</svg>
-  </a>
-</h4>
+<h4>一致性与共识</h4>
 
 <!--list-separator-->
 <ul>
@@ -2844,6 +2727,335 @@ XA假定你的应用使用网络驱动或客户端来与参与者进行通信。
 </ul>
 </li>
 </ul>
+
+<h3>衍生数据</h3>
+
+
+<h4>批处理</h4>
+
+<p>三种不同类型的系统：服务（在线系统），批处理系统（离线系统），流处理系统（准实时系统）。</p>
+<!--list-separator-->
+<ul>
+<li>
+<p>使用Unix工具的批处理</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>简单日志分析</p>
+<p>可以使用Unix提供的各种工具联合分析Nginx的日志中最多访问的请求等等。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>命令链与自定义程序</p>
+<p>也可以自已写程序去做Unix工具能做的相同的工作。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>排序VS内存中的聚合</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Unix哲学</p>
+<p>1978年Unix哲学表述如下：</p>
+<ol>
+<li>让每个程序都做好一件事。要做一件新的工作，写一个新程序，而不是通过添加“功能”让老程序复杂化。</li>
+<li>期待每个程序的输出成为另一个程序的输入。不要将无关信息混入输出。避免使用严格的列数据或二进制输入格式。要不坚持交互式输入。</li>
+<li>设计和构建软件时，即使是操作系统，也让它们能够尽早地被试用，最好在几周内完成。不要犹豫，扔掉笨拙的部分，重建它们。</li>
+<li>优先使用工具来减轻编程任务，即使必须曲线救国编写工具，且在用完后很可能要抛掉大部分。</li>
+</ol>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>统一的接口</p>
+<p>如果希望一个程序的输出成为另一个程序的输入，那意味着这些程序必须使用相同的数据格式。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>逻辑与布线相分离</p>
+<p>Unix工具的另一个特点是使用标准输入和标准输出。但是你也可以将输入和输出重定向到文件。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>透明度和实验</p>
+<p>使用Unix工具，它使查看正在发生的事情变得非常容易：</p>
+<ul>
+<li>Unix命令的输入文件通常被视为不可变的。这意味着你可以随意运行命令，尝试各种命令行选项，而不会损坏输入文件。</li>
+<li>你可以将一个流水线阶段的输出写入文件，并将该文件用作下一阶段的输入。这意味着你可以重新启动后面的阶段，而不需要重新运行整个管道。</li>
+</ul>
+<p>然而Unix工具的最大局限在于它们只能在一台机器上运行。</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>MapReduce和分布式文件系统</p>
+<p>MapReduce有点像Unix工具，但分布在数千台机器上。一个MapReduce作业可以和一个Unix进程相类比：它接受一个或多个输入，并产生一个或多个输出。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>MapReduce作业执行</p>
+<p>MapReduce是一个编程框架，你可以使用它编写代码来处理HDFS等分布式文件系统中的大型数据集。理解它的最简单方法是参考“简单日志分析”中的Web服务器日志分析示例。要创建MapReduce作业，你需要实现两个架设函数，Mapper和Reducer,其行为如下：</p>
+<ul>
+<li>Mapper
+Mapper会在每条输入记录上调用一次，其工作是从输入记录中提取键值。对于每个输入，它可以生成任意数量的键值对。它不会保留从一个输入记录到下一个记录的任何状态，因此每个记录都是独立处理的。</li>
+<li>Reducer
+MapReduce框架拉取由Mapper生成的键值对，收集属于同一个键的所有值，并在这组值上迭代调用Reducer.Reducer可以产生输出记录。</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>分布式执行MapReduce</p>
+<p>MapReduce与Unix命令管道的主要区别在于，MapReduce可以在多台机器上并行执行计算，而无需编写代码来处理并行问题。Mapper和Reducer一次只能处理一条刻录它们不需要知道它们的输入来自哪里，或者输出去往什么地方，所以框架可以处理在机器之间移动数据的复杂性。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>MapReduce工作流</p>
+<p>单个MapReduce作业可以解决的问题范围很有限。因此将MapReduce作业链接成为工作流（workflow）中是极为常见的。Hadoop MapReduce框架对工作流没有特殊支持，所以这个链是通过目录名隐匿实现的：第一个作业必须将其输出配置为HDFS中的指定目录，第二个作业必须将其输入配置为同一个目录。从MapReduce框架的角度来看，这是两个独立的作业。不过目前有很多针对Hadoop的工作流调度器被开发出来，而且Hadoop的各种高级工具也能自动布线组装多个mapReduce阶段，生成合适的工作流。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Reduce侧连接与分组</p>
+<p>当我们在批处理的语境中讨论连接时，我们指的是在数据集中解析某种关联的全量存在。</p>
+ <!--list-separator-->
+<ul>
+<li>排序合并连接</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>把相关数据放在一起</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>分组</p>
+<p>除了连接之外，“把树洞和在一起”的另一种常见模式是，按某个键对刻录分组。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>处理偏斜</p>
+<p>如果存在与单个键关联的大量数据，则“将具有相同键的所有记录放到相同的位置”这种模式就被破坏了。这种不成比例的活动数据库记录被称为关键对象或热键。在单个Reducer中收集与某个名人相关的所有活动可能导致严重的偏斜。如果连接的输入存在热键，可以使用一些算法进行补偿。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Map端join操作</p>
+<p>上一节描述的join算法在reducer中执行实际的join逻辑，因此被称为reduce端join.mapper负责准备输入数据：从每个输入记录中提取关键字和什，将键值对分配给reducer分区，并按关键字排序。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>广播哈希join</p>
+<p>实现map端join的最简单方法特别适合大数据集与小数据集join，尤其是小数据集能够全部加载到每个mapper的内存中。Map任务依然可以有多个：大数据集的每个文件块对应一个mapper.每个mapper还负责将小数据集全部加载到内存中。这种简单而有效的算法被称为广播哈希join： “广播”一词主要是指大数据集每个分区的mapper还读取整个小数据集，“哈希”意味着使用哈希表。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>分区哈希join</p>
+<p>这种方式只适用于两个JOIN的输入具有相同数量的分区，根据相同的关键字和相同的哈希函数将记录分配至分区。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>Map端合并join</p>
+<p>如果输入灵气集不公以相同的方式进行分区，而且还基于相同的字进行了排序，则可以应用map端join的另一种变化。这时，输入是否足够小以载入内存并不重酬发，因为mapper可以执行通常由reducer执行的合并操作：按关键字升序增量读取两个输入文件，并且匹配具有相同关键字的记录。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>具有map端join的MapReduce工作流</p>
+<p>当下流作业使用MapReduce join的输出时，map端或reduce端join的不同造势刽高中生以输出结构。reduce端join的输出按join关键字进行分区和排序，而map端join的输出按照与大数据集相同的方式进行分区和排序。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>批处理工作流的输出</p>
+<p>批处理过程的输出通常不是报告，而是其他类型的数据结构。</p>
+ <!--list-separator-->
+<ul>
+<li>生成搜索索引</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>批处理输出键值</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>批处理输出的哲学</p>
+<p>MapReduce作业的输出处理遵循与Unix工具相同的原理。将输入视为不可变，避免副作用，批处理作业不仅实现了良好的性能，而且更容易维护：</p>
+<ul>
+<li>如果在代码中引入了漏洞，输出错误或者损坏，那么可以简单地回滚到先前版本，然后重新运行该作业，将再次生成正确的输出。</li>
+<li>与发生错误即意味着不可挽回的损害相比，易于回滚的特性更有利于快速开发新功能。这种使不可逆性最小化的原则对于敏捷开发是有益的。</li>
+<li>如果map或redice任务失败，MapReduce框架会自动重新安排作业并在同一个输入上再次运行。</li>
+<li>相同的文件可用作各种不同作业的输入。</li>
+<li>与Unix工具类似，MapReduce作业将逻辑与连线分开，从而可以更好地隔离问题，重用代码。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>对比Hadoop与分布式数据库</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>存储多样性</p>
+<p>数据库要求根据特定的模型来构造数据，而分布式文件系统中的文件只是字节序列，可以使用任何数据模型和编码来编写。不加区分地数据转储也转移了数据解释的负担：不是强迫数据集的生产都将其转化为标准化格式，而是将解释数据变为消费都的问题。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>处理模型的多样性</p>
+<p>MapReduce使工程师能够轻松地在大型数据食相 运行自己的代码。如果你有HDFS和MapReduce,可以在它上面建立一个SQL查询执行引擎，事实上这就是Hive项目所做的事情。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>针对频繁故障的设计</p>
+<p>与在线系统相比，批处理对故障的敏感度较低，因为如果遇到失败的任务，它们不会立即影响用户，而是总是可以重新运行。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>超越MapReduce</p>
+<p>针对直接使用的困难，在MapReduce上创建了各种高级编程模型（Pig, Hive, Cascading, Crunch）进一步封闭抽象。如果了解MapReduce的工作原理，那么学习这些模型也相当容易，而且它们的高级构造使许多常见的批处理任务更加容易实现。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>中间状态实体化</p>
+<p>每个MapReduce作业都独立于其他任何作业。作业与其他任务的主要联系点是分布式文件系统上的输入和输出目录。但是，在很多情况下，我们知道一个作业的输出只能用作另一个作业的输入，这个作业由同一个团队维护。在这种情况下，分布式文件系统上的文件只是中间状态。与Unix管道相比，MapReduce完全实体化中间状态的方法有一些不利之处：</p>
+<ul>
+<li>MapReduce作业只有在前面作业中的所有任务都完成时才能启动，而通过Unix管道连接的进程同时启动，输出一旦生成就会被使用。</li>
+<li>Mapper通常是冗余的：它们只是读取刚刚由reducer写入的同一个文件，并为下一个分区和排序阶段做准备。</li>
+<li>将中间状态存储在分布式文件系统中意味着这些文件被复制到多个节点，对于这样的临时数据来说通常是大材小用了。</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>数据流引擎</p>
+<p>为了解决MapReduce的这些问题，开发了用于分布式批处理的新的执行引擎，其中最著名的是Spark,Tez和Flink.它们的设计方式有很多不同之处，但是有一个共同点：它们把整个工作流作为一个作业来处理，而不是把它分解成独立的子作业。与MapReduce不同，这些功能不需要严格交替map和reduce的角色，而是以更灵活的方式进行组合。我们称为函数运算符，数据流引擎提供了多种不同的选项来连接一个运算符的输出到另一个的输入：</p>
+<ul>
+<li>一个选项是通常关键字对记录进行重新分区和排序，就像在MapReduce的shuffle阶段一样。</li>
+<li>另一个可能性是读取若干个输入，并以相同的方式进行分区，但忽略排序。</li>
+<li>对于广播哈希join，可以将一个运算符的输出发送到join运算符的所有分区。</li>
+</ul>
+<p>与MapReduce模型相比，它有几个优点：</p>
+<ul>
+<li>排序等 计算代价昂贵的任务只在实际需要的地方进行。</li>
+<li>没有不必要的map任务</li>
+<li>由于工作流中的所有join和数据依赖性都是明确声明的，因此调度器知道哪些数据在哪里是必须的，因此它可以进行本地优化。</li>
+<li>将运算符之间的中间状态保存在内存中或写入本地磁盘通常就足够了，这比将内容写入HDFS需要更少的IO.</li>
+<li>运算符可以在输入准备就绪后立即开始执行，在下一个开始之前不需要等待前一个阶段全部完成。</li>
+<li>与MapReduce相比，现有的Java虚拟机进程可以被重用来运行新的运算符，从而减少启动开销。</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>容错</p>
+<p>将中间状态完全实体化到分布式文件系统的一个优点是持久化，这使得在MapReduce中实现容错变得相当容易。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>图与迭代处理</p>
+ <!--list-separator-->
+<ul>
+<li>Pregel处理模型</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>容错</p>
+<p>容错方式是通过在迭代结束时定期快照所有顶点的状态来实现，即全部状态写入持久存储。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>并行执行</p>
+<p>由于编程模型一次仅处理一个顶点，所以框架能够以任意方式划分图。</p>
+</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>高级API和语言</p>
+<p>由于手工编写MapReduce作业太过耗时费力，因此Hive,Pig,Cascading和Crunch等高级语言和API变得非常流行。除了减少代码的明显优势之外，这些高级接口还允许交互式使用。此外，这些高级接口不仅提高了系统利用率，而且提高了机器级别的作业执行效率。</p>
+ <!--list-separator-->
+<ul>
+<li>
+<p>转向声明式查询语言</p>
+<p>轻松运行任意代码是MapReduce之类的批处理系统与MPP数据库的区别所在.
+通常将声明式特征与高级API结合，使查询优化器在执行期间可以利用这些优化方法，仳处理框架看起来就更像MPP数据库了。同时，通过具有运行任意代码和读取任意格式数据的可扩展性，它们依然保持了灵活性的优势。</p>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>不同领域的专业化</li>
+</ul>
+</li>
+</ul>
+ <!--list-separator-->
+<ul>
+<li>
+<p>小结</p>
+<p>分布式批处理框架需要解决的两个主要问题是：</p>
+<ul>
+<li>分区在MapReduce中，mapper根据输入文件块进行分区。mapper的输出被重新分区，排序，合并成一个可配置数量的reducer分区。这个过程的目的是把所有的相关数据都放在同一个地方。除非必需，后MapReduce的数据流引擎都尽量避免排序，但它们采取了大致类似的分区方法。</li>
+<li>容错
+MapReduce需要频繁写入磁盘，这使得可以从单个失败任务中轻松恢复，而无需重新启动整个作业，但在无故障情况下则会减慢执行速度。数据引擎执行较少的中间状态实体化并保留更多的内存，这意味着如果节点出现故障，他们需要重新计算更多的数据。确定性运算符减少了需要重新计算的数据量。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4>流处理系统</h4>
+
 
 </article>
 </div>

@@ -6,61 +6,135 @@
     <description>Recent content in DDIA on 石记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/ddia/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/ddia/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DDIA</title>
       <link>https://stoneepigraph.github.io/posts/ddia/</link>
-      <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
       
       <guid>https://stoneepigraph.github.io/posts/ddia/</guid>
-      <description>&lt;h2 id=&#34;数据密集型应用设计&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据密集型应用设计
-  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e5%af%86%e9%9b%86%e5%9e%8b%e5%ba%94%e7%94%a8%e8%ae%be%e8%ae%a1&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
+      <description>&lt;h2&gt;数据密集型应用设计&lt;/h2&gt;
 
 
-&lt;h3 id=&#34;数据系统基础&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据系统基础
-  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
+&lt;h3&gt;数据系统基础&lt;/h3&gt;
 
 
-&lt;h4 id=&#34;可靠-可扩展与可维护的应用系统&#34; class=&#34;header-anchor-wrapper&#34;&gt;可靠、可扩展与可维护的应用系统
-  &lt;a href=&#34;#%e5%8f%af%e9%9d%a0-%e5%8f%af%e6%89%a9%e5%b1%95%e4%b8%8e%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%e5%ba%94%e7%94%a8%e7%b3%bb%e7%bb%9f&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
+&lt;h4&gt;可靠、可扩展与可维护的应用系统&lt;/h4&gt;
 
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;p&gt;对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：&lt;/p&gt;</description>
+&lt;p&gt;对于数据密集型应用，CPU的处理能力往往不是第一限制性因素，在于数据量、数据的复杂度及数据的快速多变性。数据密集型应用通常也是基于标准模块构建而成，每个模块负责单一的常用功能。例如，许多应用系统都包含以下模块：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据库： 用以存储数据，这样之后应用可以再次访问&lt;/li&gt;
+&lt;li&gt;调整缓存：缓存那些复杂或操作代价昂贵的结果，以加快下一次访问。&lt;/li&gt;
+&lt;li&gt;索引：用户可以按安搜索数据并支持各种过滤。&lt;/li&gt;
+&lt;li&gt;流式处理：持续发送消息臻另一个进程，处理采用异步方式&lt;/li&gt;
+&lt;li&gt;批处理：定期处理大量的累积数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可靠性&lt;/p&gt;
+&lt;p&gt;当出现意外情况，如硬件、软件故障、人为失误等，系统应可以继续正常运转：虽然性能可能有所降低，但确保功能正确。对于软件,典型的可靠性期望包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;应用程序执行用户据期望的功能.&lt;/li&gt;
+&lt;li&gt;可以容忍用户出现错误或者不正确的软件使用方法&lt;/li&gt;
+&lt;li&gt;性能可以应对典型场景, 合理负载原动力和数据量&lt;/li&gt;
+&lt;li&gt;系统可防止任何示经授权的访问和滥用&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;硬件故障&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;软件故障&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;原因&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由于软件错误&lt;/li&gt;
+&lt;li&gt;一个应用进程使用了某些共享资源,但却不幸失控&lt;/li&gt;
+&lt;li&gt;系统统带于某些服务,但该服务突然或无响应&lt;/li&gt;
+&lt;li&gt;级联故障&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;人为失误&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果假定人是不可靠的,那么该如何保证系统的可靠性?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以最小出错的方式来设计系统.&lt;/li&gt;
+&lt;li&gt;想办法分离最容易出错的地方,容易引发故障的接口.&lt;/li&gt;
+&lt;li&gt;充分的测试&lt;/li&gt;
+&lt;li&gt;当出现人为失误时,提供快速的恢复机制以尽量减少故障影响&lt;/li&gt;
+&lt;li&gt;设置详细而清晰的监控子系统&lt;/li&gt;
+&lt;li&gt;推行管理流程并加以培训.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;可靠性的重要性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可扩展性&lt;/p&gt;
+&lt;p&gt;随着规模的增长，例如数据量、流量或复杂性，系统应以合理的方式来匹配这种增长。可扩展性是描述系统应对负载增加能力的术语。它并不是衡量一个系统的一维指标，谈论“x是可扩展的”或“y不扩展”没有太大意义。相反，讨论可扩展性通常要考虑这类问题：“如果系统以某种方式增长，我们应对增长的措施有哪些”，“我们该如何添加计算资源来处理额外的负载”。&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;描述负载&lt;/p&gt;
+&lt;p&gt;负载可以用称为负载参数的若干数字来描述，参数的最佳选择取决于系统的体系结构。如Web服务器的每秒请示处理次数，数据库中定稿的比例等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;描述性能&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;延迟和响应时间&lt;/p&gt;
+&lt;p&gt;延迟和响应时间容易混淆使用，通常响应时间是客户端看到的：除了处理请示时间外还包括来回网络延迟和各种排除延迟。延迟是请示花费在处理上的时间。有时，即使所有请示都相同，也会由于其他变量因素而引入一些延迟拉动，这些因素包括上下文切换和进程调度、网络数据包丢失和TCP重传、垃圾回收暂停、缺页中断和磁盘IO,甚至服务器机架的机械振动等。我们经常考察的是服务请示的平均响应时间，然后如果想知道更典型的响应时间，平均值并不是合适的指标，因为它掩盖了一些信息，无法告诉有多少用户实际经历了多少延迟。因此最好使用百分位数(percentiles)。如果已经搜集到了响应时间信息，将其从最快到最慢排序，中位数(median)就是列表中间的响应时间。中位数指标非常适合描述多少用户需要等待多长时间，通常缩写为p50。为了弄清楚异常值有多糟糕，需要关注更大的百分位数，如觉的p95, p99和p999。采用较高的响应时间百分位数很重要，因为它们直接影响用户的总体服务体验。百分位数通常用于描述、定义服务质量目标（Service Level Objectives, SLO）和服务质量协议（Service Level Agreements, SLA），这些是规定服务预期质量和可用性的合同。排队延迟往往在高百分数响应时间中影响很大。由于服务器并行处理的请示有限，正在处理的少数请示可能会阻挡后续请示，这种情况有时被称为队头阻塞。即使后续请示可能处理很简单，但它阻塞在等待先前请示的完成，客户端会观察到极慢的响应时间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;应对负载增加的方法&lt;/p&gt;
+&lt;p&gt;把无状态服务分布然后扩展臻多台机器相对比较容易，而有状态服务从单个节点扩展到分布式多机环境的复杂性会大大增加。出于这个原因，址到最近通常的做法一直是，将数据库运行在一个节点上（采用垂直扩展策略），直到高扩展性或高可用性的要求近使不得不做水平扩展。超大规模的系统往往针对特定应用而高度定制，很验证有一种通用的架构。背后取舍因素包括数据读取量、写入量、待存储的数据量、的复杂程度、响应时间要求、访问模式等，或者更多的是上述所有因素的叠加，再加上其他更复杂的问题。对于特定应用来说，扩展能力好的架构通常会做出某些假设，然后有针对性地优化设计，如哪些操作是最频繁的，哪 些负载是少数情况。可扩展架构通常都是从通用模块逐步构建而来， 背后往往有规律可循。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可维护性&lt;/p&gt;
+&lt;p&gt;随着时间的失衡，许多新的人员参与到系统开发和运维，以维护现有功能或甜酸新场景等，可维护性包括维护与缺陷修复，监控系统来保持正常运行、故障排查、适配新平台、搭配新场景、技术担风险的完善以及增加新功能等。&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我们需要特别关注软件系统的三个设计原则&lt;/p&gt;
+ &lt;!--list-separator--&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可运维性&lt;/p&gt;</description>
     </item>
     
   </channel>
