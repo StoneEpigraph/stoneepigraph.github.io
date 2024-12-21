@@ -4,95 +4,16 @@
     <title>Freemarker on 石记</title>
     <link>https://stoneepigraph.github.io/categories/freemarker/</link>
     <description>Recent content in Freemarker on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/freemarker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/categories/freemarker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FreeMarker入门</title>
       <link>https://stoneepigraph.github.io/posts/freemarker/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/freemarker/</guid>
-      <description>&lt;h2 id=&#34;入门&#34; class=&#34;header-anchor-wrapper&#34;&gt;入门
-  &lt;a href=&#34;#%e5%85%a5%e9%97%a8&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;模板-plus-数据模型-输出&#34; class=&#34;header-anchor-wrapper&#34;&gt;模板 + 数据模型 = 输出
-  &lt;a href=&#34;#%e6%a8%a1%e6%9d%bf-plus-%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b-%e8%be%93%e5%87%ba&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-
-&lt;h3 id=&#34;数据模型&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据模型
-  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;数据模型的基本结构是树状的.&lt;/li&gt;
-&lt;li&gt;标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值&lt;/li&gt;
-&lt;li&gt;哈希表是一种存储变量及其相关且有唯一标识名称的容器&lt;/li&gt;
-&lt;li&gt;序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;值域&#34; class=&#34;header-anchor-wrapper&#34;&gt;值域
-  &lt;a href=&#34;#%e5%80%bc%e5%9f%9f&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;start..end: 包含结尾的值域&lt;/li&gt;
-&lt;li&gt;start..&amp;lt;end或者start..!end: 不包含结尾的值域&lt;/li&gt;
-&lt;li&gt;start..*length: 限定长度的值域.&lt;/li&gt;
-&lt;li&gt;start..: 无右边界值域.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;注意&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;入门&#34;&gt;入门&lt;/h2&gt;&#xA;&lt;h3 id=&#34;模板-plus-数据模型-输出&#34;&gt;模板 + 数据模型 = 输出&lt;/h3&gt;&#xA;&lt;h3 id=&#34;数据模型&#34;&gt;数据模型&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;数据模型的基本结构是树状的.&lt;/li&gt;&#xA;&lt;li&gt;标量用于存储单一的值.这种类型的值可以是字符串,数字,日期/时间或者布尔值&lt;/li&gt;&#xA;&lt;li&gt;哈希表是一种存储变量及其相关且有唯一标识名称的容器&lt;/li&gt;&#xA;&lt;li&gt;序列是存储有序变量的容器.存储的变量可以通过数字索引来检索,索引通常从0开始.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;值域&#34;&gt;值域&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;start..end: 包含结尾的值域&lt;/li&gt;&#xA;&lt;li&gt;start..&amp;lt;end或者start..!end: 不包含结尾的值域&lt;/li&gt;&#xA;&lt;li&gt;start..*length: 限定长度的值域.&lt;/li&gt;&#xA;&lt;li&gt;start..: 无右边界值域.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;注意&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;值域表达式本身没有方括号&lt;/li&gt;&#xA;&lt;li&gt;可以在..的两侧编写自述表达式而不需要圆括号&lt;/li&gt;&#xA;&lt;li&gt;.., ..&amp;lt;, ..!, ..*是去处符,所以它们中间不能有空格.&lt;/li&gt;&#xA;&lt;li&gt;无右边界值域的定义大小是2147483647&lt;/li&gt;&#xA;&lt;li&gt;值域并不存储它们包含的数字.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;哈希表&#34;&gt;哈希表&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;像连接字符串那样,也可以使用加号的方式来连接哈希表.如果两个哈希表含有键相同的项,那么在加号右侧的哈希表中的项优先.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;模板&#34;&gt;模板&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;插值: ${paramsName}&lt;/li&gt;&#xA;&lt;li&gt;FTL标签&#xA;FTL标签与HTML标签有一些相似之处,这些标签的名称以#开头, 用户自定义的FTL标签则需要使用@来代替#.&lt;/li&gt;&#xA;&lt;li&gt;注释注释使用&amp;lt;#&amp;ndash; and &amp;ndash;&amp;gt; 来标识&lt;/li&gt;&#xA;&lt;li&gt;其它任何不是FTL标签,插值或注释的内容被视为静态文本,这些东西不会被FreeMarker所解析, 会被按照原样输出来.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;基本指令&#34;&gt;基本指令&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IF指令&#xA;&lt;pre&gt;&lt;code class=&#34;language-FreeMarker&#34;&gt;&amp;lt;#if condition&amp;gt; &amp;lt;/#if&amp;gt;&#xA;&amp;lt;#if condition&amp;gt;&#xA;  if statement&#xA;&amp;lt;#elseif condition&amp;gt;&#xA;  elseif statement&#xA;&amp;lt;#else&amp;gt;&#xA;  else statement&#xA;&amp;lt;/#if&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;list指令展示列表内容&#xA;&lt;ol&gt;&#xA;&lt;li&gt;基本&#xA;&lt;pre&gt;&lt;code class=&#34;language-FreeMarker&#34;&gt;&amp;lt;ul&amp;gt;&#xA;&amp;lt;#list listObj as obj&amp;gt;&#xA;&amp;lt;li&amp;gt;${ojb}&#xA;&amp;lt;/#list&amp;gt;&#xA;&amp;lt;/ul&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;如果列表为空的话,整个列表都不展示&#xA;&lt;pre&gt;&lt;code class=&#34;language-freeMarker&#34;&gt;&amp;lt;#list listObj&amp;gt;&#xA;  &amp;lt;ul&amp;gt;&#xA;    &amp;lt;#items as obj&amp;gt;&#xA;      &amp;lt;li&amp;gt;${obj}&#xA;  &amp;lt;/ul&amp;gt;&#xA;&amp;lt;/#list&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;如果列表为空的话展示一些其它信息&#xA;&lt;pre&gt;&lt;code class=&#34;language-freeMarker&#34;&gt;&amp;lt;#list listObj&amp;gt;&#xA;  &amp;lt;p&amp;gt; ListDesc:&#xA;  &amp;lt;ul&amp;gt;&#xA;    &amp;lt;#items as obj&amp;gt;&#xA;      &amp;lt;li&amp;gt;${obj}&amp;lt;#sep&amp;gt;septarator&amp;lt;/#sep&amp;gt;&#xA;    &amp;lt;/#items&amp;gt;&#xA;  &amp;lt;/ul&amp;gt;&#xA;&amp;lt;#else&amp;gt;&#xA;  &amp;lt;p&amp;gt; list is empty.&#xA;&amp;lt;/#list&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;include指令使用include指令, 我们可以在模板中插入其他文件的内容. 比如: 版权信息.&#xA;&lt;pre&gt;&lt;code class=&#34;language-freemarker&#34;&gt;&amp;lt;#include &amp;quot;filePath&amp;quot;&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;联合使用指令&#34;&gt;联合使用指令&lt;/h4&gt;&#xA;&lt;p&gt;在页面中,指令间可以很容易地相互嵌套.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

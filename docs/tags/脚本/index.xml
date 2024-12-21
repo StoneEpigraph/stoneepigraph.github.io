@@ -4,64 +4,16 @@
     <title>脚本 on 石记</title>
     <link>https://stoneepigraph.github.io/tags/%E8%84%9A%E6%9C%AC/</link>
     <description>Recent content in 脚本 on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/%E8%84%9A%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/tags/%E8%84%9A%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux命令行与Shell脚本大全</title>
       <link>https://stoneepigraph.github.io/posts/os/linux/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E5%A4%A7%E5%85%A8/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/os/linux/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E5%A4%A7%E5%85%A8/</guid>
-      <description>&lt;h2 id=&#34;linux命令行&#34; class=&#34;header-anchor-wrapper&#34;&gt;Linux命令行
-  &lt;a href=&#34;#linux%e5%91%bd%e4%bb%a4%e8%a1%8c&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;初识linux-shell&#34; class=&#34;header-anchor-wrapper&#34;&gt;初识Linux Shell
-  &lt;a href=&#34;#%e5%88%9d%e8%af%86linux-shell&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-
-&lt;h4 id=&#34;什么是linux&#34; class=&#34;header-anchor-wrapper&#34;&gt;什么是Linux
-  &lt;a href=&#34;#%e4%bb%80%e4%b9%88%e6%98%aflinux&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;p&gt;Linux可划分为以下四部分：&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;linux命令行&#34;&gt;Linux命令行&lt;/h2&gt;&#xA;&lt;h3 id=&#34;初识linux-shell&#34;&gt;初识Linux Shell&lt;/h3&gt;&#xA;&lt;h4 id=&#34;什么是linux&#34;&gt;什么是Linux&lt;/h4&gt;&#xA;&lt;p&gt;Linux可划分为以下四部分：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Linux内核&lt;/li&gt;&#xA;&lt;li&gt;GNU工具&lt;/li&gt;&#xA;&lt;li&gt;图形化桌面环境&lt;/li&gt;&#xA;&lt;li&gt;应用软件&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;深入探究Linux内核&lt;/p&gt;&#xA;&lt;p&gt;内核主要负责以下四种功能：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;系统内存管理&lt;/li&gt;&#xA;&lt;li&gt;软件程序管理&lt;/li&gt;&#xA;&lt;li&gt;硬件设备管理&lt;/li&gt;&#xA;&lt;li&gt;文件系统管理&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;系统内存管理&lt;/p&gt;&#xA;&lt;p&gt;不公管理服务器上的可用物理内存，还可以创建和不容易理虚拟内存。内核通过硬盘上的存储空间来实现虚拟内存，这块区域称为交换空间（swap space）。内丰存储单元按组划分成很多块，这些块称作页面（page）。内核将每个存在 页面放在物理内存或交换空间。然后， 内核 会维护一个内存页面表。指明哪些页面位于物理内存内，哪些页面被换到硬盘上。内核会记录哪些内存页面正在使用中，并自动把一段时间未访问的内存页面复制 到交换空间区域（称为换出，swapping out_）即使不宜可用内存。当程序要访问一个已被换出的内存页面时，内核必需从物理内存换出另外一个内存页面给它让出空间，然后从交换空间换入请求的内存页面。显然，这个过程 要花时间，拖慢运行的进程。只要Linux系统在运行，为运行中的程序换出内存面对面的的过程 就不会停歇。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;软件程序管理&lt;/p&gt;&#xA;&lt;p&gt;Linux操作系统将运行中的程序称为进程。可分为前台运行和后台运行。内核控制着Linux系统管理运行在系统上的所有进程。内核创建了第一个进程（称为init进程）来启动系统上所有的其他进程。当内核启动时，它会将init进程加载到虚拟 内存中。内核 在启动任何其他进程时，都 会在虚拟 内存中给新进程分配 一块发你的区域 来存储该 进程用到的数据和代码。一些Linux发行版使用一个表来管理在系统开机时要自动 启动的进程。在Linux系统上，这个表通常位于专门文件/etc/inittab中。有的系统（如Ubuntu）则采用/etc/init.d目录将开机时启动或停止某个应用的脚本 放在之个目录 下。这些脚本通过/etc/rcX.d目录下的入口 启动。X代表运行级别。运行级别：​&#x9;1.单用户​&#x9;3.标准启动​&#x9;5.X Windows&#xA;​&#x9;6.重启&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;硬件设备管理&lt;/p&gt;&#xA;&lt;p&gt;内核的另一职责 是管理硬件设备。任何Linux系统需要 与之通信的设备，都需要在内核 代码 中加入其驱动程序 代码。程序 代码相当 于应用程序 和硬件设备的中间人，允许内核 与设备之间交换数据。在Linux内核 中有两种方法用于插入设备驱动代码：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;编译进内核 的设备驱动 代码&lt;/li&gt;&#xA;&lt;li&gt;可插入内核 的设备驱动 模块&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Linxu系统将硬件设备当成特殊 的文件，称为设备文件，设备文件有3种分类：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;字符型 设备谁的指处理数据时每次只能处理一个字符 的设备。大多数类型的调制解调器和终端都是作为字符型设备文件创建 的。&lt;/li&gt;&#xA;&lt;li&gt;块设备文件块设备是指处理数据时每次能处理大块数据 的设备，比如硬盘。&lt;/li&gt;&#xA;&lt;li&gt;网络设备文件是指采用数据包发送和接收数据 的设备，包括各种网卡和一个特殊 的回环设备。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Linux为系统上的每个设备都创建 一种称为节点的特殊文件。与设备的所有通信都 通过设备节点完成。每个节点都 有唯一 的数值 对供Linux内核 标识 它。数值 对包括一个主设备号和一个次设备号。类似的设备被划分到同样的主设备号下。次设备号用于标识 主设备组下的某个特定设备。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

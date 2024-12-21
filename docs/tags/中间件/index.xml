@@ -4,67 +4,16 @@
     <title>中间件 on 石记</title>
     <link>https://stoneepigraph.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
     <description>Recent content in 中间件 on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nginx-note</title>
       <link>https://stoneepigraph.github.io/posts/middle/nginx-note/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/middle/nginx-note/</guid>
-      <description>&lt;h2 id=&#34;Nginx基础&#34; class=&#34;header-anchor-wrapper&#34;&gt;Nginx基础1
-  &lt;a href=&#34;#Nginx%e5%9f%ba%e7%a1%80&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;nginx架构&#34; class=&#34;header-anchor-wrapper&#34;&gt;Nginx架构
-  &lt;a href=&#34;#nginx%e6%9e%b6%e6%9e%84&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-
-&lt;h4 id=&#34;nginx事件模型&#34; class=&#34;header-anchor-wrapper&#34;&gt;nginx事件模型
-  &lt;a href=&#34;#nginx%e4%ba%8b%e4%bb%b6%e6%a8%a1%e5%9e%8b&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;nginx是采用的异步非阻塞。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;Nginx基础&#34;&gt;Nginx基础1&lt;/h2&gt;&#xA;&lt;h3 id=&#34;nginx架构&#34;&gt;Nginx架构&lt;/h3&gt;&#xA;&lt;h4 id=&#34;nginx事件模型&#34;&gt;nginx事件模型&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;nginx是采用的异步非阻塞。&lt;/p&gt;&#xA;&lt;p&gt;拿epoll为例，当事件没准备好时，放到epoll里，事件准备好了，我们就去读写，当读写返回EAGAIN时，我们将它再次加入到epoll里。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在epoll里等着。这样我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个，只是在请求间进行不断切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价的，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这事事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。更多的并发数，只是会占用更多的内存而已。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Nginx的worker数最好设置为CPU的核数。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;nginx基本概念&#34;&gt;Nginx基本概念&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;connection&lt;/p&gt;&#xA;&lt;p&gt;在Nginx中connection就是对tcp连接的封闭，其中包括连接的socket, 读事件，写事件。利用Nginx封闭的Connection，我们可以很方便的使用Nginx来处理与连接相关的事情，比如，建立连接，发送与接受数据等。而Nginx中的http请求的处理就是建立在Connection之上的，所以Nginx不公可以作为一个web服务器， 也可以作为邮件服务器。当然，利用Nginx提供的Connection,我们可以与任何后端服务打交道。&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Nginx处理连接的流程&lt;/p&gt;&#xA;&lt;p&gt;首先Nginx在启动时，会解析配置文件，得到需要监听的端口与IP地址，然后在Nginx的master进程里面，先初始化好这个监控的socket（创建Socket， 设置Addrreuse等选项，绑定到指定的IP地址端口，再Listen），然后再fork出多个子进程出来，然后子进程会竞争accept新的连接。此时，客户端就可以向Nginx发起连接了。当客户端与服务端通过三次握手建立好一个连接后，Nginx的某一个子进程会Accept成功，得到这个建立好的连接的Socket，然后创建Nginx对连接的封闭，即ngx_connection_t结构体。接着，设置读写事件处理函数并添加读写事件来与客户端进行数据的交换。最后，Nginx或客户端主动关掉连接，到此，一个连接就结束了。&#xA;Nginx在实现时，是通过一个连接池来管理的，这里的连接池里保存的其实不是真实的连接，它只是一个worker_connections(不大于系统对fd的限制)大小的ngx_connection_t结构体的数组。并且，Nginx会通过一个链表free_connections来保存所有的空闲ngx_connection_t，每次获取一个连接时，就从空闲连接链表里获取一个，用完后，再放回空间连接链表里。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;request&lt;/p&gt;&#xA;&lt;p&gt;在Ningx中request我们指的是http请求，具体到Nginx中的数据结构是ngx_http_request_t。它是对一个Http请求的封装。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;指令&#34;&gt;指令&lt;/h3&gt;&#xA;&lt;h4 id=&#34;server&#34;&gt;server&lt;/h4&gt;&#xA;&lt;p&gt;用于定义服务，http中可以有多个server块&lt;/p&gt;&#xA;&lt;h4 id=&#34;listen&#34;&gt;listen&lt;/h4&gt;&#xA;&lt;p&gt;指定服务器侦听请求的IP地址和端口，如果省略地址，服务器将侦听所有地址，如果省略端口，则使用标准端口&lt;/p&gt;&#xA;&lt;h4 id=&#34;server-name&#34;&gt;server_name&lt;/h4&gt;&#xA;&lt;p&gt;服务名称，用于配置域名使用_表示不做域名匹配.&lt;/p&gt;&#xA;&lt;h4 id=&#34;location&#34;&gt;location&lt;/h4&gt;&#xA;&lt;p&gt;用于配置映射路径uri对应的配置，一个server中可以有多个location, location后面跟一个uri,可以是一个正则表达式，/表示匹配任意路径，当客户端访问的路径满足这个uri时就会执行location块里的代码&lt;/p&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;修饰符&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;= 进行普通字符精确匹配。也就是完全匹配&lt;/li&gt;&#xA;&lt;li&gt;^~ 前缀匹配。如果匹配成功，则不再匹配其他location.&lt;/li&gt;&#xA;&lt;li&gt;~ 表示执行一个正则匹配，区分大小写&lt;/li&gt;&#xA;&lt;li&gt;~* 表示执行一个正则匹配，不区分大小写&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;xxx&lt;/em&gt; 常规字符串路径匹配&lt;/li&gt;&#xA;&lt;li&gt;/ 通用匹配， 任何请求都会匹配到&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;检查顺序&lt;/p&gt;&#xA;&lt;p&gt;location = &amp;gt; location 完整路径 &amp;gt; location ^~ &amp;gt; location ~, ~* &amp;gt; location 部分起始路径 &amp;gt; /&#xA;注意： location的优先级与location配置的位置无关&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;正则表达式&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
