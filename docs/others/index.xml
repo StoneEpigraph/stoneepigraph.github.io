@@ -4,15 +4,414 @@
     <title>Others on 石记</title>
     <link>https://stoneepigraph.github.io/others/</link>
     <description>Recent content in Others on 石记</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://stoneepigraph.github.io/others/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://stoneepigraph.github.io/others/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs-shortcutKeys</title>
       <link>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/others/emacs%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/</guid>
-      <description>&lt;h2 id=&#34;emacs-shortcutkeys&#34;&gt;Emacs shortcutKeys&lt;/h2&gt;&#xA;&lt;h3 id=&#34;基本快捷键-basic&#34;&gt;基本快捷键（Basic）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-x C-f 查找文件，即在缓冲区打开/新建一个文件&lt;/li&gt;&#xA;&lt;li&gt;C-x C-s 保存文件&lt;/li&gt;&#xA;&lt;li&gt;C-x C-w 使用其他文件名另存为文件&lt;/li&gt;&#xA;&lt;li&gt;C-x C-v 关闭当前缓冲区文件并打开新文件&lt;/li&gt;&#xA;&lt;li&gt;C-x i 在当前光标处插入文件&lt;/li&gt;&#xA;&lt;li&gt;C-x b 新建/切换缓冲区&lt;/li&gt;&#xA;&lt;li&gt;C-x C-b 显示缓冲区列表&lt;/li&gt;&#xA;&lt;li&gt;C-x k 关闭当前缓冲区&lt;/li&gt;&#xA;&lt;li&gt;C-z 挂起Emacs&lt;/li&gt;&#xA;&lt;li&gt;C-x C-c 关闭Emacs&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;光标移动基本快捷键-basic-movement&#34;&gt;光标移动基本快捷键（Basic Movement）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-f 后一个字符&lt;/li&gt;&#xA;&lt;li&gt;C-b 前一个字符&lt;/li&gt;&#xA;&lt;li&gt;C-p 上一行&lt;/li&gt;&#xA;&lt;li&gt;C-n 下一行&lt;/li&gt;&#xA;&lt;li&gt;M-f 后一个单词&lt;/li&gt;&#xA;&lt;li&gt;M-b 前一个单词&lt;/li&gt;&#xA;&lt;li&gt;C-a 行首&lt;/li&gt;&#xA;&lt;li&gt;C-e 行尾&lt;/li&gt;&#xA;&lt;li&gt;C-v 向下翻一页&lt;/li&gt;&#xA;&lt;li&gt;M-v 向上翻一页&lt;/li&gt;&#xA;&lt;li&gt;M-&amp;lt; 到文件开头&lt;/li&gt;&#xA;&lt;li&gt;M-&amp;gt; 到文件末尾&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;编辑-editint&#34;&gt;编辑（Editint）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;M-n 重复执行最后一个命令N次&lt;/li&gt;&#xA;&lt;li&gt;C-u 重复执行后一个命令4次&lt;/li&gt;&#xA;&lt;li&gt;C-u 重复执行后一个命令N次&lt;/li&gt;&#xA;&lt;li&gt;C-d 删除后一个字符&lt;/li&gt;&#xA;&lt;li&gt;Del 删除前一个字符&lt;/li&gt;&#xA;&lt;li&gt;M-Del 删除前一个单词&lt;/li&gt;&#xA;&lt;li&gt;C-k 移除到行尾&lt;/li&gt;&#xA;&lt;li&gt;C-Space 设置开头标记&lt;/li&gt;&#xA;&lt;li&gt;C-@ 设置开头标记，用于C-Space被操作系统拦截的情况&lt;/li&gt;&#xA;&lt;li&gt;C-w 移除标记区域的内容&lt;/li&gt;&#xA;&lt;li&gt;M-w 复制标记区域的内容&lt;/li&gt;&#xA;&lt;li&gt;C-y 粘贴复制或移除的区域/行&lt;/li&gt;&#xA;&lt;li&gt;M-y 粘贴更早的内容&lt;/li&gt;&#xA;&lt;li&gt;C-x C-x 交换光标和标记&lt;/li&gt;&#xA;&lt;li&gt;C-t 交换两个字符的位置&lt;/li&gt;&#xA;&lt;li&gt;C-x C-t 交换两行的位置&lt;/li&gt;&#xA;&lt;li&gt;M-t 交换两个单词的位置&lt;/li&gt;&#xA;&lt;li&gt;M-u 使从光标位置到单词结尾处的字母变成大写&lt;/li&gt;&#xA;&lt;li&gt;M-l 使从光标位置到单词结尾处的字母变成小写&lt;/li&gt;&#xA;&lt;li&gt;M-c 使光标位置开始的单词的首字母变成大写&lt;/li&gt;&#xA;&lt;li&gt;C-x r l 命名剪切板列表&lt;/li&gt;&#xA;&lt;li&gt;C-x r s name 插入命令剪切板&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;重要快捷键&#34;&gt;重要快捷键&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-g 停止当前运行/输入的命令&lt;/li&gt;&#xA;&lt;li&gt;C-x u 撤消前一个命令&lt;/li&gt;&#xA;&lt;li&gt;M-x revert-buffer RET 撤消上次存盘后所有改动&lt;/li&gt;&#xA;&lt;li&gt;M-x recover-file RET 从自动存盘文件恢复&lt;/li&gt;&#xA;&lt;li&gt;M-x recover-session RET 如果编辑了几个文件，用这个恢复&lt;/li&gt;&#xA;&lt;li&gt;C-c C-e 导出&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;在线帮助-online-help&#34;&gt;在线帮助（Online-help）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-h c 显示快捷键绑定的命令&lt;/li&gt;&#xA;&lt;li&gt;C-h k 显示快捷键绑定的命令和它的作用&lt;/li&gt;&#xA;&lt;li&gt;C-h l 显示最后100个键入的内容&lt;/li&gt;&#xA;&lt;li&gt;C-h w 显示命令被绑定到哪些快捷键上&lt;/li&gt;&#xA;&lt;li&gt;C-h f 显示函数的功能&lt;/li&gt;&#xA;&lt;li&gt;C-h v 显示变量的含义和值&lt;/li&gt;&#xA;&lt;li&gt;C-h b 显示当前缓冲区所有可用的快捷键&lt;/li&gt;&#xA;&lt;li&gt;C-h t 打开Emacs教程&lt;/li&gt;&#xA;&lt;li&gt;C-h i 打开info阅读器&lt;/li&gt;&#xA;&lt;li&gt;C-h C-f 显示emacs FAQ&lt;/li&gt;&#xA;&lt;li&gt;C-h p 显示本机Elisp包的信息&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;搜索-替换-search-replace&#34;&gt;搜索/替换（Search/Replace）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-s 向后搜索&lt;/li&gt;&#xA;&lt;li&gt;C-r 向前搜索&lt;/li&gt;&#xA;&lt;li&gt;C-g 回到搜索开始前的位置（如果你仍然在搜索模式中）&lt;/li&gt;&#xA;&lt;li&gt;M-% 询问并替换（query replace）&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Space或y 替换当前匹配&lt;/li&gt;&#xA;&lt;li&gt;Del或n 不要替换当前匹配&lt;/li&gt;&#xA;&lt;li&gt;. 仅仅替换当前匹配并退出替换&lt;/li&gt;&#xA;&lt;li&gt;, 替换并暂停（按Space或y继续）&lt;/li&gt;&#xA;&lt;li&gt;! 替换以下所有匹配&lt;/li&gt;&#xA;&lt;li&gt;^ 回到上一个匹配位置&lt;/li&gt;&#xA;&lt;li&gt;RET或q 退出替换&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;M-x query-replace-regexp 使用下则表达式搜索并替换&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;窗口命令-window-commands&#34;&gt;窗口命令（Window Commands）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-x 2 水平分割窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x 3 垂直分割窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x o 切换至其他窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x 0 关闭窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x 1 关闭除了光标所在窗口外的所有窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x ^ 扩大窗口&lt;/li&gt;&#xA;&lt;li&gt;M-x shrink-window 缩小窗口&lt;/li&gt;&#xA;&lt;li&gt;M C-v 滚动其他窗口内容&lt;/li&gt;&#xA;&lt;li&gt;C-x 4 f 在其他窗口中打开文件&lt;/li&gt;&#xA;&lt;li&gt;C-x 4 0 关闭当前缓冲区和窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x 5 2 新建窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x 5 f 在新窗口中打开文件&lt;/li&gt;&#xA;&lt;li&gt;C-x 5 o 切换至其他窗口&lt;/li&gt;&#xA;&lt;li&gt;C-x 5 0 关闭当前窗口&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;书签命令-bookmark-commands&#34;&gt;书签命令（Bookmark commands）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-x r m 在光标当前位置创建书签&lt;/li&gt;&#xA;&lt;li&gt;C-x r b 转到书签&lt;/li&gt;&#xA;&lt;li&gt;M-x bookmark-rename 重命名书签&lt;/li&gt;&#xA;&lt;li&gt;M-x bookmark-delete 删除书签&lt;/li&gt;&#xA;&lt;li&gt;M-x bookmark-save 保存书签&lt;/li&gt;&#xA;&lt;li&gt;C-x r l 列出书签清单&#xA;&lt;ul&gt;&#xA;&lt;li&gt;d 标记等待删除&lt;/li&gt;&#xA;&lt;li&gt;Del 取消删除标记&lt;/li&gt;&#xA;&lt;li&gt;x 删除被标记的书签&lt;/li&gt;&#xA;&lt;li&gt;r 重命名书签&lt;/li&gt;&#xA;&lt;li&gt;s 保存列表内所有书签&lt;/li&gt;&#xA;&lt;li&gt;f 转到当前书签指向的位置&lt;/li&gt;&#xA;&lt;li&gt;m 标记在多窗口中打开&lt;/li&gt;&#xA;&lt;li&gt;v 显示被标记的书签（或者光标当前位置的书签）&lt;/li&gt;&#xA;&lt;li&gt;t 切换是否显示路径列表&lt;/li&gt;&#xA;&lt;li&gt;w 显示当前文件路径&lt;/li&gt;&#xA;&lt;li&gt;q 退出书签列表&lt;/li&gt;&#xA;&lt;li&gt;M-x bookmark-write 将所有书签导出至指定文件&lt;/li&gt;&#xA;&lt;li&gt;M-x bookmark-load 从指定文件导入书签&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;shell&#34;&gt;Shell&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;M-x shell 打开shell模式&lt;/li&gt;&#xA;&lt;li&gt;C-c C-c 类似Unix里的C-c&lt;/li&gt;&#xA;&lt;li&gt;C-d 删除光标后一个字符&lt;/li&gt;&#xA;&lt;li&gt;C-c C-d 发送EOF&lt;/li&gt;&#xA;&lt;li&gt;C-c C-z 挂起程序&lt;/li&gt;&#xA;&lt;li&gt;M-p 显示前一条命令&lt;/li&gt;&#xA;&lt;li&gt;M-n 显示后一条命令&lt;/li&gt;&#xA;&lt;li&gt;C-u M-! shell Command 插入shell命令结果到当前窗口&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;directory-editor--dired&#34;&gt;Directory Editor(dired)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C-x d 打开dired&lt;/li&gt;&#xA;&lt;li&gt;C（大写c）复制&lt;/li&gt;&#xA;&lt;li&gt;d 标记等待删除&lt;/li&gt;&#xA;&lt;li&gt;D 立即删除&lt;/li&gt;&#xA;&lt;li&gt;e或f 打开文件或目录&lt;/li&gt;&#xA;&lt;li&gt;g 刷新当前目录&lt;/li&gt;&#xA;&lt;li&gt;G改变文件所属组（chgrp）&lt;/li&gt;&#xA;&lt;li&gt;k 从屏幕上的列表里删除一行（不是真的删除）&lt;/li&gt;&#xA;&lt;li&gt;m 用*标记&lt;/li&gt;&#xA;&lt;li&gt;n 光标移动到下一行&lt;/li&gt;&#xA;&lt;li&gt;o 在另一个空格打开文件并移动光标&lt;/li&gt;&#xA;&lt;li&gt;C-o 在另一个窗口打开文件但不移动光标&lt;/li&gt;&#xA;&lt;li&gt;P 打印文件&lt;/li&gt;&#xA;&lt;li&gt;q 退出dired&lt;/li&gt;&#xA;&lt;li&gt;Q 在标记的文件中替换&lt;/li&gt;&#xA;&lt;li&gt;R 重命名文件&lt;/li&gt;&#xA;&lt;li&gt;u 移除标记&lt;/li&gt;&#xA;&lt;li&gt;v 显示文件内容&lt;/li&gt;&#xA;&lt;li&gt;x 删除有D标记的文件&lt;/li&gt;&#xA;&lt;li&gt;^ 返回上一级目录&lt;/li&gt;&#xA;&lt;li&gt;Z 压缩/解压缩文件&lt;/li&gt;&#xA;&lt;li&gt;M-Del 移除标记（默认为所有类型的标记）&lt;/li&gt;&#xA;&lt;li&gt;~ 标记备份文件（文件名有~的文件）等待删除&lt;/li&gt;&#xA;&lt;li&gt;# 标记自动保存文件（文件名形如#name#）等待删除&lt;/li&gt;&#xA;&lt;li&gt;*/ 用*标记所有文件夹（用C-u */n移除标记）&lt;/li&gt;&#xA;&lt;li&gt;= 将当前文件和标记文件（使用C-@标记而不是dired的m标记）比较&lt;/li&gt;&#xA;&lt;li&gt;M-= 将当前文件和它的备份比较&lt;/li&gt;&#xA;&lt;li&gt;! 对当前文件应用shell命令&lt;/li&gt;&#xA;&lt;li&gt;M-} 移动光标至下一个用*或D标记的文件&lt;/li&gt;&#xA;&lt;li&gt;M-{ 移动光标至上一个用*或D标记的文件&lt;/li&gt;&#xA;&lt;li&gt;% d 使用正则表达式标记文件等待删除&lt;/li&gt;&#xA;&lt;li&gt;% m 使用正帽表达式标记文件为*&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;新建文件夹&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&amp;gt; 移动光标至后一个文件夹&lt;/li&gt;&#xA;&lt;li&gt;&amp;lt; 移动光标至前一个文件夹&lt;/li&gt;&#xA;&lt;li&gt;s 切换排序模式（按文件名/日期）&lt;/li&gt;&#xA;&lt;li&gt;M-x speedbar 打开一个独立的窗口显示目录&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;telnet&#34;&gt;Telnet&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;M-x telnet 打开telnet模式&lt;/li&gt;&#xA;&lt;li&gt;C-d 删除后一个字符或发送EOF&lt;/li&gt;&#xA;&lt;li&gt;C-c C-c 停止正在运行的程序&lt;/li&gt;&#xA;&lt;li&gt;C-c C-d 发送EOF&lt;/li&gt;&#xA;&lt;li&gt;C-c C-o 清除最后一个命令的输出&lt;/li&gt;&#xA;&lt;li&gt;C-c C-z 挂起正在运行的命令&lt;/li&gt;&#xA;&lt;li&gt;C-c C-u 移除前一行&lt;/li&gt;&#xA;&lt;li&gt;M-p 显示前一条命令&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;text&#34;&gt;Text&lt;/h3&gt;&#xA;&lt;p&gt;如下命令只能在Text模式里使用&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;emacs-shortcutkeys&#34; class=&#34;header-anchor-wrapper&#34;&gt;Emacs shortcutKeys
+  &lt;a href=&#34;#emacs-shortcutkeys&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;基本快捷键-basic&#34; class=&#34;header-anchor-wrapper&#34;&gt;基本快捷键（Basic）
+  &lt;a href=&#34;#%e5%9f%ba%e6%9c%ac%e5%bf%ab%e6%8d%b7%e9%94%ae-basic&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-x C-f 查找文件，即在缓冲区打开/新建一个文件&lt;/li&gt;
+&lt;li&gt;C-x C-s 保存文件&lt;/li&gt;
+&lt;li&gt;C-x C-w 使用其他文件名另存为文件&lt;/li&gt;
+&lt;li&gt;C-x C-v 关闭当前缓冲区文件并打开新文件&lt;/li&gt;
+&lt;li&gt;C-x i 在当前光标处插入文件&lt;/li&gt;
+&lt;li&gt;C-x b 新建/切换缓冲区&lt;/li&gt;
+&lt;li&gt;C-x C-b 显示缓冲区列表&lt;/li&gt;
+&lt;li&gt;C-x k 关闭当前缓冲区&lt;/li&gt;
+&lt;li&gt;C-z 挂起Emacs&lt;/li&gt;
+&lt;li&gt;C-x C-c 关闭Emacs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;光标移动基本快捷键-basic-movement&#34; class=&#34;header-anchor-wrapper&#34;&gt;光标移动基本快捷键（Basic Movement）
+  &lt;a href=&#34;#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8%e5%9f%ba%e6%9c%ac%e5%bf%ab%e6%8d%b7%e9%94%ae-basic-movement&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-f 后一个字符&lt;/li&gt;
+&lt;li&gt;C-b 前一个字符&lt;/li&gt;
+&lt;li&gt;C-p 上一行&lt;/li&gt;
+&lt;li&gt;C-n 下一行&lt;/li&gt;
+&lt;li&gt;M-f 后一个单词&lt;/li&gt;
+&lt;li&gt;M-b 前一个单词&lt;/li&gt;
+&lt;li&gt;C-a 行首&lt;/li&gt;
+&lt;li&gt;C-e 行尾&lt;/li&gt;
+&lt;li&gt;C-v 向下翻一页&lt;/li&gt;
+&lt;li&gt;M-v 向上翻一页&lt;/li&gt;
+&lt;li&gt;M-&amp;lt; 到文件开头&lt;/li&gt;
+&lt;li&gt;M-&amp;gt; 到文件末尾&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;编辑-editint&#34; class=&#34;header-anchor-wrapper&#34;&gt;编辑（Editint）
+  &lt;a href=&#34;#%e7%bc%96%e8%be%91-editint&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;M-n 重复执行最后一个命令N次&lt;/li&gt;
+&lt;li&gt;C-u 重复执行后一个命令4次&lt;/li&gt;
+&lt;li&gt;C-u 重复执行后一个命令N次&lt;/li&gt;
+&lt;li&gt;C-d 删除后一个字符&lt;/li&gt;
+&lt;li&gt;Del 删除前一个字符&lt;/li&gt;
+&lt;li&gt;M-Del 删除前一个单词&lt;/li&gt;
+&lt;li&gt;C-k 移除到行尾&lt;/li&gt;
+&lt;li&gt;C-Space 设置开头标记&lt;/li&gt;
+&lt;li&gt;C-@ 设置开头标记，用于C-Space被操作系统拦截的情况&lt;/li&gt;
+&lt;li&gt;C-w 移除标记区域的内容&lt;/li&gt;
+&lt;li&gt;M-w 复制标记区域的内容&lt;/li&gt;
+&lt;li&gt;C-y 粘贴复制或移除的区域/行&lt;/li&gt;
+&lt;li&gt;M-y 粘贴更早的内容&lt;/li&gt;
+&lt;li&gt;C-x C-x 交换光标和标记&lt;/li&gt;
+&lt;li&gt;C-t 交换两个字符的位置&lt;/li&gt;
+&lt;li&gt;C-x C-t 交换两行的位置&lt;/li&gt;
+&lt;li&gt;M-t 交换两个单词的位置&lt;/li&gt;
+&lt;li&gt;M-u 使从光标位置到单词结尾处的字母变成大写&lt;/li&gt;
+&lt;li&gt;M-l 使从光标位置到单词结尾处的字母变成小写&lt;/li&gt;
+&lt;li&gt;M-c 使光标位置开始的单词的首字母变成大写&lt;/li&gt;
+&lt;li&gt;C-x r l 命名剪切板列表&lt;/li&gt;
+&lt;li&gt;C-x r s name 插入命令剪切板&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;重要快捷键&#34; class=&#34;header-anchor-wrapper&#34;&gt;重要快捷键
+  &lt;a href=&#34;#%e9%87%8d%e8%a6%81%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-g 停止当前运行/输入的命令&lt;/li&gt;
+&lt;li&gt;C-x u 撤消前一个命令&lt;/li&gt;
+&lt;li&gt;M-x revert-buffer RET 撤消上次存盘后所有改动&lt;/li&gt;
+&lt;li&gt;M-x recover-file RET 从自动存盘文件恢复&lt;/li&gt;
+&lt;li&gt;M-x recover-session RET 如果编辑了几个文件，用这个恢复&lt;/li&gt;
+&lt;li&gt;C-c C-e 导出&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;在线帮助-online-help&#34; class=&#34;header-anchor-wrapper&#34;&gt;在线帮助（Online-help）
+  &lt;a href=&#34;#%e5%9c%a8%e7%ba%bf%e5%b8%ae%e5%8a%a9-online-help&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-h c 显示快捷键绑定的命令&lt;/li&gt;
+&lt;li&gt;C-h k 显示快捷键绑定的命令和它的作用&lt;/li&gt;
+&lt;li&gt;C-h l 显示最后100个键入的内容&lt;/li&gt;
+&lt;li&gt;C-h w 显示命令被绑定到哪些快捷键上&lt;/li&gt;
+&lt;li&gt;C-h f 显示函数的功能&lt;/li&gt;
+&lt;li&gt;C-h v 显示变量的含义和值&lt;/li&gt;
+&lt;li&gt;C-h b 显示当前缓冲区所有可用的快捷键&lt;/li&gt;
+&lt;li&gt;C-h t 打开Emacs教程&lt;/li&gt;
+&lt;li&gt;C-h i 打开info阅读器&lt;/li&gt;
+&lt;li&gt;C-h C-f 显示emacs FAQ&lt;/li&gt;
+&lt;li&gt;C-h p 显示本机Elisp包的信息&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;搜索-替换-search-replace&#34; class=&#34;header-anchor-wrapper&#34;&gt;搜索/替换（Search/Replace）
+  &lt;a href=&#34;#%e6%90%9c%e7%b4%a2-%e6%9b%bf%e6%8d%a2-search-replace&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-s 向后搜索&lt;/li&gt;
+&lt;li&gt;C-r 向前搜索&lt;/li&gt;
+&lt;li&gt;C-g 回到搜索开始前的位置（如果你仍然在搜索模式中）&lt;/li&gt;
+&lt;li&gt;M-% 询问并替换（query replace）
+&lt;ul&gt;
+&lt;li&gt;Space或y 替换当前匹配&lt;/li&gt;
+&lt;li&gt;Del或n 不要替换当前匹配&lt;/li&gt;
+&lt;li&gt;. 仅仅替换当前匹配并退出替换&lt;/li&gt;
+&lt;li&gt;, 替换并暂停（按Space或y继续）&lt;/li&gt;
+&lt;li&gt;! 替换以下所有匹配&lt;/li&gt;
+&lt;li&gt;^ 回到上一个匹配位置&lt;/li&gt;
+&lt;li&gt;RET或q 退出替换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;M-x query-replace-regexp 使用下则表达式搜索并替换&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;窗口命令-window-commands&#34; class=&#34;header-anchor-wrapper&#34;&gt;窗口命令（Window Commands）
+  &lt;a href=&#34;#%e7%aa%97%e5%8f%a3%e5%91%bd%e4%bb%a4-window-commands&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-x 2 水平分割窗口&lt;/li&gt;
+&lt;li&gt;C-x 3 垂直分割窗口&lt;/li&gt;
+&lt;li&gt;C-x o 切换至其他窗口&lt;/li&gt;
+&lt;li&gt;C-x 0 关闭窗口&lt;/li&gt;
+&lt;li&gt;C-x 1 关闭除了光标所在窗口外的所有窗口&lt;/li&gt;
+&lt;li&gt;C-x ^ 扩大窗口&lt;/li&gt;
+&lt;li&gt;M-x shrink-window 缩小窗口&lt;/li&gt;
+&lt;li&gt;M C-v 滚动其他窗口内容&lt;/li&gt;
+&lt;li&gt;C-x 4 f 在其他窗口中打开文件&lt;/li&gt;
+&lt;li&gt;C-x 4 0 关闭当前缓冲区和窗口&lt;/li&gt;
+&lt;li&gt;C-x 5 2 新建窗口&lt;/li&gt;
+&lt;li&gt;C-x 5 f 在新窗口中打开文件&lt;/li&gt;
+&lt;li&gt;C-x 5 o 切换至其他窗口&lt;/li&gt;
+&lt;li&gt;C-x 5 0 关闭当前窗口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;书签命令-bookmark-commands&#34; class=&#34;header-anchor-wrapper&#34;&gt;书签命令（Bookmark commands）
+  &lt;a href=&#34;#%e4%b9%a6%e7%ad%be%e5%91%bd%e4%bb%a4-bookmark-commands&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-x r m 在光标当前位置创建书签&lt;/li&gt;
+&lt;li&gt;C-x r b 转到书签&lt;/li&gt;
+&lt;li&gt;M-x bookmark-rename 重命名书签&lt;/li&gt;
+&lt;li&gt;M-x bookmark-delete 删除书签&lt;/li&gt;
+&lt;li&gt;M-x bookmark-save 保存书签&lt;/li&gt;
+&lt;li&gt;C-x r l 列出书签清单
+&lt;ul&gt;
+&lt;li&gt;d 标记等待删除&lt;/li&gt;
+&lt;li&gt;Del 取消删除标记&lt;/li&gt;
+&lt;li&gt;x 删除被标记的书签&lt;/li&gt;
+&lt;li&gt;r 重命名书签&lt;/li&gt;
+&lt;li&gt;s 保存列表内所有书签&lt;/li&gt;
+&lt;li&gt;f 转到当前书签指向的位置&lt;/li&gt;
+&lt;li&gt;m 标记在多窗口中打开&lt;/li&gt;
+&lt;li&gt;v 显示被标记的书签（或者光标当前位置的书签）&lt;/li&gt;
+&lt;li&gt;t 切换是否显示路径列表&lt;/li&gt;
+&lt;li&gt;w 显示当前文件路径&lt;/li&gt;
+&lt;li&gt;q 退出书签列表&lt;/li&gt;
+&lt;li&gt;M-x bookmark-write 将所有书签导出至指定文件&lt;/li&gt;
+&lt;li&gt;M-x bookmark-load 从指定文件导入书签&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;shell&#34; class=&#34;header-anchor-wrapper&#34;&gt;Shell
+  &lt;a href=&#34;#shell&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;M-x shell 打开shell模式&lt;/li&gt;
+&lt;li&gt;C-c C-c 类似Unix里的C-c&lt;/li&gt;
+&lt;li&gt;C-d 删除光标后一个字符&lt;/li&gt;
+&lt;li&gt;C-c C-d 发送EOF&lt;/li&gt;
+&lt;li&gt;C-c C-z 挂起程序&lt;/li&gt;
+&lt;li&gt;M-p 显示前一条命令&lt;/li&gt;
+&lt;li&gt;M-n 显示后一条命令&lt;/li&gt;
+&lt;li&gt;C-u M-! shell Command 插入shell命令结果到当前窗口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;directory-editor--dired&#34; class=&#34;header-anchor-wrapper&#34;&gt;Directory Editor(dired)
+  &lt;a href=&#34;#directory-editor--dired&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-x d 打开dired&lt;/li&gt;
+&lt;li&gt;C（大写c）复制&lt;/li&gt;
+&lt;li&gt;d 标记等待删除&lt;/li&gt;
+&lt;li&gt;D 立即删除&lt;/li&gt;
+&lt;li&gt;e或f 打开文件或目录&lt;/li&gt;
+&lt;li&gt;g 刷新当前目录&lt;/li&gt;
+&lt;li&gt;G改变文件所属组（chgrp）&lt;/li&gt;
+&lt;li&gt;k 从屏幕上的列表里删除一行（不是真的删除）&lt;/li&gt;
+&lt;li&gt;m 用*标记&lt;/li&gt;
+&lt;li&gt;n 光标移动到下一行&lt;/li&gt;
+&lt;li&gt;o 在另一个空格打开文件并移动光标&lt;/li&gt;
+&lt;li&gt;C-o 在另一个窗口打开文件但不移动光标&lt;/li&gt;
+&lt;li&gt;P 打印文件&lt;/li&gt;
+&lt;li&gt;q 退出dired&lt;/li&gt;
+&lt;li&gt;Q 在标记的文件中替换&lt;/li&gt;
+&lt;li&gt;R 重命名文件&lt;/li&gt;
+&lt;li&gt;u 移除标记&lt;/li&gt;
+&lt;li&gt;v 显示文件内容&lt;/li&gt;
+&lt;li&gt;x 删除有D标记的文件&lt;/li&gt;
+&lt;li&gt;^ 返回上一级目录&lt;/li&gt;
+&lt;li&gt;Z 压缩/解压缩文件&lt;/li&gt;
+&lt;li&gt;M-Del 移除标记（默认为所有类型的标记）&lt;/li&gt;
+&lt;li&gt;~ 标记备份文件（文件名有~的文件）等待删除&lt;/li&gt;
+&lt;li&gt;# 标记自动保存文件（文件名形如#name#）等待删除&lt;/li&gt;
+&lt;li&gt;*/ 用*标记所有文件夹（用C-u */n移除标记）&lt;/li&gt;
+&lt;li&gt;= 将当前文件和标记文件（使用C-@标记而不是dired的m标记）比较&lt;/li&gt;
+&lt;li&gt;M-= 将当前文件和它的备份比较&lt;/li&gt;
+&lt;li&gt;! 对当前文件应用shell命令&lt;/li&gt;
+&lt;li&gt;M-} 移动光标至下一个用*或D标记的文件&lt;/li&gt;
+&lt;li&gt;M-{ 移动光标至上一个用*或D标记的文件&lt;/li&gt;
+&lt;li&gt;% d 使用正则表达式标记文件等待删除&lt;/li&gt;
+&lt;li&gt;% m 使用正帽表达式标记文件为*&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;新建文件夹&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&amp;gt; 移动光标至后一个文件夹&lt;/li&gt;
+&lt;li&gt;&amp;lt; 移动光标至前一个文件夹&lt;/li&gt;
+&lt;li&gt;s 切换排序模式（按文件名/日期）&lt;/li&gt;
+&lt;li&gt;M-x speedbar 打开一个独立的窗口显示目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;telnet&#34; class=&#34;header-anchor-wrapper&#34;&gt;Telnet
+  &lt;a href=&#34;#telnet&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;M-x telnet 打开telnet模式&lt;/li&gt;
+&lt;li&gt;C-d 删除后一个字符或发送EOF&lt;/li&gt;
+&lt;li&gt;C-c C-c 停止正在运行的程序&lt;/li&gt;
+&lt;li&gt;C-c C-d 发送EOF&lt;/li&gt;
+&lt;li&gt;C-c C-o 清除最后一个命令的输出&lt;/li&gt;
+&lt;li&gt;C-c C-z 挂起正在运行的命令&lt;/li&gt;
+&lt;li&gt;C-c C-u 移除前一行&lt;/li&gt;
+&lt;li&gt;M-p 显示前一条命令&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;text&#34; class=&#34;header-anchor-wrapper&#34;&gt;Text
+  &lt;a href=&#34;#text&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;如下命令只能在Text模式里使用&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

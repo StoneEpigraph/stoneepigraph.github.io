@@ -4,16 +4,187 @@
     <title>Architecture on 石记</title>
     <link>https://stoneepigraph.github.io/categories/architecture/</link>
     <description>Recent content in Architecture on 石记</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://stoneepigraph.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>重构2</title>
       <link>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
       <guid>https://stoneepigraph.github.io/posts/%E9%87%8D%E6%9E%842/</guid>
-      <description>&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;&#xA;&lt;p&gt;本章重构：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;将原函数分解成一组嵌套的函数&lt;/li&gt;&#xA;&lt;li&gt;分离计算逻辑与输出格式化逻辑&lt;/li&gt;&#xA;&lt;li&gt;为计算器引入多态性来处理计算逻辑&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积&lt;/p&gt;&#xA;&lt;h2 id=&#34;重构的原则&#34;&gt;重构的原则&lt;/h2&gt;&#xA;&lt;h3 id=&#34;何谓重构&#34;&gt;何谓重构&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本.&lt;/li&gt;&#xA;&lt;li&gt;动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;重构时不添加新功能-添加新功能时不重构-dot&#34;&gt;重构时不添加新功能,添加新功能时不重构.&lt;/h3&gt;&#xA;&lt;h3 id=&#34;为何重构&#34;&gt;为何重构&lt;/h3&gt;&#xA;&lt;h4 id=&#34;改进软件的设计&#34;&gt;改进软件的设计&lt;/h4&gt;&#xA;&lt;h4 id=&#34;使软件更容易理解&#34;&gt;使软件更容易理解&lt;/h4&gt;&#xA;&lt;h4 id=&#34;帮助找到bug&#34;&gt;帮助找到BUG&lt;/h4&gt;&#xA;&lt;h4 id=&#34;提高编程速度&#34;&gt;提高编程速度&lt;/h4&gt;&#xA;&lt;h3 id=&#34;何时重构&#34;&gt;何时重构&lt;/h3&gt;&#xA;&lt;p&gt;事不过三, 三则重构&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;预备性重构: 在添加新功能之前进行重构&lt;/li&gt;&#xA;&lt;li&gt;帮助理解的重构:&lt;/li&gt;&#xA;&lt;li&gt;捡垃圾式重构:&#xA;不想从眼下正要完成的代码上跑题太多,但也不想把垃圾留在原地.所以在重构可以很快完成时就立即重构,如果需要花一些精力,可以做一个TODO.至少要让营地比你到达时干净.&lt;/li&gt;&#xA;&lt;li&gt;有计划的重构和见机行事的重构每次修改时,首先令修改很容易,然后再进行这次容易的修改.&lt;/li&gt;&#xA;&lt;li&gt;长期重构如果想替换掉一个正在使用的库,需要很长时间,可以先引入一层新的抽象,使其兼容新旧的两个库的接口.一旦调用方已经完全为使用这层抽象,替换掉下面的库就会容易很多.&lt;/li&gt;&#xA;&lt;li&gt;重审代码时重构&lt;/li&gt;&#xA;&lt;li&gt;何是不应该重构&#xA;&lt;ul&gt;&#xA;&lt;li&gt;如果我看见一块凌乱的代码,但并不需要修改它,那么我就不需要重构它.&lt;/li&gt;&#xA;&lt;li&gt;如果丑陋的代码能被隐藏在一个API之下,我就可以容忍它继续保持丑陋.&lt;/li&gt;&#xA;&lt;li&gt;如果重写比重构还容易,就别重构了.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;重构的挑战&#34;&gt;重构的挑战&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;延缓新功能开发&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;代码的坏味道&#34;&gt;代码的坏味道&lt;/h2&gt;&#xA;&lt;h3 id=&#34;神秘命名&#34;&gt;神秘命名&lt;/h3&gt;&#xA;&lt;h3 id=&#34;重复代码&#34;&gt;重复代码&lt;/h3&gt;&#xA;&lt;h3 id=&#34;过长函数&#34;&gt;过长函数&lt;/h3&gt;&#xA;&lt;p&gt;现代编程语言几乎已经完全免除了进程内的函数调用开销.&lt;/p&gt;&#xA;&lt;h3 id=&#34;过长的参数列表&#34;&gt;过长的参数列表&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;如果可以向某个参数发起查询而获得另一个参数的值,那么就可以使用以查询取代参数去掉这第二个参数.&lt;/li&gt;&#xA;&lt;li&gt;如果正在从现有的数据结构中抽出很多数据荐,就可以考虑使用保持对象完整手法&lt;/li&gt;&#xA;&lt;li&gt;如果有几项参数总是同时出现,可以引入参数对象&lt;/li&gt;&#xA;&lt;li&gt;如果某个参数被用作区分函数行为的标记,可以使用移除标记参数.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;全局数据&#34;&gt;全局数据&lt;/h3&gt;&#xA;&lt;p&gt;可以把全局数据用一个函数包装起来,至少能看见修改它的地方.&lt;/p&gt;&#xA;&lt;h3 id=&#34;可变数据&#34;&gt;可变数据&lt;/h3&gt;&#xA;&lt;h3 id=&#34;发散式变化&#34;&gt;发散式变化&lt;/h3&gt;&#xA;&lt;p&gt;每次只关心一个上下文&lt;/p&gt;&#xA;&lt;h3 id=&#34;霰弹式修改&#34;&gt;霰弹式修改&lt;/h3&gt;&#xA;&lt;h3 id=&#34;依恋情结&#34;&gt;依恋情结&lt;/h3&gt;&#xA;&lt;p&gt;总是将一起变化的东西放在一块儿.&lt;/p&gt;&#xA;&lt;h3 id=&#34;数据泥团&#34;&gt;数据泥团&lt;/h3&gt;&#xA;&lt;h3 id=&#34;基本类型偏执&#34;&gt;基本类型偏执&lt;/h3&gt;&#xA;&lt;p&gt;可以运用使用对象取代基本类型&lt;/p&gt;&#xA;&lt;h3 id=&#34;重复的switch&#34;&gt;重复的switch&lt;/h3&gt;&#xA;&lt;p&gt;任何switch语句都应该用以多态取代条件表达式.&lt;/p&gt;&#xA;&lt;h3 id=&#34;循环语句&#34;&gt;循环语句&lt;/h3&gt;&#xA;&lt;p&gt;可以使用管道取代循环&lt;/p&gt;&#xA;&lt;h3 id=&#34;冗赘的元素&#34;&gt;冗赘的元素&lt;/h3&gt;&#xA;&lt;p&gt;有些类或者额外的结构在设计过程中不再有用,就把它抛弃&lt;/p&gt;&#xA;&lt;h3 id=&#34;夸夸其谈通用性&#34;&gt;夸夸其谈通用性&lt;/h3&gt;&#xA;&lt;p&gt;那些我们想的总有一天需要做这些事,并且企图以各式各样的钩子和特殊情况来处理一些非必要的事情.&lt;/p&gt;&#xA;&lt;h3 id=&#34;临时字段&#34;&gt;临时字段&lt;/h3&gt;&#xA;&lt;h3 id=&#34;过长的消息链&#34;&gt;过长的消息链&lt;/h3&gt;&#xA;&lt;p&gt;可以使用隐藏委托关系&lt;/p&gt;&#xA;&lt;h3 id=&#34;中间人&#34;&gt;中间人&lt;/h3&gt;&#xA;&lt;p&gt;如果你看到某个类中有一半的函数都委托给其它类,这样就是过度运用.应该移除中间人.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;开始&#34; class=&#34;header-anchor-wrapper&#34;&gt;开始
+  &lt;a href=&#34;#%e5%bc%80%e5%a7%8b&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;本章重构：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将原函数分解成一组嵌套的函数&lt;/li&gt;
+&lt;li&gt;分离计算逻辑与输出格式化逻辑&lt;/li&gt;
+&lt;li&gt;为计算器引入多态性来处理计算逻辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好的代码的检验标准就是人们是否能构轻易地修改它注： 小步累积&lt;/p&gt;
+
+&lt;h2 id=&#34;重构的原则&#34; class=&#34;header-anchor-wrapper&#34;&gt;重构的原则
+  &lt;a href=&#34;#%e9%87%8d%e6%9e%84%e7%9a%84%e5%8e%9f%e5%88%99&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+
+
+&lt;h3 id=&#34;何谓重构&#34; class=&#34;header-anchor-wrapper&#34;&gt;何谓重构
+  &lt;a href=&#34;#%e4%bd%95%e8%b0%93%e9%87%8d%e6%9e%84&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;名: 对软件内部结构的一种调整,目的是在不改变软件可观察行为的前提下,提高其可理解性,降低其修改成本.&lt;/li&gt;
+&lt;li&gt;动: 使用一系列重构手法,在不改变软件可观察行为的前提下,高速其结构.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;重构时不添加新功能-添加新功能时不重构-dot&#34; class=&#34;header-anchor-wrapper&#34;&gt;重构时不添加新功能,添加新功能时不重构.
+  &lt;a href=&#34;#%e9%87%8d%e6%9e%84%e6%97%b6%e4%b8%8d%e6%b7%bb%e5%8a%a0%e6%96%b0%e5%8a%9f%e8%83%bd-%e6%b7%bb%e5%8a%a0%e6%96%b0%e5%8a%9f%e8%83%bd%e6%97%b6%e4%b8%8d%e9%87%8d%e6%9e%84-dot&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h3 id=&#34;为何重构&#34; class=&#34;header-anchor-wrapper&#34;&gt;为何重构
+  &lt;a href=&#34;#%e4%b8%ba%e4%bd%95%e9%87%8d%e6%9e%84&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+
+&lt;h4 id=&#34;改进软件的设计&#34; class=&#34;header-anchor-wrapper&#34;&gt;改进软件的设计
+  &lt;a href=&#34;#%e6%94%b9%e8%bf%9b%e8%bd%af%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+
+&lt;h4 id=&#34;使软件更容易理解&#34; class=&#34;header-anchor-wrapper&#34;&gt;使软件更容易理解
+  &lt;a href=&#34;#%e4%bd%bf%e8%bd%af%e4%bb%b6%e6%9b%b4%e5%ae%b9%e6%98%93%e7%90%86%e8%a7%a3&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+
+&lt;h4 id=&#34;帮助找到bug&#34; class=&#34;header-anchor-wrapper&#34;&gt;帮助找到BUG
+  &lt;a href=&#34;#%e5%b8%ae%e5%8a%a9%e6%89%be%e5%88%b0bug&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+
+&lt;h4 id=&#34;提高编程速度&#34; class=&#34;header-anchor-wrapper&#34;&gt;提高编程速度
+  &lt;a href=&#34;#%e6%8f%90%e9%ab%98%e7%bc%96%e7%a8%8b%e9%80%9f%e5%ba%a6&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+
+
+&lt;h3 id=&#34;何时重构&#34; class=&#34;header-anchor-wrapper&#34;&gt;何时重构
+  &lt;a href=&#34;#%e4%bd%95%e6%97%b6%e9%87%8d%e6%9e%84&#34; class=&#34;header-anchor-link&#34;&gt;
+    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
+&lt;svg
+    xmlns=&#34;http://www.w3.org/2000/svg&#34;
+    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
+    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
+    stroke-linejoin=&#34;round&#34;&gt;
+    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
+&lt;/svg&gt;
+
+&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;事不过三, 三则重构&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>
