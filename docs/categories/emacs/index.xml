@@ -4,80 +4,16 @@
     <title>Emacs on 石记</title>
     <link>https://stoneepigraph.github.io/categories/emacs/</link>
     <description>Recent content in Emacs on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs Lisp</title>
       <link>https://stoneepigraph.github.io/posts/emacslisp/</link>
       <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/emacslisp/</guid>
-      <description>&lt;h2 id=&#34;elisp&#34; class=&#34;header-anchor-wrapper&#34;&gt;ELisp
-  &lt;a href=&#34;#elisp&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;快捷键&#34; class=&#34;header-anchor-wrapper&#34;&gt;快捷键
-  &lt;a href=&#34;#%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-
-&lt;h4 id=&#34;格式化区域代码-c-m&#34; class=&#34;header-anchor-wrapper&#34;&gt;格式化区域代码： C - M - \
-  &lt;a href=&#34;#%e6%a0%bc%e5%bc%8f%e5%8c%96%e5%8c%ba%e5%9f%9f%e4%bb%a3%e7%a0%81-c-m&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-
-&lt;h4 id=&#34;执行代码-c-x-c-e&#34; class=&#34;header-anchor-wrapper&#34;&gt;执行代码： C - x C - e
-  &lt;a href=&#34;#%e6%89%a7%e8%a1%8c%e4%bb%a3%e7%a0%81-c-x-c-e&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;p&gt;相当于 eval-last-sexp&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;elisp&#34;&gt;ELisp&lt;/h2&gt;&#xA;&lt;h3 id=&#34;快捷键&#34;&gt;快捷键&lt;/h3&gt;&#xA;&lt;h4 id=&#34;格式化区域代码-c-m&#34;&gt;格式化区域代码： C - M - \&lt;/h4&gt;&#xA;&lt;h4 id=&#34;执行代码-c-x-c-e&#34;&gt;执行代码： C - x C - e&lt;/h4&gt;&#xA;&lt;p&gt;相当于 eval-last-sexp&lt;/p&gt;&#xA;&lt;h4 id=&#34;执行代码并将执行结果放到光标处-c-u-c-x-c-e&#34;&gt;执行代码并将执行结果放到光标处： C - u C - x C - e&lt;/h4&gt;&#xA;&lt;h4 id=&#34;查找更多信息&#34;&gt;查找更多信息&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;查询函数信息： C - h f&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;查询变量信息： C - h v&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;查询快捷键信息： C - h k&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;使用正则表达式查询函数名： M - x apropos&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;数据类型&#34;&gt;数据类型&lt;/h3&gt;&#xA;&lt;h4 id=&#34;内建&#34;&gt;内建&lt;/h4&gt;&#xA;&lt;p&gt;内建的Emacs数据类型称为primitive types, 包括整数、浮点数、cons、符号（symbol)、字符串、向量(vector)、散列表(hash-table)、subr(内建函数， 比如cons, if, and)、byte-code function, 和其它特殊类型， 例如缓冲区(buffer)&lt;/p&gt;&#xA;&lt;h4 id=&#34;数字&#34;&gt;数字&lt;/h4&gt;&#xA;&lt;p&gt;Emacs的数字分为整数和浮点数。1.属于整数&lt;/p&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;整数&lt;/p&gt;&#xA;&lt;p&gt;一般来说最小范围是在-2**28 ~ 2**28-1.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

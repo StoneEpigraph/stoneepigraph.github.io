@@ -4,76 +4,16 @@
     <title>MVN on 石记</title>
     <link>https://stoneepigraph.github.io/categories/mvn/</link>
     <description>Recent content in MVN on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://stoneepigraph.github.io/categories/mvn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/categories/mvn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>maven基础</title>
       <link>https://stoneepigraph.github.io/posts/maven/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/maven/</guid>
-      <description>&lt;h2 id=&#34;maven库&#34; class=&#34;header-anchor-wrapper&#34;&gt;Maven库：
-  &lt;a href=&#34;#maven%e5%ba%93&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://repo2.maven.org/maven2/&#34;&gt;http://repo2.maven.org/maven2/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;maven依赖查询&#34; class=&#34;header-anchor-wrapper&#34;&gt;Maven依赖查询：
-  &lt;a href=&#34;#maven%e4%be%9d%e8%b5%96%e6%9f%a5%e8%af%a2&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://mvnrepository.com/&#34;&gt;http://mvnrepository.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;maven常用命令&#34; class=&#34;header-anchor-wrapper&#34;&gt;Maven常用命令：
-  &lt;a href=&#34;#maven%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建Maven的普通java项目：
-mvn archetype:create
--DgroupId=packageName
--DartifactId=projectName&lt;/li&gt;
-&lt;li&gt;创建Maven的Web项目：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;​    mvn archetype:create
-​    -DgroupId=packageName
-​    -DartifactId=webappName
-​    -DarchetypeArtifactId=maven-archetype-webapp&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;maven库&#34;&gt;Maven库：&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://repo2.maven.org/maven2/&#34;&gt;http://repo2.maven.org/maven2/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;maven依赖查询&#34;&gt;Maven依赖查询：&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://mvnrepository.com/&#34;&gt;http://mvnrepository.com/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;maven常用命令&#34;&gt;Maven常用命令：&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;创建Maven的普通java项目：&#xA;mvn archetype:create&#xA;-DgroupId=packageName&#xA;-DartifactId=projectName&lt;/li&gt;&#xA;&lt;li&gt;创建Maven的Web项目：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;​    mvn archetype:create&#xA;​    -DgroupId=packageName&#xA;​    -DartifactId=webappName&#xA;​    -DarchetypeArtifactId=maven-archetype-webapp&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;编译源代码： mvn compile&lt;/li&gt;&#xA;&lt;li&gt;编译测试代码：mvn test-compile&lt;/li&gt;&#xA;&lt;li&gt;运行测试：mvn test&lt;/li&gt;&#xA;&lt;li&gt;产生site：mvn site&lt;/li&gt;&#xA;&lt;li&gt;打包：mvn package&lt;/li&gt;&#xA;&lt;li&gt;在本地Repository中安装jar：mvn install&lt;/li&gt;&#xA;&lt;li&gt;清除产生的项目：mvn clean&lt;/li&gt;&#xA;&lt;li&gt;生成eclipse项目：mvn eclipse:eclipse&lt;/li&gt;&#xA;&lt;li&gt;生成idea项目：mvn idea:idea&lt;/li&gt;&#xA;&lt;li&gt;组合使用goal命令，如只打包不测试：mvn -Dtest package&lt;/li&gt;&#xA;&lt;li&gt;编译测试的内容：mvn test-compile&lt;/li&gt;&#xA;&lt;li&gt;只打jar包: mvn jar:jar&lt;/li&gt;&#xA;&lt;li&gt;只测试而不编译，也不测试编译：mvn test -skipping compile -skipping test-compile&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;​      ( -skipping 的灵活运用，当然也可以用于其他组合命令)&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;清除eclipse的一些系统设置:mvn eclipse:clean&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;ps：一 般使用情况是这样，首先通过cvs或svn下载代码到本机，然后执行mvn eclipse:eclipse生成ecllipse项目文件，然后导入到eclipse就行了；修改代码后执行mvn compile或mvn test检验，也可以下载eclipse的maven插件。&#xA;mvn -version/-v  显示版本信息&#xA;mvn archetype:generate        创建mvn项目&#xA;mvn archetype:create -DgroupId=com.oreilly -DartifactId=my-app   创建mvn项目&#xA;mvn package            生成target目录，编译、测试代码，生成测试报告，生成jar/war文件&#xA;mvn jetty:run            运行项目于jetty上,&#xA;mvn compile                    编译&#xA;mvn test                    编译并测试&#xA;mvn clean                    清空生成的文件&#xA;mvn site                    生成项目相关信息的网站&#xA;mvn -Dwtpversion=1.0 eclipse:eclipse        生成Wtp插件的Web项目&#xA;mvn -Dwtpversion=1.0 eclipse:clean        清除Eclipse项目的配置信息(Web项目)&#xA;mvn eclipse:eclipse                将项目转化为Eclipse项目在应用程序用使用多个存储库&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

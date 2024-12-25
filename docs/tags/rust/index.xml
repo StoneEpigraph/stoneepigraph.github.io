@@ -4,67 +4,16 @@
     <title>Rust on 石记</title>
     <link>https://stoneepigraph.github.io/tags/rust/</link>
     <description>Recent content in Rust on 石记</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Apr 2024 23:32:39 +0800</lastBuildDate><atom:link href="https://stoneepigraph.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 23:32:39 +0800</lastBuildDate>
+    <atom:link href="https://stoneepigraph.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust笔记</title>
       <link>https://stoneepigraph.github.io/posts/rust%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 07 Apr 2024 23:32:39 +0800</pubDate>
-      
       <guid>https://stoneepigraph.github.io/posts/rust%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;h2 id=&#34;rust基础&#34; class=&#34;header-anchor-wrapper&#34;&gt;Rust基础
-  &lt;a href=&#34;#rust%e5%9f%ba%e7%a1%80&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h2&gt;
-
-
-&lt;h3 id=&#34;数据类型&#34; class=&#34;header-anchor-wrapper&#34;&gt;数据类型
-  &lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h3&gt;
-
-
-&lt;h4 id=&#34;说明&#34; class=&#34;header-anchor-wrapper&#34;&gt;说明
-  &lt;a href=&#34;#%e8%af%b4%e6%98%8e&#34; class=&#34;header-anchor-link&#34;&gt;
-    &lt;svg width=&#34;16px&#34; height=&#34;16px&#34; viewBox=&#34;0 0 24 24&#34;&gt;
-&lt;svg
-    xmlns=&#34;http://www.w3.org/2000/svg&#34;
-    width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34;
-    stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-    stroke-linejoin=&#34;round&#34;&gt;
-    &lt;line x1=&#34;4&#34; y1=&#34;9&#34; x2=&#34;20&#34; y2=&#34;9&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;4&#34; y1=&#34;15&#34; x2=&#34;20&#34; y2=&#34;15&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;10&#34; y1=&#34;3&#34; x2=&#34;8&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;16&#34; y1=&#34;3&#34; x2=&#34;14&#34; y2=&#34;21&#34;&gt;&lt;/line&gt;
-&lt;/svg&gt;
-
-&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/h4&gt;
-
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Rust不会自动进行隐式类型转换。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;rust基础&#34;&gt;Rust基础&lt;/h2&gt;&#xA;&lt;h3 id=&#34;数据类型&#34;&gt;数据类型&lt;/h3&gt;&#xA;&lt;h4 id=&#34;说明&#34;&gt;说明&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Rust不会自动进行隐式类型转换。&lt;/p&gt;&#xA;&lt;p&gt;Rust的整数类型都实现了From&amp;lt;T&amp;gt;和Into&amp;lt;T&amp;gt;trait, 使得我们可以在它们之间进行转换。From&amp;lt;T&amp;gt;trait包含from()方法，Into&amp;lt;T&amp;gt;trait包含into()方法。类型通过实现这些trait来表达它将被如何转换为另一个类型。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;string-和-and-str&#34;&gt;String 和 &amp;amp;str&lt;/h4&gt;&#xA;&lt;p&gt;&amp;amp;str 是一个指向字符串片段的不可变引用&#xA;String是一个可变字符串缓冲区&#xA;&lt;strong&gt;对于String类型来说，应该倾向于使用&amp;amp;str,而不是&amp;amp;String.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;String&#xA;String可以看作由三个变量所组成的结构体，第一个变量为指向一块堆上连续内存的指针，第二个变量为这块内存里已经使用的总大小。第三个变量为这块内存的总长度capacity。&#xA;String在new的时候从堆里申请内存，在drop的时候释放内存。&#xA;String内部的指向的连续内存可以看作为u8的数组，String的使用接口确保了内部存储的确实为合法的UTF-8编码的字节。&lt;/li&gt;&#xA;&lt;li&gt;&amp;amp;str&#xA;&amp;amp;str是对String的一种借用形式，被称为字符串切片。&#xA;由于&amp;amp;str的特殊性让其与普通的引用区分开，这种携带了元数据的特殊引用也被称为胖指针。&#xA;＆str非常有用，它能够引用String类型的多个不同子字符串而无需复制，避免复制。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;元组&#34;&gt;元组&lt;/h4&gt;&#xA;&lt;h4 id=&#34;数组&#34;&gt;数组&lt;/h4&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let 变量名称:[数据类型;数组长度] = [默认值;数组长度]&#xA;let 变量名称:[数据类型;数组长度] = [数据值1,数据值2...]&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;做为参数&lt;/p&gt;&#xA;&lt;p&gt;可以进行值传递也可以进行引用传递.值传递方法内的修改不会影响方法外的数据.引用传递会同步修改.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;集合&#34;&gt;集合&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;分类&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;迭代器&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;分类&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;iter()&#xA;返回一个只读可重入迭代器,迭代器元素的类型为&amp;amp;T&lt;/li&gt;&#xA;&lt;li&gt;into_iter()&#xA;返回一个只读不可重入迭代器,迭代器元素的类型为T&lt;/li&gt;&#xA;&lt;li&gt;inter_mut()&#xA;返回一个可修改可重入迭代器,迭代器元素的类型为&amp;amp;mut T&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;类型别名&#34;&gt;类型别名&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;说明&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;类型别名仅仅是别名,只是为了让可读性更好,并不是全新的类型&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;类型别名无法实现为外部类型实现外部特征等功能&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;newtype&#34;&gt;newtype&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;为什么要使用newtype&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;自定义类型可以让我们给出更有意义和可主读性的类型名&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;对于某些场景,只有newtype可以很好的解决&lt;/p&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;为外部类型实现外部特征&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA; &lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;危险期内部类型的细节&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;sized和不定长类型dst&#34;&gt;Sized和不定长类型DST&lt;/h4&gt;&#xA;&lt;!--list-separator--&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;动态大小类型DST&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
