@@ -15,10 +15,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='zh-CN'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <link rel="shortcut icon" href='http://localhost:1313/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MyBatis基础 - 石记</title>
 
@@ -31,11 +40,11 @@
     
 
     
-        <meta property="og:url" content="https://stoneepigraph.github.io/posts/mybatis%E5%9F%BA%E7%A1%80/">
+        <meta property="og:url" content="http://localhost:1313/posts/mybatis%E5%9F%BA%E7%A1%80/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="MyBatis基础">
   <meta property="og:description" content="入门 安装 Jar包安装 Maven导入 Gradle导入 从XML中构建SqlSessionFactory String resource = &#34;org/mybatis/example/mybatis-config.xml&#34;; InputStream inputStream = Resources.getResourceAsStream(resource); SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); XML配置">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
 
@@ -47,11 +56,11 @@
   <meta name="twitter:title" content="MyBatis基础">
   <meta name="twitter:description" content="入门 安装 Jar包安装 Maven导入 Gradle导入 从XML中构建SqlSessionFactory String resource = &#34;org/mybatis/example/mybatis-config.xml&#34;; InputStream inputStream = Resources.getResourceAsStream(resource); SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); XML配置">
 
-    <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
+    <link rel="stylesheet" href="/style.css" integrity="">
 
 
 
-    <link rel="stylesheet" href="/lib/css/prism.min.f1bc264bb9f5436d93667fa922aad9df70071445181e118a1fa02663a3ffe5e1.css" integrity="sha256-8bwmS7n1Q22TZn&#43;pIqrZ33AHFEUYHhGKH6AmY6P/5eE=">
+    <link rel="stylesheet" href="/lib/css/prism.css" integrity="">
 
 
 
@@ -67,11 +76,15 @@
             document.documentElement.setAttribute("data-theme", "light");
         }
     </script>
-<script defer src="/js/header.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
+<script defer src="/js/theme-switch.js" integrity=""></script>
 
 
 
-    <script defer src="/js/zooming.3bda780b3d5a676b6068e5ad5fd77a313c4371117131529f7e7480e7d4b64d96.js" integrity="sha256-O9p4Cz1aZ2tgaOWtX9d6MTxDcRFxMVKffnSA59S2TZY="></script>
+
+
+
+
+    <script defer src="/js/zooming.js" integrity=""></script>
 
 
 
@@ -92,7 +105,7 @@
             
         
 
-        <script defer src="/js/prism.751ae679172b3c3e8a40b35f7871078a0220fdad152826765a3aa28ae639e1ae.js" integrity="sha256-dRrmeRcrPD6KQLNfeHEHigIg/a0VKCZ2WjqiiuY54a4=" data-manual></script>
+        <script defer src="/js/prism.js" integrity="" data-manual></script>
     
 
 
@@ -100,7 +113,7 @@
     
     
     
-    <script defer src="/js/search-en.91707080d0df9ea5816bfeaebfabc734ade25d3ee62e2bc6eecfb499c5c3dd95.js" integrity="sha256-kXBwgNDfnqWBa/6uv6vHNK3iXT7mLivG7s&#43;0mcXD3ZU="></script>
+    <script defer src="/js/search-zh-CN.js" integrity=""></script>
 
 
 
@@ -110,31 +123,30 @@
     
 </head>
 <body><header>
-    <div id="header_left">
-        <div id="sidebar_btn">
-            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
-            <label id="sidebar_btn_label" for="sidebar_btn_input">
-                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
 </svg>
 
-</svg>
-            </label>
-            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
-                <div id="sidebar_canvas_overlay"></div>
-            </label>
-            <div id="sidebar">
-                <ul><li>
-                            <a href="/posts/">posts</a></li><li>
-                            <a href="/categories">Categories</a></li><li>
-                            <a href="/tags">Tags</a></li><li>
-                            <a href="/others/">Others</a></li><li>
-                            <a href="/abouts">Abouts</a>
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/posts/">posts</a></li><li>
+                                <a href="/categories">Categories</a></li><li>
+                                <a href="/tags">Tags</a></li><li>
+                                <a href="/others/">Others</a></li><li>
+                                <a href="/abouts">Abouts</a>
     <ul>
         
 
@@ -157,98 +169,31 @@
         
     </ul>
 </li></ul>
+                </div>
             </div>
-        </div>
-    
-        <div class="brand">
-            <div>
-                <a href="/">石记</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="toolbox">
-        <div id="theme_tool">
-            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-</svg>
-
-</svg>
-            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-</svg>
-
-</svg>
-        </div>
-
         
-            <div id="search_tool">
-                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-</svg>
-
-</svg><div id="search_menu_wrapper" class="hidden">
-    <div id="search_menu">
-        <div id="search_menu_toolbar">
-            <div id="search_menu_input_wrapper">
-                <input id="search_menu_input" type="text" placeholder='Search Posts'>
-            </div>
-            <div id="search_menu_close_btn">
-                <svg width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-</svg>
-
-</svg>
-            </div>
-        </div>
-        <div id="search_menu_results">
-        </div>
-    </div>
-</div>
-</div>
-        
-
-        
-    </div>
-</header>
-<nav id="navbar" class="pure-menu">
-    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+            <div class="brand">
+                <div>
+                    <a href="/">石记</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
                     
                         <a href="/posts/" class="pure-menu-link">posts</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/categories" class="pure-menu-link">Categories</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/tags" class="pure-menu-link">Tags</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/others/" class="pure-menu-link">Others</a>
                     
-                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                </li><li class="header-menu-item header-menu-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
                     
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
@@ -274,13 +219,85 @@
 </ul>
                 </li></ul>
 </nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
 <main>
             <div id="content" class="content-margin">
                 
     
-    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+    
         
-            <nav id="TableOfContents">
+<script defer src="/js/toc-tracker.js" integrity=""></script>
+
+<div class="collapsible-menu-wrapper right">
+    <div class="collapsible-menu-type">
+        <span>Table of contents</span>
+    </div>
+    <div class="collapsible-menu">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#入门">入门</a>
       <ul>
@@ -309,12 +326,14 @@
     <li><a href="#xml映射文件">XML映射文件</a></li>
   </ul>
 </nav>
-        
-    </div></div>
+    </div>
+</div>
+    
 
 
 
     <div class="content-margin">
+
 
 
 
@@ -324,36 +343,57 @@
         
         
     
+
     
-<h2 id="入门" class="header-anchor-wrapper">入门
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="入门">
+
+
+<h2 class="header-anchor-wrapper">入门
   <a href="#%e5%85%a5%e9%97%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="安装">
 
-<h3 id="安装" class="header-anchor-wrapper">安装
+
+<h3 class="header-anchor-wrapper">安装
   <a href="#%e5%ae%89%e8%a3%85" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -361,20 +401,28 @@
 <li>Maven导入</li>
 <li>Gradle导入</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="从xml中构建sqlsessionfactory">
 
-<h3 id="从xml中构建sqlsessionfactory" class="header-anchor-wrapper">从XML中构建SqlSessionFactory
+
+<h3 class="header-anchor-wrapper">从XML中构建SqlSessionFactory
   <a href="#%e4%bb%8exml%e4%b8%ad%e6%9e%84%e5%bb%basqlsessionfactory" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <pre  class="mc-prism hide language-text" ><code class="language-java">String resource = &quot;org/mybatis/example/mybatis-config.xml&quot;;
@@ -403,20 +451,28 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input
   &lt;/mappers&gt;
 &lt;/configuration&gt;
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="不使用xml构建sqlsessionfactory">
 
-<h3 id="不使用xml构建sqlsessionfactory" class="header-anchor-wrapper">不使用XML构建SqlSessionFactory
+
+<h3 class="header-anchor-wrapper">不使用XML构建SqlSessionFactory
   <a href="#%e4%b8%8d%e4%bd%bf%e7%94%a8xml%e6%9e%84%e5%bb%basqlsessionfactory" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <pre  class="mc-prism hide language-text" ><code class="language-java">DataSource dataSource = BlogDataSourceFactory.getBlogDataSource();
@@ -426,20 +482,28 @@ Configuration configuration = new Configuration(environment);
 configuration.addMapper(BlogMapper.class);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="从sqlsessionfactory中获取sqlsession">
 
-<h3 id="从sqlsessionfactory中获取sqlsession" class="header-anchor-wrapper">从SqlSessionFactory中获取SqlSession
+
+<h3 class="header-anchor-wrapper">从SqlSessionFactory中获取SqlSession
   <a href="#%e4%bb%8esqlsessionfactory%e4%b8%ad%e8%8e%b7%e5%8f%96sqlsession" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <pre  class="mc-prism hide language-text" ><code class="language-java">SqlSession session = SqlSessionFactory.openSession();
@@ -451,20 +515,28 @@ try {
     session.close();
 }
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="mapper的配置">
 
-<h3 id="mapper的配置" class="header-anchor-wrapper">Mapper的配置
+
+<h3 class="header-anchor-wrapper">Mapper的配置
   <a href="#mapper%e7%9a%84%e9%85%8d%e7%bd%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -491,40 +563,56 @@ public interface BlogMapper {
 </code></pre>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="对命名空间的作用">
 
-<h4 id="对命名空间的作用" class="header-anchor-wrapper">对命名空间的作用
+
+<h4 class="header-anchor-wrapper">对命名空间的作用
   <a href="#%e5%af%b9%e5%91%bd%e5%90%8d%e7%a9%ba%e9%97%b4%e7%9a%84%e4%bd%9c%e7%94%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
 <li>利用更长的完全限定名将不同的语句隔离开来。</li>
 <li>使用代码变得更加整洁，也更方便管理。</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="作用域scope和生命周期">
 
-<h3 id="作用域scope和生命周期" class="header-anchor-wrapper">作用域（Scope）和生命周期
+
+<h3 class="header-anchor-wrapper">作用域（Scope）和生命周期
   <a href="#%e4%bd%9c%e7%94%a8%e5%9f%9fscope%e5%92%8c%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -542,36 +630,52 @@ public interface BlogMapper {
 <p>SqlSession的实例不是线程安全的，因此是不能被共享的。</p>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="xml配置">
 
-<h2 id="xml配置" class="header-anchor-wrapper">XML配置
+
+<h2 class="header-anchor-wrapper">XML配置
   <a href="#xml%e9%85%8d%e7%bd%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="属性">
 
-<h3 id="属性" class="header-anchor-wrapper">属性
+
+<h3 class="header-anchor-wrapper">属性
   <a href="#%e5%b1%9e%e6%80%a7" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>如果属性在不只一个地方进行了配置，那么 MyBatis 将按照下面的顺序来加载：</p>
@@ -580,20 +684,28 @@ public interface BlogMapper {
 <li>然后根据properties元素的resource属性读取类路径下属性文件或根据url属性指定的路读取属性文件，并覆盖已读取的同名属性。</li>
 <li>最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="设置">
 
-<h3 id="设置" class="header-anchor-wrapper">设置
+
+<h3 class="header-anchor-wrapper">设置
   <a href="#%e8%ae%be%e7%bd%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <table class="mc-table">
@@ -938,20 +1050,28 @@ public interface BlogMapper {
       </tr>
   </tbody>
 </table>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="类型别名-typealiases">
 
-<h3 id="类型别名-typealiases" class="header-anchor-wrapper">类型别名 typeAliases
+
+<h3 class="header-anchor-wrapper">类型别名 typeAliases
   <a href="#%e7%b1%bb%e5%9e%8b%e5%88%ab%e5%90%8d-typealiases" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>类型别名是为Java类型设置一个短名字。它只和XML配置有关，存在的意义公在于用来减少类完全限定名的冗余。</p>
@@ -1075,20 +1195,28 @@ public interface BlogMapper {
       </tr>
   </tbody>
 </table>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="类型处理器typehandlers">
 
-<h3 id="类型处理器typehandlers" class="header-anchor-wrapper">类型处理器（typeHandlers）
+
+<h3 class="header-anchor-wrapper">类型处理器（typeHandlers）
   <a href="#%e7%b1%bb%e5%9e%8b%e5%a4%84%e7%90%86%e5%99%a8typehandlers" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>无论是 MyBatis
@@ -1292,20 +1420,28 @@ public interface BlogMapper {
   </tbody>
 </table>
 <p>你可以重写类型处理器或创建你自己的类型处理器来处理不支持的或非标准的类型。具体做法为：实现 <code>org.apache.ibatis.type.TypeHandler</code> 接口，或继承一个很便利的类 =org.apache.ibatis.type.BaseTypeHandler=，然后可以选择性地将它映射到一个 JDBC 类型。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="处理枚举类型">
 
-<h3 id="处理枚举类型" class="header-anchor-wrapper">处理枚举类型
+
+<h3 class="header-anchor-wrapper">处理枚举类型
   <a href="#%e5%a4%84%e7%90%86%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>若想映射枚举类型 <code>Enum=，则需要从 =EnumTypeHandler</code> 或者
@@ -1367,20 +1503,28 @@ public interface BlogMapper {
 &lt;/mapper&gt;
 </code></pre>
 <p>注意，这里的 select 语句强制使用 <code>resultMap</code> 来代替 =resultType=。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="对象工厂objectfactory">
 
-<h3 id="对象工厂objectfactory" class="header-anchor-wrapper">对象工厂（objectFactory）
+
+<h3 class="header-anchor-wrapper">对象工厂（objectFactory）
   <a href="#%e5%af%b9%e8%b1%a1%e5%b7%a5%e5%8e%82objectfactory" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>MyBatis
@@ -1408,20 +1552,28 @@ public class ExampleObjectFactory extends DefaultObjectFactory {
 接口很简单，它包含两个创建用的方法，一个是处理默认构造方法的，另外一个是处理带参数的构造方法的。最后，setProperties 方法可以被用来配置 ObjectFactory，在初始化你的
 ObjectFactory 实例后， objectFactory 元素体中定义的属性会被传递给
 setProperties 方法。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="插件plugins">
 
-<h3 id="插件plugins" class="header-anchor-wrapper">插件（plugins）
+
+<h3 class="header-anchor-wrapper">插件（plugins）
   <a href="#%e6%8f%92%e4%bb%b6plugins" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>MyBatis
@@ -1437,20 +1589,28 @@ getTransaction, close, isClosed)</li>
 <p>这些类中方法的细节可以通过查看每个方法的签名来发现，或者直接查看 MyBatis
 发行包中的源代码。如果你想做的不仅仅是监控方法的调用，那么你最好相当了解要重写的方法的行为。因为如果在试图修改或重写已有方法的行为的时候，你很可能在破坏 MyBatis
 的核心模块。 这些都是更低层的类和方法，所以使用插件的时候要特别当心。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="环境配置environments">
 
-<h3 id="环境配置environments" class="header-anchor-wrapper">环境配置（environments）
+
+<h3 class="header-anchor-wrapper">环境配置（environments）
   <a href="#%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%aeenvironments" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>MyBatis 可以配置成适应多种环境，这种机制有助于将 SQL
@@ -1632,20 +1792,28 @@ public class C3P0DataSourceFactory extends UnpooledDataSourceFactory {
   &lt;property name=&quot;password&quot; value=&quot;root&quot;/&gt;
 &lt;/dataSource&gt;
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="数据库厂商标识databaseidprovider">
 
-<h3 id="数据库厂商标识databaseidprovider" class="header-anchor-wrapper">数据库厂商标识（databaseIdProvider）
+
+<h3 class="header-anchor-wrapper">数据库厂商标识（databaseIdProvider）
   <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%8e%82%e5%95%86%e6%a0%87%e8%af%86databaseidprovider" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>MyBatis
@@ -1675,20 +1843,28 @@ mybatis-config.xml 中注册来构建自己的 DatabaseIdProvider：</p>
   String getDatabaseId(DataSource dataSource) throws SQLException;
 }
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="映射器mappers">
 
-<h3 id="映射器mappers" class="header-anchor-wrapper">映射器（mappers）
+
+<h3 class="header-anchor-wrapper">映射器（mappers）
   <a href="#%e6%98%a0%e5%b0%84%e5%99%a8mappers" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>既然 MyBatis 的行为已经由上述元素配置完了，我们现在就要定义 SQL
@@ -1720,23 +1896,32 @@ mybatis-config.xml 中注册来构建自己的 DatabaseIdProvider：</p>
 </code></pre>
 <p>这些配置会告诉了 MyBatis 去哪里找映射文件，剩下的细节就应该是每个 SQL
 映射文件了，也就是接下来我们要讨论的。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="xml映射文件">
 
-<h2 id="xml映射文件" class="header-anchor-wrapper">XML映射文件
+
+<h2 class="header-anchor-wrapper">XML映射文件
   <a href="#xml%e6%98%a0%e5%b0%84%e6%96%87%e4%bb%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
-
+</section>
+    
 </article>
 </div>
 

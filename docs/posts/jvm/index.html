@@ -15,10 +15,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='zh-CN'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <link rel="shortcut icon" href='http://localhost:1313/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JVM简述 - 石记</title>
 
@@ -31,12 +40,12 @@
     
 
     
-        <meta property="og:url" content="https://stoneepigraph.github.io/posts/jvm/">
+        <meta property="og:url" content="http://localhost:1313/posts/jvm/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="JVM简述">
   <meta property="og:description" content="类的加载,连接与初始化 加载 指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.
 类的加载方式 从本地系统中直接加载 从网络下载.class 从zip, jar等归档中加载.class文件 从专有数据库中提取.class文件 将Java源文件动态的编译为.class文件 连接 验证确保被加载的类的正确性 准备为类的静态变量分配内存,并将其初始化为默认值 解析把类中的符号引用转换为直接引用 类的使用 主动使用 创建类的实例 访问某个类或接口的静态变量或对静态变量赋值 访问类的静态方法 反射 初始化一个类的子类 Java虚拟机启动时被标明为启动类的类 JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandler实例的解析结果REF_getStatic, REF_PUTsTATIC, REF_invokeStatic句柄对应的类没有初始化，则初始化。 被动使用 初始化 所有的Java虚拟机实现必须在每个类或接口被Java程序&#34;首次主动使用&#34;时才进行初始化.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-09-17T00:00:00+00:00">
@@ -53,11 +62,11 @@
   <meta name="twitter:description" content="类的加载,连接与初始化 加载 指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.
 类的加载方式 从本地系统中直接加载 从网络下载.class 从zip, jar等归档中加载.class文件 从专有数据库中提取.class文件 将Java源文件动态的编译为.class文件 连接 验证确保被加载的类的正确性 准备为类的静态变量分配内存,并将其初始化为默认值 解析把类中的符号引用转换为直接引用 类的使用 主动使用 创建类的实例 访问某个类或接口的静态变量或对静态变量赋值 访问类的静态方法 反射 初始化一个类的子类 Java虚拟机启动时被标明为启动类的类 JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandler实例的解析结果REF_getStatic, REF_PUTsTATIC, REF_invokeStatic句柄对应的类没有初始化，则初始化。 被动使用 初始化 所有的Java虚拟机实现必须在每个类或接口被Java程序&#34;首次主动使用&#34;时才进行初始化.">
 
-    <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
+    <link rel="stylesheet" href="/style.css" integrity="">
 
 
 
-    <link rel="stylesheet" href="/lib/css/prism.min.f1bc264bb9f5436d93667fa922aad9df70071445181e118a1fa02663a3ffe5e1.css" integrity="sha256-8bwmS7n1Q22TZn&#43;pIqrZ33AHFEUYHhGKH6AmY6P/5eE=">
+    <link rel="stylesheet" href="/lib/css/prism.css" integrity="">
 
 
 
@@ -73,11 +82,15 @@
             document.documentElement.setAttribute("data-theme", "light");
         }
     </script>
-<script defer src="/js/header.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
+<script defer src="/js/theme-switch.js" integrity=""></script>
 
 
 
-    <script defer src="/js/zooming.3bda780b3d5a676b6068e5ad5fd77a313c4371117131529f7e7480e7d4b64d96.js" integrity="sha256-O9p4Cz1aZ2tgaOWtX9d6MTxDcRFxMVKffnSA59S2TZY="></script>
+
+
+
+
+    <script defer src="/js/zooming.js" integrity=""></script>
 
 
 
@@ -98,7 +111,7 @@
             
         
 
-        <script defer src="/js/prism.751ae679172b3c3e8a40b35f7871078a0220fdad152826765a3aa28ae639e1ae.js" integrity="sha256-dRrmeRcrPD6KQLNfeHEHigIg/a0VKCZ2WjqiiuY54a4=" data-manual></script>
+        <script defer src="/js/prism.js" integrity="" data-manual></script>
     
 
 
@@ -106,7 +119,7 @@
     
     
     
-    <script defer src="/js/search-en.91707080d0df9ea5816bfeaebfabc734ade25d3ee62e2bc6eecfb499c5c3dd95.js" integrity="sha256-kXBwgNDfnqWBa/6uv6vHNK3iXT7mLivG7s&#43;0mcXD3ZU="></script>
+    <script defer src="/js/search-zh-CN.js" integrity=""></script>
 
 
 
@@ -116,31 +129,30 @@
     
 </head>
 <body><header>
-    <div id="header_left">
-        <div id="sidebar_btn">
-            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
-            <label id="sidebar_btn_label" for="sidebar_btn_input">
-                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
 </svg>
 
-</svg>
-            </label>
-            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
-                <div id="sidebar_canvas_overlay"></div>
-            </label>
-            <div id="sidebar">
-                <ul><li>
-                            <a href="/posts/">posts</a></li><li>
-                            <a href="/categories">Categories</a></li><li>
-                            <a href="/tags">Tags</a></li><li>
-                            <a href="/others/">Others</a></li><li>
-                            <a href="/abouts">Abouts</a>
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/posts/">posts</a></li><li>
+                                <a href="/categories">Categories</a></li><li>
+                                <a href="/tags">Tags</a></li><li>
+                                <a href="/others/">Others</a></li><li>
+                                <a href="/abouts">Abouts</a>
     <ul>
         
 
@@ -163,98 +175,31 @@
         
     </ul>
 </li></ul>
+                </div>
             </div>
-        </div>
-    
-        <div class="brand">
-            <div>
-                <a href="/">石记</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="toolbox">
-        <div id="theme_tool">
-            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-</svg>
-
-</svg>
-            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-</svg>
-
-</svg>
-        </div>
-
         
-            <div id="search_tool">
-                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-</svg>
-
-</svg><div id="search_menu_wrapper" class="hidden">
-    <div id="search_menu">
-        <div id="search_menu_toolbar">
-            <div id="search_menu_input_wrapper">
-                <input id="search_menu_input" type="text" placeholder='Search Posts'>
-            </div>
-            <div id="search_menu_close_btn">
-                <svg width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-</svg>
-
-</svg>
-            </div>
-        </div>
-        <div id="search_menu_results">
-        </div>
-    </div>
-</div>
-</div>
-        
-
-        
-    </div>
-</header>
-<nav id="navbar" class="pure-menu">
-    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+            <div class="brand">
+                <div>
+                    <a href="/">石记</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
                     
                         <a href="/posts/" class="pure-menu-link">posts</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/categories" class="pure-menu-link">Categories</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/tags" class="pure-menu-link">Tags</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/others/" class="pure-menu-link">Others</a>
                     
-                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                </li><li class="header-menu-item header-menu-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
                     
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
@@ -280,13 +225,85 @@
 </ul>
                 </li></ul>
 </nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
 <main>
             <div id="content" class="content-margin">
                 
     
-    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+    
         
-            <nav id="TableOfContents">
+<script defer src="/js/toc-tracker.js" integrity=""></script>
+
+<div class="collapsible-menu-wrapper right">
+    <div class="collapsible-menu-type">
+        <span>Table of contents</span>
+    </div>
+    <div class="collapsible-menu">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#类的加载-连接与初始化">类的加载,连接与初始化</a>
       <ul>
@@ -341,12 +358,14 @@
     </li>
   </ul>
 </nav>
-        
-    </div></div>
+    </div>
+</div>
+    
 
 
 
     <div class="content-margin">
+
 
 
 
@@ -356,53 +375,82 @@
         
         
     
+
     
-<h2 id="类的加载-连接与初始化" class="header-anchor-wrapper">类的加载,连接与初始化
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="类的加载-连接与初始化">
+
+
+<h2 class="header-anchor-wrapper">类的加载,连接与初始化
   <a href="#%e7%b1%bb%e7%9a%84%e5%8a%a0%e8%bd%bd-%e8%bf%9e%e6%8e%a5%e4%b8%8e%e5%88%9d%e5%a7%8b%e5%8c%96" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="加载">
 
-<h3 id="加载" class="header-anchor-wrapper">加载
+
+<h3 class="header-anchor-wrapper">加载
   <a href="#%e5%8a%a0%e8%bd%bd" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>指的是将类的.class文件中的二进制数据读入到内存当中,将其放在运行时数据区的方法区内,然后在内存中创建一个java.lang.Class对象.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="类的加载方式">
 
-<h4 id="类的加载方式" class="header-anchor-wrapper">类的加载方式
+
+<h4 class="header-anchor-wrapper">类的加载方式
   <a href="#%e7%b1%bb%e7%9a%84%e5%8a%a0%e8%bd%bd%e6%96%b9%e5%bc%8f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -412,20 +460,28 @@
 <li>从专有数据库中提取.class文件</li>
 <li>将Java源文件动态的编译为.class文件</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="连接">
 
-<h3 id="连接" class="header-anchor-wrapper">连接
+
+<h3 class="header-anchor-wrapper">连接
   <a href="#%e8%bf%9e%e6%8e%a5" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -433,20 +489,28 @@
 <li>准备为类的静态变量分配内存,并将其初始化为默认值</li>
 <li>解析把类中的符号引用转换为直接引用</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="类的使用">
 
-<h3 id="类的使用" class="header-anchor-wrapper">类的使用
+
+<h3 class="header-anchor-wrapper">类的使用
   <a href="#%e7%b1%bb%e7%9a%84%e4%bd%bf%e7%94%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -463,56 +527,80 @@
 </li>
 <li>被动使用</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="初始化">
 
-<h3 id="初始化" class="header-anchor-wrapper">初始化
+
+<h3 class="header-anchor-wrapper">初始化
   <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>所有的Java虚拟机实现必须在每个类或接口被Java程序&quot;首次主动使用&quot;时才进行初始化.</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="注意">
 
-<h4 id="注意" class="header-anchor-wrapper">注意
+
+<h4 class="header-anchor-wrapper">注意
   <a href="#%e6%b3%a8%e6%84%8f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
 <li>当一个常量的值并非编译期间可以确定的,那么其值就不会被放到调用类的常量池中,这时在程序运行时,会导致主动使用这个常量所在的类,显然会导致这个类被初始化.</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="主动使用的方式">
 
-<h4 id="主动使用的方式" class="header-anchor-wrapper">主动使用的方式
+
+<h4 class="header-anchor-wrapper">主动使用的方式
   <a href="#%e4%b8%bb%e5%8a%a8%e4%bd%bf%e7%94%a8%e7%9a%84%e6%96%b9%e5%bc%8f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -524,52 +612,76 @@
 <li>Java虚拟机启动时被标明为启动类的类</li>
 <li>JDK1.7开始提供的动态语言支持.</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="虚拟机参数">
 
-<h2 id="虚拟机参数" class="header-anchor-wrapper">虚拟机参数
+
+<h2 class="header-anchor-wrapper">虚拟机参数
   <a href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%8f%82%e6%95%b0" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="tips">
 
-<h3 id="tips" class="header-anchor-wrapper">Tips
+
+<h3 class="header-anchor-wrapper">Tips
   <a href="#tips" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="说明">
 
-<h3 id="说明" class="header-anchor-wrapper">说明
+
+<h3 class="header-anchor-wrapper">说明
   <a href="#%e8%af%b4%e6%98%8e" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -577,20 +689,28 @@
 <li>-XX:-&lt;option&gt;, 表示关闭option选项</li>
 <li>-XX:&lt;option&gt;=&lt;value&gt;, 表示将option选项的值设置为value</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="参数">
 
-<h3 id="参数" class="header-anchor-wrapper">参数
+
+<h3 class="header-anchor-wrapper">参数
   <a href="#%e5%8f%82%e6%95%b0" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -631,20 +751,28 @@
 </ol>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="虚拟机调优策略">
 
-<h3 id="虚拟机调优策略" class="header-anchor-wrapper">虚拟机调优策略
+
+<h3 class="header-anchor-wrapper">虚拟机调优策略
   <a href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e8%b0%83%e4%bc%98%e7%ad%96%e7%95%a5" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>JVM参数调优主要设置堆内存，主要让GC不要去频繁回收垃圾，减少对老年代的回收。配置时让-Xms与-Xmx一致。</p>
@@ -653,179 +781,259 @@
 <li>并行回收比串行回收吞量要大，多核多线程吞吐。</li>
 <li>垃圾回收机制次数越少，说明性能越高。</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="垃圾回收算法">
 
-<h2 id="垃圾回收算法" class="header-anchor-wrapper">垃圾回收算法
+
+<h2 class="header-anchor-wrapper">垃圾回收算法
   <a href="#%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="q">
 
-<h3 id="q" class="header-anchor-wrapper">Q
+
+<h3 class="header-anchor-wrapper">Q
   <a href="#q" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
 <li>为什么新生代和老年代使用不一样的压缩算法。</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="主要回收算法">
 
-<h3 id="主要回收算法" class="header-anchor-wrapper">主要回收算法
+
+<h3 class="header-anchor-wrapper">主要回收算法
   <a href="#%e4%b8%bb%e8%a6%81%e5%9b%9e%e6%94%b6%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="引用计数算法">
 
-<h4 id="引用计数算法" class="header-anchor-wrapper">引用计数算法
+
+<h4 class="header-anchor-wrapper">引用计数算法
   <a href="#%e5%bc%95%e7%94%a8%e8%ae%a1%e6%95%b0%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>问题</p>
 <ol>
 <li>无法处理交叉引用的情况</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="复制算法">
 
-<h4 id="复制算法" class="header-anchor-wrapper">复制算法
+
+<h4 class="header-anchor-wrapper">复制算法
   <a href="#%e5%a4%8d%e5%88%b6%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>一般在新生代使用</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="标记清除算法">
 
-<h4 id="标记清除算法" class="header-anchor-wrapper">标记清除算法
+
+<h4 class="header-anchor-wrapper">标记清除算法
   <a href="#%e6%a0%87%e8%ae%b0%e6%b8%85%e9%99%a4%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>一般老年代才会使用问题：</p>
 <ol>
 <li>内存碎片问题。</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="标记压缩算法">
 
-<h4 id="标记压缩算法" class="header-anchor-wrapper">标记压缩算法
+
+<h4 class="header-anchor-wrapper">标记压缩算法
   <a href="#%e6%a0%87%e8%ae%b0%e5%8e%8b%e7%bc%a9%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>一般在老年代使用， 是标记清除算法的升级。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="分代算法">
 
-<h4 id="分代算法" class="header-anchor-wrapper">分代算法
+
+<h4 class="header-anchor-wrapper">分代算法
   <a href="#%e5%88%86%e4%bb%a3%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>根据对象的特点把内存分成N块，而后根据每个内存的特点使用不同的算法。对于新生代和老年代来说，新生代回收频率很高，但是每次回收消耗时间很短，而对老年代回收频率较低，但每次消耗时间较长，所以应当尽量减少老年代的回收。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="分区算法">
 
-<h4 id="分区算法" class="header-anchor-wrapper">分区算法
+
+<h4 class="header-anchor-wrapper">分区算法
   <a href="#%e5%88%86%e5%8c%ba%e7%ae%97%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>JDK1.7新增的算法。主要是将整个内存分为N个独立空间，每个小空间都可以独立使用，这样细粒度的控制一次回收多少个小空间，而不是对整个内存空间进行GC，从而提升性能，并减少GC的停顿时间。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="内存分区">
 
-<h2 id="内存分区" class="header-anchor-wrapper">内存分区
+
+<h2 class="header-anchor-wrapper">内存分区
   <a href="#%e5%86%85%e5%ad%98%e5%88%86%e5%8c%ba" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
 <ol>
@@ -838,36 +1046,52 @@ JDK1.8以前还有永久代。</li>
 TLAB
 Thread Local Allocation Buffer 即线程本地分配缓存，线程专用的个内存分配区域，是为了加速对象分配而生的。每一个线程都会产生一个TLAB，该线程独享的工作区域。</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="对象创建">
 
-<h2 id="对象创建" class="header-anchor-wrapper">对象创建
+
+<h2 class="header-anchor-wrapper">对象创建
   <a href="#%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="对象创建流程">
 
-<h4 id="对象创建流程" class="header-anchor-wrapper">对象创建流程
+
+<h4 class="header-anchor-wrapper">对象创建流程
   <a href="#%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba%e6%b5%81%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -876,36 +1100,52 @@ Thread Local Allocation Buffer 即线程本地分配缓存，线程专用的个�
 <li>是否满足进入老年代</li>
 <li>eden分配。</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="垃圾收集器">
 
-<h2 id="垃圾收集器" class="header-anchor-wrapper">垃圾收集器
+
+<h2 class="header-anchor-wrapper">垃圾收集器
   <a href="#%e5%9e%83%e5%9c%be%e6%94%b6%e9%9b%86%e5%99%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="分类">
 
-<h3 id="分类" class="header-anchor-wrapper">分类
+
+<h3 class="header-anchor-wrapper">分类
   <a href="#%e5%88%86%e7%b1%bb" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -916,20 +1156,28 @@ Concurrent Mark Sweep 并发标记清除回收器。
 -XX：CMSInitiatingOccupancyFraction默认为68,即当老年代的空间使用率达到68%的时候，会执行CMS回收。</li>
 <li>G1</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="助记符">
 
-<h2 id="助记符" class="header-anchor-wrapper">助记符
+
+<h2 class="header-anchor-wrapper">助记符
   <a href="#%e5%8a%a9%e8%ae%b0%e7%ac%a6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
 <ol>
@@ -946,206 +1194,303 @@ Concurrent Mark Sweep 并发标记清除回收器。
 <li>newarray
 表示创建一个指定的原始类型(如float, int, char等)数组,并将其引用值压入栈顶</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jvm监控工具">
 
-<h2 id="jvm监控工具" class="header-anchor-wrapper">JVM监控工具
+
+<h2 class="header-anchor-wrapper">JVM监控工具
   <a href="#jvm%e7%9b%91%e6%8e%a7%e5%b7%a5%e5%85%b7" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jps">
 
-<h3 id="jps" class="header-anchor-wrapper">jps
+
+<h3 class="header-anchor-wrapper">jps
   <a href="#jps" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>查询java进程的一些基本信息，比如PID</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jvisualvm">
 
-<h3 id="jvisualvm" class="header-anchor-wrapper">jvisualvm
+
+<h3 class="header-anchor-wrapper">jvisualvm
   <a href="#jvisualvm" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jconsole">
 
-<h3 id="jconsole" class="header-anchor-wrapper">jconsole
+
+<h3 class="header-anchor-wrapper">jconsole
   <a href="#jconsole" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jcmd">
 
-<h3 id="jcmd" class="header-anchor-wrapper">jcmd
+
+<h3 class="header-anchor-wrapper">jcmd
   <a href="#jcmd" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jmc">
 
-<h3 id="jmc" class="header-anchor-wrapper">jmc
+
+<h3 class="header-anchor-wrapper">jmc
   <a href="#jmc" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>一个界面的大成功能</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jhat">
 
-<h3 id="jhat" class="header-anchor-wrapper">jhat
+
+<h3 class="header-anchor-wrapper">jhat
   <a href="#jhat" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>分析堆转储文件</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="jmap">
 
-<h3 id="jmap" class="header-anchor-wrapper">jmap
+
+<h3 class="header-anchor-wrapper">jmap
   <a href="#jmap" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="使用jmap命令生成dump文件">
 
-<h4 id="使用jmap命令生成dump文件" class="header-anchor-wrapper">使用jmap命令生成dump文件
+
+<h4 class="header-anchor-wrapper">使用jmap命令生成dump文件
   <a href="#%e4%bd%bf%e7%94%a8jmap%e5%91%bd%e4%bb%a4%e7%94%9f%e6%88%90dump%e6%96%87%e4%bb%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <pre  class="mc-prism hide language-text" ><code class="language-shell">java -dump:live, format=b,file=filepath\filename.hprof pid
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="问题">
 
-<h2 id="问题" class="header-anchor-wrapper">问题
+
+<h2 class="header-anchor-wrapper">问题
   <a href="#%e9%97%ae%e9%a2%98" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="内存溢出与内存泄露">
 
-<h3 id="内存溢出与内存泄露" class="header-anchor-wrapper">内存溢出与内存泄露
+
+<h3 class="header-anchor-wrapper">内存溢出与内存泄露
   <a href="#%e5%86%85%e5%ad%98%e6%ba%a2%e5%87%ba%e4%b8%8e%e5%86%85%e5%ad%98%e6%b3%84%e9%9c%b2" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>内存泄露：对象已经没有被应用程序使用，但是垃圾回收器没办法移除它们，因为还在被引用着。内存溢出：需要的内存比支持的内存要多。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="垃圾回收线程频繁使用的缺点">
 
-<h3 id="垃圾回收线程频繁使用的缺点" class="header-anchor-wrapper">垃圾回收线程频繁使用的缺点
+
+<h3 class="header-anchor-wrapper">垃圾回收线程频繁使用的缺点
   <a href="#%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e7%ba%bf%e7%a8%8b%e9%a2%91%e7%b9%81%e4%bd%bf%e7%94%a8%e7%9a%84%e7%bc%ba%e7%82%b9" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>垃圾回收执行时所有的其他线程都会暂停，会影响程序效率。</p>
-
+</section>
+    
 </article>
 </div>
 

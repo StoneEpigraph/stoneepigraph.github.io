@@ -15,10 +15,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='zh-CN'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <link rel="shortcut icon" href='http://localhost:1313/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Python核心编程（3） - 石记</title>
 
@@ -31,11 +40,11 @@
     
 
     
-        <meta property="og:url" content="https://stoneepigraph.github.io/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/">
+        <meta property="og:url" content="http://localhost:1313/posts/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B3/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="Python核心编程（3）">
   <meta property="og:description" content="正则表达式 网络编程 因特网客户端编程 因特网客户端简介 文件传输 文件传输因特协议 在当下，HTTP,FTP,scp/rsync的应用仍然广泛。">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-09-04T00:00:00+00:00">
@@ -49,11 +58,11 @@
   <meta name="twitter:title" content="Python核心编程（3）">
   <meta name="twitter:description" content="正则表达式 网络编程 因特网客户端编程 因特网客户端简介 文件传输 文件传输因特协议 在当下，HTTP,FTP,scp/rsync的应用仍然广泛。">
 
-    <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
+    <link rel="stylesheet" href="/style.css" integrity="">
 
 
 
-    <link rel="stylesheet" href="/lib/css/prism.min.f1bc264bb9f5436d93667fa922aad9df70071445181e118a1fa02663a3ffe5e1.css" integrity="sha256-8bwmS7n1Q22TZn&#43;pIqrZ33AHFEUYHhGKH6AmY6P/5eE=">
+    <link rel="stylesheet" href="/lib/css/prism.css" integrity="">
 
 
 
@@ -69,11 +78,15 @@
             document.documentElement.setAttribute("data-theme", "light");
         }
     </script>
-<script defer src="/js/header.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
+<script defer src="/js/theme-switch.js" integrity=""></script>
 
 
 
-    <script defer src="/js/zooming.3bda780b3d5a676b6068e5ad5fd77a313c4371117131529f7e7480e7d4b64d96.js" integrity="sha256-O9p4Cz1aZ2tgaOWtX9d6MTxDcRFxMVKffnSA59S2TZY="></script>
+
+
+
+
+    <script defer src="/js/zooming.js" integrity=""></script>
 
 
 
@@ -94,7 +107,7 @@
             
         
 
-        <script defer src="/js/prism.751ae679172b3c3e8a40b35f7871078a0220fdad152826765a3aa28ae639e1ae.js" integrity="sha256-dRrmeRcrPD6KQLNfeHEHigIg/a0VKCZ2WjqiiuY54a4=" data-manual></script>
+        <script defer src="/js/prism.js" integrity="" data-manual></script>
     
 
 
@@ -102,7 +115,7 @@
     
     
     
-    <script defer src="/js/search-en.91707080d0df9ea5816bfeaebfabc734ade25d3ee62e2bc6eecfb499c5c3dd95.js" integrity="sha256-kXBwgNDfnqWBa/6uv6vHNK3iXT7mLivG7s&#43;0mcXD3ZU="></script>
+    <script defer src="/js/search-zh-CN.js" integrity=""></script>
 
 
 
@@ -112,31 +125,30 @@
     
 </head>
 <body><header>
-    <div id="header_left">
-        <div id="sidebar_btn">
-            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
-            <label id="sidebar_btn_label" for="sidebar_btn_input">
-                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
 </svg>
 
-</svg>
-            </label>
-            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
-                <div id="sidebar_canvas_overlay"></div>
-            </label>
-            <div id="sidebar">
-                <ul><li>
-                            <a href="/posts/">posts</a></li><li>
-                            <a href="/categories">Categories</a></li><li>
-                            <a href="/tags">Tags</a></li><li>
-                            <a href="/others/">Others</a></li><li>
-                            <a href="/abouts">Abouts</a>
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/posts/">posts</a></li><li>
+                                <a href="/categories">Categories</a></li><li>
+                                <a href="/tags">Tags</a></li><li>
+                                <a href="/others/">Others</a></li><li>
+                                <a href="/abouts">Abouts</a>
     <ul>
         
 
@@ -159,98 +171,31 @@
         
     </ul>
 </li></ul>
+                </div>
             </div>
-        </div>
-    
-        <div class="brand">
-            <div>
-                <a href="/">石记</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="toolbox">
-        <div id="theme_tool">
-            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-</svg>
-
-</svg>
-            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-</svg>
-
-</svg>
-        </div>
-
         
-            <div id="search_tool">
-                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-</svg>
-
-</svg><div id="search_menu_wrapper" class="hidden">
-    <div id="search_menu">
-        <div id="search_menu_toolbar">
-            <div id="search_menu_input_wrapper">
-                <input id="search_menu_input" type="text" placeholder='Search Posts'>
-            </div>
-            <div id="search_menu_close_btn">
-                <svg width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-</svg>
-
-</svg>
-            </div>
-        </div>
-        <div id="search_menu_results">
-        </div>
-    </div>
-</div>
-</div>
-        
-
-        
-    </div>
-</header>
-<nav id="navbar" class="pure-menu">
-    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+            <div class="brand">
+                <div>
+                    <a href="/">石记</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
                     
                         <a href="/posts/" class="pure-menu-link">posts</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/categories" class="pure-menu-link">Categories</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/tags" class="pure-menu-link">Tags</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/others/" class="pure-menu-link">Others</a>
                     
-                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                </li><li class="header-menu-item header-menu-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
                     
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
@@ -276,13 +221,85 @@
 </ul>
                 </li></ul>
 </nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
 <main>
             <div id="content" class="content-margin">
                 
     
-    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+    
         
-            <nav id="TableOfContents">
+<script defer src="/js/toc-tracker.js" integrity=""></script>
+
+<div class="collapsible-menu-wrapper right">
+    <div class="collapsible-menu-type">
+        <span>Table of contents</span>
+    </div>
+    <div class="collapsible-menu">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#正则表达式">正则表达式</a></li>
     <li><a href="#网络编程">网络编程</a></li>
@@ -330,12 +347,14 @@
     <li><a href="#python2与python3的区别">Python2与Python3的区别</a></li>
   </ul>
 </nav>
-        
-    </div></div>
+    </div>
+</div>
+    
 
 
 
     <div class="content-margin">
+
 
 
 
@@ -345,149 +364,226 @@
         
         
     
+
     
-<h2 id="正则表达式" class="header-anchor-wrapper">正则表达式
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="正则表达式">
+
+
+<h2 class="header-anchor-wrapper">正则表达式
   <a href="#%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="网络编程">
 
-<h2 id="网络编程" class="header-anchor-wrapper">网络编程
+
+<h2 class="header-anchor-wrapper">网络编程
   <a href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="因特网客户端编程">
 
-<h2 id="因特网客户端编程" class="header-anchor-wrapper">因特网客户端编程
+
+<h2 class="header-anchor-wrapper">因特网客户端编程
   <a href="#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%bc%96%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="因特网客户端简介">
 
-<h3 id="因特网客户端简介" class="header-anchor-wrapper">因特网客户端简介
+
+<h3 class="header-anchor-wrapper">因特网客户端简介
   <a href="#%e5%9b%a0%e7%89%b9%e7%bd%91%e5%ae%a2%e6%88%b7%e7%ab%af%e7%ae%80%e4%bb%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="文件传输">
 
-<h3 id="文件传输" class="header-anchor-wrapper">文件传输
+
+<h3 class="header-anchor-wrapper">文件传输
   <a href="#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="文件传输因特协议">
 
-<h4 id="文件传输因特协议" class="header-anchor-wrapper">文件传输因特协议
+
+<h4 class="header-anchor-wrapper">文件传输因特协议
   <a href="#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93%e5%9b%a0%e7%89%b9%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>在当下，HTTP,FTP,scp/rsync的应用仍然广泛。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python和ftp">
 
-<h4 id="python和ftp" class="header-anchor-wrapper">Python和FTP
+
+<h4 class="header-anchor-wrapper">Python和FTP
   <a href="#python%e5%92%8cftp" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="ftplib.ftp类">
 
-<h4 id="ftplib.ftp类" class="header-anchor-wrapper">ftplib.FTP类
+
+<h4 class="header-anchor-wrapper">ftplib.FTP类
   <a href="#ftplib.ftp%e7%b1%bb" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="客户端ftp程序实例">
 
-<h4 id="客户端ftp程序实例" class="header-anchor-wrapper">客户端FTP程序实例
+
+<h4 class="header-anchor-wrapper">客户端FTP程序实例
   <a href="#%e5%ae%a2%e6%88%b7%e7%ab%afftp%e7%a8%8b%e5%ba%8f%e5%ae%9e%e4%be%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <pre  class="mc-prism hide language-text" ><code class="language-python">#! /usr/bin/env python
@@ -530,20 +626,28 @@ def main():
 if __name__ == '__main__':
     main()
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="ftp的其他内容">
 
-<h4 id="ftp的其他内容" class="header-anchor-wrapper">Ftp的其他内容
+
+<h4 class="header-anchor-wrapper">Ftp的其他内容
   <a href="#ftp%e7%9a%84%e5%85%b6%e4%bb%96%e5%86%85%e5%ae%b9" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -552,118 +656,174 @@ if __name__ == '__main__':
 <li>Web浏览器</li>
 <li>自定义应用程序</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="网络新闻">
 
-<h3 id="网络新闻" class="header-anchor-wrapper">网络新闻
+
+<h3 class="header-anchor-wrapper">网络新闻
   <a href="#%e7%bd%91%e7%bb%9c%e6%96%b0%e9%97%bb" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="usenet与新闻组">
 
-<h4 id="usenet与新闻组" class="header-anchor-wrapper">Usenet与新闻组
+
+<h4 class="header-anchor-wrapper">Usenet与新闻组
   <a href="#usenet%e4%b8%8e%e6%96%b0%e9%97%bb%e7%bb%84" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="网络新闻传输协议">
 
-<h4 id="网络新闻传输协议" class="header-anchor-wrapper">网络新闻传输协议
+
+<h4 class="header-anchor-wrapper">网络新闻传输协议
   <a href="#%e7%bd%91%e7%bb%9c%e6%96%b0%e9%97%bb%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>NNTP</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python和nntp">
 
-<h4 id="python和nntp" class="header-anchor-wrapper">Python和NNTP
+
+<h4 class="header-anchor-wrapper">Python和NNTP
   <a href="#python%e5%92%8cnntp" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>有一个nntplib库和一个需要实例化的nntplib.NNTP类</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="电子邮件">
 
-<h3 id="电子邮件" class="header-anchor-wrapper">电子邮件
+
+<h3 class="header-anchor-wrapper">电子邮件
   <a href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="电子邮件系统组件和协议">
 
-<h4 id="电子邮件系统组件和协议" class="header-anchor-wrapper">电子邮件系统组件和协议
+
+<h4 class="header-anchor-wrapper">电子邮件系统组件和协议
   <a href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%bb%84%e4%bb%b6%e5%92%8c%e5%8d%8f%e8%ae%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="发送电子邮件">
 
-<h4 id="发送电子邮件" class="header-anchor-wrapper">发送电子邮件
+
+<h4 class="header-anchor-wrapper">发送电子邮件
   <a href="#%e5%8f%91%e9%80%81%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <!--list-separator-->
@@ -693,166 +853,246 @@ if __name__ == '__main__':
 </ul>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python和smtp">
 
-<h4 id="python和smtp" class="header-anchor-wrapper">Python和SMTP
+
+<h4 class="header-anchor-wrapper">Python和SMTP
   <a href="#python%e5%92%8csmtp" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>有一个smtplib模块和一个需要实例化的smtplib.SMTP类</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="smtplib.smtp类方法">
 
-<h4 id="smtplib.smtp类方法" class="header-anchor-wrapper">smtplib.SMTP类方法
+
+<h4 class="header-anchor-wrapper">smtplib.SMTP类方法
   <a href="#smtplib.smtp%e7%b1%bb%e6%96%b9%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="接收电子邮件">
 
-<h4 id="接收电子邮件" class="header-anchor-wrapper">接收电子邮件
+
+<h4 class="header-anchor-wrapper">接收电子邮件
   <a href="#%e6%8e%a5%e6%94%b6%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="pop和imap">
 
-<h4 id="pop和imap" class="header-anchor-wrapper">POP和IMAP
+
+<h4 class="header-anchor-wrapper">POP和IMAP
   <a href="#pop%e5%92%8cimap" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python和pop3">
 
-<h4 id="python和pop3" class="header-anchor-wrapper">Python和POP3
+
+<h4 class="header-anchor-wrapper">Python和POP3
   <a href="#python%e5%92%8cpop3" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>导入poplib并实例化poplib.POP3</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="多线程编程">
 
-<h2 id="多线程编程" class="header-anchor-wrapper">多线程编程
+
+<h2 class="header-anchor-wrapper">多线程编程
   <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e7%bc%96%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="简介动机">
 
-<h3 id="简介动机" class="header-anchor-wrapper">简介、动机
+
+<h3 class="header-anchor-wrapper">简介、动机
   <a href="#%e7%ae%80%e4%bb%8b%e5%8a%a8%e6%9c%ba" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="线程和进程">
 
-<h3 id="线程和进程" class="header-anchor-wrapper">线程和进程
+
+<h3 class="header-anchor-wrapper">线程和进程
   <a href="#%e7%ba%bf%e7%a8%8b%e5%92%8c%e8%bf%9b%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="线程和python">
 
-<h3 id="线程和python" class="header-anchor-wrapper">线程和Python
+
+<h3 class="header-anchor-wrapper">线程和Python
   <a href="#%e7%ba%bf%e7%a8%8b%e5%92%8cpython" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="全局解释器锁">
 
-<h4 id="全局解释器锁" class="header-anchor-wrapper">全局解释器锁
+
+<h4 class="header-anchor-wrapper">全局解释器锁
   <a href="#%e5%85%a8%e5%b1%80%e8%a7%a3%e9%87%8a%e5%99%a8%e9%94%81" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>对Pyton虚拟机的访问是由*全局解释器锁（GIL）*控制的。在多线程环境中，Python虚拟机将按照正面所述折方式执行</p>
@@ -870,73 +1110,105 @@ if __name__ == '__main__':
 <li>重复上述步骤</li>
 </ol>
 <p><strong>可查看Python/ceval.c文件</strong></p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="退出线程">
 
-<h4 id="退出线程" class="header-anchor-wrapper">退出线程
+
+<h4 class="header-anchor-wrapper">退出线程
   <a href="#%e9%80%80%e5%87%ba%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>当一个线程完成函数的执行时，它就会退出。另外，还可以通过调用诸如thread.exit()之类的退出函数，或者sys.exit()之类的退出Python进程的标准方法，变或者抛出SystemExit异常，来使线程退出。
 <strong>不过你不能直接“终止”一个线程。</strong>
 主线程应该做一个好的管理者，负责了解每个单独的线程需要执行什么，每个派生的线程需要哪些数据或参数，这些线程执行守后会提供什么结果。这样，主线程就可以收集每个线程的相关介绍，然后汇兑成一个有意义的最终的结果。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="在python中使用线程">
 
-<h4 id="在python中使用线程" class="header-anchor-wrapper">在Python中使用线程
+
+<h4 class="header-anchor-wrapper">在Python中使用线程
   <a href="#%e5%9c%a8python%e4%b8%ad%e4%bd%bf%e7%94%a8%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>Python虽然支持多线程编程，但是还需要取决于它所运行的操作系统。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="不使用线程的情况">
 
-<h4 id="不使用线程的情况" class="header-anchor-wrapper">不使用线程的情况
+
+<h4 class="header-anchor-wrapper">不使用线程的情况
   <a href="#%e4%b8%8d%e4%bd%bf%e7%94%a8%e7%ba%bf%e7%a8%8b%e7%9a%84%e6%83%85%e5%86%b5" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>？？？</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python的threading模块">
 
-<h4 id="python的threading模块" class="header-anchor-wrapper">Python的threading模块
+
+<h4 class="header-anchor-wrapper">Python的threading模块
   <a href="#python%e7%9a%84threading%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p><strong>避免使用thread</strong></p>
@@ -947,20 +1219,28 @@ if __name__ == '__main__':
 <li>thread对于进程何时退出没有控制。当主线程结束时，所有其他线程也都强制结束，不会发出警告或者进行适当的清理。</li>
 <li>thread不支持守护线程。</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="thread模块">
 
-<h3 id="thread模块" class="header-anchor-wrapper">thread模块
+
+<h3 class="header-anchor-wrapper">thread模块
   <a href="#thread%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>thread模块除了提供派生线程外，还提供了基本的同步数据结构，称为锁对象（lock
@@ -1025,20 +1305,28 @@ def main():
 if __name__ == '__main__':
     main()
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="theading-模块">
 
-<h3 id="theading-模块" class="header-anchor-wrapper">theading 模块
+
+<h3 class="header-anchor-wrapper">theading 模块
   <a href="#theading-%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>threading模块中所有可用对象的列表</p>
@@ -1100,20 +1388,28 @@ threading模块支持守护线程，其工作方式是：守护线程一般是�
 <p>同样，要检查线程的守护状态，也只需要检查这个值即可。</p>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="thread类">
 
-<h4 id="thread类" class="header-anchor-wrapper">Thread类
+
+<h4 class="header-anchor-wrapper">Thread类
   <a href="#thread%e7%b1%bb" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>Thread对象的属性</p>
@@ -1303,20 +1599,28 @@ if __name__ == '__main__':
 </ul>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="threading-模块的其他函数">
 
-<h4 id="threading-模块的其他函数" class="header-anchor-wrapper">threading 模块的其他函数
+
+<h4 class="header-anchor-wrapper">threading 模块的其他函数
   <a href="#threading-%e6%a8%a1%e5%9d%97%e7%9a%84%e5%85%b6%e4%bb%96%e5%87%bd%e6%95%b0" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <table class="mc-table">
@@ -1353,85 +1657,125 @@ if __name__ == '__main__':
       </tr>
   </tbody>
 </table>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="单线程和多线程执行对比">
 
-<h3 id="单线程和多线程执行对比" class="header-anchor-wrapper">单线程和多线程执行对比
+
+<h3 class="header-anchor-wrapper">单线程和多线程执行对比
   <a href="#%e5%8d%95%e7%ba%bf%e7%a8%8b%e5%92%8c%e5%a4%9a%e7%ba%bf%e7%a8%8b%e6%89%a7%e8%a1%8c%e5%af%b9%e6%af%94" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="多线程实践">
 
-<h3 id="多线程实践" class="header-anchor-wrapper">多线程实践
+
+<h3 class="header-anchor-wrapper">多线程实践
   <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e5%ae%9e%e8%b7%b5" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="引入线程">
 
-<h4 id="引入线程" class="header-anchor-wrapper">引入线程
+
+<h4 class="header-anchor-wrapper">引入线程
   <a href="#%e5%bc%95%e5%85%a5%e7%ba%bf%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="同步原语">
 
-<h4 id="同步原语" class="header-anchor-wrapper">同步原语
+
+<h4 class="header-anchor-wrapper">同步原语
   <a href="#%e5%90%8c%e6%ad%a5%e5%8e%9f%e8%af%ad" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>锁/互斥信号量</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="锁示例">
 
-<h4 id="锁示例" class="header-anchor-wrapper">锁示例
+
+<h4 class="header-anchor-wrapper">锁示例
   <a href="#%e9%94%81%e7%a4%ba%e4%be%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>锁有两种状态：</p>
@@ -1446,20 +1790,28 @@ if __name__ == '__main__':
 </ul>
 <p><strong>使用上下文管理</strong>
 2.5以后可以使用with语句，而不再调用锁的acquire()和release()而进一步简化代码。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="信号量">
 
-<h4 id="信号量" class="header-anchor-wrapper">信号量
+
+<h4 class="header-anchor-wrapper">信号量
   <a href="#%e4%bf%a1%e5%8f%b7%e9%87%8f" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>信号量是一个计数器，当资源消耗时递减，当资源释放时递增。你可以认为信号量代表它们的资源可用或不可用。
@@ -1518,20 +1870,28 @@ def _atexit():
 if __name__ == '__main__':
     _main()
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="生产者-消费者问题和queuequeue模块">
 
-<h3 id="生产者-消费者问题和queuequeue模块" class="header-anchor-wrapper">生产者-消费者问题和Queue/queue模块
+
+<h3 class="header-anchor-wrapper">生产者-消费者问题和Queue/queue模块
   <a href="#%e7%94%9f%e4%ba%a7%e8%80%85-%e6%b6%88%e8%b4%b9%e8%80%85%e9%97%ae%e9%a2%98%e5%92%8cqueuequeue%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>常用属性</p>
@@ -1623,71 +1983,103 @@ if __name__ == '__main__':
       </tr>
   </tbody>
 </table>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="线程的替代方案">
 
-<h3 id="线程的替代方案" class="header-anchor-wrapper">线程的替代方案
+
+<h3 class="header-anchor-wrapper">线程的替代方案
   <a href="#%e7%ba%bf%e7%a8%8b%e7%9a%84%e6%9b%bf%e4%bb%a3%e6%96%b9%e6%a1%88" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="subprocess-模块">
 
-<h4 id="subprocess-模块" class="header-anchor-wrapper">subprocess 模块
+
+<h4 class="header-anchor-wrapper">subprocess 模块
   <a href="#subprocess-%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>这是派生进程的主要替代方案，可以单纯地执行任务，或者通过标准文件（stdin,
 stdout, stderr)进行进程间通信。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="multiprocessing模块">
 
-<h4 id="multiprocessing模块" class="header-anchor-wrapper">multiprocessing模块
+
+<h4 class="header-anchor-wrapper">multiprocessing模块
   <a href="#multiprocessing%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>2.6引入，允许为多核或多CPU派生进程，其接口与threading模块相似。该模块同样也包括在共享任务的进程间传输数据的多种方式。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="concurrent.futures模块">
 
-<h4 id="concurrent.futures模块" class="header-anchor-wrapper">concurrent.futures模块
+
+<h4 class="header-anchor-wrapper">concurrent.futures模块
   <a href="#concurrent.futures%e6%a8%a1%e5%9d%97" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>e.g.</p>
@@ -1726,85 +2118,125 @@ def _main():
 
         )
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="gui编程">
 
-<h2 id="gui编程" class="header-anchor-wrapper">GUI编程
+
+<h2 class="header-anchor-wrapper">GUI编程
   <a href="#gui%e7%bc%96%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="数据库编程">
 
-<h2 id="数据库编程" class="header-anchor-wrapper">数据库编程
+
+<h2 class="header-anchor-wrapper">数据库编程
   <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e7%bc%96%e7%a8%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="简介">
 
-<h3 id="简介" class="header-anchor-wrapper">简介
+
+<h3 class="header-anchor-wrapper">简介
   <a href="#%e7%ae%80%e4%bb%8b" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="持久化存储">
 
-<h4 id="持久化存储" class="header-anchor-wrapper">持久化存储
+
+<h4 class="header-anchor-wrapper">持久化存储
   <a href="#%e6%8c%81%e4%b9%85%e5%8c%96%e5%ad%98%e5%82%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>存储机制：文件，数据库系统，混合类型。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="数据库基本操作和sql">
 
-<h4 id="数据库基本操作和sql" class="header-anchor-wrapper">数据库基本操作和SQL
+
+<h4 class="header-anchor-wrapper">数据库基本操作和SQL
   <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c%e5%92%8csql" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -1816,52 +2248,76 @@ SQL</li>
 <li>SQL
 数据库命令和查询操作是通过SQL语句提交给数据库的。</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="数据库和python">
 
-<h4 id="数据库和python" class="header-anchor-wrapper">数据库和Python
+
+<h4 class="header-anchor-wrapper">数据库和Python
   <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%92%8cpython" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python的db-api">
 
-<h3 id="python的db-api" class="header-anchor-wrapper">Python的DB-API
+
+<h3 class="header-anchor-wrapper">Python的DB-API
   <a href="#python%e7%9a%84db-api" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="模块属性">
 
-<h4 id="模块属性" class="header-anchor-wrapper">模块属性
+
+<h4 class="header-anchor-wrapper">模块属性
   <a href="#%e6%a8%a1%e5%9d%97%e5%b1%9e%e6%80%a7" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>DB-API标准要求必须提供下文列出的功能和属性</p>
@@ -1970,20 +2426,28 @@ connect()函数属性：
 </table>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="connection对象">
 
-<h4 id="connection对象" class="header-anchor-wrapper">Connection对象
+
+<h4 class="header-anchor-wrapper">Connection对象
   <a href="#connection%e5%af%b9%e8%b1%a1" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>Connection对象方法：</p>
@@ -2017,20 +2481,28 @@ connect()函数属性：
       </tr>
   </tbody>
 </table>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="cursor对象">
 
-<h4 id="cursor对象" class="header-anchor-wrapper">Cursor对象
+
+<h4 class="header-anchor-wrapper">Cursor对象
   <a href="#cursor%e5%af%b9%e8%b1%a1" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>游标可以让用户提交数据库命令，并获得查询的结果行。
@@ -2121,38 +2593,54 @@ Cursor对象属性</p>
       </tr>
   </tbody>
 </table>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="orm">
 
-<h3 id="orm" class="header-anchor-wrapper">ORM
+
+<h3 class="header-anchor-wrapper">ORM
   <a href="#orm" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>考虑对象而不是SQL
 目前最知名的Python ORM是SQLAlchemy和SQLObject。</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="sqlalchemy常用方法">
 
-<h4 id="sqlalchemy常用方法" class="header-anchor-wrapper">SQLAlchemy常用方法：
+
+<h4 class="header-anchor-wrapper">SQLAlchemy常用方法：
   <a href="#sqlalchemy%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -2169,68 +2657,100 @@ Cursor对象属性</p>
 <li>update()</li>
 <li>delete()</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="非关系数据库">
 
-<h3 id="非关系数据库" class="header-anchor-wrapper">非关系数据库
+
+<h3 class="header-anchor-wrapper">非关系数据库
   <a href="#%e9%9d%9e%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e5%ba%93" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="web客户端和服务器">
 
-<h2 id="web客户端和服务器" class="header-anchor-wrapper">Web客户端和服务器
+
+<h2 class="header-anchor-wrapper">Web客户端和服务器
   <a href="#web%e5%ae%a2%e6%88%b7%e7%ab%af%e5%92%8c%e6%9c%8d%e5%8a%a1%e5%99%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python-web客户端工具">
 
-<h3 id="python-web客户端工具" class="header-anchor-wrapper">Python Web客户端工具
+
+<h3 class="header-anchor-wrapper">Python Web客户端工具
   <a href="#python-web%e5%ae%a2%e6%88%b7%e7%ab%af%e5%b7%a5%e5%85%b7" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="urllib模块包">
 
-<h4 id="urllib模块包" class="header-anchor-wrapper">urllib模块/包
+
+<h4 class="header-anchor-wrapper">urllib模块/包
   <a href="#urllib%e6%a8%a1%e5%9d%97%e5%8c%85" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -2303,38 +2823,54 @@ urlopen()文件类型对象的方法：</p>
 <p>&hellip;</p>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="web编程cgi和wsgi">
 
-<h2 id="web编程cgi和wsgi" class="header-anchor-wrapper">Web编程：CGI和WSGI
+
+<h2 class="header-anchor-wrapper">Web编程：CGI和WSGI
   <a href="#web%e7%bc%96%e7%a8%8bcgi%e5%92%8cwsgi" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
 <p>CGI：Common Gateway Interface 通用网关掊
 WSGI：Web Server Gateway Interface Web服务器网关接口</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="web框架django">
 
-<h2 id="web框架django" class="header-anchor-wrapper">Web框架：Django
+
+<h2 class="header-anchor-wrapper">Web框架：Django
   <a href="#web%e6%a1%86%e6%9e%b6django" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
 <ul>
@@ -2366,72 +2902,104 @@ WSGI：Web Server Gateway Interface Web服务器网关接口</p>
 </blockquote>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python-应用shell">
 
-<h3 id="python-应用shell" class="header-anchor-wrapper">python 应用shell
+
+<h3 class="header-anchor-wrapper">python 应用shell
   <a href="#python-%e5%ba%94%e7%94%a8shell" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="在django中使用python-shell">
 
-<h4 id="在django中使用python-shell" class="header-anchor-wrapper">在Django中使用Python shell
+
+<h4 class="header-anchor-wrapper">在Django中使用Python shell
   <a href="#%e5%9c%a8django%e4%b8%ad%e4%bd%bf%e7%94%a8python-shell" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <blockquote>
 <p>python ./manage.py shell</p>
 </blockquote>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="安装应用">
 
-<h4 id="安装应用" class="header-anchor-wrapper">安装应用
+
+<h4 class="header-anchor-wrapper">安装应用
   <a href="#%e5%ae%89%e8%a3%85%e5%ba%94%e7%94%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <p>在settings.py的INSTALLED_APPS中添加app_name</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="python2与python3的区别">
 
-<h2 id="python2与python3的区别" class="header-anchor-wrapper">Python2与Python3的区别
+
+<h2 class="header-anchor-wrapper">Python2与Python3的区别
   <a href="#python2%e4%b8%8epython3%e7%9a%84%e5%8c%ba%e5%88%ab" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
 <ul>
@@ -2454,7 +3022,8 @@ WSGI：Web Server Gateway Interface Web服务器网关接口</p>
 </ul>
 </li>
 </ul>
-
+</section>
+    
 </article>
 </div>
 

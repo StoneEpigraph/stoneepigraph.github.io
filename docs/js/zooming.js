@@ -25,12 +25,12 @@
     mod
   ));
 
-  // ns-hugo:/home/stone/resource/dailyNotes/hugo/stoneepigraph.github.io/themes/hugo-theme-monochrome/assets/lib/js/zooming-v2.1.1.min.js
+  // ns-hugo-imp:/home/stone/resource/dailyNotes/hugo/stoneepigraph.github.io/themes/hugo-theme-monochrome/assets/lib/js/zooming-v2.1.1.min.js
   var require_zooming_v2_1_1_min = __commonJS({
-    "ns-hugo:/home/stone/resource/dailyNotes/hugo/stoneepigraph.github.io/themes/hugo-theme-monochrome/assets/lib/js/zooming-v2.1.1.min.js"(exports, module) {
-      !function(t, e) {
+    "ns-hugo-imp:/home/stone/resource/dailyNotes/hugo/stoneepigraph.github.io/themes/hugo-theme-monochrome/assets/lib/js/zooming-v2.1.1.min.js"(exports, module) {
+      !(function(t, e) {
         "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = t || self).Zooming = e();
-      }(exports, function() {
+      })(exports, function() {
         "use strict";
         var t = "auto", e = "zoom-in", i = "zoom-out", n = "grab", s = "move";
         function o(t2, e2, i2) {
@@ -49,7 +49,7 @@
           return t2.dataset.original ? t2.dataset.original : "A" === t2.parentNode.tagName ? t2.parentNode.getAttribute("href") : null;
         }
         function l(t2, e2, i2) {
-          !function(t3) {
+          !(function(t3) {
             var e3 = h.transitionProp, i3 = h.transformProp;
             if (t3.transition) {
               var n3 = t3.transition;
@@ -59,7 +59,7 @@
               var s3 = t3.transform;
               delete t3.transform, t3[i3] = s3;
             }
-          }(e2);
+          })(e2);
           var n2 = t2.style, s2 = {};
           for (var o2 in e2) i2 && (s2[o2] = n2[o2] || ""), n2[o2] = e2[o2];
           return s2;
@@ -139,7 +139,7 @@
           return t2 && "function" == typeof Symbol && t2.constructor === Symbol && t2 !== Symbol.prototype ? "symbol" : typeof t2;
         }, b = function(t2, e2) {
           if (!(t2 instanceof e2)) throw new TypeError("Cannot call a class as a function");
-        }, w = /* @__PURE__ */ function() {
+        }, w = /* @__PURE__ */ (function() {
           function t2(t3, e2) {
             for (var i2 = 0; i2 < e2.length; i2++) {
               var n2 = e2[i2];
@@ -149,7 +149,7 @@
           return function(e2, i2, n2) {
             return i2 && t2(e2.prototype, i2), n2 && t2(e2, n2), e2;
           };
-        }(), x = Object.assign || function(t2) {
+        })(), x = Object.assign || function(t2) {
           for (var e2 = 1; e2 < arguments.length; e2++) {
             var i2 = arguments[e2];
             for (var n2 in i2) Object.prototype.hasOwnProperty.call(i2, n2) && (t2[n2] = i2[n2]);
@@ -206,7 +206,7 @@
             o(t2, n2, e2[n2], i2);
           });
         }
-        return function() {
+        return (function() {
           function i2(t2) {
             b(this, i2), this.target = Object.create(O), this.overlay = Object.create(g), this.handler = Object.create(p), this.body = document.body, this.shown = false, this.lock = false, this.released = true, this.lastScrollPosition = null, this.pressTimer = null, this.options = x({}, f, t2), this.overlay.init(this), this.handler.init(this);
           }
@@ -268,7 +268,7 @@
               }), this;
             }
           } }]), i2;
-        }();
+        })();
       });
     }
   });

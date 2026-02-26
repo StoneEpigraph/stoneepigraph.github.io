@@ -15,10 +15,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='zh-CN'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <link rel="shortcut icon" href='http://localhost:1313/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Git常用命令 - 石记</title>
 
@@ -31,14 +40,12 @@
     
 
     
-        <meta property="og:url" content="https://stoneepigraph.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        <meta property="og:url" content="http://localhost:1313/posts/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="Git常用命令">
   <meta property="og:description" content="Git常用命令 新建代码库 在当前目录新建一个Git代码库 &gt; git init
-新建一个目录，将其初始化为Git代码库 &gt; git init [Project_name]
-下载一个项目和它的整个代码历史 &gt; git clone [url]
-配置 添加指定文件到暂存区 &gt; git add [fileName] …">
-  <meta property="og:locale" content="en">
+新建一个目录，将其初始化为Git代码库 &gt; git init [Project_name]">
+  <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2022-11-25T00:00:00+00:00">
@@ -53,15 +60,13 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git常用命令">
   <meta name="twitter:description" content="Git常用命令 新建代码库 在当前目录新建一个Git代码库 &gt; git init
-新建一个目录，将其初始化为Git代码库 &gt; git init [Project_name]
-下载一个项目和它的整个代码历史 &gt; git clone [url]
-配置 添加指定文件到暂存区 &gt; git add [fileName] …">
+新建一个目录，将其初始化为Git代码库 &gt; git init [Project_name]">
 
-    <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
+    <link rel="stylesheet" href="/style.css" integrity="">
 
 
 
-    <link rel="stylesheet" href="/lib/css/prism.min.f1bc264bb9f5436d93667fa922aad9df70071445181e118a1fa02663a3ffe5e1.css" integrity="sha256-8bwmS7n1Q22TZn&#43;pIqrZ33AHFEUYHhGKH6AmY6P/5eE=">
+    <link rel="stylesheet" href="/lib/css/prism.css" integrity="">
 
 
 
@@ -77,11 +82,15 @@
             document.documentElement.setAttribute("data-theme", "light");
         }
     </script>
-<script defer src="/js/header.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
+<script defer src="/js/theme-switch.js" integrity=""></script>
 
 
 
-    <script defer src="/js/zooming.3bda780b3d5a676b6068e5ad5fd77a313c4371117131529f7e7480e7d4b64d96.js" integrity="sha256-O9p4Cz1aZ2tgaOWtX9d6MTxDcRFxMVKffnSA59S2TZY="></script>
+
+
+
+
+    <script defer src="/js/zooming.js" integrity=""></script>
 
 
 
@@ -102,7 +111,7 @@
             
         
 
-        <script defer src="/js/prism.751ae679172b3c3e8a40b35f7871078a0220fdad152826765a3aa28ae639e1ae.js" integrity="sha256-dRrmeRcrPD6KQLNfeHEHigIg/a0VKCZ2WjqiiuY54a4=" data-manual></script>
+        <script defer src="/js/prism.js" integrity="" data-manual></script>
     
 
 
@@ -110,7 +119,7 @@
     
     
     
-    <script defer src="/js/search-en.91707080d0df9ea5816bfeaebfabc734ade25d3ee62e2bc6eecfb499c5c3dd95.js" integrity="sha256-kXBwgNDfnqWBa/6uv6vHNK3iXT7mLivG7s&#43;0mcXD3ZU="></script>
+    <script defer src="/js/search-zh-CN.js" integrity=""></script>
 
 
 
@@ -120,31 +129,30 @@
     
 </head>
 <body><header>
-    <div id="header_left">
-        <div id="sidebar_btn">
-            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
-            <label id="sidebar_btn_label" for="sidebar_btn_input">
-                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
 </svg>
 
-</svg>
-            </label>
-            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
-                <div id="sidebar_canvas_overlay"></div>
-            </label>
-            <div id="sidebar">
-                <ul><li>
-                            <a href="/posts/">posts</a></li><li>
-                            <a href="/categories">Categories</a></li><li>
-                            <a href="/tags">Tags</a></li><li>
-                            <a href="/others/">Others</a></li><li>
-                            <a href="/abouts">Abouts</a>
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/posts/">posts</a></li><li>
+                                <a href="/categories">Categories</a></li><li>
+                                <a href="/tags">Tags</a></li><li>
+                                <a href="/others/">Others</a></li><li>
+                                <a href="/abouts">Abouts</a>
     <ul>
         
 
@@ -167,98 +175,31 @@
         
     </ul>
 </li></ul>
+                </div>
             </div>
-        </div>
-    
-        <div class="brand">
-            <div>
-                <a href="/">石记</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="toolbox">
-        <div id="theme_tool">
-            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-</svg>
-
-</svg>
-            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-</svg>
-
-</svg>
-        </div>
-
         
-            <div id="search_tool">
-                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-</svg>
-
-</svg><div id="search_menu_wrapper" class="hidden">
-    <div id="search_menu">
-        <div id="search_menu_toolbar">
-            <div id="search_menu_input_wrapper">
-                <input id="search_menu_input" type="text" placeholder='Search Posts'>
-            </div>
-            <div id="search_menu_close_btn">
-                <svg width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-</svg>
-
-</svg>
-            </div>
-        </div>
-        <div id="search_menu_results">
-        </div>
-    </div>
-</div>
-</div>
-        
-
-        
-    </div>
-</header>
-<nav id="navbar" class="pure-menu">
-    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+            <div class="brand">
+                <div>
+                    <a href="/">石记</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
                     
                         <a href="/posts/" class="pure-menu-link">posts</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/categories" class="pure-menu-link">Categories</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/tags" class="pure-menu-link">Tags</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/others/" class="pure-menu-link">Others</a>
                     
-                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                </li><li class="header-menu-item header-menu-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
                     
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
@@ -284,13 +225,85 @@
 </ul>
                 </li></ul>
 </nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
 <main>
             <div id="content" class="content-margin">
                 
     
-    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+    
         
-            <nav id="TableOfContents">
+<script defer src="/js/toc-tracker.js" integrity=""></script>
+
+<div class="collapsible-menu-wrapper right">
+    <div class="collapsible-menu-type">
+        <span>Table of contents</span>
+    </div>
+    <div class="collapsible-menu">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#git常用命令">Git常用命令</a>
       <ul>
@@ -317,12 +330,14 @@
     </li>
   </ul>
 </nav>
-        
-    </div></div>
+    </div>
+</div>
+    
 
 
 
     <div class="content-margin">
+
 
 
 
@@ -332,36 +347,57 @@
         
         
     
+
     
-<h2 id="git常用命令" class="header-anchor-wrapper">Git常用命令
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="git常用命令">
+
+
+<h2 class="header-anchor-wrapper">Git常用命令
   <a href="#git%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="新建代码库">
 
-<h3 id="新建代码库" class="header-anchor-wrapper">新建代码库
+
+<h3 class="header-anchor-wrapper">新建代码库
   <a href="#%e6%96%b0%e5%bb%ba%e4%bb%a3%e7%a0%81%e5%ba%93" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -376,20 +412,28 @@
 <li>下载一个项目和它的整个代码历史</li>
 </ul>
 <p>&gt; git clone [url]</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="配置">
 
-<h3 id="配置" class="header-anchor-wrapper">配置
+
+<h3 class="header-anchor-wrapper">配置
   <a href="#%e9%85%8d%e7%bd%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -414,20 +458,28 @@
 </code></pre>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="代码提交">
 
-<h3 id="代码提交" class="header-anchor-wrapper">代码提交
+
+<h3 class="header-anchor-wrapper">代码提交
   <a href="#%e4%bb%a3%e7%a0%81%e6%8f%90%e4%ba%a4" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -444,20 +496,28 @@
 <li>重做上一次commit, 并包括指定文件的新变化
 &gt; git commit &ndash;amend &hellip;</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="分支">
 
-<h3 id="分支" class="header-anchor-wrapper">分支
+
+<h3 class="header-anchor-wrapper">分支
   <a href="#%e5%88%86%e6%94%af" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -519,20 +579,28 @@
 <li>新建一个分支，指向某个Tag
 &gt; git checkout -b [branch_name] [tag_name]</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="查看信息">
 
-<h3 id="查看信息" class="header-anchor-wrapper">查看信息
+
+<h3 class="header-anchor-wrapper">查看信息
   <a href="#%e6%9f%a5%e7%9c%8b%e4%bf%a1%e6%81%af" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -588,20 +656,28 @@
 <li>查看哪些文件在某个提交commit中有变更
 git whatchanged</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="远程同步">
 
-<h3 id="远程同步" class="header-anchor-wrapper">远程同步
+
+<h3 class="header-anchor-wrapper">远程同步
   <a href="#%e8%bf%9c%e7%a8%8b%e5%90%8c%e6%ad%a5" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -632,20 +708,28 @@ git whatchanged</li>
 <li>推送所有分支到远程仓库
 &gt; git push [remote] &ndash;all</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="撤消">
 
-<h3 id="撤消" class="header-anchor-wrapper">撤消
+
+<h3 class="header-anchor-wrapper">撤消
   <a href="#%e6%92%a4%e6%b6%88" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -678,20 +762,28 @@ git whatchanged</li>
 <li>新建一个commit，用来撤消指定的commit,后者的所有变化 都将被前者抵消，并且 应用到当前分支</li>
 </ul>
 <p>&gt; git revert [commit]</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="其他">
 
-<h3 id="其他" class="header-anchor-wrapper">其他
+
+<h3 class="header-anchor-wrapper">其他
   <a href="#%e5%85%b6%e4%bb%96" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ul>
@@ -707,20 +799,28 @@ git stash list</li>
 <li>清空Git栈
 git stash clear</li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="other">
 
-<h3 id="other" class="header-anchor-wrapper">Other
+
+<h3 class="header-anchor-wrapper">Other
   <a href="#other" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>git init                                                  # 初始化本地git仓库（创建新仓库）
@@ -811,86 +911,126 @@ git grep -e &lsquo;#define&rsquo; &ndash;and -e SORT_DIRENT
 git gc
 git fsck
 git config &ndash;global core.autocrlf input			  # 在LInux下忽略Winodws与Linux的换行符的不同</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="tips">
 
-<h2 id="tips" class="header-anchor-wrapper">Tips
+
+<h2 class="header-anchor-wrapper">Tips
   <a href="#tips" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="忽略文件mode的配置">
 
-<h3 id="忽略文件mode的配置" class="header-anchor-wrapper">忽略文件Mode的配置
+
+<h3 class="header-anchor-wrapper">忽略文件Mode的配置
   <a href="#%e5%bf%bd%e7%95%a5%e6%96%87%e4%bb%b6mode%e7%9a%84%e9%85%8d%e7%bd%ae" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <pre  class="mc-prism hide language-text" ><code class="language-shell">git config --add core.filemode false
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="常用问题处理">
 
-<h2 id="常用问题处理" class="header-anchor-wrapper">常用问题处理
+
+<h2 class="header-anchor-wrapper">常用问题处理
   <a href="#%e5%b8%b8%e7%94%a8%e9%97%ae%e9%a2%98%e5%a4%84%e7%90%86" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="push相关">
 
-<h3 id="push相关" class="header-anchor-wrapper">push相关
+
+<h3 class="header-anchor-wrapper">push相关
   <a href="#push%e7%9b%b8%e5%85%b3" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="remote-rejected-master-master--shallow-update-not-allowed">
 
-<h4 id="remote-rejected-master-master--shallow-update-not-allowed" class="header-anchor-wrapper">! [remote rejected] master -&gt; master (shallow update not allowed)
+
+<h4 class="header-anchor-wrapper">! [remote rejected] master -&gt; master (shallow update not allowed)
   <a href="#remote-rejected-master-master--shallow-update-not-allowed" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <!--list-separator-->
@@ -914,7 +1054,8 @@ git config &ndash;global core.autocrlf input			  # 在LInux下忽略Winodws与Li
 </ul>
 </li>
 </ul>
-
+</section>
+    
 </article>
 </div>
 

@@ -15,10 +15,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='zh-CN'><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href='https://stoneepigraph.github.io/favicon.ico' type="image/x-icon">
+    <link rel="shortcut icon" href='http://localhost:1313/favicon.ico' type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Oracle一些简单查询 - 石记</title>
 
@@ -31,11 +40,11 @@
     
 
     
-        <meta property="og:url" content="https://stoneepigraph.github.io/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/">
+        <meta property="og:url" content="http://localhost:1313/posts/oracle%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/">
   <meta property="og:site_name" content="石记">
   <meta property="og:title" content="Oracle一些简单查询">
   <meta property="og:description" content="Oracle一些基本查询 字符集相关 查询数据库字符集 select userenv(&#39;language&#39;) from dual; 实例相关 查询实例名 select instance_name from v$instance; 锁相关 查看被锁的表 select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time; 杀死锁进程 alter system kill session &#39;id,serial*&#39;; 查询表之前的状态 select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL &#39;50&#39; MINUTE) 用户 查询当前用户的缺省表空间 select username,default_tablespace from user_users; 查询当前用户的角色 select * from user_role_privs; 查看当前用户的系统权限和表级权限 select * from user_sys_privs; select * from user_tab_privs; 查询用户下的所有的表 select * from user_tables; 表 查看用户下所有的表 select * from user_tables; 查看名称包含log字符的表 select object_name,object_id from user_objects where instr(object_name,&#39;LOG&#39;)&gt;0; 查询表的创建时间 select object_name,created from user_objects where object_name=upper(&#39;&amp;table_name&#39;); 查询表的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;table_name&#39;); 查看放在Oracle的内存区里的表 select table_name,cache from user_tables where instr(cache,&#39;Y&#39;)&gt;0; 查询表的DDL语句 select dbms_metadata.get_ddl(&#39;TABLE&#39;,upper(&#39;tr_rpt_repair_record&#39;),upper(&#39;bjvmmis&#39;)) from dual; 索引 查看索引个数和类别 select index_name,index_type,table_name from user_indexes order by table_name; 查看索引被索引的字段 select * from user_ind_columns where index_name=upper(&#39;&amp;index_name&#39;); 查看索引的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;index_name&#39;); 序列号 查看序列号，last_number是当前值">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
 
@@ -47,11 +56,11 @@
   <meta name="twitter:title" content="Oracle一些简单查询">
   <meta name="twitter:description" content="Oracle一些基本查询 字符集相关 查询数据库字符集 select userenv(&#39;language&#39;) from dual; 实例相关 查询实例名 select instance_name from v$instance; 锁相关 查看被锁的表 select b.username,b.sid,b.serial#,logon_time from v$locked_object a,v$session b where a.session_id = b.sid order by b.logon_time; 杀死锁进程 alter system kill session &#39;id,serial*&#39;; 查询表之前的状态 select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL &#39;50&#39; MINUTE) 用户 查询当前用户的缺省表空间 select username,default_tablespace from user_users; 查询当前用户的角色 select * from user_role_privs; 查看当前用户的系统权限和表级权限 select * from user_sys_privs; select * from user_tab_privs; 查询用户下的所有的表 select * from user_tables; 表 查看用户下所有的表 select * from user_tables; 查看名称包含log字符的表 select object_name,object_id from user_objects where instr(object_name,&#39;LOG&#39;)&gt;0; 查询表的创建时间 select object_name,created from user_objects where object_name=upper(&#39;&amp;table_name&#39;); 查询表的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;table_name&#39;); 查看放在Oracle的内存区里的表 select table_name,cache from user_tables where instr(cache,&#39;Y&#39;)&gt;0; 查询表的DDL语句 select dbms_metadata.get_ddl(&#39;TABLE&#39;,upper(&#39;tr_rpt_repair_record&#39;),upper(&#39;bjvmmis&#39;)) from dual; 索引 查看索引个数和类别 select index_name,index_type,table_name from user_indexes order by table_name; 查看索引被索引的字段 select * from user_ind_columns where index_name=upper(&#39;&amp;index_name&#39;); 查看索引的大小 select sum(bytes)/(1024*1024) as &#34;size(M)&#34; from user_segments where segment_name=upper(&#39;&amp;index_name&#39;); 序列号 查看序列号，last_number是当前值">
 
-    <link rel="stylesheet" href="/style.min.6326d9dc8b173d44c2b431addc7b78633138d874bd37824a3ca1ddac925110e2.css" integrity="sha256-YybZ3IsXPUTCtDGt3Ht4YzE42HS9N4JKPKHdrJJREOI=">
+    <link rel="stylesheet" href="/style.css" integrity="">
 
 
 
-    <link rel="stylesheet" href="/lib/css/prism.min.f1bc264bb9f5436d93667fa922aad9df70071445181e118a1fa02663a3ffe5e1.css" integrity="sha256-8bwmS7n1Q22TZn&#43;pIqrZ33AHFEUYHhGKH6AmY6P/5eE=">
+    <link rel="stylesheet" href="/lib/css/prism.css" integrity="">
 
 
 
@@ -67,11 +76,15 @@
             document.documentElement.setAttribute("data-theme", "light");
         }
     </script>
-<script defer src="/js/header.7c57075675400a1a12bc3fcfc744dd74e1e417b8db11fdef378d7a7ef1cc9e3f.js" integrity="sha256-fFcHVnVAChoSvD/Px0TddOHkF7jbEf3vN416fvHMnj8="></script>
+<script defer src="/js/theme-switch.js" integrity=""></script>
 
 
 
-    <script defer src="/js/zooming.3bda780b3d5a676b6068e5ad5fd77a313c4371117131529f7e7480e7d4b64d96.js" integrity="sha256-O9p4Cz1aZ2tgaOWtX9d6MTxDcRFxMVKffnSA59S2TZY="></script>
+
+
+
+
+    <script defer src="/js/zooming.js" integrity=""></script>
 
 
 
@@ -92,7 +105,7 @@
             
         
 
-        <script defer src="/js/prism.751ae679172b3c3e8a40b35f7871078a0220fdad152826765a3aa28ae639e1ae.js" integrity="sha256-dRrmeRcrPD6KQLNfeHEHigIg/a0VKCZ2WjqiiuY54a4=" data-manual></script>
+        <script defer src="/js/prism.js" integrity="" data-manual></script>
     
 
 
@@ -100,7 +113,7 @@
     
     
     
-    <script defer src="/js/search-en.91707080d0df9ea5816bfeaebfabc734ade25d3ee62e2bc6eecfb499c5c3dd95.js" integrity="sha256-kXBwgNDfnqWBa/6uv6vHNK3iXT7mLivG7s&#43;0mcXD3ZU="></script>
+    <script defer src="/js/search-zh-CN.js" integrity=""></script>
 
 
 
@@ -110,31 +123,30 @@
     
 </head>
 <body><header>
-    <div id="header_left">
-        <div id="sidebar_btn">
-            <input type="checkbox" id="sidebar_btn_input" class="hidden" />
-            <label id="sidebar_btn_label" for="sidebar_btn_input">
-                <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
+    <div id="header_content" class="wide">
+        <div id="header_left">
+            <div id="sidebar_btn">
+                <input type="checkbox" id="sidebar_btn_input" class="hidden" />
+                <label id="sidebar_btn_label" for="sidebar_btn_input">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
 </svg>
 
-</svg>
-            </label>
-            <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
-                <div id="sidebar_canvas_overlay"></div>
-            </label>
-            <div id="sidebar">
-                <ul><li>
-                            <a href="/posts/">posts</a></li><li>
-                            <a href="/categories">Categories</a></li><li>
-                            <a href="/tags">Tags</a></li><li>
-                            <a href="/others/">Others</a></li><li>
-                            <a href="/abouts">Abouts</a>
+</label>
+                <label id="sidebar_canvas_overlay_wrapper" for="sidebar_btn_input">
+                    <div id="sidebar_canvas_overlay"></div>
+                </label>
+                <div id="sidebar">
+                    <ul><li>
+                                <a href="/posts/">posts</a></li><li>
+                                <a href="/categories">Categories</a></li><li>
+                                <a href="/tags">Tags</a></li><li>
+                                <a href="/others/">Others</a></li><li>
+                                <a href="/abouts">Abouts</a>
     <ul>
         
 
@@ -157,98 +169,31 @@
         
     </ul>
 </li></ul>
+                </div>
             </div>
-        </div>
-    
-        <div class="brand">
-            <div>
-                <a href="/">石记</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="toolbox">
-        <div id="theme_tool">
-            <svg id="dark_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-</svg>
-
-</svg>
-            <svg id="light_mode_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-</svg>
-
-</svg>
-        </div>
-
         
-            <div id="search_tool">
-                <svg id="search_btn" class="toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-</svg>
-
-</svg><div id="search_menu_wrapper" class="hidden">
-    <div id="search_menu">
-        <div id="search_menu_toolbar">
-            <div id="search_menu_input_wrapper">
-                <input id="search_menu_input" type="text" placeholder='Search Posts'>
-            </div>
-            <div id="search_menu_close_btn">
-                <svg width="18px" height="18px" viewBox="0 0 24 24">
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-</svg>
-
-</svg>
-            </div>
-        </div>
-        <div id="search_menu_results">
-        </div>
-    </div>
-</div>
-</div>
-        
-
-        
-    </div>
-</header>
-<nav id="navbar" class="pure-menu">
-    <ul class="pure-menu-list"><li class="navbar-item pure-menu-item insection">
+            <div class="brand">
+                <div>
+                    <a href="/">石记</a>
+                </div>
+            </div><nav id="header_navbar" class="pure-menu header-menu">
+    <ul class="pure-menu-list"><li class="header-menu-item pure-menu-item insection">
                     
                         <a href="/posts/" class="pure-menu-link">posts</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/categories" class="pure-menu-link">Categories</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/tags" class="pure-menu-link">Tags</a>
                     
-                </li><li class="navbar-item pure-menu-item ">
+                </li><li class="header-menu-item pure-menu-item ">
                     
                         <a href="/others/" class="pure-menu-link">Others</a>
                     
-                </li><li class="navbar-item navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
+                </li><li class="header-menu-item header-menu-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover ">
                     
                         <a href="/abouts" class="pure-menu-link">Abouts</a>
                     
@@ -274,13 +219,85 @@
 </ul>
                 </li></ul>
 </nav>
+</div>
+
+        <div id="header_right">
+            
+
+            <div id="theme_tool">
+                <button id="dark_mode_btn" class="header-menu-btn outline-button" title='Switch to dark mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+</button>
+                <button id="light_mode_btn" class="header-menu-btn outline-button" title='Switch to light mode' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+
+</button>
+            </div>
+
+            
+                <div id="search_tool">
+                    <button id="search_btn" class="header-menu-btn outline-button" title='Search Posts' type="button">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+
+</button>
+                </div>
+            
+        </div>
+    </div>
+</header><div id="search_menu_wrapper" class="hidden">
+    <div id="search_menu">
+        <div id="search_menu_toolbar">
+            <div id="search_menu_input_wrapper">
+                <input id="search_menu_input" type="text" placeholder='Search Posts'>
+            </div>
+            <div id="search_menu_close_btn">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1.25rem" height="1.25rem" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+
+</div>
+        </div>
+        <div id="search_menu_results">
+        </div>
+    </div>
+</div>
 <main>
             <div id="content" class="content-margin">
                 
     
-    <div class="collapsible-menu-wrapper"><div class="collapsible-menu-type"><span>Table of contents</span></div><div class="collapsible-menu">
+    
         
-            <nav id="TableOfContents">
+<script defer src="/js/toc-tracker.js" integrity=""></script>
+
+<div class="collapsible-menu-wrapper right">
+    <div class="collapsible-menu-type">
+        <span>Table of contents</span>
+    </div>
+    <div class="collapsible-menu">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#oracle一些基本查询">Oracle一些基本查询</a>
       <ul>
@@ -296,12 +313,14 @@
     </li>
   </ul>
 </nav>
-        
-    </div></div>
+    </div>
+</div>
+    
 
 
 
     <div class="content-margin">
+
 
 
 
@@ -311,36 +330,57 @@
         
         
     
+
     
-<h2 id="oracle一些基本查询" class="header-anchor-wrapper">Oracle一些基本查询
+    
+        
+        
+        
+    
+        
+        
+            
+            
+            
+        
+        <section id="oracle一些基本查询">
+
+
+<h2 class="header-anchor-wrapper">Oracle一些基本查询
   <a href="#oracle%e4%b8%80%e4%ba%9b%e5%9f%ba%e6%9c%ac%e6%9f%a5%e8%af%a2" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="字符集相关">
 
-<h4 id="字符集相关" class="header-anchor-wrapper">字符集相关
+
+<h4 class="header-anchor-wrapper">字符集相关
   <a href="#%e5%ad%97%e7%ac%a6%e9%9b%86%e7%9b%b8%e5%85%b3" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -349,20 +389,28 @@
 </code></pre>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="实例相关">
 
-<h4 id="实例相关" class="header-anchor-wrapper">实例相关
+
+<h4 class="header-anchor-wrapper">实例相关
   <a href="#%e5%ae%9e%e4%be%8b%e7%9b%b8%e5%85%b3" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -371,20 +419,28 @@
 </code></pre>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="锁相关">
 
-<h4 id="锁相关" class="header-anchor-wrapper">锁相关
+
+<h4 class="header-anchor-wrapper">锁相关
   <a href="#%e9%94%81%e7%9b%b8%e5%85%b3" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ul>
@@ -397,38 +453,54 @@
 </code></pre>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="查询表之前的状态">
 
-<h4 id="查询表之前的状态" class="header-anchor-wrapper">查询表之前的状态
+
+<h4 class="header-anchor-wrapper">查询表之前的状态
   <a href="#%e6%9f%a5%e8%af%a2%e8%a1%a8%e4%b9%8b%e5%89%8d%e7%9a%84%e7%8a%b6%e6%80%81" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <pre  class="mc-prism hide language-text" ><code class="language-sql">select * from tablename AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL '50' MINUTE)
 </code></pre>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="用户">
 
-<h4 id="用户" class="header-anchor-wrapper">用户
+
+<h4 class="header-anchor-wrapper">用户
   <a href="#%e7%94%a8%e6%88%b7" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -450,20 +522,28 @@ select * from user_tab_privs;
 </code></pre>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="表">
 
-<h4 id="表" class="header-anchor-wrapper">表
+
+<h4 class="header-anchor-wrapper">表
   <a href="#%e8%a1%a8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -492,20 +572,28 @@ select * from user_tab_privs;
 </code></pre>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="索引">
 
-<h4 id="索引" class="header-anchor-wrapper">索引
+
+<h4 class="header-anchor-wrapper">索引
   <a href="#%e7%b4%a2%e5%bc%95" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -523,20 +611,28 @@ where segment_name=upper('&amp;index_name');
 </code></pre>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="序列号">
 
-<h4 id="序列号" class="header-anchor-wrapper">序列号
+
+<h4 class="header-anchor-wrapper">序列号
   <a href="#%e5%ba%8f%e5%88%97%e5%8f%b7" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <!--list-separator-->
@@ -558,20 +654,28 @@ select stm_auth_user.nextval from dual;
 </code></pre>
 </li>
 </ul>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="视图">
 
-<h4 id="视图" class="header-anchor-wrapper">视图
+
+<h4 class="header-anchor-wrapper">视图
   <a href="#%e8%a7%86%e5%9b%be" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -585,20 +689,28 @@ select text from user_views where view_name=upper('&amp;view_name');
 </code></pre>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="同义词">
 
-<h4 id="同义词" class="header-anchor-wrapper">同义词
+
+<h4 class="header-anchor-wrapper">同义词
   <a href="#%e5%90%8c%e4%b9%89%e8%af%8d" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -607,20 +719,28 @@ select text from user_views where view_name=upper('&amp;view_name');
 </code></pre>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="约束条件">
 
-<h4 id="约束条件" class="header-anchor-wrapper">约束条件
+
+<h4 class="header-anchor-wrapper">约束条件
   <a href="#%e7%ba%a6%e6%9d%9f%e6%9d%a1%e4%bb%b6" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -636,20 +756,28 @@ upper(&rsquo;&amp;table_owner&rsquo;) and c.table_name = upper(&rsquo;&amp;table
 cc.constraint_name　　order by cc.position; #+END_SRC</p>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="存储过程和函数">
 
-<h4 id="存储过程和函数" class="header-anchor-wrapper">存储过程和函数
+
+<h4 class="header-anchor-wrapper">存储过程和函数
   <a href="#%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8b%e5%92%8c%e5%87%bd%e6%95%b0" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h4>
 
 <ol>
@@ -672,36 +800,52 @@ select object_name,status from user_objects where object_type='PROCEDURE';
 </code></pre>
 </li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="oracle的一些数据字典">
 
-<h2 id="oracle的一些数据字典" class="header-anchor-wrapper">Oracle的一些数据字典
+
+<h2 class="header-anchor-wrapper">Oracle的一些数据字典
   <a href="#oracle%e7%9a%84%e4%b8%80%e4%ba%9b%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h2>
 
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="常用数据字典">
 
-<h3 id="常用数据字典" class="header-anchor-wrapper">常用数据字典
+
+<h3 class="header-anchor-wrapper">常用数据字典
   <a href="#%e5%b8%b8%e7%94%a8%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -717,20 +861,28 @@ select object_name,status from user_objects where object_type='PROCEDURE';
 <li>GV_
 分布环境下所有实例的动态视图，包含系统管理和优化使用的视图， 这里的GV表示 Global v$的意思；</li>
 </ol>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="基本数据字典">
 
-<h3 id="基本数据字典" class="header-anchor-wrapper">基本数据字典
+
+<h3 class="header-anchor-wrapper">基本数据字典
   <a href="#%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <p>DBA_TABLES 所有用户的所有表的信息；
@@ -750,20 +902,28 @@ DBA_OBJECTS 所有用户对象的基本信息（包括素引，表，视图，�
 CAT 当前用户可以访问的所有的基表 ；
 TAB 当前用户创建的所有基表，视图，同义词等；
 DICT 构成数据字典的所有表的信息；</p>
+</section>
+    
+        
+        
+            
+            
+            
+        
+        <section id="与数据库组件相关的数据字典">
 
-<h3 id="与数据库组件相关的数据字典" class="header-anchor-wrapper">与数据库组件相关的数据字典
+
+<h3 class="header-anchor-wrapper">与数据库组件相关的数据字典
   <a href="#%e4%b8%8e%e6%95%b0%e6%8d%ae%e5%ba%93%e7%bb%84%e4%bb%b6%e7%9b%b8%e5%85%b3%e7%9a%84%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8" class="header-anchor-link">
-    <svg width="16px" height="16px" viewBox="0 0 24 24">
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24" height="24" viewBox="0 0 24 24" fill="none"
+    width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round"
     stroke-linejoin="round">
     <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
 </svg>
 
-</svg>
-  </a>
+</a>
 </h3>
 
 <ol>
@@ -906,7 +1066,8 @@ o tablespace sales quota 10m on sales;
 </ol>
 </li>
 </ol>
-
+</section>
+    
 </article>
 </div>
 

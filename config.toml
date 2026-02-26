@@ -8,6 +8,8 @@ defaultContentLanguage = "en"
 theme = "hugo-theme-monochrome"
 enableEmoji = true
 publishdir = "docs"
+authorEmail = "stoneepigraph@163.com"
+disableKinds = ["RSS"]
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
@@ -17,3 +19,23 @@ version = "0.2.2"
 author = "Stone Epigraph"
 defaultTheme = "dark"
 enable_site_search = true
+authorEmail = "stoneepigraph@163.com"
+toc_position = "right"
+enable_collapsible_toc = false # default: false
+enable_collapsible_changelogs = false # default: false
+footer = "Copyright © 2025 by Whatsupeng"
+hide_navbar_on_scroll = false
+# navbar_wdith = normal
+home = ["HTMLf", "RSS", "JSON"]
+
+  [params.list_layout]
+  enable_group_by_year = true
+  enable_show_date = true
+  enable_pagination = true
+
+
+
+[author]
+email = "stoneepigraph@163.com"
+
+
